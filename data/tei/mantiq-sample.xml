@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../../schema/mantiq.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="mantiq-sample" version="4.12.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title xml:lang="ja">『鳥の言葉』TEI構造検証用試料（冒頭25対句）</title>
+        <title xml:lang="fa">نمونهٔ ساختاری منطق‌الطیر</title>
+        <author ref="https://viaf.org/viaf/95230652/">
+          <persName xml:lang="fa">فریدالدین عطار نیشابوری</persName>
+        </author>
+        <respStmt xml:id="resp-transcription">
+          <resp>Wikisource本文に基づく試験的TEI転記</resp>
+          <name>TEI・IIIF習得・実践プロジェクト</name>
+        </respStmt>
+      </titleStmt>
+      <editionStmt>
+        <edition n="0.1.0">Proof-of-concept; not a critical edition</edition>
+      </editionStmt>
+      <publicationStmt>
+        <publisher>TEI・IIIF習得・実践プロジェクト</publisher>
+        <availability>
+          <p>転記元Wikisourceの本文は同サイトの表示する利用条件に従う。</p>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl xml:id="src-wikisource">
+          <author>ファリードゥッディーン・アッタール</author>
+          <title xml:lang="fa">منطق‌الطیر/آغاز</title>
+          <ref target="https://fa.wikisource.org/wiki/%D9%85%D9%86%D8%B7%D9%82%E2%80%8C%D8%A7%D9%84%D8%B7%DB%8C%D8%B1/%D8%A2%D8%BA%D8%A7%D8%B2">Persian Wikisource</ref>
+          <date when="2026-10-13">2026年10月13日閲覧</date>
+          <note>本試料は転記元の冒頭25対句の文字列を保存する構造検証用データであり、写本照合済みの校訂本文ではない。</note>
+        </bibl>
+        <listBibl type="comparisonSources">
+          <bibl xml:id="src-ganjoor">
+            <title xml:lang="fa">گنجور » عطار » منطق‌الطیر » فی التوحید باری تعالی جل و علا</title>
+            <ref target="https://ganjoor.net/attar/manteghotteyr/touhid/sh1">Ganjoor</ref>
+            <note>電子テキスト間の差分確認用。写本証言としては扱わない。</note>
+          </bibl>
+        </listBibl>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <projectDesc>
+        <p>ペルシア語マスナヴィーの対句・半句・物語構造・話者・異読・翻訳・IIIF画像対応を段階的に検証する。</p>
+      </projectDesc>
+      <editorialDecl>
+        <segmentation>
+          <p><gi>lg</gi> @type="couplet"を1対句（bayt）、その下の2つの<gi>l</gi>を前・後半句（miṣrāʿ）とする。</p>
+        </segmentation>
+        <normalization>
+          <p>本試料では転記元の正書法を原則とし、校訂・正規化は行わない。</p>
+        </normalization>
+      </editorialDecl>
+      <refsDecl>
+        <cRefPattern matchPattern="([0-9]{4})([ab])" replacementPattern="#xpath(//tei:lg[@n='$1']/tei:l[@n='$2'])">
+          <p>引用形式は4桁の対句番号とa/b（例: 0001a）。</p>
+        </cRefPattern>
+      </refsDecl>
+    </encodingDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="fa">Persian</language>
+        <language ident="ja">Japanese</language>
+      </langUsage>
+      <textClass>
+        <keywords scheme="https://www.wikidata.org/">
+          <term ref="https://www.wikidata.org/wiki/Q179461">Persian literature</term>
+          <term>masnavi</term>
+          <term>digital scholarly edition</term>
+        </keywords>
+      </textClass>
+    </profileDesc>
+    <revisionDesc status="draft">
+      <change when="2026-10-13" who="#resp-transcription">25対句の構造化試料を作成。未検証の写本異読・翻訳・画像対応は未収録。</change>
+    </revisionDesc>
+  </teiHeader>
+  <text xml:lang="fa" rend="direction-rtl">
+    <body>
+      <div type="section" subtype="invocation" xml:id="mt.invocation" source="#src-wikisource">
+        <head>بسم الله الرحمن الرحیم</head>
+        <lg type="couplet" n="0001" xml:id="mt.0001"><l n="a" xml:id="mt.0001.a">آفرین جان آفرین پاک را</l><l n="b" xml:id="mt.0001.b">آنکه جان بخشید و ایمان خاک را</l></lg>
+        <lg type="couplet" n="0002" xml:id="mt.0002"><l n="a" xml:id="mt.0002.a">عرش را بر آب بنیاد او نهاد</l><l n="b" xml:id="mt.0002.b">خاکیان را عمر بر باد او نهاد</l></lg>
+        <lg type="couplet" n="0003" xml:id="mt.0003"><l n="a" xml:id="mt.0003.a">آسمان را در زبردستی بداشت</l><l n="b" xml:id="mt.0003.b">خاک را در غایت پستی بداشت</l></lg>
+        <lg type="couplet" n="0004" xml:id="mt.0004"><l n="a" xml:id="mt.0004.a">آن یکی را جنبش مادام داد</l><l n="b" xml:id="mt.0004.b">وان دگر را دایما آرام داد</l></lg>
+        <lg type="couplet" n="0005" xml:id="mt.0005"><l n="a" xml:id="mt.0005.a">آسمان چون خیمهٔ برپای کرد</l><l n="b" xml:id="mt.0005.b">بی ستون کرد و زمینش جای کرد</l></lg>
+        <lg type="couplet" n="0006" xml:id="mt.0006"><l n="a" xml:id="mt.0006.a">کرد در شش روز هفت انجم پدید</l><l n="b" xml:id="mt.0006.b">وز دو حرف آورد نه طارم پدید</l></lg>
+        <lg type="couplet" n="0007" xml:id="mt.0007"><l n="a" xml:id="mt.0007.a">مهرهٔ انجم ز زرین حقه ساخت</l><l n="b" xml:id="mt.0007.b">با فلک در حقه هر شب مهره باخت</l></lg>
+        <lg type="couplet" n="0008" xml:id="mt.0008"><l n="a" xml:id="mt.0008.a">دام تن را مختلف احوال کرد</l><l n="b" xml:id="mt.0008.b">مرغ جان را خاک بر دنبال کرد</l></lg>
+        <lg type="couplet" n="0009" xml:id="mt.0009"><l n="a" xml:id="mt.0009.a">بحر را بگداخت در تسلیم خویش</l><l n="b" xml:id="mt.0009.b">کوه را افسرده کرد از بیم خویش</l></lg>
+        <lg type="couplet" n="0010" xml:id="mt.0010"><l n="a" xml:id="mt.0010.a">بحر را از تشنگی لب خشک کرد</l><l n="b" xml:id="mt.0010.b">سنگ را یاقوت و خون را مشک کرد</l></lg>
+        <lg type="couplet" n="0011" xml:id="mt.0011"><l n="a" xml:id="mt.0011.a">کوه را هم تیغ داد و هم کمر</l><l n="b" xml:id="mt.0011.b">تا بسرهنگی او افراخت سر</l></lg>
+        <lg type="couplet" n="0012" xml:id="mt.0012"><l n="a" xml:id="mt.0012.a">گاه گل بر روی آتش دسته کرد</l><l n="b" xml:id="mt.0012.b">گاه پُل بر آب دریا بسته کرد</l></lg>
+        <lg type="couplet" n="0013" xml:id="mt.0013"><l n="a" xml:id="mt.0013.a">نیم پشّه بر سر دشمن گماشت</l><l n="b" xml:id="mt.0013.b">بر سر او چار صد سالش بداشت</l></lg>
+        <lg type="couplet" n="0014" xml:id="mt.0014"><l n="a" xml:id="mt.0014.a">عنکبوتی را بحکمت دام داد</l><l n="b" xml:id="mt.0014.b">صدر عالم را درو آرام داد</l></lg>
+        <lg type="couplet" n="0015" xml:id="mt.0015"><l n="a" xml:id="mt.0015.a">بست موری را کمر چون موی سر</l><l n="b" xml:id="mt.0015.b">کرد او را با سلیمان در کمر</l></lg>
+        <lg type="couplet" n="0016" xml:id="mt.0016"><l n="a" xml:id="mt.0016.a">خلعت اولاد عباسش بداد</l><l n="b" xml:id="mt.0016.b">طا و سین بی‌زحمت طاسش بداد</l></lg>
+        <lg type="couplet" n="0017" xml:id="mt.0017"><l n="a" xml:id="mt.0017.a">سوزنی چون دید با عیب بهم</l><l n="b" xml:id="mt.0017.b">بخیه با روی او فکندش لاجرم</l></lg>
+        <lg type="couplet" n="0018" xml:id="mt.0018"><l n="a" xml:id="mt.0018.a">تیغ را از لاله خون آلود کرد</l><l n="b" xml:id="mt.0018.b">گلشن نیلوفری از دود کرد</l></lg>
+        <lg type="couplet" n="0019" xml:id="mt.0019"><l n="a" xml:id="mt.0019.a">پاره پاره خاک را در خون گرفت</l><l n="b" xml:id="mt.0019.b">تا عقیق و لعل ازو بیرون گرفت</l></lg>
+        <lg type="couplet" n="0020" xml:id="mt.0020"><l n="a" xml:id="mt.0020.a">در سجودش روز و شب خورشید و ماه</l><l n="b" xml:id="mt.0020.b">کرده پیشانی خود بر خاک راه</l></lg>
+        <lg type="couplet" n="0021" xml:id="mt.0021"><l n="a" xml:id="mt.0021.a">هست سیمای ایشان از سجود</l><l n="b" xml:id="mt.0021.b">کی بود بی‌سجده سیما را وجود</l></lg>
+        <lg type="couplet" n="0022" xml:id="mt.0022"><l n="a" xml:id="mt.0022.a">روز از بسطش سپید افروخته</l><l n="b" xml:id="mt.0022.b">شب ز قبضش در سیاهی سوخته</l></lg>
+        <lg type="couplet" n="0023" xml:id="mt.0023"><l n="a" xml:id="mt.0023.a">طوطی را طوق از زر ساخته</l><l n="b" xml:id="mt.0023.b">هدهدی را پیک ره برساخته</l></lg>
+        <lg type="couplet" n="0024" xml:id="mt.0024"><l n="a" xml:id="mt.0024.a">مرغ گردون در رهش پر می‌زند</l><l n="b" xml:id="mt.0024.b">بر درش چون حلقهٔ سر می‌زند</l></lg>
+        <lg type="couplet" n="0025" xml:id="mt.0025"><l n="a" xml:id="mt.0025.a">چرخ را دور شبانروزی دهد</l><l n="b" xml:id="mt.0025.b">شب برد روز آورد روزی دهد</l></lg>
+      </div>
+    </body>
+  </text>
+</TEI>

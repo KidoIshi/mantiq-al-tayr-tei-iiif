@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>『鳥の言葉』TEI・IIIF試作</title>
+  <style>
+    :root {
+      --ink: #21182f;
+      --muted: #6d6675;
+      --paper: #fbf8f1;
+      --accent: #6f2847;
+      --line: #ded7e4;
+      --notice: #fff4cc;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; color: var(--ink); background: var(--paper); font-family: system-ui, sans-serif; }
+    body { display: grid; grid-template-rows: auto 1fr; }
+    header { padding: .7rem 1rem; background: var(--ink); color: white; }
+    header strong { display: block; font-size: 1.05rem; }
+    header small { color: #ded5e8; }
+    main { min-height: 0; display: grid; grid-template-columns: minmax(320px, 38%) 1fr; }
+    #text-panel { min-height: 0; overflow: auto; padding: 1.2rem 1.4rem 2rem; border-right: 1px solid var(--line); }
+    .eyebrow { margin: 0; color: var(--accent); font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    h1 { margin: .25rem 0 .7rem; font-size: 1.35rem; }
+    .note, #tei-status { font-size: .83rem; line-height: 1.55; }
+    .note { padding: .7rem .8rem; border-left: 4px solid #d8a827; background: var(--notice); }
+    .note a { color: var(--accent); }
+    .reading-mode { display: flex; gap: .45rem; margin: .8rem 0; }
+    .reading-mode button { padding: .45rem .7rem; border: 1px solid var(--accent); border-radius: .35rem; background: white; color: var(--accent); cursor: pointer; }
+    .reading-mode button[aria-pressed="true"] { background: var(--accent); color: white; }
+    .regularized { text-decoration: underline dotted; text-underline-offset: .2em; }
+    #tei-status { color: var(--muted); }
+    #couplets { direction: rtl; font-family: "Noto Naskh Arabic", "Segoe UI", serif; }
+    .couplet { position: relative; padding: .85rem .2rem .85rem 2.4rem; border-top: 1px solid var(--line); }
+    .couplet-number { position: absolute; left: .2rem; top: 1rem; color: var(--muted); font: .75rem system-ui, sans-serif; }
+    .hemistich { margin: .2rem 0; font-size: 1.18rem; line-height: 1.8; }
+    #image-panel { min-width: 0; min-height: 0; display: grid; grid-template-rows: auto minmax(145px, 28%) 1fr; background: #111; }
+    .alignment-status { padding: .55rem .8rem; background: var(--notice); color: #3d3214; font-size: .8rem; line-height: 1.4; }
+    #region-card { position: relative; z-index: 2; min-height: 0; display: grid; grid-template-columns: minmax(170px, 1fr) minmax(230px, 2fr); gap: .8rem; padding: .65rem .8rem; background: #29242d; color: white; }
+    #region-meta { align-self: center; font-size: .8rem; line-height: 1.5; }
+    #region-meta strong { display: block; margin-bottom: .25rem; }
+    #region-meta a { color: #f0cde0; }
+    #region-image { width: 100%; height: 100%; min-height: 115px; object-fit: contain; background: #111; }
+    .hemistich[role="button"] { cursor: pointer; border-radius: .25rem; }
+    .hemistich[role="button"]:hover, .hemistich[role="button"]:focus { outline: 2px solid #c790aa; outline-offset: 2px; }
+    .hemistich.selected { background: #f2e2ea; box-shadow: inset -4px 0 0 var(--accent); }
+    #viewer { position: relative; z-index: 1; min-height: 0; overflow: hidden; }
+    @media (max-width: 800px) {
+      body { height: auto; min-height: 100%; }
+      main { grid-template-columns: 1fr; grid-template-rows: minmax(420px, 55vh) minmax(520px, 70vh); }
+      #text-panel { border-right: 0; border-bottom: 1px solid var(--line); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <strong>『鳥の言葉』TEI・IIIF試作</strong>
+    <small>Manṭiq al-ṭayr: TEI text and IIIF manuscript demonstrator</small>
+  </header>
+  <main>
+    <section id="text-panel" aria-labelledby="text-heading">
+      <p class="eyebrow">TEI P5 sample</p>
+      <h1 id="text-heading">Persan 348 写本転写（9対句）</h1>
+      <p class="note">BnF Persan 348の画像に基づく研究者確認済み転写です。正規化表示は検索・比較用で、写本の読みを置換しません。<a href="../data/tei/bnf-persan-348-f6-sample.xml">TEI XMLを開く</a>・<a href="../iiif/bnf-persan-348-f6-annotations.json">IIIF注釈を開く</a></p>
+      <div class="reading-mode" role="group" aria-label="本文表示方式">
+        <button type="button" data-mode="diplomatic" aria-pressed="true">写本どおり</button>
+        <button type="button" data-mode="normalized" aria-pressed="false">正規化候補</button>
+      </div>
+      <p id="tei-status" role="status">TEI XMLを読み込んでいます…</p>
+      <div id="couplets" lang="fa" dir="rtl"></div>
+    </section>
+    <section id="image-panel" aria-label="IIIF manuscript viewer">
+      <div class="alignment-status">BnF Persan 348（1492年）の公開IIIF画像です。左側の9対句はscan f6に対応します。本文の読みと全18半句の画像領域は研究者確認済みです。</div>
+      <div id="region-card" aria-live="polite">
+        <div id="region-meta">
+          <strong id="region-label">半句を選択してください</strong>
+          <span>TEIの<code>l/@facs</code>から<code>zone</code>を解決し、IIIF領域URLを生成します。</span><br>
+          <a id="region-link" href="#" target="_blank" rel="noopener">IIIF領域画像を開く</a>
+        </div>
+        <img id="region-image" alt="選択した半句の写本画像領域">
+      </div>
+      <div id="viewer"></div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/mirador@3.3.0/dist/mirador.min.js"></script>
+  <script>
+    const teiNamespace = 'http://www.tei-c.org/ns/1.0';
+    let teiGroups = [];
+    let readingMode = 'diplomatic';
+    let zoneMap = new Map();
+    let imageServiceBase = '';
+    let selectedFacs = '';
+
+    function lineReading(line, mode) {
+      const clone = line.cloneNode(true);
+      [...clone.getElementsByTagNameNS(teiNamespace, 'choice')].forEach(choice => {
+        const wanted = mode === 'normalized' ? 'reg' : 'orig';
+        const selected = choice.getElementsByTagNameNS(teiNamespace, wanted)[0];
+        choice.replaceWith(document.createTextNode(selected ? selected.textContent : choice.textContent));
+      });
+      return clone.textContent.trim();
+    }
+
+    function showRegion(facs, label) {
+      const zone = zoneMap.get(facs.replace(/^#/, ''));
+      if (!zone || !imageServiceBase) return;
+      selectedFacs = facs;
+      const width = zone.lrx - zone.ulx;
+      const height = zone.lry - zone.uly;
+      const url = `${imageServiceBase}/${zone.ulx},${zone.uly},${width},${height}/1200,/0/native.jpg`;
+      const image = document.getElementById('region-image');
+      image.src = url;
+      image.alt = `${label}に対応するPersan 348の画像領域`;
+      document.getElementById('region-label').textContent = `${label} — ${zone.id}`;
+      document.getElementById('region-link').href = url;
+      document.querySelectorAll('.hemistich').forEach(item => item.classList.toggle('selected', item.dataset.facs === facs));
+    }
+
+    function renderCouplets() {
+      const container = document.getElementById('couplets');
+      container.replaceChildren();
+      teiGroups.forEach((group, index) => {
+        const article = document.createElement('article');
+        article.className = 'couplet';
+        article.id = group.getAttributeNS('http://www.w3.org/XML/1998/namespace', 'id') || `couplet-${index + 1}`;
+        const number = document.createElement('span');
+        number.className = 'couplet-number';
+        number.textContent = group.getAttribute('n') || String(index + 1);
+        article.appendChild(number);
+        [...group.children].filter(child => child.namespaceURI === teiNamespace && child.localName === 'l').forEach(line => {
+          const paragraph = document.createElement('p');
+          paragraph.className = `hemistich ${readingMode === 'normalized' ? 'regularized' : ''}`;
+          paragraph.textContent = lineReading(line, readingMode);
+          const facs = line.getAttribute('facs') || '';
+          const label = `${group.getAttribute('n')}${line.getAttribute('n')}`;
+          paragraph.dataset.facs = facs;
+          paragraph.tabIndex = 0;
+          paragraph.setAttribute('role', 'button');
+          paragraph.setAttribute('aria-label', `${label}の写本画像領域を表示`);
+          paragraph.addEventListener('click', () => showRegion(facs, label));
+          paragraph.addEventListener('keydown', event => {
+            if (event.key === 'Enter' || event.key === ' ') {
+              event.preventDefault();
+              showRegion(facs, label);
+            }
+          });
+          article.appendChild(paragraph);
+        });
+        container.appendChild(article);
+      });
+      const selected = [...container.querySelectorAll('.hemistich')].find(item => item.dataset.facs === selectedFacs)
+        || container.querySelector('.hemistich');
+      if (selected) {
+        const article = selected.closest('.couplet');
+        const lineIndex = [...article.querySelectorAll('.hemistich')].indexOf(selected);
+        showRegion(selected.dataset.facs, `${article.querySelector('.couplet-number').textContent}${lineIndex === 0 ? 'a' : 'b'}`);
+      }
+    }
+
+    async function loadTei() {
+      const status = document.getElementById('tei-status');
+      try {
+        const response = await fetch('../data/tei/bnf-persan-348-f6-sample.xml');
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const xml = new DOMParser().parseFromString(await response.text(), 'application/xml');
+        const parseError = xml.querySelector('parsererror');
+        if (parseError) throw new Error('XML parse error');
+        zoneMap = new Map([...xml.getElementsByTagNameNS(teiNamespace, 'zone')].map(zone => [
+          zone.getAttributeNS('http://www.w3.org/XML/1998/namespace', 'id'),
+          {
+            id: zone.getAttributeNS('http://www.w3.org/XML/1998/namespace', 'id'),
+            ulx: Number(zone.getAttribute('ulx')),
+            uly: Number(zone.getAttribute('uly')),
+            lrx: Number(zone.getAttribute('lrx')),
+            lry: Number(zone.getAttribute('lry'))
+          }
+        ]));
+        const graphic = xml.getElementsByTagNameNS(teiNamespace, 'graphic')[0];
+        imageServiceBase = graphic.getAttribute('url').replace(/\/full\/full\/0\/[^/]+\.jpg$/, '');
+        teiGroups = [...xml.getElementsByTagNameNS(teiNamespace, 'lg')]
+          .filter(group => group.getAttribute('type') === 'couplet');
+        renderCouplets();
+        status.textContent = `${teiGroups.length}対句・${teiGroups.length * 2}半句をTEI XMLから読み込みました。`;
+      } catch (error) {
+        status.textContent = `TEI XMLを読み込めませんでした: ${error.message}`;
+        status.style.color = '#a01818';
+      }
+    }
+
+    document.querySelectorAll('[data-mode]').forEach(button => {
+      button.addEventListener('click', () => {
+        readingMode = button.dataset.mode;
+        document.querySelectorAll('[data-mode]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+        renderCouplets();
+      });
+    });
+
+    loadTei();
+    Mirador.viewer({
+      id: 'viewer',
+      language: 'ja',
+      windows: [{
+        manifestId: 'https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/manifest.json',
+        thumbnailNavigationPosition: 'far-bottom'
+      }]
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../../schema/mantiq.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="mantiq-bnf348-f6" version="4.12.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title xml:lang="ja">BnF Persan 348 scan f6 研究者確認済み写本転写試料</title>
+        <title xml:lang="fa">رونویسی آزمایشی منطق‌الطیر، نسخهٔ پاریس ۳۴۸</title>
+        <author ref="https://viaf.org/viaf/95230652/">
+          <persName xml:lang="fa">فریدالدین عطار نیشابوری</persName>
+        </author>
+        <respStmt xml:id="resp-ai-transcription">
+          <resp>高解像度IIIF画像に基づく初期転写候補と画像領域候補の作成</resp>
+          <name>AI-assisted TEI・IIIF project workflow</name>
+        </respStmt>
+        <respStmt xml:id="resp-ai-normalization">
+          <resp>検索・比較用正規化形の候補作成</resp>
+          <name>AI-assisted TEI・IIIF project workflow</name>
+        </respStmt>
+        <respStmt xml:id="resp-researcher-review">
+          <resp>第1〜第9対句の写本読解、正規化方針、画像領域の学術的確認</resp>
+          <name ref="https://orcid.org/0009-0009-2254-2189">石川 喜堂 (Kido Ishikawa)</name>
+        </respStmt>
+      </titleStmt>
+      <editionStmt>
+        <edition n="0.2.0-reviewed">Researcher-reviewed diplomatic-transcription sample</edition>
+      </editionStmt>
+      <publicationStmt>
+        <publisher>TEI・IIIF習得・実践プロジェクト</publisher>
+        <availability status="free">
+          <licence target="https://creativecommons.org/licenses/by/4.0/">本プロジェクトが作成したTEI転写・注釈・文書はCreative Commons Attribution 4.0 International（CC BY 4.0）で提供する。</licence>
+          <p>プログラムコードはMIT Licenseで提供する。画像は複製収録せず、Gallicaが提供するIIIF URIを参照する。画像と提供機関メタデータの再利用はGallicaの利用条件に従う。</p>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc xml:id="wit-bnf348">
+          <msIdentifier>
+            <country>France</country>
+            <settlement>Paris</settlement>
+            <repository>Bibliothèque nationale de France, Département des Manuscrits</repository>
+            <idno>Persan 348</idno>
+            <altIdentifier type="ARK">
+              <idno>ark:/12148/btv1b10091505x</idno>
+            </altIdentifier>
+          </msIdentifier>
+          <msContents>
+            <msItem>
+              <author>Farīd al-Dīn ʿAṭṭār Nīšābūrī</author>
+              <title xml:lang="fa">منطق الطیر</title>
+            </msItem>
+          </msContents>
+          <physDesc>
+            <objectDesc form="codex">
+              <supportDesc>
+                <support>Oriental laid paper; 213 folios.</support>
+              </supportDesc>
+              <layoutDesc>
+                <layout columns="2" writtenLines="12">Persian nastaʿlīq, two columns and twelve lines per page.</layout>
+              </layoutDesc>
+            </objectDesc>
+            <handDesc>
+              <handNote script="nastaliq">Copied by Mawlānā Ḥasan-ʿAlī b. M. b. ʿAbd-ullāh Ḥamza Kātib.</handNote>
+            </handDesc>
+          </physDesc>
+          <history>
+            <origin>
+              <origDate when="1492-04-08">8 April 1492</origDate>
+            </origin>
+          </history>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <projectDesc>
+        <p>写本画像に基づく外交的転写、TEI構造、IIIF画像領域対応を学習する小規模試料。</p>
+      </projectDesc>
+      <editorialDecl>
+        <normalization>
+          <p>外交的転写を本文の基準とし、検索・比較に必要な局所的正規化だけを<gi>choice</gi>内の<gi>orig</gi>と<gi>reg</gi>で明示する。正規化は綴り、分かち書き、補助記号等の等価な表記差に限り、Persan 348と他の本文資料との語彙的・統語的な差を正規化として置換しない。後者は独立した写本証拠を得た段階で校異として扱う。</p>
+          <p>2026年11月9日に研究者が正規化範囲として、補助記号、分かち書き、Unicode字形統一を承認した。検索用正規化ではエザーフェを明示し、現代正書法上結合する接辞境界にゼロ幅非接合子を用い、アラビア語用のك・ي・ىではなくペルシア語用のک・یを用いる。語彙、語順、文法解釈は変更しない。</p>
+        </normalization>
+        <segmentation>
+          <p><gi>lg</gi>を対句、二つの<gi>l</gi>を半句とする。写本の二段組では、同じ高さにある右欄と左欄を一対の半句として読む。</p>
+        </segmentation>
+      </editorialDecl>
+    </encodingDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="fa">Persian</language>
+        <language ident="ja">Japanese</language>
+        <language ident="en">English</language>
+      </langUsage>
+    </profileDesc>
+    <revisionDesc status="draft">
+      <change when="2026-11-10" who="#resp-researcher-review">公開ライセンスとして、研究データ・文書にCC BY 4.0、コードにMIT Licenseを採用した。</change>
+      <change when="2026-11-10" who="#resp-researcher-review">公開プロフィールに基づき、研究者責任表示へ氏名とORCIDを記録した。</change>
+      <change when="2026-11-10" who="#resp-ai-transcription">全18半句のTEI転写とzoneをBnF Presentation APIのscan f6 Canvas上のIIIF Web Annotationへ機械変換し、TEIとの一致を検証した。</change>
+      <change when="2026-11-09" who="#resp-researcher-review">第1〜第9対句の全18半句について、閲覧画面でIIIF領域画像を確認し、対象行が過不足なく表示されることを研究者が承認した。</change>
+      <change when="2026-11-09" who="#resp-ai-transcription">IIIF領域画像を実表示して座標を再較正した。旧座標が右頁の余白を指していたため、右頁2欄の横座標と6行の縦座標、左頁3行の縦座標を修正した。0001a、0001b、0006a、0007a、0009a、0009bを代表点として画像表示を確認し、他の領域は同一レイアウトから推定した。</change>
+      <change when="2026-11-09" who="#resp-researcher-review">0005a「خیمهٔ برپای」、0005b「بی‌ستون」、0007a「مهرهٔ انجم」の3つの正規化形を研究者が承認した。各regの責任表示に候補作成者と承認者を併記した。</change>
+      <change when="2026-11-09" who="#resp-researcher-review">正規化範囲として「補助記号、分かち書き、Unicode字形統一」を承認した。</change>
+      <change when="2026-11-09" who="#resp-ai-normalization">承認された正規化範囲に基づき、0005aのエザーフェ、0005bの接頭辞境界、0007aのエザーフェを正規化候補としてchoice/orig/regで明示した。9対句中にアラビア語用ك・ي・ىがないことを確認した。</change>
+      <change when="2026-11-09" who="#resp-ai-normalization">外交的転写と検索・比較用正規化形を併存させる試作として、0007aの「مهره انجم」に<gi>choice</gi>、<gi>orig</gi>、<gi>reg</gi>を導入した。正規化形はAI候補であり、研究者による正規化方針の承認前である。</change>
+      <change when="2026-11-09" who="#resp-researcher-review">第7〜第9対句を研究者が承認した。0007aは写本にないエザーフェ記号を補わず、0008bは「در」、0009aは「بگذاشت」と確定した。0009aに暫定付与していたunclearを除去した。</change>
+      <change when="2026-11-09" who="#resp-ai-transcription">scan f6左頁の第7〜第9対句について、AIによる未確認転写候補と画像領域候補を追加した。0008bの「در」（参照電子本文は「بر」）と0009aの「بگذاشت」（参照電子本文は「بگداخت」）は研究者確認を要する候補として記録した。</change>
+      <change when="2026-11-09" who="#resp-researcher-review">第4対句前半を画像と照合し、誤って挿入されていた「او」を削除して「آن یکی را جنبش مادام داد」に訂正した。第4対句後半の「وین」、第5対句の表記方針、第4〜第6対句にunclearを付けないことを研究者が承認した。第4対句後半の「را」は画像上で「دگر」と「دایما」の間に確認できるが、その位置を研究者へ説明するため確認注記を残した。</change>
+      <change when="2026-11-09" who="#resp-ai-transcription">scan f6の第4〜第6対句について、AIによる未確認転写候補と画像領域候補を追加。第4対句には参照電子本文との語順・語形差があるため、写本の読みを保持して研究者確認待ちとした。</change>
+      <change when="2026-11-09" who="#resp-researcher-review">冒頭3対句・6半句の転写を研究者が承認し、判読不確実な文字はないと判断した。unclearは付与しない。画像領域座標は引き続きAI候補。</change>
+      <change when="2026-11-09" who="#resp-researcher-review">0001bの読み、0003aの連結表記、右欄・左欄の対句対応を研究者が承認。unclear判定は説明・確認待ち。</change>
+      <change when="2026-10-13" who="#resp-ai-transcription">scan f6の冒頭3対句について、AIによる未確認転写候補と画像領域候補を作成。</change>
+    </revisionDesc>
+  </teiHeader>
+  <facsimile>
+    <surface xml:id="bnf348.f6" n="scan-f6" ulx="0" uly="0" lrx="3669" lry="2787">
+      <graphic url="https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/f6/full/full/0/native.jpg" width="3669px" height="2787px"/>
+      <zone xml:id="bnf348.f6.z001a" ulx="2350" uly="1310" lrx="2870" lry="1490"/>
+      <zone xml:id="bnf348.f6.z001b" ulx="1800" uly="1310" lrx="2370" lry="1490"/>
+      <zone xml:id="bnf348.f6.z002a" ulx="2350" uly="1450" lrx="2870" lry="1630"/>
+      <zone xml:id="bnf348.f6.z002b" ulx="1800" uly="1450" lrx="2370" lry="1630"/>
+      <zone xml:id="bnf348.f6.z003a" ulx="2350" uly="1590" lrx="2870" lry="1770"/>
+      <zone xml:id="bnf348.f6.z003b" ulx="1800" uly="1590" lrx="2370" lry="1770"/>
+      <zone xml:id="bnf348.f6.z004a" ulx="2350" uly="1730" lrx="2870" lry="1910"/>
+      <zone xml:id="bnf348.f6.z004b" ulx="1800" uly="1730" lrx="2370" lry="1910"/>
+      <zone xml:id="bnf348.f6.z005a" ulx="2350" uly="1870" lrx="2870" lry="2050"/>
+      <zone xml:id="bnf348.f6.z005b" ulx="1800" uly="1870" lrx="2370" lry="2050"/>
+      <zone xml:id="bnf348.f6.z006a" ulx="2350" uly="2010" lrx="2870" lry="2170"/>
+      <zone xml:id="bnf348.f6.z006b" ulx="1800" uly="2010" lrx="2370" lry="2170"/>
+      <zone xml:id="bnf348.f6.z007a" ulx="1100" uly="1260" lrx="1700" lry="1460"/>
+      <zone xml:id="bnf348.f6.z007b" ulx="520" uly="1260" lrx="1120" lry="1460"/>
+      <zone xml:id="bnf348.f6.z008a" ulx="1100" uly="1430" lrx="1700" lry="1600"/>
+      <zone xml:id="bnf348.f6.z008b" ulx="520" uly="1430" lrx="1120" lry="1600"/>
+      <zone xml:id="bnf348.f6.z009a" ulx="1100" uly="1580" lrx="1700" lry="1750"/>
+      <zone xml:id="bnf348.f6.z009b" ulx="520" uly="1580" lrx="1120" lry="1750"/>
+    </surface>
+  </facsimile>
+  <text xml:lang="fa" rend="direction-rtl">
+    <body>
+      <div type="section" subtype="invocation" xml:id="mt.bnf348.invocation" source="#wit-bnf348">
+        <head>آغاز نسخه</head>
+        <note type="status" xml:lang="ja">第1〜第9対句の読み、正規化範囲、0005a・0005b・0007aの3つの正規化形、および全18半句の画像領域は研究者確認済みである。外交的転写を既定表示とする。本文にunclearはない。</note>
+        <pb n="scan-f6" facs="#bnf348.f6"/>
+        <lg type="couplet" n="0001" xml:id="mt.bnf348.0001">
+          <l n="a" xml:id="mt.bnf348.0001.a" facs="#bnf348.f6.z001a">آفرین جان آفرین پاک را</l>
+          <l n="b" xml:id="mt.bnf348.0001.b" facs="#bnf348.f6.z001b">آنکه جان بخشید و ایمان خاک را</l>
+        </lg>
+        <lg type="couplet" n="0002" xml:id="mt.bnf348.0002">
+          <l n="a" xml:id="mt.bnf348.0002.a" facs="#bnf348.f6.z002a">عرش را بر آب بنیاد او نهاد</l>
+          <l n="b" xml:id="mt.bnf348.0002.b" facs="#bnf348.f6.z002b">خاکیان را عمر بر باد او نهاد</l>
+        </lg>
+        <lg type="couplet" n="0003" xml:id="mt.bnf348.0003">
+          <l n="a" xml:id="mt.bnf348.0003.a" facs="#bnf348.f6.z003a">آسمان را در زبردستی بداشت</l>
+          <l n="b" xml:id="mt.bnf348.0003.b" facs="#bnf348.f6.z003b">خاک را در غایت پستی بداشت</l>
+        </lg>
+        <lg type="couplet" n="0004" xml:id="mt.bnf348.0004">
+          <l n="a" xml:id="mt.bnf348.0004.a" facs="#bnf348.f6.z004a">آن یکی را جنبش مادام داد</l>
+          <l n="b" xml:id="mt.bnf348.0004.b" facs="#bnf348.f6.z004b">وین دگر را دایما آرام داد</l>
+        </lg>
+        <lg type="couplet" n="0005" xml:id="mt.bnf348.0005">
+          <l n="a" xml:id="mt.bnf348.0005.a" facs="#bnf348.f6.z005a">آسمان چون <choice><orig>خیمه برپای</orig><reg resp="#resp-ai-normalization #resp-researcher-review">خیمهٔ برپای</reg></choice> کرد</l>
+          <l n="b" xml:id="mt.bnf348.0005.b" facs="#bnf348.f6.z005b"><choice><orig>بی ستون</orig><reg resp="#resp-ai-normalization #resp-researcher-review">بی‌ستون</reg></choice> کرد و زمینش جای کرد</l>
+        </lg>
+        <lg type="couplet" n="0006" xml:id="mt.bnf348.0006">
+          <l n="a" xml:id="mt.bnf348.0006.a" facs="#bnf348.f6.z006a">کرد در شش روز هفت انجم پدید</l>
+          <l n="b" xml:id="mt.bnf348.0006.b" facs="#bnf348.f6.z006b">وز دو حرف آورد نه طارم پدید</l>
+        </lg>
+        <pb n="scan-f6-left-page" facs="#bnf348.f6"/>
+        <lg type="couplet" n="0007" xml:id="mt.bnf348.0007">
+          <l n="a" xml:id="mt.bnf348.0007.a" facs="#bnf348.f6.z007a"><choice><orig>مهره انجم</orig><reg resp="#resp-ai-normalization #resp-researcher-review">مهرهٔ انجم</reg></choice> ز زرین حقه ساخت</l>
+          <l n="b" xml:id="mt.bnf348.0007.b" facs="#bnf348.f6.z007b">با فلک در حقه هر شب مهره باخت</l>
+        </lg>
+        <lg type="couplet" n="0008" xml:id="mt.bnf348.0008">
+          <l n="a" xml:id="mt.bnf348.0008.a" facs="#bnf348.f6.z008a">دام تن را مختلف احوال کرد</l>
+          <l n="b" xml:id="mt.bnf348.0008.b" facs="#bnf348.f6.z008b">مرغ جان را خاک در دنبال کرد</l>
+        </lg>
+        <lg type="couplet" n="0009" xml:id="mt.bnf348.0009">
+          <l n="a" xml:id="mt.bnf348.0009.a" facs="#bnf348.f6.z009a">بحر را بگذاشت در تسلیم خویش</l>
+          <l n="b" xml:id="mt.bnf348.0009.b" facs="#bnf348.f6.z009b">کوه را افسرده کرد از بیم خویش</l>
+        </lg>
+      </div>
+    </body>
+  </text>
+</TEI>

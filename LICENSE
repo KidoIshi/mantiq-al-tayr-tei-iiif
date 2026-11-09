@@ -1,0 +1,32 @@
+# Licensing
+
+Copyright (c) 2026 Kido Ishikawa
+
+This repository uses separate licenses for research data/documentation and software.
+
+## Research data and documentation
+
+The project-created TEI transcription, IIIF AnnotationPage, validation reports,
+and documentation are licensed under the Creative Commons Attribution 4.0
+International License (CC BY 4.0):
+
+https://creativecommons.org/licenses/by/4.0/
+
+When reusing these materials, credit Kido Ishikawa, link to the license, and
+indicate whether changes were made.
+
+## Software
+
+The Python, HTML, JavaScript, Schematron, and GitHub Actions code is licensed
+under the MIT License. See LICENSE-CODE.
+
+## Third-party manuscript images and metadata
+
+Images from Bibliothèque nationale de France / Gallica are not redistributed
+in this repository. The project references the provider's IIIF resources.
+Reuse of those images and provider metadata is governed by Gallica's terms:
+
+https://gallica.bnf.fr/edit/und/conditions-dutilisation-des-contenus-de-gallica
+
+The licenses in this repository apply only to material for which the project
+author holds the relevant rights. They do not replace third-party terms.

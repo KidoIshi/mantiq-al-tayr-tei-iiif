@@ -1,0 +1,44 @@
+{
+  "checked_on": "2026-11-09",
+  "environment": "Codex in-app browser, hidden background tab, local HTTP server",
+  "viewer_url": "http://127.0.0.1:8000/viewer/",
+  "viewer": "Mirador 3.3.0",
+  "manifest": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/manifest.json",
+  "results": {
+    "page_loaded": true,
+    "tei_panel_loaded": true,
+    "tei_source": "data/tei/bnf-persan-348-f6-sample.xml",
+    "rendered_couplets": 9,
+    "rendered_hemistichs": 18,
+    "diplomatic_mode_default": true,
+    "diplomatic_0007a": "مهره انجم ز زرین حقه ساخت",
+    "normalization_toggle_worked": true,
+    "tei_facs_zone_resolution_worked": true,
+    "hemistich_click_updated_region": true,
+    "keyboard_accessible_hemistich_controls": true,
+    "iiif_region_url_generated_from_zone": true,
+    "representative_regions_visually_checked": [
+      "0001a",
+      "0001b",
+      "0006a",
+      "0007a",
+      "0009a",
+      "0009b"
+    ],
+    "all_18_regions_researcher_approved": true,
+    "normalized_0005a": "آسمان چون خیمهٔ برپای کرد",
+    "normalized_0005b": "بی‌ستون کرد و زمینش جای کرد",
+    "normalized_0007a": "مهرهٔ انجم ز زرین حقه ساخت",
+    "manifest_loaded": true,
+    "manifest_label": "BnF. Département des Manuscrits. Persan 348",
+    "canvas_count_displayed": 223,
+    "console_warnings_or_errors": []
+  },
+  "scholarly_scope": {
+    "transcription_readings_researcher_approved_through_couplet": 9,
+    "zone_coordinates_verified": true,
+    "normalization_policy_researcher_approved": true,
+    "normalization_loci_researcher_approved": true,
+    "normalization_scope": "Auxiliary marks, word spacing, and Persian Unicode glyph normalization; three choice/orig/reg loci at 0005a, 0005b, and 0007a. Regularized display does not replace the diplomatic transcription."
+  }
+}

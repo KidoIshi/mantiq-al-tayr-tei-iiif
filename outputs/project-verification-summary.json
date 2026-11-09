@@ -1,0 +1,47 @@
+{
+  "generated_at": "2026-11-09T15:41:30.514052+00:00",
+  "project": "Manṭiq al-ṭayr TEI–IIIF prototype",
+  "all_passed": true,
+  "steps": [
+    {
+      "label": "generate_iiif_annotation_page",
+      "command": [
+        "python",
+        "scripts/tei_to_iiif_annotations.py"
+      ],
+      "passed": true,
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "label": "validate_tei_xml_rng_schematron",
+      "command": [
+        "python",
+        "scripts/validate.py",
+        "--offline",
+        "--tei",
+        "data/tei/bnf-persan-348-f6-sample.xml",
+        "--report",
+        "outputs/validation-report-bnf348-f6.json"
+      ],
+      "passed": true,
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "label": "crosscheck_tei_and_iiif_annotations",
+      "command": [
+        "python",
+        "scripts/validate_iiif_annotations.py"
+      ],
+      "passed": true,
+      "returncode": 0,
+      "stderr": ""
+    }
+  ],
+  "evidence": {
+    "tei_validation": "outputs/validation-report-bnf348-f6.json",
+    "iiif_annotation_validation": "outputs/iiif-annotation-validation.json",
+    "browser_verification": "outputs/viewer-verification.json"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-11-09T15:41:30.498699+00:00",
+  "tei_file": "data\\tei\\bnf-persan-348-f6-sample.xml",
+  "tei_sha256": "3fd34b642e1e9e307268091ba34758e4b53209961019742620bc1ebc8ab6e13a",
+  "annotation_page": "iiif\\bnf-persan-348-f6-annotations.json",
+  "annotation_page_sha256": "8c8149f4183ad8c21724d8e1bc72a8addb374700893416dcef0f3a697ca1c04d",
+  "canvas": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f6",
+  "checks": {
+    "json_parsed": true,
+    "iiif_presentation_3_shape": true,
+    "annotation_count_matches_tei": true,
+    "all_tei_lines_matched": true,
+    "diplomatic_text_matches_tei": true,
+    "canvas_regions_match_tei_zones": true
+  },
+  "counts": {
+    "tei_lines": 18,
+    "annotations": 18
+  },
+  "errors": []
+}

@@ -1,0 +1,102 @@
+{
+  "generated": "2026-11-10",
+  "records": [
+    {
+      "id": "bnf-persan-348",
+      "work": "Manṭiq al-ṭayr",
+      "holding_institution": "Bibliothèque nationale de France, Département des Manuscrits",
+      "shelfmark": "Persan 348",
+      "object_url": "https://gallica.bnf.fr/ark:/12148/btv1b10091505x",
+      "aggregator_record": "https://iiif.biblissima.fr/collections/manifest/cb11f0b6f2ee91a4ef6c400c66b5bba416cfd217",
+      "manifest": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/manifest.json",
+      "presentation_api": "2.x",
+      "sample_canvas": {
+        "id": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f6",
+        "width": 3669,
+        "height": 2787,
+        "verified_on": "2026-11-10"
+      },
+      "project_annotation_page": "iiif/bnf-persan-348-f6-annotations.json",
+      "scope": "complete digitisation presented as 223 viewer pages; manuscript catalogue describes 213 folios",
+      "date": "1492-04-08",
+      "scribe": "Mawlānā Ḥasan-ʿAlī b. M. b. ʿAbd-ullāh Ḥamza Kātib",
+      "layout": "Persian nasta'liq, 12 lines per page, two columns",
+      "rights_page_label": "Bibliothèque nationale de France, Département des Manuscrits; reuse governed by Gallica terms of use",
+      "rights_url": "https://gallica.bnf.fr/edit/und/conditions-dutilisation-des-contenus-de-gallica",
+      "verified": {
+        "catalog_record": true,
+        "manifest_loaded_in_biblissima_tify": true,
+        "viewer_page_count": 223,
+        "image_api_request_worked": true,
+        "checked_on": "2026-10-13",
+        "sample_image": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/f6/full/1000,/0/native.jpg",
+        "sample_observation": "Scan f6 visibly contains the illuminated opening and Persian text; scan f20 visibly contains a legible two-page text opening."
+      },
+      "text_alignment": {
+        "status": "researcher-approved-sample",
+        "reason": "The researcher approved the readings and image regions for 9 couplets / 18 hemistichs on scan f6; the alignment is exported as an IIIF Presentation 3 AnnotationPage."
+      }
+    },
+    {
+      "id": "smithsonian-fsc-ms-28-image-fs-8501-25",
+      "work": "Manṭiq al-ṭayr",
+      "holding_institution": "Smithsonian National Museum of Asian Art",
+      "shelfmark": "FSC-MS-28",
+      "object_url": "https://asia-archive.si.edu/object/FSC-MS-28/",
+      "manifest": "https://ids.si.edu/ids/manifest/FS-8501_25",
+      "presentation_api": "2.x / Shared Canvas representation",
+      "scope": "single published image; not verified as a complete-codex manifest",
+      "rights_page_label": "CC0 and Usage Conditions Apply are both displayed on the object page; confirm the selected image's statement before republication",
+      "verified": {
+        "manifest_retrievable": true,
+        "checked_on": "2026-10-13",
+        "canvas_count": 1,
+        "image_api": "2.0 level 2"
+      },
+      "text_alignment": {
+        "status": "not-established",
+        "reason": "The depicted folio/content has not been matched to the 25-couplet sample."
+      }
+    },
+    {
+      "id": "loc-1933-lithograph",
+      "work": "Manṭiq al-ṭayr",
+      "holding_institution": "Library of Congress",
+      "shelfmark": "PK6451.F4 M28 1933",
+      "object_url": "https://www.loc.gov/item/2016397471/",
+      "manifest": "https://www.loc.gov/item/2016397471/manifest.json",
+      "presentation_api": "not verified in this environment",
+      "scope": "318-image Persian lithograph, not a manuscript",
+      "rights_page_label": "Public domain or no known copyright restrictions; free to use and reuse, with Library of Congress credit line",
+      "verified": {
+        "catalog_record": true,
+        "manifest_advertised_by_catalog": true,
+        "manifest_retrievable": false,
+        "checked_on": "2026-10-13",
+        "note": "The endpoint returned HTTP 403 to command-line validation and a Cloudflare security challenge to the interactive browser. The challenge was not bypassed."
+      },
+      "text_alignment": {
+        "status": "not-established",
+        "reason": "Pagination and opening-text location have not yet been checked."
+      }
+    },
+    {
+      "id": "bl-add-ms-7735",
+      "work": "Manṭiq al-ṭayr",
+      "holding_institution": "British Library",
+      "shelfmark": "Add MS 7735",
+      "object_url": "https://searcharchives.bl.uk/catalog/032-002559771",
+      "manifest": null,
+      "scope": "208-folio late fifteenth-/early sixteenth-century manuscript",
+      "rights_page_label": "Catalogue text CC BY unless otherwise stated; image access currently unavailable",
+      "verified": {
+        "catalog_record": true,
+        "digital_images_available": false,
+        "checked_on": "2026-10-13"
+      },
+      "text_alignment": {
+        "status": "blocked-by-image-access"
+      }
+    }
+  ]
+}
