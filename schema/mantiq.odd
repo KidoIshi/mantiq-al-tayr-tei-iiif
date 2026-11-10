@@ -6,9 +6,13 @@
       <titleStmt>
         <title>『鳥の言葉』Persan 348 TEIカスタマイゼーション</title>
         <author>石川 喜堂（Kido Ishikawa）</author>
-        <respStmt>
+        <respStmt xml:id="odd-ai">
           <resp>ODD初期設計・実装支援</resp>
           <name>AI-assisted TEI・IIIF project workflow</name>
+        </respStmt>
+        <respStmt xml:id="odd-researcher">
+          <resp>ODDのモジュール範囲と段階的縮小方針の承認</resp>
+          <name ref="https://orcid.org/0009-0009-2254-2189">石川 喜堂（Kido Ishikawa）</name>
         </respStmt>
       </titleStmt>
       <editionStmt>
@@ -25,7 +29,8 @@
       </sourceDesc>
     </fileDesc>
     <revisionDesc>
-      <change when="2026-11-10">初版。現在使用中の要素と、将来の校異装置に必要な最小要素を選択した。</change>
+      <change when="2026-11-10" who="#odd-researcher">未投入の校異データに備えてtextcritモジュールを含めること、および20〜30対句への拡張後に要素単位の縮小を検討する段階的方針を研究者が承認した。</change>
+      <change when="2026-11-10" who="#odd-ai">初版。現在使用中のモジュールと、将来の校異装置に必要なtextcritモジュールを選択した。</change>
     </revisionDesc>
   </teiHeader>
   <text>
