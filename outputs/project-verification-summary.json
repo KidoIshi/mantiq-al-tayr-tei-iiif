@@ -1,8 +1,28 @@
 {
-  "generated_at": "2026-11-10T09:42:14.833570+00:00",
+  "generated_at": "2026-11-10T10:04:14.316573+00:00",
   "project": "Manṭiq al-ṭayr TEI–IIIF prototype",
   "all_passed": true,
   "steps": [
+    {
+      "label": "build_project_schema_from_odd",
+      "command": [
+        "python",
+        "scripts/build_odd_schema.py"
+      ],
+      "passed": true,
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "label": "test_project_odd_excludes_unselected_module",
+      "command": [
+        "python",
+        "scripts/test_odd_schema.py"
+      ],
+      "passed": true,
+      "returncode": 0,
+      "stderr": ""
+    },
     {
       "label": "generate_iiif_annotation_page",
       "command": [
@@ -40,6 +60,8 @@
     }
   ],
   "evidence": {
+    "odd_build": "outputs/odd-build-report.json",
+    "odd_negative_test": "outputs/odd-negative-test-report.json",
     "tei_validation": "outputs/validation-report-bnf348-f6.json",
     "iiif_annotation_validation": "outputs/iiif-annotation-validation.json"
   }

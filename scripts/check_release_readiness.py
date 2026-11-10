@@ -25,6 +25,10 @@ def main() -> int:
     for filename, reason in (
         ("LICENSE", "Project data/code license has not been selected."),
         ("CITATION.cff", "Public author and citation metadata have not been supplied."),
+        ("schema/mantiq.odd", "Project ODD customization is missing."),
+        ("schema/mantiq.rng", "ODD-generated project schema is missing."),
+        ("outputs/odd-build-report.json", "ODD build evidence is missing."),
+        ("outputs/odd-negative-test-report.json", "ODD negative-test evidence is missing."),
     ):
         if not (ROOT / filename).exists():
             blockers.append({"check": filename, "reason": reason})

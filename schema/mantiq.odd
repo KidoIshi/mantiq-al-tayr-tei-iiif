@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_odds.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="ja">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>『鳥の言葉』Persan 348 TEIカスタマイゼーション</title>
+        <author>石川 喜堂（Kido Ishikawa）</author>
+        <respStmt>
+          <resp>ODD初期設計・実装支援</resp>
+          <name>AI-assisted TEI・IIIF project workflow</name>
+        </respStmt>
+      </titleStmt>
+      <editionStmt>
+        <edition n="0.1.0">TEI P5 4.12.0対応の初期ODD</edition>
+      </editionStmt>
+      <publicationStmt>
+        <publisher>TEI・IIIF習得・実践プロジェクト</publisher>
+        <availability status="free">
+          <licence target="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</licence>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <p>TEI P5 4.12.0を基礎とし、Persan 348写本転写、写本記述、画像領域、近接する校異実装に必要なモジュールを選択した。</p>
+      </sourceDesc>
+    </fileDesc>
+    <revisionDesc>
+      <change when="2026-11-10">初版。現在使用中の要素と、将来の校異装置に必要な最小要素を選択した。</change>
+    </revisionDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <div>
+        <head>目的</head>
+        <p>このODDは、汎用的なTEI Allから本プロジェクトに必要なモジュールを選び、使用可能な語彙の範囲を形式化する。初版ではモジュール単位で安定したスキーマを生成し、要素単位のさらなる縮小は実データ拡張後に判断する。本文の対句数、半句順、識別子、画像領域参照など、要素の組合せや値に関するプロジェクト固有規則は、別ファイルのSchematronで検査する。</p>
+      </div>
+      <div>
+        <head>設計判断</head>
+        <p>対句は<mentioned>lg</mentioned>、半句は<mentioned>l</mentioned>で表す。外交的転写と検索用正規化は<mentioned>choice</mentioned>内の<mentioned>orig</mentioned>と<mentioned>reg</mentioned>で分離する。画像全体は<mentioned>surface</mentioned>、半句領域は<mentioned>zone</mentioned>で記述し、本文から<mentioned>facs</mentioned>属性で参照する。</p>
+        <p>校異装置は独立した写本証拠を得た段階で<mentioned>app</mentioned>、<mentioned>lem</mentioned>、<mentioned>rdg</mentioned>、<mentioned>listWit</mentioned>、<mentioned>witness</mentioned>を用いる。このODDに要素は含めるが、現時点の本文には未投入である。</p>
+      </div>
+      <div>
+        <head>ODDとSchematronの分担</head>
+        <p>ODDから生成するRelax NGは、使用できるTEI要素・属性と基本的な包含関係を検査する。Schematronは「一対句に二半句」「半句IDの命名規則」「画像座標がsurface内にある」など、複数箇所を横断するプロジェクト固有条件を検査する。</p>
+      </div>
+      <div>
+        <head>正式なスキーマ宣言</head>
+        <schemaSpec ident="mantiq" start="TEI" source="tei:4.12.0" prefix="mantiq_">
+          <moduleRef key="tei"/>
+          <moduleRef key="core"/>
+          <moduleRef key="header"/>
+          <moduleRef key="textstructure"/>
+          <moduleRef key="msdescription"/>
+          <moduleRef key="namesdates"/>
+          <moduleRef key="transcr"/>
+          <moduleRef key="textcrit"/>
+        </schemaSpec>
+      </div>
+    </body>
+  </text>
+</TEI>

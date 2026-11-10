@@ -1,0 +1,12 @@
+{
+  "generated_at": "2026-11-10T10:04:04.541413+00:00",
+  "test": "Element from excluded figures module",
+  "injected_element": "figure/figDesc",
+  "official_tei_all_accepts": true,
+  "project_odd_schema_accepts": false,
+  "expected": "Official TEI All accepts; project ODD schema rejects.",
+  "passed": true,
+  "project_validator_messages": [
+    "work\\odd-negative-test.xml:144:15: error: element \"figure\" not allowed anywhere; expected element \"addSpan\", \"address\", \"app\", \"argument\", \"bibl\", \"biblFull\", \"biblStruct\", \"byline\", \"cb\", \"cit\", \"damageSpan\", \"dateline\", \"delSpan\", \"desc\", \"div\", \"div1\", \"divGen\", \"docAuthor\", \"docDate\", \"ellipsis\", \"epigraph\", \"floatingText\", \"fw\", \"gap\", \"gb\", \"head\", \"index\", \"l\", \"label\", \"lb\", \"lg\", \"list\", \"listApp\", \"listBibl\", \"listEvent\", \"listNym\", \"listObject\", \"listOrg\", \"listPerson\", \"listPlace\", \"listRelation\", \"listTranspose\", \"listWit\", \"meeting\", \"metamark\", \"milestone\", \"msDesc\", \"note\", \"noteGrp\", \"opener\", \"p\", \"pb\", \"q\", \"quote\", \"said\", \"salute\", \"signed\", \"sp\", \"space\", \"stage\", \"substJoin\" or \"witDetail\""
+  ]
+}

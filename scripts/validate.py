@@ -14,12 +14,15 @@ from pathlib import Path
 from lxml import etree
 from lxml import isoschematron
 
+from rng_tools import validate_with_jing
+
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_TEI_FILE = ROOT / "data" / "tei" / "bnf-persan-348-f6-sample.xml"
 SCH_FILE = ROOT / "schema" / "mantiq.sch"
 CACHE_DIR = ROOT / "work" / "schema-cache"
 RNG_FILE = CACHE_DIR / "tei_all.rng"
+PROJECT_RNG_FILE = ROOT / "schema" / "mantiq.rng"
 DEFAULT_REPORT_FILE = ROOT / "outputs" / "validation-report-bnf348-f6.json"
 RNG_URL = "https://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng"
 
@@ -52,6 +55,10 @@ def validate(tei_file: Path, offline: bool) -> dict:
     relaxng = etree.RelaxNG(rng_document)
     rng_ok = relaxng.validate(document)
 
+    if not PROJECT_RNG_FILE.exists():
+        raise RuntimeError("Project ODD schema is missing; run scripts/build_odd_schema.py")
+    project_rng_ok, project_rng_errors = validate_with_jing(tei_file, PROJECT_RNG_FILE)
+
     sch_document = etree.parse(str(SCH_FILE), parser)
     schematron = isoschematron.Schematron(sch_document, store_report=True)
     sch_ok = schematron.validate(document)
@@ -68,14 +75,19 @@ def validate(tei_file: Path, offline: bool) -> dict:
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "tei_file": str(tei_file.relative_to(ROOT)),
         "tei_sha256": sha256(tei_file),
-        "schema": {"url": RNG_URL, "cache": str(RNG_FILE.relative_to(ROOT)), "sha256": sha256(RNG_FILE)},
+        "schema": {
+            "tei_all": {"url": RNG_URL, "cache": str(RNG_FILE.relative_to(ROOT)), "sha256": sha256(RNG_FILE)},
+            "project_odd": {"path": str(PROJECT_RNG_FILE.relative_to(ROOT)), "sha256": sha256(PROJECT_RNG_FILE)},
+        },
         "checks": {
             "xml_well_formed": True,
-            "tei_relaxng_valid": rng_ok,
+            "tei_all_relaxng_valid": rng_ok,
+            "project_odd_relaxng_valid": project_rng_ok,
             "project_schematron_valid": sch_ok,
         },
         "counts": counts,
         "relaxng_errors": [str(item) for item in relaxng.error_log],
+        "project_odd_relaxng_errors": project_rng_errors,
         "schematron_report": etree.tostring(
             schematron.validation_report, encoding="unicode", pretty_print=True
         ) if schematron.validation_report is not None else None,

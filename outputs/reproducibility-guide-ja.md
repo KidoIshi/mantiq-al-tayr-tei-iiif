@@ -5,7 +5,8 @@
 ## 1. 必要環境
 
 - Python 3.10以上（作成環境はPython 3.12.10）
-- `lxml`（作成環境は6.1.3）
+- Java 17以上（Jingによる専用Relax NG検証に使用）
+- `lxml`、SaxonC、Jing（`requirements.txt`から導入）
 - 閲覧画面ではインターネット接続が必要
 
 PowerShellでプロジェクト直下へ移動し、依存関係を導入する。
@@ -22,10 +23,11 @@ python scripts/verify_all.py
 
 このコマンドは次を順番に行う。
 
-1. TEIから18件のIIIF Annotationを再生成する。
-2. XML整形式、TEI Relax NG、Schematronを検証する。
-3. IIIF Annotation本文・識別子・Canvas領域をTEIと相互照合する。
-4. 総合結果を`outputs/project-verification-summary.json`へ保存する。
+1. ODDからプロジェクト専用Relax NGを再生成し、ODDと試料をJingで検証する。
+2. TEIから18件のIIIF Annotationを再生成する。
+3. XML整形式、公式TEI All、ODD生成Relax NG、Schematronを検証する。
+4. IIIF Annotation本文・識別子・Canvas領域をTEIと相互照合する。
+5. 総合結果を`outputs/project-verification-summary.json`へ保存する。
 
 成功時は`"all_passed": true`となる。
 
@@ -37,6 +39,12 @@ TEI検証：
 python scripts/validate.py --offline `
   --tei data/tei/bnf-persan-348-f6-sample.xml `
   --report outputs/validation-report-bnf348-f6.json
+```
+
+ODDから専用スキーマを再生成：
+
+```powershell
+python scripts/build_odd_schema.py
 ```
 
 IIIF AnnotationPage再生成：
@@ -73,7 +81,8 @@ python -m http.server 8000
 | 半句 | 18 |
 | IIIF Annotation | 18 |
 | XML整形式 | true |
-| TEI Relax NG | true |
+| 公式TEI All Relax NG | true |
+| ODD生成Relax NG | true |
 | Schematron | true |
 | TEI本文との一致 | true |
 | zoneとの一致 | true |
@@ -81,7 +90,7 @@ python -m http.server 8000
 
 ## 6. 公開時の変更
 
-現在のAnnotationPage `id`はローカル用の`http://127.0.0.1:8000/`である。公開先が確定したら、永続的なHTTPS URLを指定して再生成する。
+現在のAnnotationPage `id`はGitHub Pages用のHTTPS URLである。公開先を変更する場合は、新しい永続的URLを指定して再生成する。
 
 ```powershell
 python scripts/tei_to_iiif_annotations.py `

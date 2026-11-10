@@ -85,7 +85,7 @@ AIに委任できる範囲：
 
 ## 公開前の残課題
 
-現在のAnnotationPage `id`はローカルデモ用である。GitHub Pages等の公開先が決まった段階で、次のように永続的なHTTPS URLを指定して再生成する。
+現在のAnnotationPage `id`はGitHub Pages用のHTTPS URLである。公開先を変更する場合は、次のように新しい永続的URLを指定して再生成する。
 
 ```powershell
 python scripts/tei_to_iiif_annotations.py --base-url https://example.org/project

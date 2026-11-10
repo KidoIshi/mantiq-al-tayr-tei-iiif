@@ -12,6 +12,7 @@
 - Persan 348の9対句を収録した、TEI P5 4.12.0に対して検証可能な小規模写本転写
 - 対句（`lg`）と半句（`l`）の安定識別子
 - 出典、編集状態、変更履歴、再利用条件の明記
+- TEI ODDによる使用モジュールの形式化と専用Relax NGスキーマの再生成
 - プロジェクト独自Schematron規則
 - 確認済みIIIF ManifestのレジストリとMirador閲覧デモ
 - TEI本文とIIIF画像を並置し、外交的転写と正規化候補を切り替える閲覧画面
@@ -35,12 +36,19 @@ outputs/diplomatic-normalization-design-ja.md 外交的転写・正規化併存�
 outputs/iiif-zone-alignment-design-ja.md TEI半句と画像領域の対応設計
 outputs/iiif-web-annotation-design-ja.md IIIF Web Annotation変換設計
 outputs/iiif-annotation-validation.json IIIF注釈の検証記録
+outputs/odd-customization-design-ja.md ODD設計・レビュー教材
+outputs/odd-build-report.json      ODD生成・検証記録
+outputs/odd-negative-test-report.json ODDが未採用モジュールを拒否する反例検査
 outputs/technical-report-ja.md 担当研究者が画像と照合した試料の技術報告
 outputs/reproducibility-guide-ja.md 第三者向け再現・検証手順
 outputs/project-verification-summary.json 全検証の総合結果
 iiif/manifest-registry.json      IIIF資料候補と確認状態
 iiif/bnf-persan-348-f6-annotations.json 18半句のIIIF AnnotationPage
 schema/mantiq.sch                独自Schematron規則
+schema/mantiq.odd                プロジェクト専用TEI ODD
+schema/mantiq.rng                ODDから生成した専用Relax NG
+scripts/build_odd_schema.py      ODDから専用スキーマを再生成
+scripts/test_odd_schema.py       TEI Allと専用スキーマの差を反例で検査
 scripts/validate.py              XML / TEI RNG / Schematron検証
 scripts/tei_to_iiif_annotations.py TEIからIIIF注釈への変換
 scripts/validate_iiif_annotations.py TEIとIIIF注釈の相互照合
@@ -51,7 +59,14 @@ viewer/index.html                TEI・IIIF並置閲覧デモ
 
 ## 検証
 
-Python 3と`lxml`を用います。初回のみTEI Consortiumから公式Relax NGスキーマを`work/schema-cache/`へ取得します。
+Python 3、Java 17以降、`lxml`、SaxonC、Jingを用います。初回のみ、固定したTEI P5 4.12.0およびTEI Stylesheets 7.61.0の公式資源を`work/`へ取得します。
+
+```powershell
+python -m pip install -r requirements.txt
+python scripts/build_odd_schema.py
+```
+
+`build_odd_schema.py`は`schema/mantiq.odd`から`schema/mantiq.rng`を生成し、ODD自体とPersan 348試料をJingで検証します。
 
 ```powershell
 python scripts/validate.py
@@ -75,6 +90,12 @@ python scripts/validate_iiif_annotations.py
 ```powershell
 python scripts/verify_all.py
 ```
+
+検証は三つの役割を分けています。
+
+- 公式`tei_all.rng`：TEI P5全体に対する適合性
+- ODD生成`mantiq.rng`：本プロジェクトが選択したTEIモジュールに対する適合性
+- `mantiq.sch`：二半句、ID規則、画像参照などのプロジェクト固有条件
 
 技術的な公開条件の不足は次のコマンドで確認できます。著者・ライセンス・公開URIが未決定の間は、意図的に不合格になります。この検査は、第三者資料の権利処理や学術的妥当性の判断を代替しません。
 

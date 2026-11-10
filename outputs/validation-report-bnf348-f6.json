@@ -1,15 +1,22 @@
 {
-  "generated_at": "2026-11-10T09:42:14.596661+00:00",
+  "generated_at": "2026-11-10T10:04:14.028598+00:00",
   "tei_file": "data\\tei\\bnf-persan-348-f6-sample.xml",
-  "tei_sha256": "d720e3e24d115336d33e1dacfdbf031dc01d4d816752685b34d17e452c20ff19",
+  "tei_sha256": "a5396717800ef9ec06e162dc9bfad02d01f629fce0c144005963c150461acde6",
   "schema": {
-    "url": "https://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng",
-    "cache": "work\\schema-cache\\tei_all.rng",
-    "sha256": "b0f115095ead2ccc6933aa3365c6f4a82cba3b2ec7eee7f76bb616d7a63b7e48"
+    "tei_all": {
+      "url": "https://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng",
+      "cache": "work\\schema-cache\\tei_all.rng",
+      "sha256": "b0f115095ead2ccc6933aa3365c6f4a82cba3b2ec7eee7f76bb616d7a63b7e48"
+    },
+    "project_odd": {
+      "path": "schema\\mantiq.rng",
+      "sha256": "23f9e5c2d79b5f2ba8ff8c054adaa24bd66b7268bde713b356a5e4b3b436ad69"
+    }
   },
   "checks": {
     "xml_well_formed": true,
-    "tei_relaxng_valid": true,
+    "tei_all_relaxng_valid": true,
+    "project_odd_relaxng_valid": true,
     "project_schematron_valid": true
   },
   "counts": {
@@ -19,5 +26,6 @@
     "facs_links": 20
   },
   "relaxng_errors": [],
+  "project_odd_relaxng_errors": [],
   "schematron_report": "<svrl:schematron-output xmlns:svrl=\"http://purl.oclc.org/dsdl/svrl\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:schold=\"http://www.ascc.net/xml/schematron\" xmlns:sch=\"http://www.ascc.net/xml/schematron\" xmlns:iso=\"http://purl.oclc.org/dsdl/schematron\" xmlns:tei=\"http://www.tei-c.org/ns/1.0\" title=\"Man&#x1E6D;iq al-&#x1E6D;ayr project constraints\" schemaVersion=\"\">\n  <!--   \n\t\t   \n\t\t   \n\t\t -->\n  <svrl:ns-prefix-in-attribute-values uri=\"http://www.tei-c.org/ns/1.0\" prefix=\"tei\"/>\n  <svrl:active-pattern id=\"couplet-structure\" name=\"couplet-structure\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']\"/>\n  <svrl:active-pattern id=\"hemistich-identity\" name=\"hemistich-identity\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:active-pattern id=\"research-provenance\" name=\"research-provenance\"/>\n  <svrl:fired-rule context=\"tei:div[@type='section']\"/>\n  <svrl:active-pattern id=\"normalization-choice\" name=\"normalization-choice\"/>\n  <svrl:fired-rule context=\"tei:text\"/>\n  <svrl:fired-rule context=\"tei:choice[tei:orig or tei:reg]\"/>\n  <svrl:fired-rule context=\"tei:reg\"/>\n  <svrl:fired-rule context=\"tei:choice[tei:orig or tei:reg]\"/>\n  <svrl:fired-rule context=\"tei:reg\"/>\n  <svrl:fired-rule context=\"tei:choice[tei:orig or tei:reg]\"/>\n  <svrl:fired-rule context=\"tei:reg\"/>\n  <svrl:active-pattern id=\"facsimile-alignment\" name=\"facsimile-alignment\"/>\n  <svrl:fired-rule context=\"tei:surface/tei:zone\"/>\n  <svrl:fired-rule context=\"tei:surface/tei:zone\"/>\n  <svrl:fired-rule context=\"tei:surface/tei:zone\"/>\n  <svrl:fired-rule context=\"tei:surface/tei:zone\"/>\n  <svrl:fired-rule context=\"tei:surface/tei:zone\"/>\n  <svrl:fired-rule context=\"tei:surface/tei:zone\"/>\n  <svrl:fired-rule context=\"tei:surface/tei:zone\"/>\n  <svrl:fired-rule context=\"tei:surface/tei:zone\"/>\n  <svrl:fired-rule context=\"tei:surface/tei:zone\"/>\n  <svrl:fired-rule context=\"tei:surface/tei:zone\"/>\n  <svrl:fired-rule context=\"tei:surface/tei:zone\"/>\n  <svrl:fired-rule context=\"tei:surface/tei:zone\"/>\n  <svrl:fired-rule context=\"tei:surface/tei:zone\"/>\n  <svrl:fired-rule context=\"tei:surface/tei:zone\"/>\n  <svrl:fired-rule context=\"tei:surface/tei:zone\"/>\n  <svrl:fired-rule context=\"tei:surface/tei:zone\"/>\n  <svrl:fired-rule context=\"tei:surface/tei:zone\"/>\n  <svrl:fired-rule context=\"tei:surface/tei:zone\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n  <svrl:fired-rule context=\"tei:lg[@type='couplet']/tei:l\"/>\n</svrl:schematron-output>\n"
 }

@@ -27,6 +27,7 @@ The current dataset passes:
 
 - XML well-formedness checking;
 - the official TEI P5 Relax NG schema;
+- the project Relax NG schema generated from `schema/mantiq.odd`;
 - project-specific Schematron constraints;
 - a TEI–IIIF cross-check confirming that all 18 annotation bodies match the diplomatic TEI text and all 18 Canvas targets match the TEI zones.
 

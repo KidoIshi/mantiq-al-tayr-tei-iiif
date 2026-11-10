@@ -51,10 +51,13 @@ BnF Manifest内の正式なCanvasは次のURIである。
 | 層 | 成果物 | 役割 |
 |---|---|---|
 | 学術データ | `data/tei/bnf-persan-348-f6-sample.xml` | 本文構造、写本記述、編集方針、画像領域 |
+| TEIカスタマイゼーション | `schema/mantiq.odd` | 使用するTEIモジュールと設計理由 |
+| 専用スキーマ | `schema/mantiq.rng` | ODDから生成したプロジェクト用Relax NG |
 | 制約 | `schema/mantiq.sch` | プロジェクト固有の構造・参照規則 |
 | 相互運用 | `iiif/bnf-persan-348-f6-annotations.json` | Canvas上の半句転写と画像領域 |
 | 変換 | `scripts/tei_to_iiif_annotations.py` | TEIからIIIF AnnotationPageを決定論的に生成 |
-| 検証 | `scripts/validate.py` | XML、TEI Relax NG、Schematron検証 |
+| スキーマ生成 | `scripts/build_odd_schema.py` | ODDから専用Relax NGを再生成しJingで検証 |
+| 検証 | `scripts/validate.py` | XML、TEI All、ODD生成Relax NG、Schematron検証 |
 | 相互照合 | `scripts/validate_iiif_annotations.py` | TEI本文・zoneとIIIF注釈の一致確認 |
 | 表示 | `viewer/index.html` | TEI本文、領域画像、Mirador写本表示 |
 
@@ -63,7 +66,8 @@ BnF Manifest内の正式なCanvasは次のURIである。
 2026年11月10日時点の結果は次のとおりである。
 
 - XML整形式：合格
-- TEI P5 Relax NG：合格
+- 公式TEI P5 All Relax NG：合格
+- ODD生成プロジェクト専用Relax NG：合格
 - プロジェクトSchematron：合格
 - 対句数：9
 - 半句数：18
@@ -93,7 +97,7 @@ AIに委任した作業は、仕様調査、転写候補、座標候補、XML・
 - 3箇所の研究者承認済み正規化
 - 18半句と18画像領域のTEI `@facs`対応
 - IIIF Presentation 3 AnnotationPageへの自動変換
-- XML、TEI RNG、Schematron、TEI–IIIF相互照合
+- ODD、専用Relax NG、公式TEI All、Schematron、TEI–IIIF相互照合
 - 外交的転写・正規化切替と領域表示を備えた閲覧画面
 
 ### 未実装または未検証

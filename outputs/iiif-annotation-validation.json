@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-10T09:42:14.821773+00:00",
+  "generated_at": "2026-11-10T10:04:14.303993+00:00",
   "tei_file": "data\\tei\\bnf-persan-348-f6-sample.xml",
-  "tei_sha256": "d720e3e24d115336d33e1dacfdbf031dc01d4d816752685b34d17e452c20ff19",
+  "tei_sha256": "a5396717800ef9ec06e162dc9bfad02d01f629fce0c144005963c150461acde6",
   "annotation_page": "iiif\\bnf-persan-348-f6-annotations.json",
   "annotation_page_sha256": "a4399e12d19867e0f2a55395c25a2b8875c71cb0d16f49ae8bcf521e8af926ac",
   "canvas": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f6",

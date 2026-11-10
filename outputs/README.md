@@ -11,6 +11,9 @@
 - `project-verification-summary.json`：全生成・検証の総合結果
 - `validation-report-bnf348-f6.json`：Persan 348 TEIの検証結果
 - `iiif-annotation-validation.json`：TEIとIIIF注釈の相互照合結果
+- `odd-customization-design-ja.md`：ODD設計判断とコードレビュー教材
+- `odd-build-report.json`：ODD、生成スキーマ、試料検証の記録
+- `odd-negative-test-report.json`：公式TEI Allでは有効だが専用ODDでは無効となる反例検査
 
 ## 判断・学習記録
 

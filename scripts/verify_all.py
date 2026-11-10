@@ -45,6 +45,8 @@ def main() -> int:
     if (ROOT / "work" / "schema-cache" / "tei_all.rng").exists():
         validation_command.insert(2, "--offline")
     steps = [
+        run("build_project_schema_from_odd", [python, "scripts/build_odd_schema.py"]),
+        run("test_project_odd_excludes_unselected_module", [python, "scripts/test_odd_schema.py"]),
         run("generate_iiif_annotation_page", [python, "scripts/tei_to_iiif_annotations.py"]),
         run("validate_tei_xml_rng_schematron", validation_command),
         run(
@@ -58,6 +60,8 @@ def main() -> int:
         "all_passed": all(step["passed"] for step in steps),
         "steps": steps,
         "evidence": {
+            "odd_build": "outputs/odd-build-report.json",
+            "odd_negative_test": "outputs/odd-negative-test-report.json",
             "tei_validation": "outputs/validation-report-bnf348-f6.json",
             "iiif_annotation_validation": "outputs/iiif-annotation-validation.json",
         },

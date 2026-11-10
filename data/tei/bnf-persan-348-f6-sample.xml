@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../../schema/mantiq.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="../../schema/mantiq.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="mantiq-bnf348-f6" version="4.12.0">
   <teiHeader>
@@ -82,11 +82,11 @@
       </projectDesc>
       <editorialDecl>
         <normalization>
-          <p>外交的転写を本文の基準とし、検索・比較に必要な局所的正規化だけを<gi>choice</gi>内の<gi>orig</gi>と<gi>reg</gi>で明示する。正規化は綴り、分かち書き、補助記号等の等価な表記差に限り、Persan 348と他の本文資料との語彙的・統語的な差を正規化として置換しない。後者は独立した写本証拠を得た段階で校異として扱う。</p>
+          <p>外交的転写を本文の基準とし、検索・比較に必要な局所的正規化だけを<mentioned>choice</mentioned>内の<mentioned>orig</mentioned>と<mentioned>reg</mentioned>で明示する。正規化は綴り、分かち書き、補助記号等の等価な表記差に限り、Persan 348と他の本文資料との語彙的・統語的な差を正規化として置換しない。後者は独立した写本証拠を得た段階で校異として扱う。</p>
           <p>2026年11月9日に研究者が正規化範囲として、補助記号、分かち書き、Unicode字形統一を承認した。検索用正規化ではエザーフェを明示し、現代正書法上結合する接辞境界にゼロ幅非接合子を用い、アラビア語用のك・ي・ىではなくペルシア語用のک・یを用いる。語彙、語順、文法解釈は変更しない。</p>
         </normalization>
         <segmentation>
-          <p><gi>lg</gi>を対句、二つの<gi>l</gi>を半句とする。写本の二段組では、同じ高さにある右欄と左欄を一対の半句として読む。</p>
+          <p><mentioned>lg</mentioned>を対句、二つの<mentioned>l</mentioned>を半句とする。写本の二段組では、同じ高さにある右欄と左欄を一対の半句として読む。</p>
         </segmentation>
       </editorialDecl>
     </encodingDesc>
@@ -106,7 +106,7 @@
       <change when="2026-11-09" who="#resp-researcher-review">0005a「خیمهٔ برپای」、0005b「بی‌ستون」、0007a「مهرهٔ انجم」の3つの正規化形を研究者が承認した。各regの責任表示に候補作成者と承認者を併記した。</change>
       <change when="2026-11-09" who="#resp-researcher-review">正規化範囲として「補助記号、分かち書き、Unicode字形統一」を承認した。</change>
       <change when="2026-11-09" who="#resp-ai-normalization">承認された正規化範囲に基づき、0005aのエザーフェ、0005bの接頭辞境界、0007aのエザーフェを正規化候補としてchoice/orig/regで明示した。9対句中にアラビア語用ك・ي・ىがないことを確認した。</change>
-      <change when="2026-11-09" who="#resp-ai-normalization">外交的転写と検索・比較用正規化形を併存させる試作として、0007aの「مهره انجم」に<gi>choice</gi>、<gi>orig</gi>、<gi>reg</gi>を導入した。正規化形はAI候補であり、研究者による正規化方針の承認前である。</change>
+      <change when="2026-11-09" who="#resp-ai-normalization">外交的転写と検索・比較用正規化形を併存させる試作として、0007aの「مهره انجم」に<mentioned>choice</mentioned>、<mentioned>orig</mentioned>、<mentioned>reg</mentioned>を導入した。正規化形はAI候補であり、研究者による正規化方針の承認前である。</change>
       <change when="2026-11-09" who="#resp-researcher-review">第7〜第9対句を研究者が承認した。0007aは写本にないエザーフェ記号を補わず、0008bは「در」、0009aは「بگذاشت」と確定した。0009aに暫定付与していたunclearを除去した。</change>
       <change when="2026-11-09" who="#resp-ai-transcription">scan f6左頁の第7〜第9対句について、AIによる未確認転写候補と画像領域候補を追加した。0008bの「در」（参照電子本文は「بر」）と0009aの「بگذاشت」（参照電子本文は「بگداخت」）は研究者確認を要する候補として記録した。</change>
       <change when="2026-11-09" who="#resp-researcher-review">第4対句前半を画像と照合し、誤って挿入されていた「او」を削除して「آن یکی را جنبش مادام داد」に訂正した。第4対句後半の「وین」、第5対句の表記方針、第4〜第6対句にunclearを付けないことを研究者が承認した。第4対句後半の「را」は画像上で「دگر」と「دایما」の間に確認できるが、その位置を研究者へ説明するため確認注記を残した。</change>

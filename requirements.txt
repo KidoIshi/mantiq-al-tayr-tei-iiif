@@ -1,1 +1,3 @@
 lxml>=5.0,<7
+saxonche==13.1.1
+jingtrang==0.3.0
