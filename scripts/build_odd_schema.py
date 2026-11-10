@@ -119,6 +119,7 @@ def main() -> int:
         vault_uri + TEI_VERSION + "/",
         f"https://www.tei-c.org/Vault/P5/{TEI_VERSION}/",
     )
+    generated_text = "\n".join(line.rstrip() for line in generated_text.splitlines()) + "\n"
     generated.write_text(generated_text, encoding="utf-8")
 
     etree.parse(str(generated))

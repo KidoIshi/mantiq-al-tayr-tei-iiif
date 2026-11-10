@@ -1,7 +1,7 @@
 # Persan 348 TEI ODD設計・コードレビュー教材
 
-更新日：2026年11月10日  
-ODD：`schema/mantiq.odd`  
+更新日：2026年11月10日
+ODD：`schema/mantiq.odd`
 生成スキーマ：`schema/mantiq.rng`
 
 ## 1. ODDとは何か
