@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T15:58:48.687413+00:00",
+  "generated_at": "2026-11-10T09:42:14.833570+00:00",
   "project": "Manṭiq al-ṭayr TEI–IIIF prototype",
   "all_passed": true,
   "steps": [
@@ -41,7 +41,6 @@
   ],
   "evidence": {
     "tei_validation": "outputs/validation-report-bnf348-f6.json",
-    "iiif_annotation_validation": "outputs/iiif-annotation-validation.json",
-    "browser_verification": "outputs/viewer-verification.json"
+    "iiif_annotation_validation": "outputs/iiif-annotation-validation.json"
   }
 }

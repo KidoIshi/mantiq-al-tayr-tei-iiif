@@ -11,3 +11,6 @@ Thumbs.db
 outputs/*.png
 outputs/*.jpg
 outputs/*.jpeg
+private/
+output/
+tmp/

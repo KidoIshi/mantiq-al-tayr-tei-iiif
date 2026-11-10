@@ -21,8 +21,8 @@
       "date": "1492-04-08",
       "scribe": "Mawlānā Ḥasan-ʿAlī b. M. b. ʿAbd-ullāh Ḥamza Kātib",
       "layout": "Persian nasta'liq, 12 lines per page, two columns",
-      "rights_page_label": "Bibliothèque nationale de France, Département des Manuscrits; reuse governed by Gallica terms of use",
-      "rights_url": "https://gallica.bnf.fr/edit/und/conditions-dutilisation-des-contenus-de-gallica",
+      "rights_page_label": "Source gallica.bnf.fr / Bibliothèque nationale de France; reuse governed by Gallica and BnF terms",
+      "rights_url": "https://gallica.bnf.fr/accueil/fr/html/conditions-dutilisation-de-gallica",
       "verified": {
         "catalog_record": true,
         "manifest_loaded_in_biblissima_tify": true,
@@ -33,8 +33,8 @@
         "sample_observation": "Scan f6 visibly contains the illuminated opening and Persian text; scan f20 visibly contains a legible two-page text opening."
       },
       "text_alignment": {
-        "status": "researcher-approved-sample",
-        "reason": "The researcher approved the readings and image regions for 9 couplets / 18 hemistichs on scan f6; the alignment is exported as an IIIF Presentation 3 AnnotationPage."
+        "status": "project-researcher-reviewed-sample",
+        "reason": "The project researcher reviewed the readings and image regions for 9 couplets / 18 hemistichs against scan f6; this is not external peer review. The alignment is exported as an IIIF Presentation 3 AnnotationPage."
       }
     },
     {

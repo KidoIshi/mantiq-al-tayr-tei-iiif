@@ -24,9 +24,11 @@ under the MIT License. See LICENSE-CODE.
 
 Images from Bibliothèque nationale de France / Gallica are not redistributed
 in this repository. The project references the provider's IIIF resources.
-Reuse of those images and provider metadata is governed by Gallica's terms:
+Required source credit: "Source gallica.bnf.fr / Bibliothèque nationale de
+France". Non-commercial reuse, academic use, commercial reuse, and reuse of
+provider metadata are governed by the current Gallica and BnF terms:
 
-https://gallica.bnf.fr/edit/und/conditions-dutilisation-des-contenus-de-gallica
+https://gallica.bnf.fr/accueil/fr/html/conditions-dutilisation-de-gallica
 
 The licenses in this repository apply only to material for which the project
 author holds the relevant rights. They do not replace third-party terms.

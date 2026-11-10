@@ -60,7 +60,6 @@ def main() -> int:
         "evidence": {
             "tei_validation": "outputs/validation-report-bnf348-f6.json",
             "iiif_annotation_validation": "outputs/iiif-annotation-validation.json",
-            "browser_verification": "outputs/viewer-verification.json",
         },
     }
     OUTPUT.write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

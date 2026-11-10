@@ -5,17 +5,17 @@
 研究者：石川 喜堂（Kido Ishikawa）  
 [ORCID](https://orcid.org/0009-0009-2254-2189)・[researchmap](https://researchmap.jp/kidoishi/)
 
-公開予定リポジトリ：`https://github.com/KidoIshi/mantiq-al-tayr-tei-iiif`
+リポジトリ：`https://github.com/KidoIshi/mantiq-al-tayr-tei-iiif`
 
 ## 現在の到達点
 
-- TEI P5 4.12.0に対する構文・スキーマ検証が可能な参照用25対句と、Persan 348研究者確認済み9対句
+- Persan 348の9対句を収録した、TEI P5 4.12.0に対して検証可能な小規模写本転写
 - 対句（`lg`）と半句（`l`）の安定識別子
 - 出典、編集状態、変更履歴、再利用条件の明記
 - プロジェクト独自Schematron規則
 - 確認済みIIIF ManifestのレジストリとMirador閲覧デモ
 - TEI本文とIIIF画像を並置し、外交的転写と正規化候補を切り替える閲覧画面
-- 研究者確認済み18半句をCanvas領域へ結び付けたIIIF Presentation 3 AnnotationPage
+- プロジェクト担当研究者が画像と照合した18半句をCanvas領域へ結び付けたIIIF Presentation 3 AnnotationPage
 - TEIからAnnotationPageを再生成し、本文・座標の一致を機械検証するスクリプト
 - 調査・設計・短期実装計画（日本語）
 - 公募・国際発信用の英語プロジェクト概要
@@ -23,8 +23,7 @@
 ## ディレクトリ
 
 ```text
-data/tei/mantiq-sample.xml       TEI試料（25対句）
-data/tei/bnf-persan-348-f6-sample.xml BnF写本転写（研究者確認済み9対句）
+data/tei/bnf-persan-348-f6-sample.xml BnF写本転写（担当研究者が画像と照合した9対句）
 outputs/research-and-design-ja.md 調査・設計報告
 outputs/project-overview-en.md    英語プロジェクト概要
 outputs/editorial-decision-log-ja.md 編集判断ログ
@@ -36,9 +35,8 @@ outputs/diplomatic-normalization-design-ja.md 外交的転写・正規化併存�
 outputs/iiif-zone-alignment-design-ja.md TEI半句と画像領域の対応設計
 outputs/iiif-web-annotation-design-ja.md IIIF Web Annotation変換設計
 outputs/iiif-annotation-validation.json IIIF注釈の検証記録
-outputs/technical-report-ja.md 研究者確認済み試料の技術報告
+outputs/technical-report-ja.md 担当研究者が画像と照合した試料の技術報告
 outputs/reproducibility-guide-ja.md 第三者向け再現・検証手順
-outputs/job-application-achievement-ja.md 公募書類用の研究実績記述案
 outputs/project-verification-summary.json 全検証の総合結果
 iiif/manifest-registry.json      IIIF資料候補と確認状態
 iiif/bnf-persan-348-f6-annotations.json 18半句のIIIF AnnotationPage
@@ -78,7 +76,7 @@ python scripts/validate_iiif_annotations.py
 python scripts/verify_all.py
 ```
 
-公開準備の不足事項は次のコマンドで確認できます。著者・ライセンス・公開URIが未決定の間は、意図的に不合格になります。
+技術的な公開条件の不足は次のコマンドで確認できます。著者・ライセンス・公開URIが未決定の間は、意図的に不合格になります。この検査は、第三者資料の権利処理や学術的妥当性の判断を代替しません。
 
 ```powershell
 python scripts/check_release_readiness.py
@@ -96,16 +94,16 @@ python -m http.server 8000
 
 ## 重要な制限
 
-- `mantiq-sample.xml`はWikisourceの冒頭25対句を参照転記した構造検証用試料で、批判校訂版ではありません。
-- Persan 348試料の本文読み9対句と全18半句の`zone`座標は研究者確認済みである。
+- Persan 348試料の本文読み9対句と全18半句の`zone`座標は、プロジェクト担当研究者が写本画像と照合して確認しています。これは外部査読済みであることを意味しません。
 - 正規化形は検索・比較用の試験候補であり、刊本本文や批判校訂本文ではありません。
 - 異読・話者・日本語訳のモデルは設計済みですが、研究者による典拠確認前のデータは未投入です。
+- IIIF AnnotationPageはPresentation API 3の基本構造に基づき、TEIとの本文・識別子・画像座標の一致をプロジェクト独自の規則で検証しています。Presentation API全体に対する公式適合性検査を主張するものではありません。
 
 ## ライセンス
 
 - 本プロジェクト作成のTEIデータ、IIIF Annotation、検証結果、文書： [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 - Python、HTML、JavaScript、Schematron、GitHub Actions：MIT License
-- BnF/Gallica画像：リポジトリへ複製せずIIIF URIを参照。画像再利用は[Gallicaの利用条件](https://gallica.bnf.fr/edit/und/conditions-dutilisation-des-contenus-de-gallica)に従います。
+- BnF/Gallica画像：リポジトリへ複製せずIIIF URIを参照。出典は「Source gallica.bnf.fr / Bibliothèque nationale de France」。画像再利用は[Gallicaの利用条件](https://gallica.bnf.fr/accueil/fr/html/conditions-dutilisation-de-gallica)に従います。
 
 詳細は`LICENSE`と`LICENSE-CODE`を参照してください。
 

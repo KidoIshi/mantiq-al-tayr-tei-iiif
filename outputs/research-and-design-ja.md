@@ -152,13 +152,13 @@
 
 ## 8. 現在の試作と検証結果
 
-- `data/tei/mantiq-sample.xml`: Wikisource冒頭25対句 / 50半句。校訂版ではない。
+- 初期段階ではWikisource冒頭25対句を構造検証に用いたが、第三者テキストのライセンスを本プロジェクトのCC BY 4.0と混同しないため公開対象から除外した。
 - `schema/mantiq.sch`: 対句番号、2半句、a/b順、ID、出典、校異根拠を検査。
 - `scripts/validate.py`: XML / TEI P5 4.12.0 Relax NG / Schematronの3段階検証。
-- `outputs/validation-report.json`: 現時点で三項目とも成功。`apparatus_entries = 0`, `facs_links = 0`も記録し、未実装を見える化。
+- 初期参照試料の検証報告は、同試料とともに公開対象から除外した。
 - `iiif/manifest-registry.json`: 取得確認、版、Canvas数、権利表示、本文対応状態のレジストリ。
-- `viewer/index.html`: TEI本文をXMLから読み込み、Smithsonian Manifestの画像と並置するMirador 3デモ。本文対応未確定の警告を常時表示。
-- `outputs/viewer-verification.json`: ブラウザ上でのManifest読込、実画像表示、サムネイル選択、ズーム操作の確認結果。
+- `viewer/index.html`: TEI本文をXMLから読み込み、BnF Persan 348のManifestと並置するMirador 3デモ。外交的転写、正規化候補、半句画像領域を切り替えて確認できる。
+- ブラウザ上でManifest読込、実画像表示、サムネイル選択、ズーム操作を確認した。内部環境情報を含む動作確認JSONは公開対象から除外した。
 - `outputs/project-overview-en.md`: 公募・国際発信用の英語プロジェクト概要。
 
 ### 8.1 IIIF閲覧デモの実動作確認（2026-10-13）

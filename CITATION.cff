@@ -11,9 +11,10 @@ authors:
     orcid: "https://orcid.org/0009-0009-2254-2189"
     website: "https://researchmap.jp/kidoishi/"
 abstract: >-
-  A researcher-reviewed small-scale TEI P5 transcription of nine Persian
-  couplets from BnF Persan 348, aligned with eighteen IIIF Canvas regions and
-  exported as an IIIF Presentation 3 AnnotationPage.
+  A small-scale TEI P5 transcription of nine Persian couplets from BnF
+  Persan 348, reviewed against the manuscript image by the project researcher,
+  aligned with eighteen IIIF Canvas regions, and exported as an IIIF
+  Presentation 3 AnnotationPage. This review is not external peer review.
 keywords:
   - TEI
   - IIIF

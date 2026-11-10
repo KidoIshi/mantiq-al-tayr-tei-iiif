@@ -10,7 +10,7 @@ TEI内の`l/@facs → zone`対応を、IIIF対応ツールが利用できるAnno
 ## 採用したモデル
 
 - 1つのTEI `l`を1つのIIIF `Annotation`へ変換する。
-- `body`は研究者確認済みの外交的転写を`TextualBody`として持つ。
+- `body`はプロジェクト担当研究者が写本画像と照合した外交的転写を`TextualBody`として持つ。これは外部査読済みを意味しない。
 - `motivation`は、画像をCanvasへ描画する`painting`ではなく、転写を補足する`supplementing`とする。
 - `target`はBnFのscan f6 Canvasに`#xywh=x,y,w,h`を付けた領域URIとする。
 - `choice`がある箇所では`orig`を採用し、`reg`はTEIに保持する。したがってIIIF注釈は写本転写を正規化形で上書きしない。

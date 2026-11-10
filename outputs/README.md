@@ -2,17 +2,15 @@
 
 ## 現行成果物
 
-- `technical-report-ja.md`：研究者確認済み9対句・18半句の技術報告
+- `technical-report-ja.md`：プロジェクト担当研究者が画像と照合した9対句・18半句の技術報告
 - `reproducibility-guide-ja.md`：第三者向け再現・検証手順
-- `job-application-achievement-ja.md`：公募書類用の記述案
 - `project-overview-en.md`：英語プロジェクト概要
 - `iiif-web-annotation-design-ja.md`：TEIからIIIF Web Annotationへの変換設計
 - `iiif-zone-alignment-design-ja.md`：TEI半句と画像領域の対応設計
-- `publication-readiness.json`：公開準備の機械判定
+- `publication-readiness.json`：技術的公開条件の機械判定（権利・学術判断・外部査読を判定しない）
 - `project-verification-summary.json`：全生成・検証の総合結果
 - `validation-report-bnf348-f6.json`：Persan 348 TEIの検証結果
 - `iiif-annotation-validation.json`：TEIとIIIF注釈の相互照合結果
-- `viewer-verification.json`：閲覧画面の動作確認結果
 
 ## 判断・学習記録
 
@@ -25,8 +23,9 @@
 
 ## 初期調査・履歴資料
 
-- `research-and-design-ja.md`：2026年10月13日時点の初期調査・計画。画像対応未実装時の記述を含むため、現在状態の説明には用いない。
-- `validation-report.json`：初期の参照用25対句TEIに対する検証結果。
+- `research-and-design-ja.md`：2026年10月13日時点の初期調査・計画。現在は公開対象外とした初期参照試料への記述を含むため、現在状態の説明には用いない。
 - `learning-roadmap-ja.md`：初期学習計画。
 
 現在状態を引用・説明する場合は、初期調査資料ではなく「現行成果物」を使用する。
+
+本ディレクトリで「研究者確認済み」と記す場合、プロジェクト担当研究者が写本画像と照合したことを意味し、外部査読を意味しない。

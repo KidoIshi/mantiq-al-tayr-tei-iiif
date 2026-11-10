@@ -32,6 +32,37 @@ def main() -> int:
     if not (ROOT / ".git").is_dir():
         blockers.append({"check": "git_repository", "reason": "The directory is not yet a Git repository."})
 
+    for internal_path in (
+        "outputs/job-application-achievement-ja.md",
+        "outputs/publication-decisions-ja.md",
+        "outputs/viewer-verification.json",
+    ):
+        if (ROOT / internal_path).exists():
+            blockers.append(
+                {
+                    "check": "internal_working_document",
+                    "reason": f"Internal working document is still in the public tree: {internal_path}",
+                }
+            )
+
+    if (ROOT / "data" / "tei" / "mantiq-sample.xml").exists():
+        blockers.append(
+            {
+                "check": "third_party_text_licence",
+                "reason": "The Wikisource-derived sample requires separate CC BY-SA attribution and licensing.",
+            }
+        )
+
+    required_credit = "Source gallica.bnf.fr / Bibliothèque nationale de France"
+    for credit_file in (ROOT / "README.md", ROOT / "viewer" / "index.html", TEI):
+        if required_credit not in credit_file.read_text(encoding="utf-8"):
+            blockers.append(
+                {
+                    "check": "gallica_source_credit",
+                    "reason": f"Required Gallica source credit is missing from {credit_file.relative_to(ROOT)}.",
+                }
+            )
+
     annotation_data = json.loads(ANNOTATIONS.read_text(encoding="utf-8"))
     annotation_id = str(annotation_data.get("id", ""))
     if "127.0.0.1" in annotation_id or "localhost" in annotation_id:
@@ -68,7 +99,11 @@ def main() -> int:
 
     report = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
-        "ready_for_public_release": not blockers,
+        "technical_release_checks_passed": not blockers,
+        "scope_note": (
+            "Technical checks only; this report does not determine third-party rights, "
+            "scholarly validity, or external peer-review status."
+        ),
         "blocker_count": len(blockers),
         "warning_count": len(warnings),
         "blockers": blockers,
@@ -82,7 +117,7 @@ def main() -> int:
     }
     OUTPUT.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(report, ensure_ascii=False, indent=2))
-    return 0 if report["ready_for_public_release"] else 1
+    return 0 if report["technical_release_checks_passed"] else 1
 
 
 if __name__ == "__main__":

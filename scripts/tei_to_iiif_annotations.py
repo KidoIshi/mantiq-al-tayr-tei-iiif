@@ -79,7 +79,7 @@ def build_annotation_page(tei_path: Path, canvas: str, base_url: str) -> dict:
         "@context": "http://iiif.io/api/presentation/3/context.json",
         "id": page_url,
         "type": "AnnotationPage",
-        "label": {"ja": ["Persan 348 scan f6 外交的転写（研究者確認済み9対句）"]},
+        "label": {"ja": ["Persan 348 scan f6 外交的転写（プロジェクト担当研究者が画像と照合した9対句）"]},
         "items": items,
     }
 

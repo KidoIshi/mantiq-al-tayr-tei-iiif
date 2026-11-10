@@ -16,11 +16,11 @@ from lxml import isoschematron
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_TEI_FILE = ROOT / "data" / "tei" / "mantiq-sample.xml"
+DEFAULT_TEI_FILE = ROOT / "data" / "tei" / "bnf-persan-348-f6-sample.xml"
 SCH_FILE = ROOT / "schema" / "mantiq.sch"
 CACHE_DIR = ROOT / "work" / "schema-cache"
 RNG_FILE = CACHE_DIR / "tei_all.rng"
-DEFAULT_REPORT_FILE = ROOT / "outputs" / "validation-report.json"
+DEFAULT_REPORT_FILE = ROOT / "outputs" / "validation-report-bnf348-f6.json"
 RNG_URL = "https://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng"
 
 

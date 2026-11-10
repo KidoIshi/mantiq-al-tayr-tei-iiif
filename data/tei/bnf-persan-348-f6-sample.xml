@@ -5,7 +5,7 @@
   <teiHeader>
     <fileDesc>
       <titleStmt>
-        <title xml:lang="ja">BnF Persan 348 scan f6 研究者確認済み写本転写試料</title>
+        <title xml:lang="ja">BnF Persan 348 scan f6 プロジェクト担当研究者照合済み写本転写試料</title>
         <title xml:lang="fa">رونویسی آزمایشی منطق‌الطیر، نسخهٔ پاریس ۳۴۸</title>
         <author ref="https://viaf.org/viaf/95230652/">
           <persName xml:lang="fa">فریدالدین عطار نیشابوری</persName>
@@ -24,13 +24,13 @@
         </respStmt>
       </titleStmt>
       <editionStmt>
-        <edition n="0.2.0-reviewed">Researcher-reviewed diplomatic-transcription sample</edition>
+        <edition n="0.2.0-reviewed">Diplomatic-transcription sample reviewed against the manuscript image by the project researcher; not externally peer-reviewed</edition>
       </editionStmt>
       <publicationStmt>
         <publisher>TEI・IIIF習得・実践プロジェクト</publisher>
         <availability status="free">
           <licence target="https://creativecommons.org/licenses/by/4.0/">本プロジェクトが作成したTEI転写・注釈・文書はCreative Commons Attribution 4.0 International（CC BY 4.0）で提供する。</licence>
-          <p>プログラムコードはMIT Licenseで提供する。画像は複製収録せず、Gallicaが提供するIIIF URIを参照する。画像と提供機関メタデータの再利用はGallicaの利用条件に従う。</p>
+          <p>プログラムコードはMIT Licenseで提供する。画像は複製収録せず、Gallicaが提供するIIIF URIを参照する。画像の出典は「Source gallica.bnf.fr / Bibliothèque nationale de France」。画像と提供機関メタデータの再利用はGallicaおよびBnFの利用条件に従う。</p>
         </availability>
       </publicationStmt>
       <sourceDesc>
@@ -69,6 +69,11 @@
             </origin>
           </history>
         </msDesc>
+        <bibl type="metadataSource">
+          <title>BnF/Gallica record for Persan 348</title>
+          <ref target="https://gallica.bnf.fr/ark:/12148/btv1b10091505x">Gallica ARK record</ref>
+          <note>Source gallica.bnf.fr / Bibliothèque nationale de France</note>
+        </bibl>
       </sourceDesc>
     </fileDesc>
     <encodingDesc>
@@ -138,7 +143,7 @@
     <body>
       <div type="section" subtype="invocation" xml:id="mt.bnf348.invocation" source="#wit-bnf348">
         <head>آغاز نسخه</head>
-        <note type="status" xml:lang="ja">第1〜第9対句の読み、正規化範囲、0005a・0005b・0007aの3つの正規化形、および全18半句の画像領域は研究者確認済みである。外交的転写を既定表示とする。本文にunclearはない。</note>
+        <note type="status" xml:lang="ja">第1〜第9対句の読み、正規化範囲、0005a・0005b・0007aの3つの正規化形、および全18半句の画像領域は、プロジェクト担当研究者が写本画像と照合して確認した。これは外部査読済みであることを意味しない。外交的転写を既定表示とする。本文にunclearはない。</note>
         <pb n="scan-f6" facs="#bnf348.f6"/>
         <lg type="couplet" n="0001" xml:id="mt.bnf348.0001">
           <l n="a" xml:id="mt.bnf348.0001.a" facs="#bnf348.f6.z001a">آفرین جان آفرین پاک را</l>

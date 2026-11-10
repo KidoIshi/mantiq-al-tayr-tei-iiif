@@ -1,7 +1,7 @@
 # Manṭiq al-ṭayr TEI–IIIF Manuscript Prototype
 
 Updated: 10 November 2026  
-Status: researcher-reviewed small-scale prototype
+Status: small-scale prototype reviewed against the manuscript image by the project researcher; not externally peer-reviewed
 
 ## Overview
 
@@ -10,10 +10,10 @@ This project develops a reproducible TEI–IIIF workflow for Farīd al-Dīn ʿA�
 ## Implemented dataset
 
 - 9 couplets and 18 hemistichs from Gallica scan f6.
-- Researcher-reviewed Persian readings and line pairing.
+- Persian readings and line pairing reviewed against the image by the project researcher; this is not external peer review.
 - Stable identifiers for every couplet and hemistich.
 - Three approved `choice/orig/reg` normalizations, while retaining the diplomatic reading as the default.
-- 18 researcher-reviewed TEI `zone` regions linked from the hemistichs with `@facs`.
+- 18 TEI `zone` regions reviewed against the image by the project researcher and linked from the hemistichs with `@facs`.
 - A generated IIIF Presentation 3 AnnotationPage containing 18 `supplementing` Web Annotations targeting the BnF f6 Canvas with `xywh` fragments.
 - A browser demonstrator with diplomatic/normalized display, hemistich-region previews, and a Mirador manuscript viewer.
 
