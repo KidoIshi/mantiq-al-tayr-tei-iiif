@@ -9,14 +9,14 @@
 
 ## 現在の到達点
 
-- Persan 348の24対句を収録した、TEI P5 4.12.0に対して検証可能な小規模写本転写
+- Persan 348の27対句を収録した、TEI P5 4.12.0に対して検証可能な小規模写本転写
 - 対句（`lg`）と半句（`l`）の安定識別子
 - 出典、編集状態、変更履歴、再利用条件の明記
 - TEI ODDによる使用モジュールの形式化と専用Relax NGスキーマの再生成
 - プロジェクト独自Schematron規則
 - 確認済みIIIF ManifestのレジストリとMirador閲覧デモ
 - TEI本文とIIIF画像を並置し、外交的転写と正規化候補を切り替える閲覧画面
-- プロジェクト担当研究者が画像と照合した48半句を2 Canvasの領域へ結び付けたIIIF Presentation 3 AnnotationPage
+- プロジェクト担当研究者が画像と照合した54半句を2 Canvasの領域へ結び付けたIIIF Presentation 3 AnnotationPage
 - TEIからCanvas別AnnotationPageを再生成し、本文・座標の一致を機械検証するスクリプト
 - 調査・設計・短期実装計画（日本語）
 - 公募・国際発信用の英語プロジェクト概要
@@ -24,7 +24,7 @@
 ## ディレクトリ
 
 ```text
-data/tei/bnf-persan-348-f6-sample.xml BnF写本転写（担当研究者が画像と照合した24対句）
+data/tei/bnf-persan-348-f6-sample.xml BnF写本転写（担当研究者が画像と照合した27対句）
 outputs/research-and-design-ja.md 調査・設計報告
 outputs/project-overview-en.md    英語プロジェクト概要
 outputs/editorial-decision-log-ja.md 編集判断ログ
@@ -44,7 +44,7 @@ outputs/reproducibility-guide-ja.md 第三者向け再現・検証手順
 outputs/project-verification-summary.json 全検証の総合結果
 iiif/manifest-registry.json      IIIF資料候補と確認状態
 iiif/bnf-persan-348-f6-annotations.json scan f6・24半句のIIIF AnnotationPage
-iiif/bnf-persan-348-f7-annotations.json scan f7・24半句のIIIF AnnotationPage
+iiif/bnf-persan-348-f7-annotations.json scan f7・30半句のIIIF AnnotationPage
 schema/mantiq.sch                独自Schematron規則
 schema/mantiq.odd                プロジェクト専用TEI ODD
 schema/mantiq.rng                ODDから生成した専用Relax NG
@@ -116,7 +116,7 @@ python -m http.server 8000
 
 ## 重要な制限
 
-- Persan 348試料の本文読み24対句と全48半句の`zone`座標は、プロジェクト担当研究者が写本画像と照合して確認しています。これは外部査読済みであることを意味しません。
+- Persan 348試料の本文読み27対句と全54半句の`zone`座標は、プロジェクト担当研究者が写本画像と照合して確認しています。これは外部査読済みであることを意味しません。
 - 正規化形は検索・比較用の試験候補であり、刊本本文や批判校訂本文ではありません。
 - 異読・話者・日本語訳のモデルは設計済みですが、研究者による典拠確認前のデータは未投入です。
 - IIIF AnnotationPageはPresentation API 3の基本構造に基づき、TEIとの本文・識別子・画像座標の一致をプロジェクト独自の規則で検証しています。Presentation API全体に対する公式適合性検査を主張するものではありません。

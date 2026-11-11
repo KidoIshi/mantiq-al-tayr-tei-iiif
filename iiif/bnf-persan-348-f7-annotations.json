@@ -301,6 +301,78 @@
         "language": "fa"
       },
       "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=2000,2040,520,160"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f7-annotations.json#mt.bnf348.0025.a",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "چون دمی در گل دمد آدم کند",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=1100,600,600,160"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f7-annotations.json#mt.bnf348.0025.b",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "وز تف و دودی همه عالم کند",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=520,600,600,160"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f7-annotations.json#mt.bnf348.0026.a",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "گه سگی را ره دهد در پیشگاه",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=1100,740,600,160"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f7-annotations.json#mt.bnf348.0026.b",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "گه کند از گربه مکشوف راه",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=520,740,600,160"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f7-annotations.json#mt.bnf348.0027.a",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "چون سگی را مرد آن قربت کند",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=1100,870,600,160"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f7-annotations.json#mt.bnf348.0027.b",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "شیر مردی را بسگ نسبت کند",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=520,870,600,160"
     }
   ]
 }
