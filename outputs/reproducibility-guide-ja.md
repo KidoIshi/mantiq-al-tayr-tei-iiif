@@ -24,7 +24,7 @@ python scripts/verify_all.py
 このコマンドは次を順番に行う。
 
 1. ODDからプロジェクト専用Relax NGを再生成し、ODDと試料をJingで検証する。
-2. TEIから54件のIIIF Annotationを、2 Canvasに対応する2個のAnnotationPageとして再生成する。
+2. TEIから60件のIIIF Annotationを、2 Canvasに対応する2個のAnnotationPageとして再生成する。
 3. XML整形式、公式TEI All、ODD生成Relax NG、Schematronを検証する。
 4. IIIF Annotation本文・識別子・Canvas領域をTEIと相互照合する。
 5. 総合結果を`outputs/project-verification-summary.json`へ保存する。
@@ -67,21 +67,21 @@ python -m http.server 8000
 
 ブラウザで`http://127.0.0.1:8000/viewer/`を開く。確認項目は次のとおりである。
 
-- 左側に27対句・54半句が表示される。
+- 左側に30対句・60半句が表示される。
 - 「写本どおり」と「正規化候補」を切り替えられる。
 - 半句を選択すると右上の画像領域が切り替わる。
-- f6・f7の注釈リンクから、24件と30件のCanvas別AnnotationPageを取得できる。
+- f6・f7の注釈リンクから、24件と36件のCanvas別AnnotationPageを取得できる。
 - MiradorにBnF Persan 348のManifestが読み込まれる。
 
 ## 5. 期待される検証値
 
 | 項目 | 期待値 |
 |---|---:|
-| 対句 | 27 |
-| 半句 | 54 |
+| 対句 | 30 |
+| 半句 | 60 |
 | IIIF Canvas | 2 |
 | IIIF AnnotationPage | 2 |
-| IIIF Annotation | 54 |
+| IIIF Annotation | 60 |
 | XML整形式 | true |
 | 公式TEI All Relax NG | true |
 | ODD生成Relax NG | true |

@@ -19,7 +19,7 @@
           <name>AI-assisted TEI・IIIF project workflow</name>
         </respStmt>
         <respStmt xml:id="resp-researcher-review">
-          <resp>第1〜第27対句の写本読解、正規化方針、画像領域の学術的確認</resp>
+          <resp>第1〜第30対句の写本読解、正規化方針、画像領域の学術的確認</resp>
           <name ref="https://orcid.org/0009-0009-2254-2189">石川 喜堂 (Kido Ishikawa)</name>
         </respStmt>
       </titleStmt>
@@ -98,6 +98,8 @@
       </langUsage>
     </profileDesc>
     <revisionDesc status="draft">
+      <change when="2026-11-11" who="#resp-researcher-review">第28〜第30対句の全6半句について、0028aをبのない「سلیمانی」とする訂正、0028aの「دیوی」、0028bの「سخن دانی」、0030aのエザーフェを補わない「کره」、0030bの「هلالش」を含む写本どおりの読み、右欄・左欄の対句対応、画像領域、およびunclearを付けない判断を研究者が承認した。</change>
+      <change when="2026-11-11" who="#resp-ai-transcription">scan f7左頁の第28〜第30対句について、Persan 348画像に基づく未確認転写候補と画像領域候補を追加した。再拡大確認により、0028aは「بسلیمانی」ではなく、بの一点がない「سلیمانی」に訂正した。0028aの「دیوی」、0028bの「سخن دانی」、0030aのエザーフェを補わない「کره」は比較本文との差を保持した候補である。</change>
       <change when="2026-11-11" who="#resp-researcher-review">第25〜第27対句の全6半句について、0025bの「تف」、0026bのエザーフェを補わない「گربه」、0027bの「شیر مردی」「بسگ」を含む写本どおりの読み、右欄・左欄の対句対応、画像領域、およびunclearを付けない判断を研究者が承認した。</change>
       <change when="2026-11-11" who="#resp-ai-transcription">scan f7左頁上部の第25〜第27対句について、Persan 348画像に基づく未確認転写候補と画像領域候補を追加した。0025bの「تف」、0026bのエザーフェを補わない「گربه」、0027bの「شیر مردی」「بسگ」は比較本文と異なる写本上の候補として保持した。</change>
       <change when="2026-11-11" who="#resp-researcher-review">第22〜第24対句の全6半句について、0023a・0023bの「می زند」という分かち書き、0023bのエザーフェを補わない「حلقه」、0024の右欄から左欄へ読む半句順序、0024bの「شبانروزی」を含む写本どおりの読み、画像領域、およびunclearを付けない判断を研究者が承認した。</change>
@@ -188,13 +190,19 @@
       <zone xml:id="bnf348.f7.z026b" ulx="520" uly="740" lrx="1120" lry="900"/>
       <zone xml:id="bnf348.f7.z027a" ulx="1100" uly="870" lrx="1700" lry="1030"/>
       <zone xml:id="bnf348.f7.z027b" ulx="520" uly="870" lrx="1120" lry="1030"/>
+      <zone xml:id="bnf348.f7.z028a" ulx="1100" uly="1000" lrx="1700" lry="1160"/>
+      <zone xml:id="bnf348.f7.z028b" ulx="520" uly="1000" lrx="1120" lry="1160"/>
+      <zone xml:id="bnf348.f7.z029a" ulx="1100" uly="1130" lrx="1700" lry="1290"/>
+      <zone xml:id="bnf348.f7.z029b" ulx="520" uly="1130" lrx="1120" lry="1290"/>
+      <zone xml:id="bnf348.f7.z030a" ulx="1100" uly="1260" lrx="1700" lry="1420"/>
+      <zone xml:id="bnf348.f7.z030b" ulx="520" uly="1260" lrx="1120" lry="1420"/>
     </surface>
   </facsimile>
   <text xml:lang="fa" rend="direction-rtl">
     <body>
       <div type="section" subtype="invocation" xml:id="mt.bnf348.invocation" source="#wit-bnf348">
         <head>آغاز نسخه</head>
-        <note type="status" xml:lang="ja">第1〜第27対句の読み、正規化範囲、0005a・0005b・0007aの3つの正規化形、および54半句の画像領域は、プロジェクト担当研究者が写本画像と照合して確認した。比較本文と異なる場合もPersan 348の読みと写本上の半句順序を優先する。これは外部査読済みであることを意味しない。外交的転写を既定表示とする。承認済み範囲にunclearはない。</note>
+        <note type="status" xml:lang="ja">第1〜第30対句の読み、正規化範囲、0005a・0005b・0007aの3つの正規化形、および60半句の画像領域は、プロジェクト担当研究者が写本画像と照合して確認した。比較本文と異なる場合もPersan 348の読みと写本上の半句順序を優先する。これは外部査読済みであることを意味しない。外交的転写を既定表示とする。承認済み範囲にunclearはない。</note>
         <pb n="scan-f6" facs="#bnf348.f6"/>
         <lg type="couplet" n="0001" xml:id="mt.bnf348.0001">
           <l n="a" xml:id="mt.bnf348.0001.a" facs="#bnf348.f6.z001a">آفرین جان آفرین پاک را</l>
@@ -305,6 +313,18 @@
         <lg type="couplet" n="0027" xml:id="mt.bnf348.0027" resp="#resp-ai-transcription #resp-researcher-review">
           <l n="a" xml:id="mt.bnf348.0027.a" facs="#bnf348.f7.z027a">چون سگی را مرد آن قربت کند</l>
           <l n="b" xml:id="mt.bnf348.0027.b" facs="#bnf348.f7.z027b">شیر مردی را بسگ نسبت کند</l>
+        </lg>
+        <lg type="couplet" n="0028" xml:id="mt.bnf348.0028" resp="#resp-ai-transcription #resp-researcher-review">
+          <l n="a" xml:id="mt.bnf348.0028.a" facs="#bnf348.f7.z028a">گاه دیوی را سلیمانی دهد</l>
+          <l n="b" xml:id="mt.bnf348.0028.b" facs="#bnf348.f7.z028b">گاه موری را سخن دانی دهد</l>
+        </lg>
+        <lg type="couplet" n="0029" xml:id="mt.bnf348.0029" resp="#resp-ai-transcription #resp-researcher-review">
+          <l n="a" xml:id="mt.bnf348.0029.a" facs="#bnf348.f7.z029a">از عصایی آورد ثعبان پدید</l>
+          <l n="b" xml:id="mt.bnf348.0029.b" facs="#bnf348.f7.z029b">وز تنوری آورد طوفان پدید</l>
+        </lg>
+        <lg type="couplet" n="0030" xml:id="mt.bnf348.0030" resp="#resp-ai-transcription #resp-researcher-review">
+          <l n="a" xml:id="mt.bnf348.0030.a" facs="#bnf348.f7.z030a">چون فلک را کره سرکش کند</l>
+          <l n="b" xml:id="mt.bnf348.0030.b" facs="#bnf348.f7.z030b">از هلالش نعل در آتش کند</l>
         </lg>
       </div>
     </body>
