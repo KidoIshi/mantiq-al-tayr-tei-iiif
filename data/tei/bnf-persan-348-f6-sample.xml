@@ -88,6 +88,9 @@
                 <support>Ink and color on paper, with leather cover.</support>
               </supportDesc>
             </objectDesc>
+            <handDesc>
+              <handNote script="nastaliq" cert="high">The published images show a nastaʿlīq book hand. This is a project paleographical assessment; the Smithsonian catalogue does not name the script. No regional substyle or scribe is assigned.</handNote>
+            </handDesc>
           </physDesc>
           <history>
             <origin>
@@ -134,6 +137,7 @@
       </langUsage>
     </profileDesc>
     <revisionDesc status="draft">
+      <change when="2026-11-11" who="#resp-ai-transcription">FSC-MS-28の書体を、元IIIF画像の下降する基線、長い横画、吊り下がる字群、非接続文字の扱いに基づき、確度highのナスターリーク体写本書写体と判定した。所蔵館目録は書体名を記載しないため、地域的下位様式・書記名は未同定とした。</change>
       <change when="2026-11-11" who="#resp-researcher-review">FSC-MS-28の公開冒頭画像について、0004b冒頭を「وان」と読むことを研究者が承認した。Persan 348の「وین」との差を、lemmaを選択しない証人別の並列異読として符号化した。</change>
       <change when="2026-11-11" who="#resp-ai-transcription">Smithsonian FSC-MS-28の公式記述、冒頭画像FS-7342_15のIIIF Canvas、0004b画像領域候補、およびPersan 348との異読候補を追加した。</change>
       <change when="2026-11-11" who="#resp-researcher-review">第28〜第30対句の全6半句について、0028aをبのない「سلیمانی」とする訂正、0028aの「دیوی」、0028bの「سخن دانی」、0030aのエザーフェを補わない「کره」、0030bの「هلالش」を含む写本どおりの読み、右欄・左欄の対句対応、画像領域、およびunclearを付けない判断を研究者が承認した。</change>

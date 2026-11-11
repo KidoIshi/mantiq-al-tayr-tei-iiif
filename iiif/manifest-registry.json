@@ -57,6 +57,11 @@
       "manifest": "https://ids.si.edu/ids/manifest/FS-7342_15",
       "presentation_api": "2.x / Shared Canvas representation; seven separate single-image manifests are exposed on the object page",
       "scope": "seven published object images, not a complete-codex sequence; FS-7342_15 contains the opening text",
+      "script_assessment": {
+        "value": "nasta'liq book hand",
+        "certainty": "high",
+        "basis": "Project paleographical assessment from the published IIIF images; the Smithsonian catalogue does not name the script. Regional substyle and scribe are not assigned."
+      },
       "sample_canvases": [
         {
           "id": "https://ids.si.edu/ids/iiif/canvas-FS-7342_15",
