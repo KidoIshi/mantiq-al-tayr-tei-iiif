@@ -157,6 +157,78 @@
         "language": "fa"
       },
       "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=2000,1260,520,160"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f7-annotations.json#mt.bnf348.0019.a",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "پاره پاره خاک را در خون گرفت",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=2500,1390,550,160"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f7-annotations.json#mt.bnf348.0019.b",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "تا عقیق و لعل ازو بیرون گرفت",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=2000,1390,520,160"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f7-annotations.json#mt.bnf348.0020.a",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "در سجودش روز و شب خورشید و ماه",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=2500,1520,550,160"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f7-annotations.json#mt.bnf348.0020.b",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "سوده پیشانی خود بر خاک راه",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=2000,1520,520,160"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f7-annotations.json#mt.bnf348.0021.a",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "هست آن سیمای ایشان از سجود",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=2500,1650,550,160"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f7-annotations.json#mt.bnf348.0021.b",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "کی بود بی سجده سیما را وجود",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=2000,1650,520,160"
     }
   ]
 }

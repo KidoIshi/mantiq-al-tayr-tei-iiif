@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-11T03:30:28.512019+00:00",
+  "generated_at": "2026-11-11T03:52:44.887574+00:00",
   "tei_file": "data\\tei\\bnf-persan-348-f6-sample.xml",
-  "tei_sha256": "159a0a5eb547ea6234cf225e7202ea361de48b9b33e1efda124757df357e351a",
+  "tei_sha256": "426d5bb96cc8e97062c5c54516f063ddc8266f59944de15e53a79703f53bb36e",
   "annotation_pages": [
     {
       "annotation_page": "iiif\\bnf-persan-348-f6-annotations.json",
@@ -13,10 +13,10 @@
     },
     {
       "annotation_page": "iiif\\bnf-persan-348-f7-annotations.json",
-      "annotation_page_sha256": "b8db26ad5136a9ebb81c3db9809edbb174b1ca8b198dae2a59f9b902e1c317f4",
+      "annotation_page_sha256": "923bbc2974c97e686880aa3910dabb0d55ad03b177df925cf47f1ee4c4e6f916",
       "canvas": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7",
-      "tei_lines": 12,
-      "annotations": 12,
+      "tei_lines": 18,
+      "annotations": 18,
       "errors": []
     }
   ],
@@ -32,8 +32,8 @@
   "counts": {
     "canvases": 2,
     "annotation_pages": 2,
-    "tei_lines": 36,
-    "annotations": 36
+    "tei_lines": 42,
+    "annotations": 42
   },
   "errors": []
 }
