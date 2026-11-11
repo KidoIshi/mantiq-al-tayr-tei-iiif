@@ -1,6 +1,6 @@
 # Manṭiq al-ṭayr TEI–IIIF Manuscript Prototype
 
-Updated: 11 November 2026  
+Updated: 11 November 2026
 Status: small-scale prototype reviewed against the manuscript image by the project researcher; not externally peer-reviewed
 
 ## Overview
