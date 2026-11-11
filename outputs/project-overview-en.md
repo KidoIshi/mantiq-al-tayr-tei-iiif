@@ -9,12 +9,12 @@ This project develops a reproducible TEI–IIIF workflow for Farīd al-Dīn ʿA�
 
 ## Implemented dataset
 
-- 21 couplets and 42 hemistichs from Gallica scans f6 and f7.
+- 24 couplets and 48 hemistichs from Gallica scans f6 and f7.
 - Persian readings and line pairing reviewed against the image by the project researcher; this is not external peer review.
 - Stable identifiers for every couplet and hemistich.
 - Three approved `choice/orig/reg` normalizations, while retaining the diplomatic reading as the default.
-- 42 TEI `zone` regions reviewed against the image by the project researcher and linked from the hemistichs with `@facs`.
-- Two generated IIIF Presentation 3 AnnotationPages containing 42 `supplementing` Web Annotations targeting the BnF f6 and f7 Canvases with `xywh` fragments.
+- 48 TEI `zone` regions reviewed against the image by the project researcher and linked from the hemistichs with `@facs`.
+- Two generated IIIF Presentation 3 AnnotationPages containing 48 `supplementing` Web Annotations targeting the BnF f6 and f7 Canvases with `xywh` fragments.
 - A browser demonstrator with diplomatic/normalized display, hemistich-region previews, and a Mirador manuscript viewer.
 
 ## Data model
@@ -29,7 +29,7 @@ The current dataset passes:
 - the official TEI P5 Relax NG schema;
 - the project Relax NG schema generated from `schema/mantiq.odd`;
 - project-specific Schematron constraints;
-- a TEI–IIIF cross-check confirming that all 42 annotation bodies match the diplomatic TEI text and all 42 Canvas targets match the TEI zones.
+- a TEI–IIIF cross-check confirming that all 48 annotation bodies match the diplomatic TEI text and all 48 Canvas targets match the TEI zones.
 
 Machine-readable reports and a one-command verification script are included in the project.
 
@@ -41,7 +41,7 @@ The technical competence demonstrated here is therefore not manual XML entry. It
 
 ## Current limitations
 
-- The sample covers 21 couplets rather than the complete work.
+- The sample covers 24 couplets rather than the complete work.
 - Persan 348 is used as a practice witness, not established as a best or base manuscript.
 - No multi-witness critical apparatus has yet been encoded.
 - Japanese translation alignment, speaker annotation, and nested narrative structures remain future work.

@@ -7,7 +7,7 @@
 
 本試作は、ファリードゥッディーン・アッタール『鳥の言葉』（*Manṭiq al-ṭayr*）の写本BnF Persan 348を対象に、ペルシア語詩の外交的転写をTEI P5で構造化し、IIIF画像の該当領域と接続するものである。目的は批判校訂版の完成ではなく、写本転写、正規化、画像対応、規格変換、検証を一貫して説明・再実行できる小規模なデジタル人文学成果物を構築することにある。
 
-対象はscan f6〜f7上の21対句・42半句である。本文の読み、`<unclear>`を付与しない判断、3箇所の検索用正規化、全42半句の画像領域について研究者が写本画像を確認した。
+対象はscan f6〜f7上の24対句・48半句である。本文の読み、`<unclear>`を付与しない判断、3箇所の検索用正規化、全48半句の画像領域について研究者が写本画像を確認した。
 
 ## 2. 資料と学術的位置づけ
 
@@ -16,7 +16,7 @@
 - Gallica ARK：`ark:/12148/btv1b10091505x`
 - 書写年：1492年4月8日
 - 試料画像：Gallica IIIFのscan f6・f7
-- 試料範囲：冒頭21対句・42半句
+- 試料範囲：冒頭24対句・48半句
 
 Persan 348は、TEI・IIIF実装と写本転写の練習に採用した一証人であり、最良写本、校訂底本または刊本の代替として選定したものではない。本試作の本文はPersan 348の外交的転写であって、複数証人を統合した校訂本文ではない。
 
@@ -46,7 +46,7 @@ BnF Manifest内の正式なCanvasは次のURIである。
 
 `https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7`
 
-42個の`zone`をIIIF Presentation API 3の42個のWeb Annotationへ変換し、Canvas URIに`#xywh=x,y,w,h`を付けて対象領域を表した。AnnotationPageはCanvasごとに分け、f6用24件とf7用18件を生成した。
+48個の`zone`をIIIF Presentation API 3の48個のWeb Annotationへ変換し、Canvas URIに`#xywh=x,y,w,h`を付けて対象領域を表した。AnnotationPageはCanvasごとに分け、f6用24件とf7用24件を生成した。
 
 ## 4. システム構成
 
@@ -71,16 +71,16 @@ BnF Manifest内の正式なCanvasは次のURIである。
 - 公式TEI P5 All Relax NG：合格
 - ODD生成プロジェクト専用Relax NG：合格
 - プロジェクトSchematron：合格
-- 対句数：21
-- 半句数：42
-- 半句の`@facs`：42件すべて付与・参照解決
+- 対句数：24
+- 半句数：48
+- 半句の`@facs`：48件すべて付与・参照解決
 - IIIF Canvas：2件
 - IIIF AnnotationPage：2件
-- IIIF Annotation：42件
-- Annotation本文とTEI外交的転写：42件すべて一致
-- AnnotationのCanvas領域とTEI `zone`：42件すべて一致
-- 研究者による本文確認：42半句
-- 研究者による画像領域確認：42領域
+- IIIF Annotation：48件
+- Annotation本文とTEI外交的転写：48件すべて一致
+- AnnotationのCanvas領域とTEI `zone`：48件すべて一致
+- 研究者による本文確認：48半句
+- 研究者による画像領域確認：48領域
 
 機械検証はXML文法、TEI文法、プロジェクト規則、ファイル間の一致を確認する。一方、文字の読みや領域の学術的妥当性は自動検証できないため、研究者確認を別に記録した。
 
@@ -96,10 +96,10 @@ AIに委任した作業は、仕様調査、転写候補、座標候補、XML・
 
 ### 実装・確認済み
 
-- Persan 348の21対句・42半句について、プロジェクト担当研究者が写本画像と照合した外交的転写
+- Persan 348の24対句・48半句について、プロジェクト担当研究者が写本画像と照合した外交的転写
 - 対句・半句構造と安定ID
 - 3箇所の研究者承認済み正規化
-- 42半句と42画像領域のTEI `@facs`対応
+- 48半句と48画像領域のTEI `@facs`対応
 - 2 Canvasに対応するIIIF Presentation 3 AnnotationPageへの自動変換
 - ODD、専用Relax NG、公式TEI All、Schematron、TEI–IIIF相互照合
 - 外交的転写・正規化切替と領域表示を備えた閲覧画面

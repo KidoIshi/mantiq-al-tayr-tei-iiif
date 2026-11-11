@@ -19,7 +19,7 @@
           <name>AI-assisted TEI・IIIF project workflow</name>
         </respStmt>
         <respStmt xml:id="resp-researcher-review">
-          <resp>第1〜第21対句の写本読解、正規化方針、画像領域の学術的確認</resp>
+          <resp>第1〜第24対句の写本読解、正規化方針、画像領域の学術的確認</resp>
           <name ref="https://orcid.org/0009-0009-2254-2189">石川 喜堂 (Kido Ishikawa)</name>
         </respStmt>
       </titleStmt>
@@ -98,6 +98,8 @@
       </langUsage>
     </profileDesc>
     <revisionDesc status="draft">
+      <change when="2026-11-11" who="#resp-researcher-review">第22〜第24対句の全6半句について、0023a・0023bの「می زند」という分かち書き、0023bのエザーフェを補わない「حلقه」、0024の右欄から左欄へ読む半句順序、0024bの「شبانروزی」を含む写本どおりの読み、画像領域、およびunclearを付けない判断を研究者が承認した。</change>
+      <change when="2026-11-11" who="#resp-ai-transcription">scan f7右頁下部の第22〜第24対句について、Persan 348画像に基づく未確認転写候補と画像領域候補を追加した。比較本文と異なる場合も、右欄から左欄へ読む写本上の順序と写本表記を候補として保持した。</change>
       <change when="2026-11-11" who="#resp-researcher-review">第19〜第21対句の全6半句について、0019bの「ازو」、0020bの「سوده」、0021aの「آن سیمای」を含む写本の読み、右欄・左欄の対句対応、画像領域、およびunclearを付けない判断を研究者が承認した。比較本文よりPersan 348の読みを優先した。</change>
       <change when="2026-11-11" who="#resp-ai-transcription">scan f7右頁の第19〜第21対句について、写本画像に基づく未確認転写候補と画像領域候補を追加した。0020bは比較本文に「کرد」「کرده」の例があるが、画像上の候補「سوده」を保持した。</change>
       <change when="2026-11-11" who="#resp-researcher-review">第16〜第18対句の全6半句について、0016bの「طا」と分かち書き、0017aの「بهم」、0017bの「بر رویش」「فکند او」、0018aの「کوه را」を含む読み、右欄・左欄の対句対応、画像領域、およびunclearを付けない判断を研究者が承認した。</change>
@@ -172,13 +174,19 @@
       <zone xml:id="bnf348.f7.z020b" ulx="2000" uly="1520" lrx="2520" lry="1680"/>
       <zone xml:id="bnf348.f7.z021a" ulx="2500" uly="1650" lrx="3050" lry="1810"/>
       <zone xml:id="bnf348.f7.z021b" ulx="2000" uly="1650" lrx="2520" lry="1810"/>
+      <zone xml:id="bnf348.f7.z022a" ulx="2500" uly="1780" lrx="3050" lry="1940"/>
+      <zone xml:id="bnf348.f7.z022b" ulx="2000" uly="1780" lrx="2520" lry="1940"/>
+      <zone xml:id="bnf348.f7.z023a" ulx="2500" uly="1910" lrx="3050" lry="2070"/>
+      <zone xml:id="bnf348.f7.z023b" ulx="2000" uly="1910" lrx="2520" lry="2070"/>
+      <zone xml:id="bnf348.f7.z024a" ulx="2500" uly="2040" lrx="3050" lry="2200"/>
+      <zone xml:id="bnf348.f7.z024b" ulx="2000" uly="2040" lrx="2520" lry="2200"/>
     </surface>
   </facsimile>
   <text xml:lang="fa" rend="direction-rtl">
     <body>
       <div type="section" subtype="invocation" xml:id="mt.bnf348.invocation" source="#wit-bnf348">
         <head>آغاز نسخه</head>
-        <note type="status" xml:lang="ja">第1〜第21対句の読み、正規化範囲、0005a・0005b・0007aの3つの正規化形、および42半句の画像領域は、プロジェクト担当研究者が写本画像と照合して確認した。比較本文と異なる場合もPersan 348の読みを優先する。これは外部査読済みであることを意味しない。外交的転写を既定表示とする。承認済み範囲にunclearはない。</note>
+        <note type="status" xml:lang="ja">第1〜第24対句の読み、正規化範囲、0005a・0005b・0007aの3つの正規化形、および48半句の画像領域は、プロジェクト担当研究者が写本画像と照合して確認した。比較本文と異なる場合もPersan 348の読みと写本上の半句順序を優先する。これは外部査読済みであることを意味しない。外交的転写を既定表示とする。承認済み範囲にunclearはない。</note>
         <pb n="scan-f6" facs="#bnf348.f6"/>
         <lg type="couplet" n="0001" xml:id="mt.bnf348.0001">
           <l n="a" xml:id="mt.bnf348.0001.a" facs="#bnf348.f6.z001a">آفرین جان آفرین پاک را</l>
@@ -265,6 +273,18 @@
         <lg type="couplet" n="0021" xml:id="mt.bnf348.0021" resp="#resp-ai-transcription #resp-researcher-review">
           <l n="a" xml:id="mt.bnf348.0021.a" facs="#bnf348.f7.z021a">هست آن سیمای ایشان از سجود</l>
           <l n="b" xml:id="mt.bnf348.0021.b" facs="#bnf348.f7.z021b">کی بود بی سجده سیما را وجود</l>
+        </lg>
+        <lg type="couplet" n="0022" xml:id="mt.bnf348.0022" resp="#resp-ai-transcription #resp-researcher-review">
+          <l n="a" xml:id="mt.bnf348.0022.a" facs="#bnf348.f7.z022a">روز از بسطش سپید افروخته</l>
+          <l n="b" xml:id="mt.bnf348.0022.b" facs="#bnf348.f7.z022b">شب ز قبضش در سیاهی سوخته</l>
+        </lg>
+        <lg type="couplet" n="0023" xml:id="mt.bnf348.0023" resp="#resp-ai-transcription #resp-researcher-review">
+          <l n="a" xml:id="mt.bnf348.0023.a" facs="#bnf348.f7.z023a">مرغ گردون در رهش پر می زند</l>
+          <l n="b" xml:id="mt.bnf348.0023.b" facs="#bnf348.f7.z023b">بر درش چون حلقه سر می زند</l>
+        </lg>
+        <lg type="couplet" n="0024" xml:id="mt.bnf348.0024" resp="#resp-ai-transcription #resp-researcher-review">
+          <l n="a" xml:id="mt.bnf348.0024.a" facs="#bnf348.f7.z024a">شب برد روز آورد روزی دهد</l>
+          <l n="b" xml:id="mt.bnf348.0024.b" facs="#bnf348.f7.z024b">چرخ را دور شبانروزی دهد</l>
         </lg>
       </div>
     </body>
