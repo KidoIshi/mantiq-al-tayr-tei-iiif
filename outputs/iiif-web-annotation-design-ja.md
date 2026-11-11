@@ -1,7 +1,7 @@
 # Persan 348：TEIからIIIF Web Annotationへの変換設計
 
 作成日：2026年11月10日  
-状態：18半句の変換・相互照合済み
+状態：24半句の変換・相互照合済み
 
 ## 目的
 
@@ -59,7 +59,7 @@ IIIF注釈の主要部分：
 `scripts/validate_iiif_annotations.py`が以下を相互照合する。
 
 1. JSONが読み込め、Presentation API 3の基本形を持つこと。
-2. TEIの18半句とAnnotationの件数・識別子が一致すること。
+2. TEIの24半句とAnnotationの件数・識別子が一致すること。
 3. Annotation本文がTEIの外交的転写と一致すること。
 4. Canvas領域がTEI `zone`から算出した`xywh`と一致すること。
 

@@ -9,7 +9,7 @@ This project develops a reproducible TEI–IIIF workflow for Farīd al-Dīn ʿA�
 
 ## Implemented dataset
 
-- 9 couplets and 18 hemistichs from Gallica scan f6.
+- 12 couplets and 24 hemistichs from Gallica scan f6.
 - Persian readings and line pairing reviewed against the image by the project researcher; this is not external peer review.
 - Stable identifiers for every couplet and hemistich.
 - Three approved `choice/orig/reg` normalizations, while retaining the diplomatic reading as the default.
@@ -41,7 +41,7 @@ The technical competence demonstrated here is therefore not manual XML entry. It
 
 ## Current limitations
 
-- The sample covers 9 couplets rather than the complete work.
+- The sample covers 12 couplets rather than the complete work.
 - Persan 348 is used as a practice witness, not established as a best or base manuscript.
 - No multi-witness critical apparatus has yet been encoded.
 - Japanese translation alignment, speaker annotation, and nested narrative structures remain future work.

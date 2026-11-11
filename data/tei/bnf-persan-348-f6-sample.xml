@@ -19,7 +19,7 @@
           <name>AI-assisted TEI・IIIF project workflow</name>
         </respStmt>
         <respStmt xml:id="resp-researcher-review">
-          <resp>第1〜第9対句の写本読解、正規化方針、画像領域の学術的確認</resp>
+          <resp>第1〜第12対句の写本読解、正規化方針、画像領域の学術的確認</resp>
           <name ref="https://orcid.org/0009-0009-2254-2189">石川 喜堂 (Kido Ishikawa)</name>
         </respStmt>
       </titleStmt>
@@ -98,6 +98,8 @@
       </langUsage>
     </profileDesc>
     <revisionDesc status="draft">
+      <change when="2026-11-11" who="#resp-researcher-review">第10〜第12対句の全6半句について、読み、0011aの「بر」、0012bの「بسرهنگی」、右欄・左欄の対句対応、画像領域、およびunclearを付けない判断を研究者が承認した。</change>
+      <change when="2026-11-10" who="#resp-ai-transcription">scan f6左頁の第10〜第12対句について、写本の物理的順序を保持したAI転写候補と画像領域候補を追加した。第1〜第9対句のみ研究者承認済みであり、追加6半句は研究者確認待ちである。</change>
       <change when="2026-11-10" who="#resp-researcher-review">公開ライセンスとして、研究データ・文書にCC BY 4.0、コードにMIT Licenseを採用した。</change>
       <change when="2026-11-10" who="#resp-researcher-review">公開プロフィールに基づき、研究者責任表示へ氏名とORCIDを記録した。</change>
       <change when="2026-11-10" who="#resp-ai-transcription">全18半句のTEI転写とzoneをBnF Presentation APIのscan f6 Canvas上のIIIF Web Annotationへ機械変換し、TEIとの一致を検証した。</change>
@@ -137,13 +139,19 @@
       <zone xml:id="bnf348.f6.z008b" ulx="520" uly="1430" lrx="1120" lry="1600"/>
       <zone xml:id="bnf348.f6.z009a" ulx="1100" uly="1580" lrx="1700" lry="1750"/>
       <zone xml:id="bnf348.f6.z009b" ulx="520" uly="1580" lrx="1120" lry="1750"/>
+      <zone xml:id="bnf348.f6.z010a" ulx="1100" uly="1730" lrx="1700" lry="1900"/>
+      <zone xml:id="bnf348.f6.z010b" ulx="520" uly="1730" lrx="1120" lry="1900"/>
+      <zone xml:id="bnf348.f6.z011a" ulx="1100" uly="1880" lrx="1700" lry="2050"/>
+      <zone xml:id="bnf348.f6.z011b" ulx="520" uly="1880" lrx="1120" lry="2050"/>
+      <zone xml:id="bnf348.f6.z012a" ulx="1100" uly="2030" lrx="1700" lry="2200"/>
+      <zone xml:id="bnf348.f6.z012b" ulx="520" uly="2030" lrx="1120" lry="2200"/>
     </surface>
   </facsimile>
   <text xml:lang="fa" rend="direction-rtl">
     <body>
       <div type="section" subtype="invocation" xml:id="mt.bnf348.invocation" source="#wit-bnf348">
         <head>آغاز نسخه</head>
-        <note type="status" xml:lang="ja">第1〜第9対句の読み、正規化範囲、0005a・0005b・0007aの3つの正規化形、および全18半句の画像領域は、プロジェクト担当研究者が写本画像と照合して確認した。これは外部査読済みであることを意味しない。外交的転写を既定表示とする。本文にunclearはない。</note>
+        <note type="status" xml:lang="ja">第1〜第12対句の読み、正規化範囲、0005a・0005b・0007aの3つの正規化形、および全24半句の画像領域は、プロジェクト担当研究者が写本画像と照合して確認した。これは外部査読済みであることを意味しない。外交的転写を既定表示とする。現時点の本文にunclearはない。</note>
         <pb n="scan-f6" facs="#bnf348.f6"/>
         <lg type="couplet" n="0001" xml:id="mt.bnf348.0001">
           <l n="a" xml:id="mt.bnf348.0001.a" facs="#bnf348.f6.z001a">آفرین جان آفرین پاک را</l>
@@ -181,6 +189,18 @@
         <lg type="couplet" n="0009" xml:id="mt.bnf348.0009">
           <l n="a" xml:id="mt.bnf348.0009.a" facs="#bnf348.f6.z009a">بحر را بگذاشت در تسلیم خویش</l>
           <l n="b" xml:id="mt.bnf348.0009.b" facs="#bnf348.f6.z009b">کوه را افسرده کرد از بیم خویش</l>
+        </lg>
+        <lg type="couplet" n="0010" xml:id="mt.bnf348.0010" resp="#resp-ai-transcription #resp-researcher-review">
+          <l n="a" xml:id="mt.bnf348.0010.a" facs="#bnf348.f6.z010a">بحر را از تشنگی لب خشک کرد</l>
+          <l n="b" xml:id="mt.bnf348.0010.b" facs="#bnf348.f6.z010b">سنگ را یاقوت و خون را مشک کرد</l>
+        </lg>
+        <lg type="couplet" n="0011" xml:id="mt.bnf348.0011" resp="#resp-ai-transcription #resp-researcher-review">
+          <l n="a" xml:id="mt.bnf348.0011.a" facs="#bnf348.f6.z011a">گاه گل بر روی آتش دسته کرد</l>
+          <l n="b" xml:id="mt.bnf348.0011.b" facs="#bnf348.f6.z011b">گاه پل بر روی دریا بسته کرد</l>
+        </lg>
+        <lg type="couplet" n="0012" xml:id="mt.bnf348.0012" resp="#resp-ai-transcription #resp-researcher-review">
+          <l n="a" xml:id="mt.bnf348.0012.a" facs="#bnf348.f6.z012a">کوه را هم تیغ داد و هم کمر</l>
+          <l n="b" xml:id="mt.bnf348.0012.b" facs="#bnf348.f6.z012b">تا بسرهنگی او افراخت سر</l>
         </lg>
       </div>
     </body>

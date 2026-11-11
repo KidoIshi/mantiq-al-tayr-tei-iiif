@@ -4,7 +4,7 @@
   "type": "AnnotationPage",
   "label": {
     "ja": [
-      "Persan 348 scan f6 外交的転写（プロジェクト担当研究者が画像と照合した9対句）"
+      "Persan 348 scan f6 外交的転写（プロジェクト担当研究者が画像と照合した12対句）"
     ]
   },
   "items": [
@@ -223,6 +223,78 @@
         "language": "fa"
       },
       "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f6#xywh=520,1580,600,170"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f6-annotations.json#mt.bnf348.0010.a",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "بحر را از تشنگی لب خشک کرد",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f6#xywh=1100,1730,600,170"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f6-annotations.json#mt.bnf348.0010.b",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "سنگ را یاقوت و خون را مشک کرد",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f6#xywh=520,1730,600,170"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f6-annotations.json#mt.bnf348.0011.a",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "گاه گل بر روی آتش دسته کرد",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f6#xywh=1100,1880,600,170"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f6-annotations.json#mt.bnf348.0011.b",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "گاه پل بر روی دریا بسته کرد",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f6#xywh=520,1880,600,170"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f6-annotations.json#mt.bnf348.0012.a",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "کوه را هم تیغ داد و هم کمر",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f6#xywh=1100,2030,600,170"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f6-annotations.json#mt.bnf348.0012.b",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "تا بسرهنگی او افراخت سر",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f6#xywh=520,2030,600,170"
     }
   ]
 }
