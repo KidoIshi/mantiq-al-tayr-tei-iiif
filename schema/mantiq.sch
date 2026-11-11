@@ -27,8 +27,14 @@
       <assert test="@source">本文セクションには@sourceを付けること。</assert>
     </rule>
     <rule context="tei:app">
-      <assert test="tei:lem and tei:rdg">校異にはlemと少なくとも1つのrdgを含めること。</assert>
+      <assert test="(count(tei:lem) = 1 and count(tei:rdg) &gt;= 1) or (count(tei:lem) = 0 and count(tei:rdg) &gt;= 2)">校異は、1つのlemとrdg、またはlemmaを選ばない2つ以上のrdgで表すこと。</assert>
+      <assert test="count(*) = count(tei:lem | tei:rdg)">appの子要素はlemまたはrdgに限ること。</assert>
       <assert test="count((tei:lem | tei:rdg)[not(@wit)]) = 0">すべてのlem/rdgに写本根拠@witを付けること。</assert>
+    </rule>
+    <rule context="tei:app/tei:lem | tei:app/tei:rdg">
+      <assert test="starts-with(normalize-space(@wit), '#') and not(contains(normalize-space(@wit), ' '))">この小規模試作では各lem/rdgの@witは1つの#付き証人IDを参照すること。</assert>
+      <assert test="id(substring-after(normalize-space(@wit), '#'))[self::tei:msDesc or self::tei:witness]">@witは実在するmsDescまたはwitnessを参照すること。</assert>
+      <assert test="not(@facs) or (starts-with(@facs, '#') and id(substring-after(@facs, '#'))[self::tei:zone])">@facsを付ける場合は実在するzoneを参照すること。</assert>
     </rule>
   </pattern>
 

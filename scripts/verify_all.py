@@ -47,6 +47,7 @@ def main() -> int:
     steps = [
         run("build_project_schema_from_odd", [python, "scripts/build_odd_schema.py"]),
         run("test_project_odd_excludes_unselected_module", [python, "scripts/test_odd_schema.py"]),
+        run("test_witness_specific_apparatus_processing", [python, "scripts/test_apparatus_processing.py"]),
         run("generate_iiif_annotation_page", [python, "scripts/tei_to_iiif_annotations.py"]),
         run("validate_tei_xml_rng_schematron", validation_command),
         run(

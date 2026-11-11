@@ -16,6 +16,8 @@ This project develops a reproducible TEI–IIIF workflow for Farīd al-Dīn ʿA�
 - 60 TEI `zone` regions reviewed against the image by the project researcher and linked from the hemistichs with `@facs`.
 - Two generated IIIF Presentation 3 AnnotationPages containing 60 `supplementing` Web Annotations targeting the BnF f6 and f7 Canvases with `xywh` fragments.
 - A browser demonstrator with diplomatic/normalized display, hemistich-region previews, and a Mirador manuscript viewer.
+- One non-selective apparatus entry based on independent manuscript images: Persan 348 `وین` and Smithsonian FSC-MS-28 `وان`.
+- Witness-specific text extraction, retaining the Persan 348 reading in the BnF AnnotationPage while exposing both readings in the comparison view.
 
 ## Data model
 
@@ -43,10 +45,10 @@ The technical competence demonstrated here is therefore not manual XML entry. It
 
 - The sample covers 30 couplets rather than the complete work.
 - Persan 348 is used as a practice witness, not established as a best or base manuscript.
-- No multi-witness critical apparatus has yet been encoded.
+- The multi-witness apparatus is a one-reading methodological demonstration, not a critical edition.
 - Japanese translation alignment, speaker annotation, and nested narrative structures remain future work.
 - The repository has not yet been released publicly and no DOI has been assigned.
 
 ## Next milestones
 
-The next research milestone is to apply one additional scholarly layer—translation alignment or an independently attested manuscript variant—before preparing a versioned public release and a conference proposal.
+The next research milestone is translation alignment or expansion of the independently attested apparatus before preparing a versioned public release and a conference proposal.

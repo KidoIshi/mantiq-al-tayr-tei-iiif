@@ -29,6 +29,7 @@
       </sourceDesc>
     </fileDesc>
     <revisionDesc>
+      <change when="2026-11-11" who="#odd-ai">FSC-MS-28との非選択的校異を実装し、lemmaを選ばない複数rdg方式をSchematronで許可・検証した。</change>
       <change when="2026-11-11" who="#odd-ai">複数のIIIF Canvasをsurface/@correspで明示し、将来の本文・翻訳対応にも備えるためlinkingモジュールを追加した。</change>
       <change when="2026-11-10" who="#odd-researcher">未投入の校異データに備えてtextcritモジュールを含めること、および20〜30対句への拡張後に要素単位の縮小を検討する段階的方針を研究者が承認した。</change>
       <change when="2026-11-10" who="#odd-ai">初版。現在使用中のモジュールと、将来の校異装置に必要なtextcritモジュールを選択した。</change>
@@ -43,7 +44,7 @@
       <div>
         <head>設計判断</head>
         <p>対句は<mentioned>lg</mentioned>、半句は<mentioned>l</mentioned>で表す。外交的転写と検索用正規化は<mentioned>choice</mentioned>内の<mentioned>orig</mentioned>と<mentioned>reg</mentioned>で分離する。画像全体は<mentioned>surface</mentioned>、半句領域は<mentioned>zone</mentioned>で記述し、本文から<mentioned>facs</mentioned>属性で参照する。複数画像を区別するため、各<mentioned>surface</mentioned>の<mentioned>corresp</mentioned>属性にIIIF Canvas URIを記録する。</p>
-        <p>校異装置は独立した写本証拠を得た段階で<mentioned>app</mentioned>、<mentioned>lem</mentioned>、<mentioned>rdg</mentioned>、<mentioned>listWit</mentioned>、<mentioned>witness</mentioned>を用いる。このODDに要素は含めるが、現時点の本文には未投入である。</p>
+        <p>校異装置は独立した写本証拠に基づき、<mentioned>app</mentioned>内の<mentioned>rdg</mentioned>を各証人へ結び付ける。校訂上の採用本文を決めない段階では<mentioned>lem</mentioned>を置かない非選択的校異とし、将来lemmaを選択する場合に<mentioned>lem</mentioned>を導入する。</p>
       </div>
       <div>
         <head>ODDとSchematronの分担</head>

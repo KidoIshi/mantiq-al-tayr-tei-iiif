@@ -30,6 +30,9 @@
     .reading-mode button { padding: .45rem .7rem; border: 1px solid var(--accent); border-radius: .35rem; background: white; color: var(--accent); cursor: pointer; }
     .reading-mode button[aria-pressed="true"] { background: var(--accent); color: white; }
     .regularized { text-decoration: underline dotted; text-underline-offset: .2em; }
+    .variant-note { margin: .35rem 0 .2rem; padding: .4rem .55rem; border-right: 3px solid #967088; background: #f3edf1; color: #493645; direction: ltr; font: .78rem/1.6 system-ui, sans-serif; }
+    .variant-note button { margin: .1rem .25rem; padding: .2rem .4rem; border: 1px solid #967088; border-radius: .25rem; background: white; color: var(--accent); cursor: pointer; }
+    .variant-reading { direction: rtl; display: inline-block; font-family: "Noto Naskh Arabic", "Segoe UI", serif; font-size: 1rem; }
     #tei-status { color: var(--muted); }
     #couplets { direction: rtl; font-family: "Noto Naskh Arabic", "Segoe UI", serif; }
     .couplet { position: relative; padding: .85rem .2rem .85rem 2.4rem; border-top: 1px solid var(--line); }
@@ -62,10 +65,11 @@
     <section id="text-panel" aria-labelledby="text-heading">
       <p class="eyebrow">TEI P5 sample</p>
       <h1 id="text-heading">Persan 348 写本転写（30対句）</h1>
-      <p class="note">第1〜第30対句はプロジェクト担当研究者が画像と照合した転写です（外部査読済みを意味しません）。比較本文と異なる場合もPersan 348の読みと写本上の半句順序を優先します。正規化表示は検索・比較用で、写本の読みを置換しません。<a href="../data/tei/bnf-persan-348-f6-sample.xml">TEI XMLを開く</a>・<a href="../iiif/bnf-persan-348-f6-annotations.json">f6注釈</a>・<a href="../iiif/bnf-persan-348-f7-annotations.json">f7注釈</a></p>
+      <p class="note">第1〜第30対句はプロジェクト担当研究者が画像と照合した転写です（外部査読済みを意味しません）。比較本文と異なる場合もPersan 348の読みと写本上の半句順序を優先します。正規化表示は検索用、異読比較は独立した第二写本との証人別表示です。<a href="../data/tei/bnf-persan-348-f6-sample.xml">TEI XMLを開く</a>・<a href="../iiif/bnf-persan-348-f6-annotations.json">f6注釈</a>・<a href="../iiif/bnf-persan-348-f7-annotations.json">f7注釈</a></p>
       <div class="reading-mode" role="group" aria-label="本文表示方式">
         <button type="button" data-mode="diplomatic" aria-pressed="true">写本どおり</button>
         <button type="button" data-mode="normalized" aria-pressed="false">正規化候補</button>
+        <button type="button" data-mode="variants" aria-pressed="false">異読比較</button>
       </div>
       <p id="tei-status" role="status">TEI XMLを読み込んでいます…</p>
       <div id="couplets" lang="fa" dir="rtl"></div>
@@ -90,6 +94,7 @@
     let teiGroups = [];
     let readingMode = 'diplomatic';
     let zoneMap = new Map();
+    let witnessLabels = new Map();
     let selectedFacs = '';
     let activeCanvas = '';
     let miradorInstance;
@@ -101,7 +106,50 @@
         const selected = choice.getElementsByTagNameNS(teiNamespace, wanted)[0];
         choice.replaceWith(document.createTextNode(selected ? selected.textContent : choice.textContent));
       });
+      [...clone.getElementsByTagNameNS(teiNamespace, 'app')].forEach(app => {
+        const readings = [...app.children].filter(child =>
+          child.namespaceURI === teiNamespace && (child.localName === 'lem' || child.localName === 'rdg')
+        );
+        const selected = readings.find(reading => (reading.getAttribute('wit') || '').split(/\s+/).includes('#wit-bnf348'));
+        app.replaceWith(document.createTextNode(selected ? selected.textContent : ''));
+      });
       return clone.textContent.trim();
+    }
+
+    function appendVariantNotes(article, line, label) {
+      if (readingMode !== 'variants') return;
+      [...line.getElementsByTagNameNS(teiNamespace, 'app')].forEach(app => {
+        const note = document.createElement('div');
+        note.className = 'variant-note';
+        note.append('異読：');
+        [...app.children]
+          .filter(child => child.namespaceURI === teiNamespace && (child.localName === 'lem' || child.localName === 'rdg'))
+          .forEach((reading, index) => {
+            if (index) note.append(' ／ ');
+            const witness = (reading.getAttribute('wit') || '').trim();
+            const witnessId = witness.replace(/^#/, '');
+            const name = witnessLabels.get(witnessId) || witnessId;
+            const facs = reading.getAttribute('facs') || '';
+            const content = `${name}「${reading.textContent.trim()}」`;
+            if (facs) {
+              const button = document.createElement('button');
+              button.type = 'button';
+              button.append(document.createTextNode(`${name}「`));
+              const value = document.createElement('span');
+              value.className = 'variant-reading';
+              value.textContent = reading.textContent.trim();
+              button.append(value, document.createTextNode('」画像'));
+              button.addEventListener('click', event => {
+                event.stopPropagation();
+                showRegion(facs, `${label} ${name}`);
+              });
+              note.appendChild(button);
+            } else {
+              note.append(content);
+            }
+          });
+        article.appendChild(note);
+      });
     }
 
     function showRegion(facs, label) {
@@ -110,14 +158,14 @@
       selectedFacs = facs;
       const width = zone.lrx - zone.ulx;
       const height = zone.lry - zone.uly;
-      const url = `${zone.imageServiceBase}/${zone.ulx},${zone.uly},${width},${height}/1200,/0/native.jpg`;
+      const url = `${zone.imageServiceBase}/${zone.ulx},${zone.uly},${width},${height}/full/0/${zone.imageQuality}`;
       const image = document.getElementById('region-image');
       image.src = url;
-      image.alt = `${label}に対応するPersan 348の画像領域`;
+      image.alt = `${label}に対応する写本画像領域`;
       document.getElementById('region-label').textContent = `${label} — ${zone.id}`;
       document.getElementById('region-link').href = url;
       document.querySelectorAll('.hemistich').forEach(item => item.classList.toggle('selected', item.dataset.facs === facs));
-      if (miradorInstance && zone.canvas && zone.canvas !== activeCanvas) {
+      if (miradorInstance && zone.canvas.includes('gallica.bnf.fr') && zone.canvas !== activeCanvas) {
         miradorInstance.store.dispatch(Mirador.actions.setCanvas('main', zone.canvas));
         activeCanvas = zone.canvas;
       }
@@ -152,6 +200,7 @@
             }
           });
           article.appendChild(paragraph);
+          appendVariantNotes(article, line, label);
         });
         container.appendChild(article);
       });
@@ -173,9 +222,17 @@
         const parseError = xml.querySelector('parsererror');
         if (parseError) throw new Error('XML parse error');
         zoneMap = new Map();
+        witnessLabels = new Map();
+        [...xml.getElementsByTagNameNS(teiNamespace, 'msDesc')].forEach(description => {
+          const id = description.getAttributeNS('http://www.w3.org/XML/1998/namespace', 'id');
+          const idno = description.getElementsByTagNameNS(teiNamespace, 'idno')[0];
+          if (id && idno) witnessLabels.set(id, idno.textContent.trim());
+        });
         [...xml.getElementsByTagNameNS(teiNamespace, 'surface')].forEach(surface => {
           const graphic = [...surface.children].find(child => child.namespaceURI === teiNamespace && child.localName === 'graphic');
-          const imageServiceBase = graphic.getAttribute('url').replace(/\/full\/full\/0\/[^/]+\.jpg$/, '');
+          const graphicUrl = graphic.getAttribute('url');
+          const imageServiceBase = graphicUrl.replace(/\/full\/full\/0\/[^/]+\.jpg$/, '');
+          const imageQuality = graphicUrl.split('/').pop();
           const canvas = surface.getAttribute('corresp') || '';
           [...surface.children]
             .filter(child => child.namespaceURI === teiNamespace && child.localName === 'zone')
@@ -188,7 +245,8 @@
                 lrx: Number(zone.getAttribute('lrx')),
                 lry: Number(zone.getAttribute('lry')),
                 imageServiceBase,
-                canvas
+                canvas,
+                imageQuality
               }
             ));
         });

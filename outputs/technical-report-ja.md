@@ -38,7 +38,7 @@ Persan 348は、TEI・IIIF実装と写本転写の練習に採用した一証人
 
 ### 3.3 画像対応
 
-TEIの二つの`<surface>`がscan f6・f7の座標空間3669×2787を表し、各`<zone>`が半句領域を矩形座標で記録する。各`<l>`は`@facs`で対応する`zone`を参照し、各`surface/@corresp`がIIIF Canvas URIを示す。
+TEIの二つのBnF用`<surface>`がscan f6・f7の座標空間3669×2787を表し、第三の`surface`がFSC-MS-28の公開冒頭画像2090×3520を表す。各`<zone>`が本文領域を矩形座標で記録し、各`surface/@corresp`がIIIF Canvas URIを示す。BnFの各`<l>`は`@facs`で対応領域を参照し、FSC-MS-28の異読`rdg`は同写本の領域候補を参照する。
 
 BnF Manifest内の正式なCanvasは次のURIである。
 
@@ -71,6 +71,7 @@ BnF Manifest内の正式なCanvasは次のURIである。
 - 公式TEI P5 All Relax NG：合格
 - ODD生成プロジェクト専用Relax NG：合格
 - プロジェクトSchematron：合格
+- 証人別校異本文抽出テスト：合格（Persan 348では`وین`、FSC-MS-28では`وان`）
 - 対句数：30
 - 半句数：60
 - 半句の`@facs`：60件すべて付与・参照解決
@@ -81,6 +82,8 @@ BnF Manifest内の正式なCanvasは次のURIである。
 - AnnotationのCanvas領域とTEI `zone`：60件すべて一致
 - 研究者による本文確認：60半句
 - 研究者による画像領域確認：60領域
+- TEI校異装置：1件（2証人、lemma未選択）
+- FSC-MS-28画像領域：1件（AI候補）
 
 機械検証はXML文法、TEI文法、プロジェクト規則、ファイル間の一致を確認する。一方、文字の読みや領域の学術的妥当性は自動検証できないため、研究者確認を別に記録した。
 
@@ -103,10 +106,12 @@ AIに委任した作業は、仕様調査、転写候補、座標候補、XML・
 - 2 Canvasに対応するIIIF Presentation 3 AnnotationPageへの自動変換
 - ODD、専用Relax NG、公式TEI All、Schematron、TEI–IIIF相互照合
 - 外交的転写・正規化切替と領域表示を備えた閲覧画面
+- FSC-MS-28の`وان`とPersan 348の`وین`を、lemmaを選ばない証人別`rdg`として記録した校異1件
+- Persan 348のIIIF注釈には同写本の読みだけを出力する証人別本文抽出と、閲覧画面の異読比較表示
 
 ### 未実装または未検証
 
-- 複数写本を用いた批判校訂と`<app>/<lem>/<rdg>`
+- 複数箇所・複数写本を用いた本格的な批判校訂とlemma選択
 - 日本語訳と原文の対応
 - 話者・物語階層の実データへの適用
 - 30対句を超える試料拡張

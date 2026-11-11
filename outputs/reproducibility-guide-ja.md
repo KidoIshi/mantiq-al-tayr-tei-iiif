@@ -24,10 +24,11 @@ python scripts/verify_all.py
 このコマンドは次を順番に行う。
 
 1. ODDからプロジェクト専用Relax NGを再生成し、ODDと試料をJingで検証する。
-2. TEIから60件のIIIF Annotationを、2 Canvasに対応する2個のAnnotationPageとして再生成する。
-3. XML整形式、公式TEI All、ODD生成Relax NG、Schematronを検証する。
-4. IIIF Annotation本文・識別子・Canvas領域をTEIと相互照合する。
-5. 総合結果を`outputs/project-verification-summary.json`へ保存する。
+2. 校異装置からPersan 348とFSC-MS-28の本文を証人別に抽出できることを検査する。
+3. TEIから60件のIIIF Annotationを、2 Canvasに対応する2個のAnnotationPageとして再生成する。
+4. XML整形式、公式TEI All、ODD生成Relax NG、Schematronを検証する。
+5. IIIF Annotation本文・識別子・Canvas領域をTEIと相互照合する。
+6. 総合結果を`outputs/project-verification-summary.json`へ保存する。
 
 成功時は`"all_passed": true`となる。
 
@@ -68,7 +69,8 @@ python -m http.server 8000
 ブラウザで`http://127.0.0.1:8000/viewer/`を開く。確認項目は次のとおりである。
 
 - 左側に30対句・60半句が表示される。
-- 「写本どおり」と「正規化候補」を切り替えられる。
+- 「写本どおり」「正規化候補」「異読比較」を切り替えられる。
+- 異読比較では0004bのPersan 348 `وین`とFSC-MS-28 `وان`が表示され、FSC-MS-28の画像領域候補を開ける。
 - 半句を選択すると右上の画像領域が切り替わる。
 - f6・f7の注釈リンクから、24件と36件のCanvas別AnnotationPageを取得できる。
 - MiradorにBnF Persan 348のManifestが読み込まれる。
@@ -82,6 +84,8 @@ python -m http.server 8000
 | IIIF Canvas | 2 |
 | IIIF AnnotationPage | 2 |
 | IIIF Annotation | 60 |
+| TEI apparatus | 1 |
+| 証人別本文抽出 | Persan 348 `وین` / FSC-MS-28 `وان` |
 | XML整形式 | true |
 | 公式TEI All Relax NG | true |
 | ODD生成Relax NG | true |

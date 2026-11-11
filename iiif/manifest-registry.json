@@ -75,8 +75,8 @@
         "opening_image": "FS-7342_15"
       },
       "text_alignment": {
-        "status": "candidate-awaiting-researcher-review",
-        "reason": "FS-7342_15 contains the opening text corresponding to the Persan 348 sample. A candidate difference at 0004b (Persan 348 وین / FSC-MS-28 وان) awaits researcher confirmation."
+        "status": "researcher-reviewed-variant-sample",
+        "reason": "FS-7342_15 contains the opening text corresponding to the Persan 348 sample. The project researcher approved FSC-MS-28 وان against Persan 348 وین at 0004b; the non-selective apparatus is encoded without choosing a lemma. The FSC-MS-28 image region remains an AI-generated candidate."
       }
     },
     {

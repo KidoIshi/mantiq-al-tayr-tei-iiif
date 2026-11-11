@@ -16,6 +16,8 @@
 - プロジェクト独自Schematron規則
 - 確認済みIIIF ManifestのレジストリとMirador閲覧デモ
 - TEI本文とIIIF画像を並置し、外交的転写と正規化候補を切り替える閲覧画面
+- Persan 348とSmithsonian FSC-MS-28の独立した写本画像に基づく、1件の非選択的校異`app/rdg`
+- 証人別本文抽出と異読比較表示
 - プロジェクト担当研究者が画像と照合した60半句を2 Canvasの領域へ結び付けたIIIF Presentation 3 AnnotationPage
 - TEIからCanvas別AnnotationPageを再生成し、本文・座標の一致を機械検証するスクリプト
 - 調査・設計・短期実装計画（日本語）
@@ -50,6 +52,7 @@ schema/mantiq.odd                プロジェクト専用TEI ODD
 schema/mantiq.rng                ODDから生成した専用Relax NG
 scripts/build_odd_schema.py      ODDから専用スキーマを再生成
 scripts/test_odd_schema.py       TEI Allと専用スキーマの差を反例で検査
+scripts/test_apparatus_processing.py 証人別の校異本文抽出を検査
 scripts/validate.py              XML / TEI RNG / Schematron検証
 scripts/tei_to_iiif_annotations.py TEIからIIIF注釈への変換
 scripts/validate_iiif_annotations.py TEIとIIIF注釈の相互照合
@@ -118,7 +121,7 @@ python -m http.server 8000
 
 - Persan 348試料の本文読み30対句と全60半句の`zone`座標は、プロジェクト担当研究者が写本画像と照合して確認しています。これは外部査読済みであることを意味しません。
 - 正規化形は検索・比較用の試験候補であり、刊本本文や批判校訂本文ではありません。
-- 異読・話者・日本語訳のモデルは設計済みですが、研究者による典拠確認前のデータは未投入です。
+- 実写本に基づく異読は1件のみの方法論的試作であり、複数写本による批判校訂版ではありません。話者・日本語訳はモデルのみで実データ未投入です。
 - IIIF AnnotationPageはPresentation API 3の基本構造に基づき、TEIとの本文・識別子・画像座標の一致をプロジェクト独自の規則で検証しています。Presentation API全体に対する公式適合性検査を主張するものではありません。
 
 ## ライセンス
@@ -126,6 +129,7 @@ python -m http.server 8000
 - 本プロジェクト作成のTEIデータ、IIIF Annotation、検証結果、文書： [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 - Python、HTML、JavaScript、Schematron、GitHub Actions：MIT License
 - BnF/Gallica画像：リポジトリへ複製せずIIIF URIを参照。出典は「Source gallica.bnf.fr / Bibliothèque nationale de France」。画像再利用は[Gallicaの利用条件](https://gallica.bnf.fr/accueil/fr/html/conditions-dutilisation-de-gallica)に従います。
+- Smithsonian FSC-MS-28画像：リポジトリへ複製せずIIIF URIを参照。画像再利用は[Smithsonianの利用条件](https://www.si.edu/termsofuse)に従います。
 
 詳細は`LICENSE`と`LICENSE-CODE`を参照してください。
 

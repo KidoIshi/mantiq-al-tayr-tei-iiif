@@ -21,8 +21,8 @@ NS = {"tei": "http://www.tei-c.org/ns/1.0"}
 XML_ID = "{http://www.w3.org/XML/1998/namespace}id"
 
 
-def diplomatic_text(line: etree._Element) -> str:
-    """Return line text while selecting orig (not reg) inside every choice."""
+def diplomatic_text(line: etree._Element, witness: str = "#wit-bnf348") -> str:
+    """Return one witness's diplomatic text from choices and apparatus entries."""
 
     def collect(node: etree._Element) -> str:
         parts: list[str] = [node.text or ""]
@@ -32,6 +32,18 @@ def diplomatic_text(line: etree._Element) -> str:
                 if orig is None:
                     raise ValueError(f"choice without orig in {line.get(XML_ID)}")
                 parts.append("".join(orig.itertext()))
+            elif child.tag == f"{{{NS['tei']}}}app":
+                readings = child.xpath("./tei:lem | ./tei:rdg", namespaces=NS)
+                matches = [
+                    reading
+                    for reading in readings
+                    if witness in (reading.get("wit") or "").split()
+                ]
+                if len(matches) != 1:
+                    raise ValueError(
+                        f"app in {line.get(XML_ID)} has {len(matches)} readings for {witness}"
+                    )
+                parts.append(collect(matches[0]))
             else:
                 parts.append(collect(child))
             parts.append(child.tail or "")
