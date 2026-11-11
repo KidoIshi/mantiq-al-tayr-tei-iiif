@@ -4,9 +4,15 @@
   "type": "AnnotationPage",
   "label": {
     "ja": [
-      "Persan 348 scan f6 外交的転写（プロジェクト担当研究者が画像と照合した12対句）"
+      "Persan 348 scan-f6 外交的転写"
     ]
   },
+  "partOf": [
+    {
+      "id": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f6",
+      "type": "Canvas"
+    }
+  ],
   "items": [
     {
       "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f6-annotations.json#mt.bnf348.0001.a",

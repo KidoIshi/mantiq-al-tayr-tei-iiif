@@ -61,8 +61,8 @@
   <main>
     <section id="text-panel" aria-labelledby="text-heading">
       <p class="eyebrow">TEI P5 sample</p>
-      <h1 id="text-heading">Persan 348 写本転写（12対句）</h1>
-      <p class="note">BnF Persan 348の画像とプロジェクト担当研究者が照合した転写です（外部査読済みを意味しません）。正規化表示は検索・比較用で、写本の読みを置換しません。<a href="../data/tei/bnf-persan-348-f6-sample.xml">TEI XMLを開く</a>・<a href="../iiif/bnf-persan-348-f6-annotations.json">IIIF注釈を開く</a></p>
+      <h1 id="text-heading">Persan 348 写本転写（15対句）</h1>
+      <p class="note">BnF Persan 348の画像とプロジェクト担当研究者が照合した転写です（外部査読済みを意味しません）。正規化表示は検索・比較用で、写本の読みを置換しません。<a href="../data/tei/bnf-persan-348-f6-sample.xml">TEI XMLを開く</a>・<a href="../iiif/bnf-persan-348-f6-annotations.json">f6注釈</a>・<a href="../iiif/bnf-persan-348-f7-annotations.json">f7注釈</a></p>
       <div class="reading-mode" role="group" aria-label="本文表示方式">
         <button type="button" data-mode="diplomatic" aria-pressed="true">写本どおり</button>
         <button type="button" data-mode="normalized" aria-pressed="false">正規化候補</button>
@@ -71,7 +71,7 @@
       <div id="couplets" lang="fa" dir="rtl"></div>
     </section>
     <section id="image-panel" aria-label="IIIF manuscript viewer">
-      <div class="alignment-status">BnF Persan 348（1492年）の公開IIIF画像です。左側の12対句はscan f6に対応します。本文の読みと全24半句の画像領域はプロジェクト担当研究者が画像と照合しました。Source gallica.bnf.fr / Bibliothèque nationale de France</div>
+      <div class="alignment-status">BnF Persan 348（1492年）の公開IIIF画像です。左側の15対句はscan f6とf7に対応します。本文の読みと全30半句の画像領域はプロジェクト担当研究者が画像と照合しました。Source gallica.bnf.fr / Bibliothèque nationale de France</div>
       <div id="region-card" aria-live="polite">
         <div id="region-meta">
           <strong id="region-label">半句を選択してください</strong>
@@ -90,8 +90,9 @@
     let teiGroups = [];
     let readingMode = 'diplomatic';
     let zoneMap = new Map();
-    let imageServiceBase = '';
     let selectedFacs = '';
+    let activeCanvas = '';
+    let miradorInstance;
 
     function lineReading(line, mode) {
       const clone = line.cloneNode(true);
@@ -105,17 +106,21 @@
 
     function showRegion(facs, label) {
       const zone = zoneMap.get(facs.replace(/^#/, ''));
-      if (!zone || !imageServiceBase) return;
+      if (!zone || !zone.imageServiceBase) return;
       selectedFacs = facs;
       const width = zone.lrx - zone.ulx;
       const height = zone.lry - zone.uly;
-      const url = `${imageServiceBase}/${zone.ulx},${zone.uly},${width},${height}/1200,/0/native.jpg`;
+      const url = `${zone.imageServiceBase}/${zone.ulx},${zone.uly},${width},${height}/1200,/0/native.jpg`;
       const image = document.getElementById('region-image');
       image.src = url;
       image.alt = `${label}に対応するPersan 348の画像領域`;
       document.getElementById('region-label').textContent = `${label} — ${zone.id}`;
       document.getElementById('region-link').href = url;
       document.querySelectorAll('.hemistich').forEach(item => item.classList.toggle('selected', item.dataset.facs === facs));
+      if (miradorInstance && zone.canvas && zone.canvas !== activeCanvas) {
+        miradorInstance.store.dispatch(Mirador.actions.setCanvas('main', zone.canvas));
+        activeCanvas = zone.canvas;
+      }
     }
 
     function renderCouplets() {
@@ -167,18 +172,26 @@
         const xml = new DOMParser().parseFromString(await response.text(), 'application/xml');
         const parseError = xml.querySelector('parsererror');
         if (parseError) throw new Error('XML parse error');
-        zoneMap = new Map([...xml.getElementsByTagNameNS(teiNamespace, 'zone')].map(zone => [
-          zone.getAttributeNS('http://www.w3.org/XML/1998/namespace', 'id'),
-          {
-            id: zone.getAttributeNS('http://www.w3.org/XML/1998/namespace', 'id'),
-            ulx: Number(zone.getAttribute('ulx')),
-            uly: Number(zone.getAttribute('uly')),
-            lrx: Number(zone.getAttribute('lrx')),
-            lry: Number(zone.getAttribute('lry'))
-          }
-        ]));
-        const graphic = xml.getElementsByTagNameNS(teiNamespace, 'graphic')[0];
-        imageServiceBase = graphic.getAttribute('url').replace(/\/full\/full\/0\/[^/]+\.jpg$/, '');
+        zoneMap = new Map();
+        [...xml.getElementsByTagNameNS(teiNamespace, 'surface')].forEach(surface => {
+          const graphic = [...surface.children].find(child => child.namespaceURI === teiNamespace && child.localName === 'graphic');
+          const imageServiceBase = graphic.getAttribute('url').replace(/\/full\/full\/0\/[^/]+\.jpg$/, '');
+          const canvas = surface.getAttribute('corresp') || '';
+          [...surface.children]
+            .filter(child => child.namespaceURI === teiNamespace && child.localName === 'zone')
+            .forEach(zone => zoneMap.set(
+              zone.getAttributeNS('http://www.w3.org/XML/1998/namespace', 'id'),
+              {
+                id: zone.getAttributeNS('http://www.w3.org/XML/1998/namespace', 'id'),
+                ulx: Number(zone.getAttribute('ulx')),
+                uly: Number(zone.getAttribute('uly')),
+                lrx: Number(zone.getAttribute('lrx')),
+                lry: Number(zone.getAttribute('lry')),
+                imageServiceBase,
+                canvas
+              }
+            ));
+        });
         teiGroups = [...xml.getElementsByTagNameNS(teiNamespace, 'lg')]
           .filter(group => group.getAttribute('type') === 'couplet');
         renderCouplets();
@@ -197,15 +210,16 @@
       });
     });
 
-    loadTei();
-    Mirador.viewer({
+    miradorInstance = Mirador.viewer({
       id: 'viewer',
       language: 'ja',
       windows: [{
+        id: 'main',
         manifestId: 'https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/manifest.json',
         thumbnailNavigationPosition: 'far-bottom'
       }]
     });
+    loadTei();
   </script>
 </body>
 </html>

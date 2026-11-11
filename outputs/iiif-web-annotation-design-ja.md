@@ -1,7 +1,8 @@
 # Persan 348：TEIからIIIF Web Annotationへの変換設計
 
 作成日：2026年11月10日  
-状態：24半句の変換・相互照合済み
+更新日：2026年11月11日
+状態：2 Canvas・30半句の変換・相互照合済み
 
 ## 目的
 
@@ -12,7 +13,8 @@ TEI内の`l/@facs → zone`対応を、IIIF対応ツールが利用できるAnno
 - 1つのTEI `l`を1つのIIIF `Annotation`へ変換する。
 - `body`はプロジェクト担当研究者が写本画像と照合した外交的転写を`TextualBody`として持つ。これは外部査読済みを意味しない。
 - `motivation`は、画像をCanvasへ描画する`painting`ではなく、転写を補足する`supplementing`とする。
-- `target`はBnFのscan f6 Canvasに`#xywh=x,y,w,h`を付けた領域URIとする。
+- `target`はBnFのscan f6またはf7 Canvasに`#xywh=x,y,w,h`を付けた領域URIとする。
+- AnnotationPageはCanvasごとに分け、`partOf`で対応Canvasを明示する。
 - `choice`がある箇所では`orig`を採用し、`reg`はTEIに保持する。したがってIIIF注釈は写本転写を正規化形で上書きしない。
 
 公式仕様：
@@ -22,11 +24,12 @@ TEI内の`l/@facs → zone`対応を、IIIF対応ツールが利用できるAnno
 
 ## Canvasの確認
 
-BnF Manifest内でscan f6のCanvasを確認した。
+BnF Manifest内でscan f6・f7のCanvasを確認した。
 
 - Canvas：`https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f6`
+- Canvas：`https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7`
 - 寸法：3669×2787
-- TEI `surface`寸法：3669×2787
+- 各TEI `surface`寸法：3669×2787
 
 CanvasとTEI surfaceが同一の座標系を使うため、`zone`を単純な`xywh`へ変換できる。
 
@@ -59,7 +62,7 @@ IIIF注釈の主要部分：
 `scripts/validate_iiif_annotations.py`が以下を相互照合する。
 
 1. JSONが読み込め、Presentation API 3の基本形を持つこと。
-2. TEIの24半句とAnnotationの件数・識別子が一致すること。
+2. TEIの30半句と2 AnnotationPage内のAnnotationの件数・識別子が一致すること。
 3. Annotation本文がTEIの外交的転写と一致すること。
 4. Canvas領域がTEI `zone`から算出した`xywh`と一致すること。
 
@@ -71,7 +74,7 @@ AIに委任できる範囲：
 
 - `l/@facs`の解決と座標変換。
 - `orig`からの外交的転写抽出。
-- AnnotationPage生成と機械的な相互照合。
+- Canvas別AnnotationPage生成と機械的な相互照合。
 - 公開URL変更時の一括再生成。
 
 研究者が判断する範囲：

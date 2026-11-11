@@ -7,7 +7,7 @@
 
 本試作は、ファリードゥッディーン・アッタール『鳥の言葉』（*Manṭiq al-ṭayr*）の写本BnF Persan 348を対象に、ペルシア語詩の外交的転写をTEI P5で構造化し、IIIF画像の該当領域と接続するものである。目的は批判校訂版の完成ではなく、写本転写、正規化、画像対応、規格変換、検証を一貫して説明・再実行できる小規模なデジタル人文学成果物を構築することにある。
 
-対象はscan f6上の12対句・24半句である。本文の読み、`<unclear>`を付与しない判断、3箇所の検索用正規化、全24半句の画像領域について研究者が写本画像を確認した。
+対象はscan f6〜f7上の15対句・30半句である。本文の読み、`<unclear>`を付与しない判断、3箇所の検索用正規化、全30半句の画像領域について研究者が写本画像を確認した。
 
 ## 2. 資料と学術的位置づけ
 
@@ -15,8 +15,8 @@
 - 請求記号：Persan 348
 - Gallica ARK：`ark:/12148/btv1b10091505x`
 - 書写年：1492年4月8日
-- 試料画像：Gallica IIIFのscan f6
-- 試料範囲：冒頭12対句・24半句
+- 試料画像：Gallica IIIFのscan f6・f7
+- 試料範囲：冒頭15対句・30半句
 
 Persan 348は、TEI・IIIF実装と写本転写の練習に採用した一証人であり、最良写本、校訂底本または刊本の代替として選定したものではない。本試作の本文はPersan 348の外交的転写であって、複数証人を統合した校訂本文ではない。
 
@@ -38,13 +38,15 @@ Persan 348は、TEI・IIIF実装と写本転写の練習に採用した一証人
 
 ### 3.3 画像対応
 
-TEIの`<surface>`がscan f6の座標空間3669×2787を表し、各`<zone>`が半句領域を矩形座標で記録する。各`<l>`は`@facs`で対応する`zone`を参照する。
+TEIの二つの`<surface>`がscan f6・f7の座標空間3669×2787を表し、各`<zone>`が半句領域を矩形座標で記録する。各`<l>`は`@facs`で対応する`zone`を参照し、各`surface/@corresp`がIIIF Canvas URIを示す。
 
 BnF Manifest内の正式なCanvasは次のURIである。
 
 `https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f6`
 
-18個の`zone`をIIIF Presentation API 3の18個のWeb Annotationへ変換し、Canvas URIに`#xywh=x,y,w,h`を付けて対象領域を表した。
+`https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7`
+
+30個の`zone`をIIIF Presentation API 3の30個のWeb Annotationへ変換し、Canvas URIに`#xywh=x,y,w,h`を付けて対象領域を表した。AnnotationPageはCanvasごとに分け、f6用24件とf7用6件を生成した。
 
 ## 4. システム構成
 
@@ -54,8 +56,8 @@ BnF Manifest内の正式なCanvasは次のURIである。
 | TEIカスタマイゼーション | `schema/mantiq.odd` | 使用するTEIモジュールと設計理由 |
 | 専用スキーマ | `schema/mantiq.rng` | ODDから生成したプロジェクト用Relax NG |
 | 制約 | `schema/mantiq.sch` | プロジェクト固有の構造・参照規則 |
-| 相互運用 | `iiif/bnf-persan-348-f6-annotations.json` | Canvas上の半句転写と画像領域 |
-| 変換 | `scripts/tei_to_iiif_annotations.py` | TEIからIIIF AnnotationPageを決定論的に生成 |
+| 相互運用 | `iiif/bnf-persan-348-f6-annotations.json`、`bnf-persan-348-f7-annotations.json` | Canvas別の半句転写と画像領域 |
+| 変換 | `scripts/tei_to_iiif_annotations.py` | TEIからCanvas別IIIF AnnotationPageを決定論的に生成 |
 | スキーマ生成 | `scripts/build_odd_schema.py` | ODDから専用Relax NGを再生成しJingで検証 |
 | 検証 | `scripts/validate.py` | XML、TEI All、ODD生成Relax NG、Schematron検証 |
 | 相互照合 | `scripts/validate_iiif_annotations.py` | TEI本文・zoneとIIIF注釈の一致確認 |
@@ -63,20 +65,22 @@ BnF Manifest内の正式なCanvasは次のURIである。
 
 ## 5. 検証結果
 
-2026年11月10日時点の結果は次のとおりである。
+2026年11月11日時点の結果は次のとおりである。
 
 - XML整形式：合格
 - 公式TEI P5 All Relax NG：合格
 - ODD生成プロジェクト専用Relax NG：合格
 - プロジェクトSchematron：合格
-- 対句数：12
-- 半句数：18
-- 半句の`@facs`：18件すべて付与・参照解決
-- IIIF Annotation：18件
-- Annotation本文とTEI外交的転写：18件すべて一致
-- AnnotationのCanvas領域とTEI `zone`：18件すべて一致
-- 研究者による本文確認：24半句
-- 研究者による画像領域確認：18領域
+- 対句数：15
+- 半句数：30
+- 半句の`@facs`：30件すべて付与・参照解決
+- IIIF Canvas：2件
+- IIIF AnnotationPage：2件
+- IIIF Annotation：30件
+- Annotation本文とTEI外交的転写：30件すべて一致
+- AnnotationのCanvas領域とTEI `zone`：30件すべて一致
+- 研究者による本文確認：30半句
+- 研究者による画像領域確認：30領域
 
 機械検証はXML文法、TEI文法、プロジェクト規則、ファイル間の一致を確認する。一方、文字の読みや領域の学術的妥当性は自動検証できないため、研究者確認を別に記録した。
 
@@ -92,11 +96,11 @@ AIに委任した作業は、仕様調査、転写候補、座標候補、XML・
 
 ### 実装・確認済み
 
-- Persan 348の12対句・24半句について、プロジェクト担当研究者が写本画像と照合した外交的転写
+- Persan 348の15対句・30半句について、プロジェクト担当研究者が写本画像と照合した外交的転写
 - 対句・半句構造と安定ID
 - 3箇所の研究者承認済み正規化
-- 24半句と24画像領域のTEI `@facs`対応
-- IIIF Presentation 3 AnnotationPageへの自動変換
+- 30半句と30画像領域のTEI `@facs`対応
+- 2 Canvasに対応するIIIF Presentation 3 AnnotationPageへの自動変換
 - ODD、専用Relax NG、公式TEI All、Schematron、TEI–IIIF相互照合
 - 外交的転写・正規化切替と領域表示を備えた閲覧画面
 

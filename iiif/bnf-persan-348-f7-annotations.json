@@ -1,0 +1,90 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f7-annotations.json",
+  "type": "AnnotationPage",
+  "label": {
+    "ja": [
+      "Persan 348 scan-f7 外交的転写"
+    ]
+  },
+  "partOf": [
+    {
+      "id": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7",
+      "type": "Canvas"
+    }
+  ],
+  "items": [
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f7-annotations.json#mt.bnf348.0013.a",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "نیم پشه بر سر دشمن گماشت",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=2500,600,550,160"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f7-annotations.json#mt.bnf348.0013.b",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "بر سر او چارصد سالش بداشت",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=2000,600,520,160"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f7-annotations.json#mt.bnf348.0014.a",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "عنکبوتی را بحکمت دام داد",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=2500,740,550,160"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f7-annotations.json#mt.bnf348.0014.b",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "صدر عالم را درو آرام داد",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=2000,740,520,160"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f7-annotations.json#mt.bnf348.0015.a",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "بست موری را کمر چون موی سر",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=2500,870,550,160"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f7-annotations.json#mt.bnf348.0015.b",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "کرد او را با سلیمان هم کمر",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=2000,870,520,160"
+    }
+  ]
+}

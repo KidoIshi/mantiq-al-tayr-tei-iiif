@@ -13,7 +13,7 @@ from lxml import etree
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "outputs" / "publication-readiness.json"
 TEI = ROOT / "data" / "tei" / "bnf-persan-348-f6-sample.xml"
-ANNOTATIONS = ROOT / "iiif" / "bnf-persan-348-f6-annotations.json"
+ANNOTATION_PATTERN = "bnf-persan-348-f*-annotations.json"
 VERIFY = ROOT / "outputs" / "project-verification-summary.json"
 NS = {"tei": "http://www.tei-c.org/ns/1.0"}
 
@@ -67,15 +67,19 @@ def main() -> int:
                 }
             )
 
-    annotation_data = json.loads(ANNOTATIONS.read_text(encoding="utf-8"))
-    annotation_id = str(annotation_data.get("id", ""))
-    if "127.0.0.1" in annotation_id or "localhost" in annotation_id:
-        blockers.append(
-            {
-                "check": "public_annotation_id",
-                "reason": "AnnotationPage id still uses a local-only URL.",
-            }
-        )
+    annotation_paths = sorted((ROOT / "iiif").glob(ANNOTATION_PATTERN))
+    if not annotation_paths:
+        blockers.append({"check": "annotation_pages", "reason": "No Canvas-specific AnnotationPage exists."})
+    for annotation_path in annotation_paths:
+        annotation_data = json.loads(annotation_path.read_text(encoding="utf-8"))
+        annotation_id = str(annotation_data.get("id", ""))
+        if "127.0.0.1" in annotation_id or "localhost" in annotation_id:
+            blockers.append(
+                {
+                    "check": "public_annotation_id",
+                    "reason": f"AnnotationPage id still uses a local-only URL: {annotation_path.name}",
+                }
+            )
 
     document = etree.parse(str(TEI))
     names = [" ".join(name.itertext()).strip() for name in document.xpath("//tei:titleStmt/tei:respStmt/tei:name", namespaces=NS)]

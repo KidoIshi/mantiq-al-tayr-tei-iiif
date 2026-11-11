@@ -9,17 +9,17 @@ This project develops a reproducible TEI–IIIF workflow for Farīd al-Dīn ʿA�
 
 ## Implemented dataset
 
-- 12 couplets and 24 hemistichs from Gallica scan f6.
+- 15 couplets and 30 hemistichs from Gallica scans f6 and f7.
 - Persian readings and line pairing reviewed against the image by the project researcher; this is not external peer review.
 - Stable identifiers for every couplet and hemistich.
 - Three approved `choice/orig/reg` normalizations, while retaining the diplomatic reading as the default.
-- 18 TEI `zone` regions reviewed against the image by the project researcher and linked from the hemistichs with `@facs`.
-- A generated IIIF Presentation 3 AnnotationPage containing 18 `supplementing` Web Annotations targeting the BnF f6 Canvas with `xywh` fragments.
+- 30 TEI `zone` regions reviewed against the image by the project researcher and linked from the hemistichs with `@facs`.
+- Two generated IIIF Presentation 3 AnnotationPages containing 30 `supplementing` Web Annotations targeting the BnF f6 and f7 Canvases with `xywh` fragments.
 - A browser demonstrator with diplomatic/normalized display, hemistich-region previews, and a Mirador manuscript viewer.
 
 ## Data model
 
-Each Persian *bayt* is encoded as `<lg type="couplet">`, and its two *miṣrāʿ*s as `<l n="a">` and `<l n="b">`. The TEI document is the authoritative source for textual structure, editorial responsibility, and image regions. A deterministic converter exports the approved diplomatic transcription and TEI zones as an IIIF AnnotationPage. The normalization layer is not allowed to overwrite the manuscript transcription.
+Each Persian *bayt* is encoded as `<lg type="couplet">`, and its two *miṣrāʿ*s as `<l n="a">` and `<l n="b">`. The TEI document is the authoritative source for textual structure, editorial responsibility, and image regions. Each `surface/@corresp` identifies its IIIF Canvas. A deterministic converter exports the approved diplomatic transcription and TEI zones as one AnnotationPage per Canvas. The normalization layer is not allowed to overwrite the manuscript transcription.
 
 ## Validation
 
@@ -41,7 +41,7 @@ The technical competence demonstrated here is therefore not manual XML entry. It
 
 ## Current limitations
 
-- The sample covers 12 couplets rather than the complete work.
+- The sample covers 15 couplets rather than the complete work.
 - Persan 348 is used as a practice witness, not established as a best or base manuscript.
 - No multi-witness critical apparatus has yet been encoded.
 - Japanese translation alignment, speaker annotation, and nested narrative structures remain future work.

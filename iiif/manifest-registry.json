@@ -10,13 +10,24 @@
       "aggregator_record": "https://iiif.biblissima.fr/collections/manifest/cb11f0b6f2ee91a4ef6c400c66b5bba416cfd217",
       "manifest": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/manifest.json",
       "presentation_api": "2.x",
-      "sample_canvas": {
-        "id": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f6",
-        "width": 3669,
-        "height": 2787,
-        "verified_on": "2026-11-10"
-      },
-      "project_annotation_page": "iiif/bnf-persan-348-f6-annotations.json",
+      "sample_canvases": [
+        {
+          "id": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f6",
+          "width": 3669,
+          "height": 2787,
+          "verified_on": "2026-11-10"
+        },
+        {
+          "id": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7",
+          "width": 3669,
+          "height": 2787,
+          "verified_on": "2026-11-11"
+        }
+      ],
+      "project_annotation_pages": [
+        "iiif/bnf-persan-348-f6-annotations.json",
+        "iiif/bnf-persan-348-f7-annotations.json"
+      ],
       "scope": "complete digitisation presented as 223 viewer pages; manuscript catalogue describes 213 folios",
       "date": "1492-04-08",
       "scribe": "Mawlānā Ḥasan-ʿAlī b. M. b. ʿAbd-ullāh Ḥamza Kātib",
@@ -34,7 +45,7 @@
       },
       "text_alignment": {
         "status": "project-researcher-reviewed-sample",
-        "reason": "The project researcher reviewed the readings and image regions for 12 couplets / 24 hemistichs against scan f6; this is not external peer review. The alignment is exported as an IIIF Presentation 3 AnnotationPage."
+        "reason": "The project researcher reviewed the readings and image regions for 15 couplets / 30 hemistichs against scans f6 and f7; this is not external peer review. The alignment is exported as two Canvas-specific IIIF Presentation 3 AnnotationPages."
       }
     },
     {

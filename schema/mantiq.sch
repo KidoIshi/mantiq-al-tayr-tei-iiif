@@ -49,11 +49,16 @@
   </pattern>
 
   <pattern id="facsimile-alignment">
+    <rule context="tei:surface">
+      <assert test="starts-with(@corresp, 'http://') or starts-with(@corresp, 'https://')">各surfaceには対応するIIIF CanvasのHTTP(S) URIを@correspで付けること。</assert>
+      <assert test="count(tei:graphic) = 1">各surfaceは画像取得元を示すgraphicを1つ持つこと。</assert>
+    </rule>
     <rule context="tei:lg[@type='couplet']/tei:l">
       <assert test="starts-with(@facs, '#')">各半句には#で始まるzone参照@facsを付けること。</assert>
       <assert test="id(substring-after(@facs, '#'))[self::tei:zone]">各半句の@facsは実在するTEI zoneを参照すること。</assert>
     </rule>
     <rule context="tei:surface/tei:zone">
+      <assert test="parent::tei:surface/@corresp">各zoneの親surfaceにはIIIF Canvas参照@correspがあること。</assert>
       <assert test="number(@ulx) &lt; number(@lrx) and number(@uly) &lt; number(@lry)">zoneは正の幅と高さを持つこと。</assert>
       <assert test="number(@ulx) &gt;= number(parent::tei:surface/@ulx) and number(@uly) &gt;= number(parent::tei:surface/@uly)">zoneの左上はsurfaceの範囲内にあること。</assert>
       <assert test="number(@lrx) &lt;= number(parent::tei:surface/@lrx) and number(@lry) &lt;= number(parent::tei:surface/@lry)">zoneの右下はsurfaceの範囲内にあること。</assert>

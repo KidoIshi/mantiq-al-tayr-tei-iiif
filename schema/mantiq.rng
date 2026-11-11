@@ -10,6 +10,15 @@ TEI Edition: P5 Version 4.12.0. Last updated on 28th July 2026, revision 113e93
 TEI Edition Location: https://www.tei-c.org/Vault/P5/4.12.0/
 
 --><!--[https://creativecommons.org/licenses/by/4.0/] CC BY 4.0-->
+   <define name="mantiq_macro.abContent">
+      <zeroOrMore>
+         <choice>
+            <text/>
+            <ref name="mantiq_model.paraPart"/>
+            <ref name="mantiq_ab"/>
+         </choice>
+      </zeroOrMore>
+   </define>
    <define name="mantiq_macro.paraContent">
       <zeroOrMore>
          <choice>
@@ -1356,6 +1365,7 @@ Sample values include: 1] all; 2] most; 3] range</a:documentation>
    <define name="mantiq_att.global.attributes">
       <ref name="mantiq_att.global.change.attributes"/>
       <ref name="mantiq_att.global.facs.attributes"/>
+      <ref name="mantiq_att.global.linking.attributes"/>
       <ref name="mantiq_att.global.rendition.attributes"/>
       <ref name="mantiq_att.global.responsibility.attributes"/>
       <ref name="mantiq_att.global.source.attributes"/>
@@ -1565,6 +1575,71 @@ Sample values include: 1] all; 2] most; 3] range</a:documentation>
          </attribute>
       </optional>
    </define>
+   <define name="mantiq_att.pointing.group.attributes">
+      <ref name="mantiq_att.pointing.attributes"/>
+      <ref name="mantiq_att.typed.attributes"/>
+      <ref name="mantiq_att.pointing.group.attribute.domains"/>
+      <ref name="mantiq_att.pointing.group.attribute.targFunc"/>
+   </define>
+   <define name="mantiq_att.pointing.group.attribute.domains">
+      <optional>
+         <attribute name="domains">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">optionally specifies the identifiers of the elements within which all elements indicated by the contents of this element lie.</a:documentation>
+            <list>
+               <data type="anyURI">
+                  <param name="pattern">\S+</param>
+               </data>
+               <data type="anyURI">
+                  <param name="pattern">\S+</param>
+               </data>
+               <zeroOrMore>
+                  <data type="anyURI">
+                     <param name="pattern">\S+</param>
+                  </data>
+               </zeroOrMore>
+            </list>
+         </attribute>
+      </optional>
+   </define>
+   <define name="mantiq_att.pointing.group.attribute.targFunc">
+      <optional>
+         <attribute name="targFunc">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(target function) describes the function of each of the values of the <code xmlns="http://www.w3.org/1999/xhtml"
+                     xmlns:rng="http://relaxng.org/ns/structure/1.0">@target</code> attribute of the enclosed <code xmlns="http://www.w3.org/1999/xhtml"
+                     xmlns:rng="http://relaxng.org/ns/structure/1.0">&lt;link&gt;</code>, <code xmlns="http://www.w3.org/1999/xhtml"
+                     xmlns:rng="http://relaxng.org/ns/structure/1.0">&lt;join&gt;</code>, or <code xmlns="http://www.w3.org/1999/xhtml"
+                     xmlns:rng="http://relaxng.org/ns/structure/1.0">&lt;alt&gt;</code> tags.</a:documentation>
+            <list>
+               <data type="token">
+                  <param name="pattern">[^\p{C}\p{Z}]+</param>
+               </data>
+               <data type="token">
+                  <param name="pattern">[^\p{C}\p{Z}]+</param>
+               </data>
+               <zeroOrMore>
+                  <data type="token">
+                     <param name="pattern">[^\p{C}\p{Z}]+</param>
+                  </data>
+               </zeroOrMore>
+            </list>
+         </attribute>
+      </optional>
+   </define>
+   <define name="mantiq_att.segLike.attributes">
+      <ref name="mantiq_att.datcat.attributes"/>
+      <ref name="mantiq_att.fragmentable.attributes"/>
+      <ref name="mantiq_att.segLike.attribute.function"/>
+   </define>
+   <define name="mantiq_att.segLike.attribute.function">
+      <optional>
+         <attribute name="function">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(function) characterizes the function of the segment.</a:documentation>
+            <data type="token">
+               <param name="pattern">[^\p{C}\p{Z}]+</param>
+            </data>
+         </attribute>
+      </optional>
+   </define>
    <define name="mantiq_att.transcriptional.attributes">
       <ref name="mantiq_att.editLike.attributes"/>
       <ref name="mantiq_att.placement.attributes"/>
@@ -1733,22 +1808,32 @@ Sample values include: 1] rubbing; 2] mildew; 3] smoke</a:documentation>
       </oneOrMore>
    </define>
    <define name="mantiq_model.segLike">
-      <notAllowed/>
+      <choice>
+         <ref name="mantiq_seg"/>
+      </choice>
    </define>
    <define name="mantiq_model.segLike_alternation">
-      <notAllowed/>
+      <choice>
+         <ref name="mantiq_seg"/>
+      </choice>
    </define>
    <define name="mantiq_model.segLike_sequence">
-      <empty/>
+      <ref name="mantiq_seg"/>
    </define>
    <define name="mantiq_model.segLike_sequenceOptional">
-      <empty/>
+      <optional>
+         <ref name="mantiq_seg"/>
+      </optional>
    </define>
    <define name="mantiq_model.segLike_sequenceOptionalRepeatable">
-      <empty/>
+      <zeroOrMore>
+         <ref name="mantiq_seg"/>
+      </zeroOrMore>
    </define>
    <define name="mantiq_model.segLike_sequenceRepeatable">
-      <notAllowed/>
+      <oneOrMore>
+         <ref name="mantiq_seg"/>
+      </oneOrMore>
    </define>
    <define name="mantiq_model.hiLike">
       <choice>
@@ -2760,6 +2845,7 @@ Sample values include: 1] rubbing; 2] mildew; 3] smoke</a:documentation>
          <ref name="mantiq_redo"/>
          <ref name="mantiq_retrace"/>
          <ref name="mantiq_undo"/>
+         <ref name="mantiq_seg"/>
       </choice>
    </define>
    <define name="mantiq_model.ptrLike">
@@ -2825,6 +2911,13 @@ Sample values include: 1] rubbing; 2] mildew; 3] smoke</a:documentation>
          <ref name="mantiq_index"/>
          <ref name="mantiq_substJoin"/>
          <ref name="mantiq_listTranspose"/>
+         <ref name="mantiq_link"/>
+         <ref name="mantiq_linkGrp"/>
+         <ref name="mantiq_timeline"/>
+         <ref name="mantiq_join"/>
+         <ref name="mantiq_joinGrp"/>
+         <ref name="mantiq_alt"/>
+         <ref name="mantiq_altGrp"/>
       </choice>
    </define>
    <define name="mantiq_model.global.meta_alternation">
@@ -2832,12 +2925,26 @@ Sample values include: 1] rubbing; 2] mildew; 3] smoke</a:documentation>
          <ref name="mantiq_index"/>
          <ref name="mantiq_substJoin"/>
          <ref name="mantiq_listTranspose"/>
+         <ref name="mantiq_link"/>
+         <ref name="mantiq_linkGrp"/>
+         <ref name="mantiq_timeline"/>
+         <ref name="mantiq_join"/>
+         <ref name="mantiq_joinGrp"/>
+         <ref name="mantiq_alt"/>
+         <ref name="mantiq_altGrp"/>
       </choice>
    </define>
    <define name="mantiq_model.global.meta_sequence">
       <ref name="mantiq_index"/>
       <ref name="mantiq_substJoin"/>
       <ref name="mantiq_listTranspose"/>
+      <ref name="mantiq_link"/>
+      <ref name="mantiq_linkGrp"/>
+      <ref name="mantiq_timeline"/>
+      <ref name="mantiq_join"/>
+      <ref name="mantiq_joinGrp"/>
+      <ref name="mantiq_alt"/>
+      <ref name="mantiq_altGrp"/>
    </define>
    <define name="mantiq_model.global.meta_sequenceOptional">
       <optional>
@@ -2848,6 +2955,27 @@ Sample values include: 1] rubbing; 2] mildew; 3] smoke</a:documentation>
       </optional>
       <optional>
          <ref name="mantiq_listTranspose"/>
+      </optional>
+      <optional>
+         <ref name="mantiq_link"/>
+      </optional>
+      <optional>
+         <ref name="mantiq_linkGrp"/>
+      </optional>
+      <optional>
+         <ref name="mantiq_timeline"/>
+      </optional>
+      <optional>
+         <ref name="mantiq_join"/>
+      </optional>
+      <optional>
+         <ref name="mantiq_joinGrp"/>
+      </optional>
+      <optional>
+         <ref name="mantiq_alt"/>
+      </optional>
+      <optional>
+         <ref name="mantiq_altGrp"/>
       </optional>
    </define>
    <define name="mantiq_model.global.meta_sequenceOptionalRepeatable">
@@ -2860,6 +2988,27 @@ Sample values include: 1] rubbing; 2] mildew; 3] smoke</a:documentation>
       <zeroOrMore>
          <ref name="mantiq_listTranspose"/>
       </zeroOrMore>
+      <zeroOrMore>
+         <ref name="mantiq_link"/>
+      </zeroOrMore>
+      <zeroOrMore>
+         <ref name="mantiq_linkGrp"/>
+      </zeroOrMore>
+      <zeroOrMore>
+         <ref name="mantiq_timeline"/>
+      </zeroOrMore>
+      <zeroOrMore>
+         <ref name="mantiq_join"/>
+      </zeroOrMore>
+      <zeroOrMore>
+         <ref name="mantiq_joinGrp"/>
+      </zeroOrMore>
+      <zeroOrMore>
+         <ref name="mantiq_alt"/>
+      </zeroOrMore>
+      <zeroOrMore>
+         <ref name="mantiq_altGrp"/>
+      </zeroOrMore>
    </define>
    <define name="mantiq_model.global.meta_sequenceRepeatable">
       <oneOrMore>
@@ -2871,6 +3020,27 @@ Sample values include: 1] rubbing; 2] mildew; 3] smoke</a:documentation>
       <oneOrMore>
          <ref name="mantiq_listTranspose"/>
       </oneOrMore>
+      <oneOrMore>
+         <ref name="mantiq_link"/>
+      </oneOrMore>
+      <oneOrMore>
+         <ref name="mantiq_linkGrp"/>
+      </oneOrMore>
+      <oneOrMore>
+         <ref name="mantiq_timeline"/>
+      </oneOrMore>
+      <oneOrMore>
+         <ref name="mantiq_join"/>
+      </oneOrMore>
+      <oneOrMore>
+         <ref name="mantiq_joinGrp"/>
+      </oneOrMore>
+      <oneOrMore>
+         <ref name="mantiq_alt"/>
+      </oneOrMore>
+      <oneOrMore>
+         <ref name="mantiq_altGrp"/>
+      </oneOrMore>
    </define>
    <define name="mantiq_model.milestoneLike">
       <choice>
@@ -2880,6 +3050,7 @@ Sample values include: 1] rubbing; 2] mildew; 3] smoke</a:documentation>
          <ref name="mantiq_lb"/>
          <ref name="mantiq_cb"/>
          <ref name="mantiq_fw"/>
+         <ref name="mantiq_anchor"/>
       </choice>
    </define>
    <define name="mantiq_model.milestoneLike_alternation">
@@ -2890,6 +3061,7 @@ Sample values include: 1] rubbing; 2] mildew; 3] smoke</a:documentation>
          <ref name="mantiq_lb"/>
          <ref name="mantiq_cb"/>
          <ref name="mantiq_fw"/>
+         <ref name="mantiq_anchor"/>
       </choice>
    </define>
    <define name="mantiq_model.milestoneLike_sequence">
@@ -2899,6 +3071,7 @@ Sample values include: 1] rubbing; 2] mildew; 3] smoke</a:documentation>
       <ref name="mantiq_lb"/>
       <ref name="mantiq_cb"/>
       <ref name="mantiq_fw"/>
+      <ref name="mantiq_anchor"/>
    </define>
    <define name="mantiq_model.milestoneLike_sequenceOptional">
       <optional>
@@ -2918,6 +3091,9 @@ Sample values include: 1] rubbing; 2] mildew; 3] smoke</a:documentation>
       </optional>
       <optional>
          <ref name="mantiq_fw"/>
+      </optional>
+      <optional>
+         <ref name="mantiq_anchor"/>
       </optional>
    </define>
    <define name="mantiq_model.milestoneLike_sequenceOptionalRepeatable">
@@ -2939,6 +3115,9 @@ Sample values include: 1] rubbing; 2] mildew; 3] smoke</a:documentation>
       <zeroOrMore>
          <ref name="mantiq_fw"/>
       </zeroOrMore>
+      <zeroOrMore>
+         <ref name="mantiq_anchor"/>
+      </zeroOrMore>
    </define>
    <define name="mantiq_model.milestoneLike_sequenceRepeatable">
       <oneOrMore>
@@ -2958,6 +3137,9 @@ Sample values include: 1] rubbing; 2] mildew; 3] smoke</a:documentation>
       </oneOrMore>
       <oneOrMore>
          <ref name="mantiq_fw"/>
+      </oneOrMore>
+      <oneOrMore>
+         <ref name="mantiq_anchor"/>
       </oneOrMore>
    </define>
    <define name="mantiq_model.gLike">
@@ -3368,29 +3550,41 @@ Sample values include: 1] rubbing; 2] mildew; 3] smoke</a:documentation>
    <define name="mantiq_model.pLike">
       <choice>
          <ref name="mantiq_p"/>
+         <ref name="mantiq_ab"/>
       </choice>
    </define>
    <define name="mantiq_model.pLike_alternation">
       <choice>
          <ref name="mantiq_p"/>
+         <ref name="mantiq_ab"/>
       </choice>
    </define>
    <define name="mantiq_model.pLike_sequence">
       <ref name="mantiq_p"/>
+      <ref name="mantiq_ab"/>
    </define>
    <define name="mantiq_model.pLike_sequenceOptional">
       <optional>
          <ref name="mantiq_p"/>
+      </optional>
+      <optional>
+         <ref name="mantiq_ab"/>
       </optional>
    </define>
    <define name="mantiq_model.pLike_sequenceOptionalRepeatable">
       <zeroOrMore>
          <ref name="mantiq_p"/>
       </zeroOrMore>
+      <zeroOrMore>
+         <ref name="mantiq_ab"/>
+      </zeroOrMore>
    </define>
    <define name="mantiq_model.pLike_sequenceRepeatable">
       <oneOrMore>
          <ref name="mantiq_p"/>
+      </oneOrMore>
+      <oneOrMore>
+         <ref name="mantiq_ab"/>
       </oneOrMore>
    </define>
    <define name="mantiq_model.stageLike">
@@ -4041,6 +4235,7 @@ Sample values include: 1] rubbing; 2] mildew; 3] smoke</a:documentation>
          <ref name="mantiq_ex"/>
          <ref name="mantiq_am"/>
          <ref name="mantiq_supplied"/>
+         <ref name="mantiq_seg"/>
       </choice>
    </define>
    <define name="mantiq_model.imprintPart">
@@ -4432,6 +4627,19 @@ Sample values include: 1] rubbing; 2] mildew; 3] smoke</a:documentation>
          <ref name="mantiq_div7"/>
       </choice>
    </define>
+   <define name="mantiq_model.annotationLike">
+      <choice>
+         <ref name="mantiq_note"/>
+         <ref name="mantiq_annotation"/>
+      </choice>
+   </define>
+   <define name="mantiq_model.annotationPart.body">
+      <choice>
+         <ref name="mantiq_ptr"/>
+         <ref name="mantiq_ref"/>
+         <ref name="mantiq_note"/>
+      </choice>
+   </define>
    <define name="mantiq_model.applicationLike">
       <choice>
          <ref name="mantiq_application"/>
@@ -4486,6 +4694,19 @@ Sample values include: 1] rubbing; 2] mildew; 3] smoke</a:documentation>
          <ref name="mantiq_correspDesc"/>
          <ref name="mantiq_handNotes"/>
          <ref name="mantiq_listTranspose"/>
+      </choice>
+   </define>
+   <define name="mantiq_model.standOffPart">
+      <choice>
+         <ref name="mantiq_model.global.meta"/>
+         <ref name="mantiq_model.biblLike"/>
+         <ref name="mantiq_model.listLike"/>
+         <ref name="mantiq_model.annotationLike"/>
+         <ref name="mantiq_xenoData"/>
+         <ref name="mantiq_listChange"/>
+         <ref name="mantiq_zone"/>
+         <ref name="mantiq_seg"/>
+         <ref name="mantiq_listAnnotation"/>
       </choice>
    </define>
    <define name="mantiq_att.formula.attributes">
@@ -4548,6 +4769,7 @@ Sample values include: 1] rubbing; 2] mildew; 3] smoke</a:documentation>
          <ref name="mantiq_text"/>
          <ref name="mantiq_facsimile"/>
          <ref name="mantiq_sourceDoc"/>
+         <ref name="mantiq_standOff"/>
       </choice>
    </define>
    <define name="mantiq_model.describedResource">
@@ -11301,6 +11523,8 @@ Sample values include: 1] primary; 2] secondary; 3] undergraduate; 4] graduate; 
                   <ref name="mantiq_model.noteLike"/>
                   <ref name="mantiq_model.biblLike"/>
                   <ref name="mantiq_model.ptrLike"/>
+                  <ref name="mantiq_linkGrp"/>
+                  <ref name="mantiq_link"/>
                   <ref name="mantiq_idno"/>
                </choice>
             </zeroOrMore>
@@ -11764,6 +11988,8 @@ Sample values include: 1] primary; 2] other; 3] paid; 4] unpaid</a:documentation
                   <ref name="mantiq_model.noteLike"/>
                   <ref name="mantiq_model.biblLike"/>
                   <ref name="mantiq_model.ptrLike"/>
+                  <ref name="mantiq_linkGrp"/>
+                  <ref name="mantiq_link"/>
                </choice>
             </zeroOrMore>
             <zeroOrMore>
@@ -12062,6 +12288,8 @@ Sample values include: 1] e (e); 2] he (he); 3] she (she); 4] they (they)</a:doc
                   <ref name="mantiq_model.biblLike"/>
                   <ref name="mantiq_model.ptrLike"/>
                   <ref name="mantiq_idno"/>
+                  <ref name="mantiq_linkGrp"/>
+                  <ref name="mantiq_link"/>
                </choice>
             </zeroOrMore>
             <zeroOrMore>
@@ -12448,6 +12676,8 @@ Sample values include: 1] atBirth; 2] atDeath; 3] dependent; 4] inherited; 5] in
                <choice>
                   <ref name="mantiq_model.noteLike"/>
                   <ref name="mantiq_model.biblLike"/>
+                  <ref name="mantiq_linkGrp"/>
+                  <ref name="mantiq_link"/>
                </choice>
             </zeroOrMore>
             <zeroOrMore>
@@ -13143,6 +13373,14 @@ Sample values include: 1] header; 2] footer; 3] pageNum (page number); 4] lineNu
          <ref name="mantiq_att.global.attribute.xmlspace"/>
          <ref name="mantiq_att.global.change.attribute.change"/>
          <ref name="mantiq_att.global.facs.attribute.facs"/>
+         <ref name="mantiq_att.global.linking.attribute.corresp"/>
+         <ref name="mantiq_att.global.linking.attribute.synch"/>
+         <ref name="mantiq_att.global.linking.attribute.sameAs"/>
+         <ref name="mantiq_att.global.linking.attribute.copyOf"/>
+         <ref name="mantiq_att.global.linking.attribute.next"/>
+         <ref name="mantiq_att.global.linking.attribute.prev"/>
+         <ref name="mantiq_att.global.linking.attribute.exclude"/>
+         <ref name="mantiq_att.global.linking.attribute.select"/>
          <ref name="mantiq_att.global.rendition.attribute.rend"/>
          <ref name="mantiq_att.global.rendition.attribute.style"/>
          <ref name="mantiq_att.global.rendition.attribute.rendition"/>
@@ -13432,6 +13670,643 @@ Sample values include: 1] header; 2] footer; 3] pageNum (page number); 4] lineNu
          <empty/>
       </element>
    </define>
+   <define name="mantiq_att.global.linking.attributes">
+      <ref name="mantiq_att.global.linking.attribute.corresp"/>
+      <ref name="mantiq_att.global.linking.attribute.synch"/>
+      <ref name="mantiq_att.global.linking.attribute.sameAs"/>
+      <ref name="mantiq_att.global.linking.attribute.copyOf"/>
+      <ref name="mantiq_att.global.linking.attribute.next"/>
+      <ref name="mantiq_att.global.linking.attribute.prev"/>
+      <ref name="mantiq_att.global.linking.attribute.exclude"/>
+      <ref name="mantiq_att.global.linking.attribute.select"/>
+   </define>
+   <define name="mantiq_att.global.linking.attribute.corresp">
+      <optional>
+         <attribute name="corresp">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(corresponds) points to elements that correspond to the current element in some way.</a:documentation>
+            <list>
+               <oneOrMore>
+                  <data type="anyURI">
+                     <param name="pattern">\S+</param>
+                  </data>
+               </oneOrMore>
+            </list>
+         </attribute>
+      </optional>
+   </define>
+   <define name="mantiq_att.global.linking.attribute.synch">
+      <optional>
+         <attribute name="synch">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(synchronous) points to elements that are synchronous with the current element.</a:documentation>
+            <list>
+               <oneOrMore>
+                  <data type="anyURI">
+                     <param name="pattern">\S+</param>
+                  </data>
+               </oneOrMore>
+            </list>
+         </attribute>
+      </optional>
+   </define>
+   <define name="mantiq_att.global.linking.attribute.sameAs">
+      <optional>
+         <attribute name="sameAs">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">points to an element that is the same as the current element.</a:documentation>
+            <data type="anyURI">
+               <param name="pattern">\S+</param>
+            </data>
+         </attribute>
+      </optional>
+   </define>
+   <define name="mantiq_att.global.linking.attribute.copyOf">
+      <optional>
+         <attribute name="copyOf">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">points to an element of which the current element is a copy.</a:documentation>
+            <data type="anyURI">
+               <param name="pattern">\S+</param>
+            </data>
+         </attribute>
+      </optional>
+   </define>
+   <define name="mantiq_att.global.linking.attribute.next">
+      <optional>
+         <attribute name="next">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(next) points to the next element of a virtual aggregate of which the current element is part.</a:documentation>
+            <data type="anyURI">
+               <param name="pattern">\S+</param>
+            </data>
+         </attribute>
+      </optional>
+   </define>
+   <define name="mantiq_att.global.linking.attribute.prev">
+      <optional>
+         <attribute name="prev">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(previous) points to the previous element of a virtual aggregate of which the current element is part.</a:documentation>
+            <data type="anyURI">
+               <param name="pattern">\S+</param>
+            </data>
+         </attribute>
+      </optional>
+   </define>
+   <define name="mantiq_att.global.linking.attribute.exclude">
+      <optional>
+         <attribute name="exclude">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">points to elements that are in exclusive alternation with the current element.</a:documentation>
+            <list>
+               <oneOrMore>
+                  <data type="anyURI">
+                     <param name="pattern">\S+</param>
+                  </data>
+               </oneOrMore>
+            </list>
+         </attribute>
+      </optional>
+   </define>
+   <define name="mantiq_att.global.linking.attribute.select">
+      <optional>
+         <attribute name="select">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">selects one or more alternants; if one alternant is selected, the ambiguity or uncertainty is marked as resolved. If more than one alternant is selected, the degree of ambiguity or uncertainty is marked as reduced by the number of alternants not selected.</a:documentation>
+            <list>
+               <oneOrMore>
+                  <data type="anyURI">
+                     <param name="pattern">\S+</param>
+                  </data>
+               </oneOrMore>
+            </list>
+         </attribute>
+      </optional>
+   </define>
+   <define name="mantiq_link">
+      <element name="link">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(link) defines an association or hypertextual link among elements or passages, of some type not more precisely specifiable by other elements. [17.1. Links]</a:documentation>
+         <empty/>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  id="mantiq-link-linkTargets3-constraint-rule-47">
+            <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
+                      xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                      xmlns:xi="http://www.w3.org/2001/XInclude"
+                      context="tei:link">
+               <sch:assert test="contains(normalize-space(@target),' ')">You must supply at least two values for @target on &lt;<sch:name/>&gt;.</sch:assert>
+            </sch:rule>
+         </pattern>
+         <ref name="mantiq_att.global.attributes"/>
+         <ref name="mantiq_att.cmc.attributes"/>
+         <ref name="mantiq_att.pointing.attributes"/>
+         <ref name="mantiq_att.typed.attributes"/>
+         <empty/>
+      </element>
+   </define>
+   <define name="mantiq_linkGrp">
+      <element name="linkGrp">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(link group) defines a collection of associations or hypertextual links. [17.1. Links]</a:documentation>
+         <group>
+            <zeroOrMore>
+               <ref name="mantiq_model.descLike"/>
+            </zeroOrMore>
+            <oneOrMore>
+               <choice>
+                  <ref name="mantiq_link"/>
+                  <ref name="mantiq_ptr"/>
+               </choice>
+            </oneOrMore>
+         </group>
+         <ref name="mantiq_att.global.attributes"/>
+         <ref name="mantiq_att.cmc.attributes"/>
+         <ref name="mantiq_att.pointing.group.attributes"/>
+         <empty/>
+      </element>
+   </define>
+   <define name="mantiq_ab">
+      <element name="ab">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(anonymous block) contains any component-level unit of text, acting as a container for phrase or inter level elements analogous to, but without the same constraints as, a paragraph. [17.3. Blocks, Segments, and Anchors]</a:documentation>
+         <ref name="mantiq_macro.abContent"/>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  id="mantiq-ab-abstractModel-structure-ab-in-l-constraint-rule-48">
+            <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
+                      xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                      xmlns:xi="http://www.w3.org/2001/XInclude"
+                      context="tei:l//tei:ab">
+               <sch:assert test="ancestor::tei:floatingText | parent::tei:figure | parent::tei:note">
+          Abstract model violation: Metrical lines (&lt;l&gt; elements) may not contain higher-level divisions such as &lt;p&gt; or &lt;ab&gt;, unless &lt;ab&gt; is a child of &lt;figure&gt; or &lt;note&gt;, or is a descendant of &lt;floatingText&gt;.
+        </sch:assert>
+            </sch:rule>
+         </pattern>
+         <ref name="mantiq_att.global.attributes"/>
+         <ref name="mantiq_att.cmc.attributes"/>
+         <ref name="mantiq_att.declaring.attributes"/>
+         <ref name="mantiq_att.fragmentable.attributes"/>
+         <ref name="mantiq_att.typed.attributes"/>
+         <ref name="mantiq_att.written.attributes"/>
+         <empty/>
+      </element>
+   </define>
+   <define name="mantiq_anchor">
+      <element name="anchor">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(anchor point) attaches an identifier to a point within a text, whether or not it corresponds with a textual element. [8.4.2. Synchronization and Overlap 17.5. Correspondence and Alignment]</a:documentation>
+         <empty/>
+         <ref name="mantiq_att.global.attributes"/>
+         <ref name="mantiq_att.cmc.attributes"/>
+         <ref name="mantiq_att.typed.attributes"/>
+         <empty/>
+      </element>
+   </define>
+   <define name="mantiq_seg">
+      <element name="seg">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(arbitrary segment) represents any segmentation of text below the chunk level. [17.3. Blocks, Segments, and Anchors 6.2. Components of the Verse Line 7.2.6. Speech Contents]</a:documentation>
+         <ref name="mantiq_macro.paraContent"/>
+         <ref name="mantiq_att.global.attributes"/>
+         <ref name="mantiq_att.cmc.attributes"/>
+         <ref name="mantiq_att.notated.attributes"/>
+         <ref name="mantiq_att.segLike.attributes"/>
+         <ref name="mantiq_att.typed.attributes"/>
+         <ref name="mantiq_att.written.attributes"/>
+         <empty/>
+      </element>
+   </define>
+   <define name="mantiq_when">
+      <element name="when">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates a point in time either relative to other elements in the same timeline tag, or absolutely. [17.4.2. Placing Synchronous Events in Time]</a:documentation>
+         <empty/>
+         <ref name="mantiq_att.global.attributes"/>
+         <optional>
+            <attribute name="absolute">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">supplies an absolute value for the time.</a:documentation>
+               <choice>
+                  <data type="date"/>
+                  <data type="gYear"/>
+                  <data type="gMonth"/>
+                  <data type="gDay"/>
+                  <data type="gYearMonth"/>
+                  <data type="gMonthDay"/>
+                  <data type="time"/>
+                  <data type="dateTime"/>
+               </choice>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="unit">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the unit of time in which the <code xmlns="http://www.w3.org/1999/xhtml"
+                        xmlns:rng="http://relaxng.org/ns/structure/1.0">@interval</code> value is expressed, if this is not inherited from the parent <code xmlns="http://www.w3.org/1999/xhtml"
+                        xmlns:rng="http://relaxng.org/ns/structure/1.0">&lt;timeline&gt;</code>.
+Suggested values include: 1] d (days); 2] h (hours); 3] min (minutes); 4] s (seconds); 5] ms (milliseconds)</a:documentation>
+               <choice>
+                  <value>d</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(days) </a:documentation>
+                  <value>h</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(hours) </a:documentation>
+                  <value>min</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(minutes) </a:documentation>
+                  <value>s</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(seconds) </a:documentation>
+                  <value>ms</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(milliseconds) </a:documentation>
+                  <data type="token">
+                     <param name="pattern">[^\p{C}\p{Z}]+</param>
+                  </data>
+               </choice>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="interval">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies a time interval either as a number or as one of the keywords defined by the datatype teidata.interval.</a:documentation>
+               <choice>
+                  <data type="float"/>
+                  <choice>
+                     <value>regular</value>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                     <value>irregular</value>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                     <value>unknown</value>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  </choice>
+               </choice>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="since">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">identifies the reference point for determining the time of the current <code xmlns="http://www.w3.org/1999/xhtml"
+                        xmlns:rng="http://relaxng.org/ns/structure/1.0">&lt;when&gt;</code> element, which is obtained by adding the interval to the time of the reference point.</a:documentation>
+               <data type="anyURI">
+                  <param name="pattern">\S+</param>
+               </data>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
+   <define name="mantiq_timeline">
+      <element name="timeline">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(timeline) provides a set of ordered points in time which can be linked to elements of a spoken text to create a temporal alignment of that text. [17.4.2. Placing Synchronous Events in Time]</a:documentation>
+         <oneOrMore>
+            <ref name="mantiq_when"/>
+         </oneOrMore>
+         <ref name="mantiq_att.global.attributes"/>
+         <ref name="mantiq_att.cmc.attributes"/>
+         <optional>
+            <attribute name="origin">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">designates the origin of the timeline, i.e. the time at which it begins.</a:documentation>
+               <data type="anyURI">
+                  <param name="pattern">\S+</param>
+               </data>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="unit">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the unit of time corresponding to the <code xmlns="http://www.w3.org/1999/xhtml"
+                        xmlns:rng="http://relaxng.org/ns/structure/1.0">@interval</code> value of the timeline or of its constituent points in time.
+Suggested values include: 1] d (days); 2] h (hours); 3] min (minutes); 4] s (seconds); 5] ms (milliseconds)</a:documentation>
+               <choice>
+                  <value>d</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(days) </a:documentation>
+                  <value>h</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(hours) </a:documentation>
+                  <value>min</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(minutes) </a:documentation>
+                  <value>s</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(seconds) </a:documentation>
+                  <value>ms</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(milliseconds) </a:documentation>
+                  <data type="token">
+                     <param name="pattern">[^\p{C}\p{Z}]+</param>
+                  </data>
+               </choice>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="interval">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies a time interval either as a positive integral value or using one of a set of predefined codes.</a:documentation>
+               <choice>
+                  <data type="float"/>
+                  <choice>
+                     <value>regular</value>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                     <value>irregular</value>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                     <value>unknown</value>
+                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  </choice>
+               </choice>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
+   <define name="mantiq_join">
+      <element name="join">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(join) identifies a possibly fragmented segment of text, by pointing at the possibly discontiguous elements which compose it. [17.7. Aggregation]</a:documentation>
+         <zeroOrMore>
+            <choice>
+               <ref name="mantiq_model.descLike"/>
+               <ref name="mantiq_model.certLike"/>
+            </choice>
+         </zeroOrMore>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  id="mantiq-join-joinTargets3-constraint-rule-49">
+            <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
+                      xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                      xmlns:xi="http://www.w3.org/2001/XInclude"
+                      context="tei:join">
+               <sch:assert test="contains( normalize-space( @target ),' ')">
+          You must supply at least two values for @target on &lt;<sch:name/>&gt;.
+        </sch:assert>
+            </sch:rule>
+         </pattern>
+         <ref name="mantiq_att.global.attributes"/>
+         <ref name="mantiq_att.cmc.attributes"/>
+         <ref name="mantiq_att.pointing.attributes"/>
+         <ref name="mantiq_att.typed.attributes"/>
+         <optional>
+            <attribute name="result">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the name of an element which this aggregation may be understood to represent.</a:documentation>
+               <data type="Name"/>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+                       name="scope"
+                       a:defaultValue="root">
+               <a:documentation>indicates whether the targets to be joined include the entire element indicated (the entire subtree including its root), or just the children of the target (the branches of the subtree).</a:documentation>
+               <choice>
+                  <value>root</value>
+                  <a:documentation>the rooted subtrees indicated by the <code xmlns="http://www.w3.org/1999/xhtml"
+                           xmlns:rng="http://relaxng.org/ns/structure/1.0">@target</code> attribute are joined, each subtree become a child of the virtual element created by the join</a:documentation>
+                  <value>branches</value>
+                  <a:documentation>the children of the subtrees indicated by the <code xmlns="http://www.w3.org/1999/xhtml"
+                           xmlns:rng="http://relaxng.org/ns/structure/1.0">@target</code> attribute become the children of the virtual element (i.e. the roots of the subtrees are discarded)</a:documentation>
+               </choice>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
+   <define name="mantiq_joinGrp">
+      <element name="joinGrp">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(join group) groups a collection of <code xmlns="http://www.w3.org/1999/xhtml"
+                  xmlns:rng="http://relaxng.org/ns/structure/1.0">&lt;join&gt;</code> elements and possibly pointers. [17.7. Aggregation]</a:documentation>
+         <group>
+            <zeroOrMore>
+               <choice>
+                  <ref name="mantiq_gloss"/>
+                  <ref name="mantiq_model.descLike"/>
+               </choice>
+            </zeroOrMore>
+            <oneOrMore>
+               <choice>
+                  <ref name="mantiq_join"/>
+                  <ref name="mantiq_ptr"/>
+               </choice>
+            </oneOrMore>
+         </group>
+         <ref name="mantiq_att.global.attributes"/>
+         <ref name="mantiq_att.cmc.attributes"/>
+         <ref name="mantiq_att.pointing.group.attributes"/>
+         <optional>
+            <attribute name="result">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">supplies the default value for the <code xmlns="http://www.w3.org/1999/xhtml"
+                        xmlns:rng="http://relaxng.org/ns/structure/1.0">@result</code> on each <code xmlns="http://www.w3.org/1999/xhtml"
+                        xmlns:rng="http://relaxng.org/ns/structure/1.0">&lt;join&gt;</code> included within the group.</a:documentation>
+               <data type="Name"/>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
+   <define name="mantiq_alt">
+      <element name="alt">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(alternation) identifies an alternation or a set of choices among elements or passages. [17.8. Alternation]</a:documentation>
+         <empty/>
+         <ref name="mantiq_att.global.attributes"/>
+         <ref name="mantiq_att.cmc.attributes"/>
+         <ref name="mantiq_att.pointing.attribute.targetLang"/>
+         <ref name="mantiq_att.pointing.attribute.evaluate"/>
+         <ref name="mantiq_att.typed.attributes"/>
+         <optional>
+            <attribute name="target">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the destination of the reference by supplying one or more URI References.</a:documentation>
+               <list>
+                  <data type="anyURI">
+                     <param name="pattern">\S+</param>
+                  </data>
+                  <data type="anyURI">
+                     <param name="pattern">\S+</param>
+                  </data>
+                  <zeroOrMore>
+                     <data type="anyURI">
+                        <param name="pattern">\S+</param>
+                     </data>
+                  </zeroOrMore>
+               </list>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="mode">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">states whether the alternations gathered in this collection are exclusive or inclusive.</a:documentation>
+               <choice>
+                  <value>excl</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(exclusive) indicates that the alternation is exclusive, i.e. that at most one of the alternatives occurs.</a:documentation>
+                  <value>incl</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(inclusive) indicates that the alternation is not exclusive, i.e. that one or more of the alternatives occur.</a:documentation>
+               </choice>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="weights">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">If <code xmlns="http://www.w3.org/1999/xhtml"
+                        xmlns:rng="http://relaxng.org/ns/structure/1.0">@mode</code> is excl, each weight states the probability that the corresponding alternative occurs. If <code xmlns="http://www.w3.org/1999/xhtml"
+                        xmlns:rng="http://relaxng.org/ns/structure/1.0">@mode</code> is incl each weight states the probability that the corresponding alternative occurs given that at least one of the other alternatives occurs.</a:documentation>
+               <list>
+                  <data type="double">
+                     <param name="minInclusive">0</param>
+                     <param name="maxInclusive">1</param>
+                  </data>
+                  <data type="double">
+                     <param name="minInclusive">0</param>
+                     <param name="maxInclusive">1</param>
+                  </data>
+                  <zeroOrMore>
+                     <data type="double">
+                        <param name="minInclusive">0</param>
+                        <param name="maxInclusive">1</param>
+                     </data>
+                  </zeroOrMore>
+               </list>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
+   <define name="mantiq_altGrp">
+      <element name="altGrp">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(alternation group) groups a collection of <code xmlns="http://www.w3.org/1999/xhtml"
+                  xmlns:rng="http://relaxng.org/ns/structure/1.0">&lt;alt&gt;</code> elements and possibly pointers. [17.8. Alternation]</a:documentation>
+         <group>
+            <zeroOrMore>
+               <ref name="mantiq_model.descLike"/>
+            </zeroOrMore>
+            <zeroOrMore>
+               <choice>
+                  <ref name="mantiq_alt"/>
+                  <ref name="mantiq_ptr"/>
+               </choice>
+            </zeroOrMore>
+         </group>
+         <ref name="mantiq_att.global.attributes"/>
+         <ref name="mantiq_att.cmc.attributes"/>
+         <ref name="mantiq_att.pointing.group.attributes"/>
+         <optional>
+            <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+                       name="mode"
+                       a:defaultValue="excl">
+               <a:documentation>states whether the alternations gathered in this collection are exclusive or inclusive.</a:documentation>
+               <choice>
+                  <value>excl</value>
+                  <a:documentation>(exclusive) indicates that the alternation is exclusive, i.e. that at most one of the alternatives occurs.</a:documentation>
+                  <value>incl</value>
+                  <a:documentation>(inclusive) indicates that the alternation is not exclusive, i.e. that one or more of the alternatives occur.</a:documentation>
+               </choice>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
+   <define name="mantiq_standOff">
+      <element name="standOff">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">functions as a container element for linked data, contextual information, and stand-off annotations embedded in a TEI document. [17.10. The standOff Container]</a:documentation>
+         <oneOrMore>
+            <ref name="mantiq_model.standOffPart"/>
+         </oneOrMore>
+         <ref name="mantiq_att.global.attributes"/>
+         <ref name="mantiq_att.declaring.attributes"/>
+         <ref name="mantiq_att.typed.attributes"/>
+         <empty/>
+      </element>
+   </define>
+   <define name="mantiq_listAnnotation">
+      <element name="listAnnotation">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains a list of annotations, typically encoded as <code xmlns="http://www.w3.org/1999/xhtml"
+                  xmlns:rng="http://relaxng.org/ns/structure/1.0">&lt;annotation&gt;</code>, <code xmlns="http://www.w3.org/1999/xhtml"
+                  xmlns:rng="http://relaxng.org/ns/structure/1.0">&lt;annotationBlock&gt;</code>, or <code xmlns="http://www.w3.org/1999/xhtml"
+                  xmlns:rng="http://relaxng.org/ns/structure/1.0">&lt;note&gt;</code>, possibly organized with nested <code xmlns="http://www.w3.org/1999/xhtml"
+                  xmlns:rng="http://relaxng.org/ns/structure/1.0">&lt;listAnnotation&gt;</code> elements. [17.10. The standOff Container]</a:documentation>
+         <group>
+            <zeroOrMore>
+               <ref name="mantiq_model.headLike"/>
+            </zeroOrMore>
+            <zeroOrMore>
+               <ref name="mantiq_model.labelLike"/>
+            </zeroOrMore>
+            <oneOrMore>
+               <choice>
+                  <ref name="mantiq_model.annotationLike"/>
+                  <ref name="mantiq_listAnnotation"/>
+               </choice>
+            </oneOrMore>
+         </group>
+         <ref name="mantiq_att.global.attributes"/>
+         <ref name="mantiq_att.declaring.attributes"/>
+         <ref name="mantiq_att.notated.attributes"/>
+         <ref name="mantiq_att.typed.attributes"/>
+         <empty/>
+      </element>
+   </define>
+   <define name="mantiq_annotation">
+      <element name="annotation">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">represents an annotation following the <a xmlns="http://www.w3.org/1999/xhtml"
+               xmlns:rng="http://relaxng.org/ns/structure/1.0"
+               href="#WADM">Web Annotation Data Model</a>. [17.10. The standOff Container]</a:documentation>
+         <group>
+            <zeroOrMore>
+               <ref name="mantiq_respStmt"/>
+            </zeroOrMore>
+            <zeroOrMore>
+               <ref name="mantiq_revisionDesc"/>
+            </zeroOrMore>
+            <zeroOrMore>
+               <ref name="mantiq_licence"/>
+            </zeroOrMore>
+            <zeroOrMore>
+               <ref name="mantiq_model.annotationPart.body"/>
+            </zeroOrMore>
+         </group>
+         <ref name="mantiq_att.global.attribute.n"/>
+         <ref name="mantiq_att.global.attribute.xmllang"/>
+         <ref name="mantiq_att.global.attribute.xmlbase"/>
+         <ref name="mantiq_att.global.attribute.xmlspace"/>
+         <ref name="mantiq_att.global.change.attribute.change"/>
+         <ref name="mantiq_att.global.facs.attribute.facs"/>
+         <ref name="mantiq_att.global.linking.attribute.corresp"/>
+         <ref name="mantiq_att.global.linking.attribute.synch"/>
+         <ref name="mantiq_att.global.linking.attribute.sameAs"/>
+         <ref name="mantiq_att.global.linking.attribute.copyOf"/>
+         <ref name="mantiq_att.global.linking.attribute.next"/>
+         <ref name="mantiq_att.global.linking.attribute.prev"/>
+         <ref name="mantiq_att.global.linking.attribute.exclude"/>
+         <ref name="mantiq_att.global.linking.attribute.select"/>
+         <ref name="mantiq_att.global.rendition.attribute.rend"/>
+         <ref name="mantiq_att.global.rendition.attribute.style"/>
+         <ref name="mantiq_att.global.rendition.attribute.rendition"/>
+         <ref name="mantiq_att.global.responsibility.attribute.cert"/>
+         <ref name="mantiq_att.global.responsibility.attribute.resp"/>
+         <ref name="mantiq_att.global.source.attribute.source"/>
+         <ref name="mantiq_att.pointing.attribute.targetLang"/>
+         <ref name="mantiq_att.pointing.attribute.evaluate"/>
+         <attribute name="xml:id">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(identifier) provides a unique identifier for the element bearing the attribute.</a:documentation>
+            <data type="ID"/>
+         </attribute>
+         <attribute name="target">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the destination of the reference by supplying one or more URI References.</a:documentation>
+            <list>
+               <oneOrMore>
+                  <data type="anyURI">
+                     <param name="pattern">\S+</param>
+                  </data>
+               </oneOrMore>
+            </list>
+         </attribute>
+         <optional>
+            <attribute name="motivation">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <list>
+                  <oneOrMore>
+                     <choice>
+                        <value>assessing</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">intent is to assess the target resource in some way, rather than simply make a comment about it</a:documentation>
+                        <value>bookmarking</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">intent is to create a bookmark to the target or part thereof</a:documentation>
+                        <value>classifying</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">intent is to classify the target in some way</a:documentation>
+                        <value>commenting</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">intent is to comment about the target</a:documentation>
+                        <value>describing</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">intent is to describe the target, rather than (for example) comment on it</a:documentation>
+                        <value>editing</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">intent is to request an edit or a change to the target resource</a:documentation>
+                        <value>highlighting</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">intent is to highlight the target resource or a segment thereof</a:documentation>
+                        <value>identifying</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">intent is to assign an identity to the target</a:documentation>
+                        <value>linking</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">intent is to link to a resource related to the target</a:documentation>
+                        <value>moderating</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">intent is to assign some value or quality to the target</a:documentation>
+                        <value>questioning</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">intent is to ask a question about the target</a:documentation>
+                        <value>replying</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">intent is to reply to a previous statement, either an annotation or another resource</a:documentation>
+                        <value>tagging</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">intent is to associate a tag with the target</a:documentation>
+                     </choice>
+                  </oneOrMore>
+               </list>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
    <define name="mantiq_model.rdgLike">
       <choice>
          <ref name="mantiq_rdg"/>
@@ -13698,7 +14573,7 @@ Sample values include: 1] homeoteleuton; 2] homeoarchy; 3] paleographicConfusion
          </group>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
                   xmlns:rng="http://relaxng.org/ns/structure/1.0"
-                  id="mantiq-rdgGrp-only1lem-constraint-rule-47">
+                  id="mantiq-rdgGrp-only1lem-constraint-rule-50">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                       context="tei:rdgGrp">
@@ -13858,7 +14733,7 @@ Sample values include: 1] homeoteleuton; 2] homeoarchy; 3] paleographicConfusion
          </attribute>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
                   xmlns:rng="http://relaxng.org/ns/structure/1.0"
-                  id="mantiq-variantEncoding-location-variantEncodingLocation-constraint-rule-48">
+                  id="mantiq-variantEncoding-location-variantEncodingLocation-constraint-rule-51">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                       context="tei:variantEncoding">

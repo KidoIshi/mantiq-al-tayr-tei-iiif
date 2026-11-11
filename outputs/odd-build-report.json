@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-11-11T02:00:27.379261+00:00",
+  "generated_at": "2026-11-11T03:12:11.120265+00:00",
   "odd": "schema\\mantiq.odd",
-  "odd_sha256": "70442aa41481cb462cb92aa792b4f382595e1f738ceeafa25451a717d69c7149",
+  "odd_sha256": "20b28a09c72b94052deddfa3758ca8fc612f8c8def9d4ca497089b5ca567ce52",
   "odd_valid": true,
   "tei_p5_version": "4.12.0",
   "tei_stylesheets_version": "7.61.0",
   "tei_stylesheets_commit": "81408afc9a25c9170c49adadb0df508ead8ba959",
   "generated_schema": "schema\\mantiq.rng",
-  "generated_schema_sha256": "f7eb7196321acf8c6e47f13654e808bf858de1f509568933aeeec968109c2f55",
+  "generated_schema_sha256": "aad9810020cca66276b5933720105c881b34553ad5bc7c54f45b53200ba262d5",
   "generated_schema_validator": "Jing 20241231 via jingtrang 0.3.0",
   "sample_valid_against_generated_schema": true,
   "sample_errors": []

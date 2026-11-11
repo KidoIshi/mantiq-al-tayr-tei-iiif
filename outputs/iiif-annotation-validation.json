@@ -1,12 +1,28 @@
 {
-  "generated_at": "2026-11-11T02:00:45.465245+00:00",
+  "generated_at": "2026-11-11T03:12:35.909340+00:00",
   "tei_file": "data\\tei\\bnf-persan-348-f6-sample.xml",
-  "tei_sha256": "69cf63af82db1fc63823b871b60c6e21a5197bfd9f603dc758adae9461670525",
-  "annotation_page": "iiif\\bnf-persan-348-f6-annotations.json",
-  "annotation_page_sha256": "2e8cc99c7781cc4d18d3dd759780c98388dbec9bc31bd7f2f5ee7d9f2822fdaf",
-  "canvas": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f6",
+  "tei_sha256": "88eba42f4cc35371079ccb80b196ea5fcfa7600eb0261c4fa79e5f69abbca357",
+  "annotation_pages": [
+    {
+      "annotation_page": "iiif\\bnf-persan-348-f6-annotations.json",
+      "annotation_page_sha256": "bcaf98636f758e7498ea14c59b58888690a272444c59697790e2b086782ffd9f",
+      "canvas": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f6",
+      "tei_lines": 24,
+      "annotations": 24,
+      "errors": []
+    },
+    {
+      "annotation_page": "iiif\\bnf-persan-348-f7-annotations.json",
+      "annotation_page_sha256": "0ffea959a161705874693ef14ae48e42de570845e8a87d1e369ee1052b1b90ef",
+      "canvas": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7",
+      "tei_lines": 6,
+      "annotations": 6,
+      "errors": []
+    }
+  ],
   "checks": {
     "json_parsed": true,
+    "canvas_specific_page_set_matches_tei": true,
     "iiif_presentation_3_shape": true,
     "annotation_count_matches_tei": true,
     "all_tei_lines_matched": true,
@@ -14,8 +30,10 @@
     "canvas_regions_match_tei_zones": true
   },
   "counts": {
-    "tei_lines": 24,
-    "annotations": 24
+    "canvases": 2,
+    "annotation_pages": 2,
+    "tei_lines": 30,
+    "annotations": 30
   },
   "errors": []
 }

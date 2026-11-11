@@ -5,7 +5,7 @@
   <teiHeader>
     <fileDesc>
       <titleStmt>
-        <title xml:lang="ja">BnF Persan 348 scan f6 プロジェクト担当研究者照合済み写本転写試料</title>
+        <title xml:lang="ja">BnF Persan 348 scans f6–f7 写本転写試料</title>
         <title xml:lang="fa">رونویسی آزمایشی منطق‌الطیر، نسخهٔ پاریس ۳۴۸</title>
         <author ref="https://viaf.org/viaf/95230652/">
           <persName xml:lang="fa">فریدالدین عطار نیشابوری</persName>
@@ -19,7 +19,7 @@
           <name>AI-assisted TEI・IIIF project workflow</name>
         </respStmt>
         <respStmt xml:id="resp-researcher-review">
-          <resp>第1〜第12対句の写本読解、正規化方針、画像領域の学術的確認</resp>
+          <resp>第1〜第15対句の写本読解、正規化方針、画像領域の学術的確認</resp>
           <name ref="https://orcid.org/0009-0009-2254-2189">石川 喜堂 (Kido Ishikawa)</name>
         </respStmt>
       </titleStmt>
@@ -98,6 +98,8 @@
       </langUsage>
     </profileDesc>
     <revisionDesc status="draft">
+      <change when="2026-11-11" who="#resp-researcher-review">第13〜第15対句の全6半句について、読み、0014aの「بحکمت」、0015bの「هم کمر」、右欄・左欄の対句対応、画像領域、およびunclearを付けない判断を研究者が承認した。</change>
+      <change when="2026-11-11" who="#resp-ai-transcription">scan f7右頁上部の第13〜第15対句について、AIによる未確認転写候補と画像領域候補を追加した。複数Canvas対応のため、各surfaceにIIIF Canvas URIを記録した。</change>
       <change when="2026-11-11" who="#resp-researcher-review">第10〜第12対句の全6半句について、読み、0011aの「بر」、0012bの「بسرهنگی」、右欄・左欄の対句対応、画像領域、およびunclearを付けない判断を研究者が承認した。</change>
       <change when="2026-11-10" who="#resp-ai-transcription">scan f6左頁の第10〜第12対句について、写本の物理的順序を保持したAI転写候補と画像領域候補を追加した。第1〜第9対句のみ研究者承認済みであり、追加6半句は研究者確認待ちである。</change>
       <change when="2026-11-10" who="#resp-researcher-review">公開ライセンスとして、研究データ・文書にCC BY 4.0、コードにMIT Licenseを採用した。</change>
@@ -119,7 +121,7 @@
     </revisionDesc>
   </teiHeader>
   <facsimile>
-    <surface xml:id="bnf348.f6" n="scan-f6" ulx="0" uly="0" lrx="3669" lry="2787">
+    <surface xml:id="bnf348.f6" n="scan-f6" corresp="https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f6" ulx="0" uly="0" lrx="3669" lry="2787">
       <graphic url="https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/f6/full/full/0/native.jpg" width="3669px" height="2787px"/>
       <zone xml:id="bnf348.f6.z001a" ulx="2350" uly="1310" lrx="2870" lry="1490"/>
       <zone xml:id="bnf348.f6.z001b" ulx="1800" uly="1310" lrx="2370" lry="1490"/>
@@ -146,12 +148,21 @@
       <zone xml:id="bnf348.f6.z012a" ulx="1100" uly="2030" lrx="1700" lry="2200"/>
       <zone xml:id="bnf348.f6.z012b" ulx="520" uly="2030" lrx="1120" lry="2200"/>
     </surface>
+    <surface xml:id="bnf348.f7" n="scan-f7" corresp="https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7" ulx="0" uly="0" lrx="3669" lry="2787">
+      <graphic url="https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/f7/full/full/0/native.jpg" width="3669px" height="2787px"/>
+      <zone xml:id="bnf348.f7.z013a" ulx="2500" uly="600" lrx="3050" lry="760"/>
+      <zone xml:id="bnf348.f7.z013b" ulx="2000" uly="600" lrx="2520" lry="760"/>
+      <zone xml:id="bnf348.f7.z014a" ulx="2500" uly="740" lrx="3050" lry="900"/>
+      <zone xml:id="bnf348.f7.z014b" ulx="2000" uly="740" lrx="2520" lry="900"/>
+      <zone xml:id="bnf348.f7.z015a" ulx="2500" uly="870" lrx="3050" lry="1030"/>
+      <zone xml:id="bnf348.f7.z015b" ulx="2000" uly="870" lrx="2520" lry="1030"/>
+    </surface>
   </facsimile>
   <text xml:lang="fa" rend="direction-rtl">
     <body>
       <div type="section" subtype="invocation" xml:id="mt.bnf348.invocation" source="#wit-bnf348">
         <head>آغاز نسخه</head>
-        <note type="status" xml:lang="ja">第1〜第12対句の読み、正規化範囲、0005a・0005b・0007aの3つの正規化形、および全24半句の画像領域は、プロジェクト担当研究者が写本画像と照合して確認した。これは外部査読済みであることを意味しない。外交的転写を既定表示とする。現時点の本文にunclearはない。</note>
+        <note type="status" xml:lang="ja">第1〜第15対句の読み、正規化範囲、0005a・0005b・0007aの3つの正規化形、および全30半句の画像領域は、プロジェクト担当研究者が写本画像と照合して確認した。これは外部査読済みであることを意味しない。外交的転写を既定表示とする。現時点の本文にunclearはない。</note>
         <pb n="scan-f6" facs="#bnf348.f6"/>
         <lg type="couplet" n="0001" xml:id="mt.bnf348.0001">
           <l n="a" xml:id="mt.bnf348.0001.a" facs="#bnf348.f6.z001a">آفرین جان آفرین پاک را</l>
@@ -201,6 +212,19 @@
         <lg type="couplet" n="0012" xml:id="mt.bnf348.0012" resp="#resp-ai-transcription #resp-researcher-review">
           <l n="a" xml:id="mt.bnf348.0012.a" facs="#bnf348.f6.z012a">کوه را هم تیغ داد و هم کمر</l>
           <l n="b" xml:id="mt.bnf348.0012.b" facs="#bnf348.f6.z012b">تا بسرهنگی او افراخت سر</l>
+        </lg>
+        <pb n="scan-f7" facs="#bnf348.f7"/>
+        <lg type="couplet" n="0013" xml:id="mt.bnf348.0013" resp="#resp-ai-transcription #resp-researcher-review">
+          <l n="a" xml:id="mt.bnf348.0013.a" facs="#bnf348.f7.z013a">نیم پشه بر سر دشمن گماشت</l>
+          <l n="b" xml:id="mt.bnf348.0013.b" facs="#bnf348.f7.z013b">بر سر او چارصد سالش بداشت</l>
+        </lg>
+        <lg type="couplet" n="0014" xml:id="mt.bnf348.0014" resp="#resp-ai-transcription #resp-researcher-review">
+          <l n="a" xml:id="mt.bnf348.0014.a" facs="#bnf348.f7.z014a">عنکبوتی را بحکمت دام داد</l>
+          <l n="b" xml:id="mt.bnf348.0014.b" facs="#bnf348.f7.z014b">صدر عالم را درو آرام داد</l>
+        </lg>
+        <lg type="couplet" n="0015" xml:id="mt.bnf348.0015" resp="#resp-ai-transcription #resp-researcher-review">
+          <l n="a" xml:id="mt.bnf348.0015.a" facs="#bnf348.f7.z015a">بست موری را کمر چون موی سر</l>
+          <l n="b" xml:id="mt.bnf348.0015.b" facs="#bnf348.f7.z015b">کرد او را با سلیمان هم کمر</l>
         </lg>
       </div>
     </body>
