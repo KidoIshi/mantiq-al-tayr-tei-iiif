@@ -49,24 +49,34 @@
       }
     },
     {
-      "id": "smithsonian-fsc-ms-28-image-fs-8501-25",
+      "id": "smithsonian-fsc-ms-28",
       "work": "Manṭiq al-ṭayr",
       "holding_institution": "Smithsonian National Museum of Asian Art",
       "shelfmark": "FSC-MS-28",
       "object_url": "https://asia-archive.si.edu/object/FSC-MS-28/",
-      "manifest": "https://ids.si.edu/ids/manifest/FS-8501_25",
-      "presentation_api": "2.x / Shared Canvas representation",
-      "scope": "single published image; not verified as a complete-codex manifest",
-      "rights_page_label": "CC0 and Usage Conditions Apply are both displayed on the object page; confirm the selected image's statement before republication",
+      "manifest": "https://ids.si.edu/ids/manifest/FS-7342_15",
+      "presentation_api": "2.x / Shared Canvas representation; seven separate single-image manifests are exposed on the object page",
+      "scope": "seven published object images, not a complete-codex sequence; FS-7342_15 contains the opening text",
+      "sample_canvases": [
+        {
+          "id": "https://ids.si.edu/ids/iiif/canvas-FS-7342_15",
+          "width": 2090,
+          "height": 3520,
+          "verified_on": "2026-11-11"
+        }
+      ],
+      "rights_page_label": "Usage Conditions Apply; image reuse is governed by Smithsonian terms",
       "verified": {
         "manifest_retrievable": true,
-        "checked_on": "2026-10-13",
+        "checked_on": "2026-11-11",
         "canvas_count": 1,
-        "image_api": "2.0 level 2"
+        "object_image_count": 7,
+        "image_api": "2.0 level 2",
+        "opening_image": "FS-7342_15"
       },
       "text_alignment": {
-        "status": "not-established",
-        "reason": "The depicted folio/content has not been matched to the 25-couplet sample."
+        "status": "candidate-awaiting-researcher-review",
+        "reason": "FS-7342_15 contains the opening text corresponding to the Persan 348 sample. A candidate difference at 0004b (Persan 348 وین / FSC-MS-28 وان) awaits researcher confirmation."
       }
     },
     {

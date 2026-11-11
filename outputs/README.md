@@ -23,6 +23,7 @@
 - `normalization-review-bnf348-f6-ja.md`：正規化確認記録
 - `transcription-review-bnf348-f6-ja.md`：写本転写確認記録
 - `manuscript-candidate-bnf-persan-348-ja.md`：Persan 348採用時の評価
+- `variant-review-fsc-ms-28-ja.md`：第二写本FSC-MS-28の校異候補とTEI設計案
 
 ## 初期調査・履歴資料
 
