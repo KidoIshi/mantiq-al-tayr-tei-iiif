@@ -2,7 +2,7 @@
 
 ## 現行成果物
 
-- `technical-report-ja.md`：プロジェクト担当研究者が画像と照合した15対句・30半句の技術報告
+- `technical-report-ja.md`：プロジェクト担当研究者が画像と照合した18対句・36半句の技術報告
 - `reproducibility-guide-ja.md`：第三者向け再現・検証手順
 - `project-overview-en.md`：英語プロジェクト概要
 - `iiif-web-annotation-design-ja.md`：TEIからIIIF Web Annotationへの変換設計

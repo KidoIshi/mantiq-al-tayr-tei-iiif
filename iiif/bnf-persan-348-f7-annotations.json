@@ -85,6 +85,78 @@
         "language": "fa"
       },
       "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=2000,870,520,160"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f7-annotations.json#mt.bnf348.0016.a",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "خلعت اولاد عباسش بداد",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=2500,1000,550,160"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f7-annotations.json#mt.bnf348.0016.b",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "طا و سین بی زحمت طاسش بداد",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=2000,1000,520,160"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f7-annotations.json#mt.bnf348.0017.a",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "سوزنی چون دید با عیسی بهم",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=2500,1130,550,160"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f7-annotations.json#mt.bnf348.0017.b",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "بخیه بر رویش فکند او لاجرم",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=2000,1130,520,160"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f7-annotations.json#mt.bnf348.0018.a",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "کوه را از لاله خون آلود کرد",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=2500,1260,550,160"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f7-annotations.json#mt.bnf348.0018.b",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "گلشن نیلوفری از دود کرد",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=2000,1260,520,160"
     }
   ]
 }

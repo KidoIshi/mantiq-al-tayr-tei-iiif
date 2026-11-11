@@ -19,7 +19,7 @@
           <name>AI-assisted TEI・IIIF project workflow</name>
         </respStmt>
         <respStmt xml:id="resp-researcher-review">
-          <resp>第1〜第15対句の写本読解、正規化方針、画像領域の学術的確認</resp>
+          <resp>第1〜第18対句の写本読解、正規化方針、画像領域の学術的確認</resp>
           <name ref="https://orcid.org/0009-0009-2254-2189">石川 喜堂 (Kido Ishikawa)</name>
         </respStmt>
       </titleStmt>
@@ -98,6 +98,8 @@
       </langUsage>
     </profileDesc>
     <revisionDesc status="draft">
+      <change when="2026-11-11" who="#resp-researcher-review">第16〜第18対句の全6半句について、0016bの「طا」と分かち書き、0017aの「بهم」、0017bの「بر رویش」「فکند او」、0018aの「کوه را」を含む読み、右欄・左欄の対句対応、画像領域、およびunclearを付けない判断を研究者が承認した。</change>
+      <change when="2026-11-11" who="#resp-ai-transcription">scan f7右頁の第16〜第18対句について、写本画像に基づく未確認転写候補と画像領域候補を追加した。0018aは参照電子本文の「تیغ را」ではなく、画像上の候補「کوه را」を保持した。</change>
       <change when="2026-11-11" who="#resp-researcher-review">第13〜第15対句の全6半句について、読み、0014aの「بحکمت」、0015bの「هم کمر」、右欄・左欄の対句対応、画像領域、およびunclearを付けない判断を研究者が承認した。</change>
       <change when="2026-11-11" who="#resp-ai-transcription">scan f7右頁上部の第13〜第15対句について、AIによる未確認転写候補と画像領域候補を追加した。複数Canvas対応のため、各surfaceにIIIF Canvas URIを記録した。</change>
       <change when="2026-11-11" who="#resp-researcher-review">第10〜第12対句の全6半句について、読み、0011aの「بر」、0012bの「بسرهنگی」、右欄・左欄の対句対応、画像領域、およびunclearを付けない判断を研究者が承認した。</change>
@@ -156,13 +158,19 @@
       <zone xml:id="bnf348.f7.z014b" ulx="2000" uly="740" lrx="2520" lry="900"/>
       <zone xml:id="bnf348.f7.z015a" ulx="2500" uly="870" lrx="3050" lry="1030"/>
       <zone xml:id="bnf348.f7.z015b" ulx="2000" uly="870" lrx="2520" lry="1030"/>
+      <zone xml:id="bnf348.f7.z016a" ulx="2500" uly="1000" lrx="3050" lry="1160"/>
+      <zone xml:id="bnf348.f7.z016b" ulx="2000" uly="1000" lrx="2520" lry="1160"/>
+      <zone xml:id="bnf348.f7.z017a" ulx="2500" uly="1130" lrx="3050" lry="1290"/>
+      <zone xml:id="bnf348.f7.z017b" ulx="2000" uly="1130" lrx="2520" lry="1290"/>
+      <zone xml:id="bnf348.f7.z018a" ulx="2500" uly="1260" lrx="3050" lry="1420"/>
+      <zone xml:id="bnf348.f7.z018b" ulx="2000" uly="1260" lrx="2520" lry="1420"/>
     </surface>
   </facsimile>
   <text xml:lang="fa" rend="direction-rtl">
     <body>
       <div type="section" subtype="invocation" xml:id="mt.bnf348.invocation" source="#wit-bnf348">
         <head>آغاز نسخه</head>
-        <note type="status" xml:lang="ja">第1〜第15対句の読み、正規化範囲、0005a・0005b・0007aの3つの正規化形、および全30半句の画像領域は、プロジェクト担当研究者が写本画像と照合して確認した。これは外部査読済みであることを意味しない。外交的転写を既定表示とする。現時点の本文にunclearはない。</note>
+        <note type="status" xml:lang="ja">第1〜第18対句の読み、正規化範囲、0005a・0005b・0007aの3つの正規化形、および全36半句の画像領域は、プロジェクト担当研究者が写本画像と照合して確認した。これは外部査読済みであることを意味しない。外交的転写を既定表示とする。現時点の本文にunclearはない。</note>
         <pb n="scan-f6" facs="#bnf348.f6"/>
         <lg type="couplet" n="0001" xml:id="mt.bnf348.0001">
           <l n="a" xml:id="mt.bnf348.0001.a" facs="#bnf348.f6.z001a">آفرین جان آفرین پاک را</l>
@@ -225,6 +233,18 @@
         <lg type="couplet" n="0015" xml:id="mt.bnf348.0015" resp="#resp-ai-transcription #resp-researcher-review">
           <l n="a" xml:id="mt.bnf348.0015.a" facs="#bnf348.f7.z015a">بست موری را کمر چون موی سر</l>
           <l n="b" xml:id="mt.bnf348.0015.b" facs="#bnf348.f7.z015b">کرد او را با سلیمان هم کمر</l>
+        </lg>
+        <lg type="couplet" n="0016" xml:id="mt.bnf348.0016" resp="#resp-ai-transcription #resp-researcher-review">
+          <l n="a" xml:id="mt.bnf348.0016.a" facs="#bnf348.f7.z016a">خلعت اولاد عباسش بداد</l>
+          <l n="b" xml:id="mt.bnf348.0016.b" facs="#bnf348.f7.z016b">طا و سین بی زحمت طاسش بداد</l>
+        </lg>
+        <lg type="couplet" n="0017" xml:id="mt.bnf348.0017" resp="#resp-ai-transcription #resp-researcher-review">
+          <l n="a" xml:id="mt.bnf348.0017.a" facs="#bnf348.f7.z017a">سوزنی چون دید با عیسی بهم</l>
+          <l n="b" xml:id="mt.bnf348.0017.b" facs="#bnf348.f7.z017b">بخیه بر رویش فکند او لاجرم</l>
+        </lg>
+        <lg type="couplet" n="0018" xml:id="mt.bnf348.0018" resp="#resp-ai-transcription #resp-researcher-review">
+          <l n="a" xml:id="mt.bnf348.0018.a" facs="#bnf348.f7.z018a">کوه را از لاله خون آلود کرد</l>
+          <l n="b" xml:id="mt.bnf348.0018.b" facs="#bnf348.f7.z018b">گلشن نیلوفری از دود کرد</l>
         </lg>
       </div>
     </body>
