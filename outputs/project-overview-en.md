@@ -49,8 +49,8 @@ The technical competence demonstrated here is therefore not manual XML entry. It
 - Persan 348 is used as a practice witness, not established as a best or base manuscript.
 - The multi-witness apparatus contains one substantive variant in an 18-hemistich overlap and remains a methodological demonstration, not a critical edition.
 - Japanese translation alignment, speaker annotation, and nested narrative structures remain future work.
-- The repository has not yet been released publicly and no DOI has been assigned.
+- Version 0.2.0 is the first public, versioned release. No DOI has yet been assigned.
 
 ## Next milestones
 
-The repository is being prepared for a versioned public release. Subsequent research milestones are translation alignment, expansion of independently attested collation, and a conference proposal.
+Version 0.2.0 provides a citable public baseline. Subsequent research milestones are translation alignment, expansion of independently attested collation, and conference presentation and publication.

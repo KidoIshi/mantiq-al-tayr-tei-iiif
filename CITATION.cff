@@ -3,6 +3,7 @@ message: "If you use this dataset or its accompanying software, please cite it u
 type: dataset
 title: "Manṭiq al-ṭayr: A TEI–IIIF Multi-Witness Manuscript Transcription Prototype"
 version: 0.2.0
+date-released: 2026-11-12
 repository-code: "https://github.com/KidoIshi/mantiq-al-tayr-tei-iiif"
 url: "https://github.com/KidoIshi/mantiq-al-tayr-tei-iiif"
 authors:
