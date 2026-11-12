@@ -48,7 +48,7 @@ Smithsonianの公式目録が明記するのは、16世紀、イラン、イン�
 
 - [Centre for Language Engineering, “Context Sensitive Shape Substitution in Nastaliq”](https://www.cle.org.pk/Publication/papers/2006/context_sensitive_shape_substitution.pdf) — nastaʿlīqの`alif`・`dal`・`ray`・`vao`は後続字へ接続せず、語頭形・語中形を持たないと説明する。
 
-今回、研究者がFSC-MS-28について承認した転写範囲は`وان`である。`دگر`はPersan 348の承認済み本文に含まれるが、FSC-MS-28については元画像を用いた説明対象であり、生成画像を証拠にしない。
+研究者はFSC-MS-28について`وان`を承認し、後続語は文脈、`آن یکی`との対句構造、既知本文に基づき`دگر`として採用した。ただし`د`に相当する筆画は元画像上で独立して確認できない。TEIでは語全体を捨てたり欠落を断定して`supplied`としたりせず、`د`だけを`<unclear reason="indistinct" cert="low">`で囲む。これは「語の同定」と「個別字母の視認性」を分ける処理である。生成画像は証拠に用いない。
 
 比較用の元IIIF領域：
 

@@ -5,7 +5,7 @@ Status: small-scale prototype reviewed against the manuscript image by the proje
 
 ## Overview
 
-This project develops a reproducible TEI–IIIF workflow for Farīd al-Dīn ʿAṭṭār’s *Manṭiq al-ṭayr* using Bibliothèque nationale de France, Persan 348. It is not presented as a completed critical edition. Its current purpose is to demonstrate how a manuscript-based diplomatic transcription, controlled normalization, image-region alignment, standards conversion, and validation can be combined in a transparent digital-humanities workflow.
+This project develops a reproducible TEI–IIIF workflow for Farīd al-Dīn ʿAṭṭār’s *Manṭiq al-ṭayr* using Bibliothèque nationale de France, Persan 348, and Smithsonian FSC-MS-28. It is not presented as a completed critical edition. Its current purpose is to demonstrate how independent manuscript-based diplomatic transcription, controlled normalization, witness collation, image-region alignment, standards conversion, and validation can be combined in a transparent digital-humanities workflow.
 
 ## Implemented dataset
 
@@ -14,10 +14,11 @@ This project develops a reproducible TEI–IIIF workflow for Farīd al-Dīn ʿA�
 - Stable identifiers for every couplet and hemistich.
 - Three approved `choice/orig/reg` normalizations, while retaining the diplomatic reading as the default.
 - 60 TEI `zone` regions reviewed against the image by the project researcher and linked from the hemistichs with `@facs`.
-- Two generated IIIF Presentation 3 AnnotationPages containing 60 `supplementing` Web Annotations targeting the BnF f6 and f7 Canvases with `xywh` fragments.
-- A browser demonstrator with diplomatic/normalized display, hemistich-region previews, and a Mirador manuscript viewer.
+- An independently transcribed and researcher-reviewed nine-couplet opening from Smithsonian FSC-MS-28, including 18 image regions, one locally unclear letter, and one repair-covered gap.
+- Three generated IIIF Presentation 3 AnnotationPages containing 78 `supplementing` Web Annotations targeting two BnF Canvases and one Smithsonian Canvas with `xywh` fragments.
+- A browser demonstrator with diplomatic/normalized display, witness switching, parallel hemistich and image-region comparison, and two Mirador manuscript windows.
 - One non-selective apparatus entry based on independent manuscript images: Persan 348 `وین` and Smithsonian FSC-MS-28 `وان`.
-- Witness-specific text extraction, retaining the Persan 348 reading in the BnF AnnotationPage while exposing both readings in the comparison view.
+- Witness-specific text extraction and automated collation of the 18 overlapping hemistichs: 16 exact matches, one textual variant, and one covered gap.
 
 ## Data model
 
@@ -31,7 +32,8 @@ The current dataset passes:
 - the official TEI P5 Relax NG schema;
 - the project Relax NG schema generated from `schema/mantiq.odd`;
 - project-specific Schematron constraints;
-- a TEI–IIIF cross-check confirming that all 60 annotation bodies match the diplomatic TEI text and all 60 Canvas targets match the TEI zones.
+- a TEI–IIIF cross-check confirming that all 78 annotation bodies match the diplomatic TEI text and all 78 Canvas targets match the TEI zones;
+- automated collation and comparison-viewer regression checks.
 
 Machine-readable reports and a one-command verification script are included in the project.
 
@@ -45,10 +47,10 @@ The technical competence demonstrated here is therefore not manual XML entry. It
 
 - The sample covers 30 couplets rather than the complete work.
 - Persan 348 is used as a practice witness, not established as a best or base manuscript.
-- The multi-witness apparatus is a one-reading methodological demonstration, not a critical edition.
+- The multi-witness apparatus contains one substantive variant in an 18-hemistich overlap and remains a methodological demonstration, not a critical edition.
 - Japanese translation alignment, speaker annotation, and nested narrative structures remain future work.
 - The repository has not yet been released publicly and no DOI has been assigned.
 
 ## Next milestones
 
-The next research milestone is translation alignment or expansion of the independently attested apparatus before preparing a versioned public release and a conference proposal.
+The repository is being prepared for a versioned public release. Subsequent research milestones are translation alignment, expansion of independently attested collation, and a conference proposal.

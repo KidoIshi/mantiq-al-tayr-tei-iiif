@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T06:03:59.461218+00:00",
+  "generated_at": "2026-11-12T03:15:31.346577+00:00",
   "project": "Manṭiq al-ṭayr TEI–IIIF prototype",
   "all_passed": true,
   "steps": [
@@ -28,6 +28,36 @@
       "command": [
         "python",
         "scripts/test_apparatus_processing.py"
+      ],
+      "passed": true,
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "label": "validate_fsc28_opening_review_candidates",
+      "command": [
+        "python",
+        "scripts/validate_fsc28_review_candidates.py"
+      ],
+      "passed": true,
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "label": "collate_approved_opening_witnesses",
+      "command": [
+        "python",
+        "scripts/collate_opening_witnesses.py"
+      ],
+      "passed": true,
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "label": "test_witness_comparison_viewer",
+      "command": [
+        "python",
+        "scripts/test_viewer_comparison.py"
       ],
       "passed": true,
       "returncode": 0,
@@ -73,6 +103,9 @@
     "odd_build": "outputs/odd-build-report.json",
     "odd_negative_test": "outputs/odd-negative-test-report.json",
     "tei_validation": "outputs/validation-report-bnf348-f6.json",
-    "iiif_annotation_validation": "outputs/iiif-annotation-validation.json"
+    "iiif_annotation_validation": "outputs/iiif-annotation-validation.json",
+    "fsc28_candidate_validation": "outputs/fsc-ms-28-candidate-validation.json",
+    "opening_witness_collation": "outputs/opening-witness-collation.json",
+    "viewer_comparison_test": "outputs/viewer-comparison-test.json"
   }
 }

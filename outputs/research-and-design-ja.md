@@ -1,5 +1,7 @@
 # 『鳥の言葉』TEI・IIIF調査と設計
 
+> 履歴資料：本書は2026年10月13日の初期調査・計画を保存する。現行成果は`technical-report-ja.md`、`reproducibility-guide-ja.md`、`publication-audit-ja.md`を参照すること。
+
 更新日: 2026-10-13  
 対象: ファリードゥッディーン・アッタール『鳥の言葉』（*Manṭiq al-ṭayr*）
 

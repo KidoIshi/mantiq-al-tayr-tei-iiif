@@ -1,15 +1,30 @@
 {
-  "generated_at": "2026-11-11T06:03:59.595827+00:00",
+  "generated_at": "2026-11-12T03:22:05.517641+00:00",
   "technical_release_checks_passed": true,
-  "scope_note": "Technical checks only; this report does not determine third-party rights, scholarly validity, or external peer-review status.",
+  "scope_note": "Technical and documentation checks only; final rights assessment, scholarly validity, repository visibility, and external peer review require human judgment.",
   "blocker_count": 0,
   "warning_count": 0,
   "blockers": [],
   "warnings": [],
   "passed_checks": {
     "aggregate_validation": true,
+    "viewer_validation": true,
     "github_validation_workflow": true,
-    "readme": true,
-    "reproducibility_guide": true
-  }
+    "tei_counts": {
+      "couplets": 39,
+      "hemistichs": 78,
+      "surfaces": 3
+    },
+    "annotation_pages": 3,
+    "annotations": 78,
+    "third_party_images_tracked": 0,
+    "possible_credentials": 0
+  },
+  "manual_release_actions": [
+    "Review the final Git diff and commit the release candidate.",
+    "Confirm that the repository may be changed from private to public.",
+    "Enable and verify GitHub Pages after publication.",
+    "Create a version tag/release and update CITATION.cff if the version changes.",
+    "Optionally archive the tagged release in Zenodo and add the DOI."
+  ]
 }

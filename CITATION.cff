@@ -1,8 +1,8 @@
 cff-version: 1.2.0
 message: "If you use this dataset or its accompanying software, please cite it using the metadata below."
 type: dataset
-title: "Manṭiq al-ṭayr: A TEI–IIIF Manuscript Transcription Prototype for BnF Persan 348"
-version: 0.1.0
+title: "Manṭiq al-ṭayr: A TEI–IIIF Multi-Witness Manuscript Transcription Prototype"
+version: 0.2.0
 repository-code: "https://github.com/KidoIshi/mantiq-al-tayr-tei-iiif"
 url: "https://github.com/KidoIshi/mantiq-al-tayr-tei-iiif"
 authors:
@@ -11,15 +11,18 @@ authors:
     orcid: "https://orcid.org/0009-0009-2254-2189"
     website: "https://researchmap.jp/kidoishi/"
 abstract: >-
-  A small-scale TEI P5 transcription of nine Persian couplets from BnF
-  Persan 348, reviewed against the manuscript image by the project researcher,
-  aligned with eighteen IIIF Canvas regions, and exported as an IIIF
-  Presentation 3 AnnotationPage. This review is not external peer review.
+  A reproducible TEI P5 and IIIF prototype containing 30 Persian couplets
+  from BnF Persan 348 and an independently transcribed nine-couplet opening
+  from Smithsonian FSC-MS-28. The dataset contains 78 reviewed hemistich-to-image
+  alignments across three IIIF Canvases, a non-selective apparatus example,
+  witness collation, project schemas, validation reports, and a comparison
+  viewer. Researcher review against manuscript images is not external peer review.
 keywords:
   - TEI
   - IIIF
   - Persian literature
   - manuscript studies
+  - textual criticism
   - Manṭiq al-ṭayr
   - Farīd al-Dīn ʿAṭṭār
 license: CC-BY-4.0

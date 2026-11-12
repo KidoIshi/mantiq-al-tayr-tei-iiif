@@ -1,0 +1,33 @@
+{
+  "source": {
+    "witness": "FSC-MS-28",
+    "image": "FS-7342_15",
+    "canvas": "https://ids.si.edu/ids/iiif/canvas-FS-7342_15",
+    "status": "Researcher reviewed on 2026-11-11"
+  },
+  "policy": {
+    "do_not_silently_copy_from_bnf348": true,
+    "covered_text": "Record visible text and a gap; retain the Persan 348 text only as a comparison hint.",
+    "same_reading": "The researcher approved the candidate matches on 2026-11-11."
+  },
+  "lines": [
+    {"id":"0001a","zone":"#fsc28.fs7342-15.z001a","candidate":"آفرین جان آفرین پاک را","comparison":"same as Persan 348","status":"researcher-reviewed-clear"},
+    {"id":"0001b","zone":"#fsc28.fs7342-15.z001b","candidate":"آنکه جان بخشید و ایمان خاک را","comparison":"same as Persan 348","status":"researcher-reviewed-clear"},
+    {"id":"0002a","zone":"#fsc28.fs7342-15.z002a","candidate":"عرش را بر آب بنیاد او نهاد","comparison":"same as Persan 348","status":"researcher-reviewed-clear"},
+    {"id":"0002b","zone":"#fsc28.fs7342-15.z002b","candidate":"خاکیان را عمر بر باد او نهاد","comparison":"same as Persan 348","status":"researcher-reviewed-clear"},
+    {"id":"0003a","zone":"#fsc28.fs7342-15.z003a","candidate":"آسمان را در زبردستی بداشت","comparison":"same as Persan 348","status":"researcher-reviewed-clear"},
+    {"id":"0003b","zone":"#fsc28.fs7342-15.z003b","candidate":"خاک را در غایت پستی بداشت","comparison":"same as Persan 348","status":"researcher-reviewed-clear"},
+    {"id":"0004a","zone":"#fsc28.fs7342-15.z004a","candidate":"آن یکی را جنبش مادام داد","comparison":"same as Persan 348","status":"researcher-reviewed-clear"},
+    {"id":"0004b","zone":"#fsc28.fs7342-15.z004b","candidate":"وان دگر را دایما آرام داد","comparison":"وان against Persan 348 وین; د in دگر is not independently identifiable","status":"researcher-reviewed-with-unclear"},
+    {"id":"0005a","zone":"#fsc28.fs7342-15.z005a","candidate":"آسمان چون خیمه برپای کرد","comparison":"same as Persan 348","status":"researcher-reviewed-clear"},
+    {"id":"0005b","zone":"#fsc28.fs7342-15.z005b","candidate":"بی ستون کرد و زمینش جای کرد","comparison":"same as Persan 348; local surface damage reviewed","status":"researcher-reviewed-clear-with-surface-damage"},
+    {"id":"0006a","zone":"#fsc28.fs7342-15.z006a","candidate":"کرد […] پدید","comparison_hint":"کرد در شش روز هفت انجم پدید","comparison":"central portion is covered by a repair; comparison text is not treated as visible transcription","status":"researcher-reviewed-gap-covered"},
+    {"id":"0006b","zone":"#fsc28.fs7342-15.z006b","candidate":"وز دو حرف آورد نه طارم پدید","comparison":"same as Persan 348","status":"researcher-reviewed-clear"},
+    {"id":"0007a","zone":"#fsc28.fs7342-15.z007a","candidate":"مهره انجم ز زرین حقه ساخت","comparison":"same as Persan 348; adjacent repair edge reviewed","status":"researcher-reviewed-clear-with-surface-damage"},
+    {"id":"0007b","zone":"#fsc28.fs7342-15.z007b","candidate":"با فلک در حقه هر شب مهره باخت","comparison":"same as Persan 348","status":"researcher-reviewed-clear"},
+    {"id":"0008a","zone":"#fsc28.fs7342-15.z008a","candidate":"دام تن را مختلف احوال کرد","comparison":"same as Persan 348","status":"researcher-reviewed-clear"},
+    {"id":"0008b","zone":"#fsc28.fs7342-15.z008b","candidate":"مرغ جان را خاک در دنبال کرد","comparison":"same as Persan 348","status":"researcher-reviewed-clear"},
+    {"id":"0009a","zone":"#fsc28.fs7342-15.z009a","candidate":"بحر را بگذاشت در تسلیم خویش","comparison":"same as Persan 348","status":"researcher-reviewed-clear"},
+    {"id":"0009b","zone":"#fsc28.fs7342-15.z009b","candidate":"کوه را افسرده کرد از بیم خویش","comparison":"same as Persan 348","status":"researcher-reviewed-clear"}
+  ]
+}

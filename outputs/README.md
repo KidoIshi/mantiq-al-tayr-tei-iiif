@@ -8,12 +8,16 @@
 - `iiif-web-annotation-design-ja.md`：TEIからIIIF Web Annotationへの変換設計
 - `iiif-zone-alignment-design-ja.md`：TEI半句と画像領域の対応設計
 - `publication-readiness.json`：技術的公開条件の機械判定（権利・学術判断・外部査読を判定しない）
+- `publication-audit-ja.md`：公開前監査、第三者画像条件、公開時に必要な人間判断
 - `project-verification-summary.json`：全生成・検証の総合結果
 - `validation-report-bnf348-f6.json`：Persan 348 TEIの検証結果
 - `iiif-annotation-validation.json`：TEIとIIIF注釈の相互照合結果
 - `odd-customization-design-ja.md`：ODD設計判断とコードレビュー教材
 - `odd-build-report.json`：ODD、生成スキーマ、試料検証の記録
 - `odd-negative-test-report.json`：公式TEI Allでは有効だが専用ODDでは無効となる反例検査
+- `opening-witness-collation-ja.md` / `.json`：Persan 348・FSC-MS-28冒頭18半句の校合結果
+- `viewer-comparison-test.json`：証人切替・並列比較画面の回帰検査
+- `fsc-ms-28-opening-review-ja.md`：FSC-MS-28冒頭9対句の研究者確認記録
 
 ## 判断・学習記録
 

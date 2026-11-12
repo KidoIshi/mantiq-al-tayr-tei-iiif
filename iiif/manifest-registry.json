@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-10",
+  "generated": "2026-11-12",
   "records": [
     {
       "id": "bnf-persan-348",
@@ -53,7 +53,7 @@
       "work": "Manṭiq al-ṭayr",
       "holding_institution": "Smithsonian National Museum of Asian Art",
       "shelfmark": "FSC-MS-28",
-      "object_url": "https://asia-archive.si.edu/object/FSC-MS-28/",
+      "object_url": "https://asia.si.edu/explore-art-culture/collections/search/edanmdm:fsg_FSC-MS-28/",
       "manifest": "https://ids.si.edu/ids/manifest/FS-7342_15",
       "presentation_api": "2.x / Shared Canvas representation; seven separate single-image manifests are exposed on the object page",
       "scope": "seven published object images, not a complete-codex sequence; FS-7342_15 contains the opening text",
@@ -71,6 +71,11 @@
         }
       ],
       "rights_page_label": "Usage Conditions Apply; image reuse is governed by Smithsonian terms",
+      "rights_url": "https://www.si.edu/termsofuse",
+      "attribution": "Smithsonian Institution, National Museum of Asian Art; FSC-MS-28; Gift of Mrs. Elinor Horwitz",
+      "project_annotation_pages": [
+        "iiif/fsc-ms-28-FS-7342_15-annotations.json"
+      ],
       "verified": {
         "manifest_retrievable": true,
         "checked_on": "2026-11-11",
@@ -80,8 +85,8 @@
         "opening_image": "FS-7342_15"
       },
       "text_alignment": {
-        "status": "researcher-reviewed-variant-sample",
-        "reason": "FS-7342_15 contains the opening text corresponding to the Persan 348 sample. The project researcher approved FSC-MS-28 وان against Persan 348 وین at 0004b; the non-selective apparatus is encoded without choosing a lemma. The FSC-MS-28 image region remains an AI-generated candidate."
+        "status": "project-researcher-reviewed-opening-transcription",
+        "reason": "FS-7342_15 contains nine opening couplets corresponding to the Persan 348 sample. The project researcher approved all 9 couplets / 18 hemistichs and their candidate image regions. FSC-MS-28 وان stands against Persan 348 وین at 0004b; the د in دگر remains encoded as unclear because it cannot be independently identified in the image. The central portion of 0006a is covered by a physical repair and is encoded as a gap rather than silently supplied from Persan 348."
       }
     },
     {

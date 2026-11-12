@@ -1,8 +1,8 @@
-# Persan 348：TEIからIIIF Web Annotationへの変換設計
+# Persan 348・FSC-MS-28：TEIからIIIF Web Annotationへの変換設計
 
 作成日：2026年11月10日  
-更新日：2026年11月11日
-状態：2 Canvas・60半句の変換・相互照合済み
+更新日：2026年11月12日
+状態：3 Canvas・78半句の変換・相互照合済み
 
 ## 目的
 
@@ -13,7 +13,7 @@ TEI内の`l/@facs → zone`対応を、IIIF対応ツールが利用できるAnno
 - 1つのTEI `l`を1つのIIIF `Annotation`へ変換する。
 - `body`はプロジェクト担当研究者が写本画像と照合した外交的転写を`TextualBody`として持つ。これは外部査読済みを意味しない。
 - `motivation`は、画像をCanvasへ描画する`painting`ではなく、転写を補足する`supplementing`とする。
-- `target`はBnFのscan f6またはf7 Canvasに`#xywh=x,y,w,h`を付けた領域URIとする。
+- `target`はBnFのscan f6・f7またはSmithsonian FS-7342_15 Canvasに`#xywh=x,y,w,h`を付けた領域URIとする。
 - AnnotationPageはCanvasごとに分け、`partOf`で対応Canvasを明示する。
 - `choice`がある箇所では`orig`を採用し、`reg`はTEIに保持する。したがってIIIF注釈は写本転写を正規化形で上書きしない。
 
@@ -24,12 +24,13 @@ TEI内の`l/@facs → zone`対応を、IIIF対応ツールが利用できるAnno
 
 ## Canvasの確認
 
-BnF Manifest内でscan f6・f7のCanvasを確認した。
+BnF Manifest内でscan f6・f7、Smithsonian Manifest内でFSC-MS-28冒頭画像のCanvasを確認した。
 
 - Canvas：`https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f6`
 - Canvas：`https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7`
-- 寸法：3669×2787
-- 各TEI `surface`寸法：3669×2787
+- Canvas：`https://ids.si.edu/ids/iiif/canvas-FS-7342_15`
+- BnF寸法：3669×2787、Smithsonian寸法：2090×3520
+- 各TEI `surface`寸法は対応Canvasと一致する。
 
 CanvasとTEI surfaceが同一の座標系を使うため、`zone`を単純な`xywh`へ変換できる。
 
@@ -62,7 +63,7 @@ IIIF注釈の主要部分：
 `scripts/validate_iiif_annotations.py`が以下を相互照合する。
 
 1. JSONが読み込め、Presentation API 3の基本形を持つこと。
-2. TEIの60半句と2 AnnotationPage内のAnnotationの件数・識別子が一致すること。
+2. TEIの78半句と3 AnnotationPage内のAnnotationの件数・識別子が一致すること。
 3. Annotation本文がTEIの外交的転写と一致すること。
 4. Canvas領域がTEI `zone`から算出した`xywh`と一致すること。
 

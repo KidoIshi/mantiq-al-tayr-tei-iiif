@@ -53,7 +53,8 @@ def expected_pages(tei_path: Path) -> dict[str, dict]:
 
 def validate(tei_path: Path, annotation_dir: Path) -> dict:
     expected = expected_pages(tei_path)
-    annotation_paths = sorted(annotation_dir.glob("bnf-persan-348-f*-annotations.json"))
+    annotation_paths = sorted(annotation_dir.glob("bnf-persan-348-*-annotations.json"))
+    annotation_paths.extend(sorted(annotation_dir.glob("fsc-ms-28-*-annotations.json")))
     actual = {path.name: path for path in annotation_paths}
     errors: list[str] = []
     expected_files = set(expected)

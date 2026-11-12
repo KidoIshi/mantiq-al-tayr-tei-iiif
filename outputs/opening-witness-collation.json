@@ -1,0 +1,459 @@
+{
+  "generated_at": "2026-11-12T03:22:05.089803+00:00",
+  "source_tei": "data\\tei\\bnf-persan-348-f6-sample.xml",
+  "method": "diplomatic witness-specific collation",
+  "counts": {
+    "covered_gap": 1,
+    "exact_match": 16,
+    "textual_variant_with_uncertainty": 1
+  },
+  "checks": {
+    "line_sets_match": true,
+    "eighteen_lines_compared": true,
+    "apparatus_matches_textual_variants": true,
+    "all_lines_have_image_regions": true,
+    "expected_classification_counts": true
+  },
+  "records": [
+    {
+      "key": "0001a",
+      "classification": "exact_match",
+      "explanation": "外交的転写が一致する。",
+      "apparatus_required": false,
+      "witnesses": {
+        "bnf348": {
+          "id": "mt.bnf348.0001.a",
+          "text": "آفرین جان آفرین پاک را",
+          "flags": [],
+          "facs": "#bnf348.f6.z001a",
+          "has_app": false,
+          "image": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/f6/2350,1310,520,180/full/0/native.jpg"
+        },
+        "fsc28": {
+          "id": "mt.fsc28.0001.a",
+          "text": "آفرین جان آفرین پاک را",
+          "flags": [],
+          "facs": "#fsc28.fs7342-15.z001a",
+          "has_app": false,
+          "image": "https://ids.si.edu/ids/iiif/FS-7342_15/650,1320,580,250/full/0/default.jpg"
+        }
+      }
+    },
+    {
+      "key": "0001b",
+      "classification": "exact_match",
+      "explanation": "外交的転写が一致する。",
+      "apparatus_required": false,
+      "witnesses": {
+        "bnf348": {
+          "id": "mt.bnf348.0001.b",
+          "text": "آنکه جان بخشید و ایمان خاک را",
+          "flags": [],
+          "facs": "#bnf348.f6.z001b",
+          "has_app": false,
+          "image": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/f6/1800,1310,570,180/full/0/native.jpg"
+        },
+        "fsc28": {
+          "id": "mt.fsc28.0001.b",
+          "text": "آنکه جان بخشید و ایمان خاک را",
+          "flags": [],
+          "facs": "#fsc28.fs7342-15.z001b",
+          "has_app": false,
+          "image": "https://ids.si.edu/ids/iiif/FS-7342_15/150,1320,600,250/full/0/default.jpg"
+        }
+      }
+    },
+    {
+      "key": "0002a",
+      "classification": "exact_match",
+      "explanation": "外交的転写が一致する。",
+      "apparatus_required": false,
+      "witnesses": {
+        "bnf348": {
+          "id": "mt.bnf348.0002.a",
+          "text": "عرش را بر آب بنیاد او نهاد",
+          "flags": [],
+          "facs": "#bnf348.f6.z002a",
+          "has_app": false,
+          "image": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/f6/2350,1450,520,180/full/0/native.jpg"
+        },
+        "fsc28": {
+          "id": "mt.fsc28.0002.a",
+          "text": "عرش را بر آب بنیاد او نهاد",
+          "flags": [],
+          "facs": "#fsc28.fs7342-15.z002a",
+          "has_app": false,
+          "image": "https://ids.si.edu/ids/iiif/FS-7342_15/650,1490,580,270/full/0/default.jpg"
+        }
+      }
+    },
+    {
+      "key": "0002b",
+      "classification": "exact_match",
+      "explanation": "外交的転写が一致する。",
+      "apparatus_required": false,
+      "witnesses": {
+        "bnf348": {
+          "id": "mt.bnf348.0002.b",
+          "text": "خاکیان را عمر بر باد او نهاد",
+          "flags": [],
+          "facs": "#bnf348.f6.z002b",
+          "has_app": false,
+          "image": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/f6/1800,1450,570,180/full/0/native.jpg"
+        },
+        "fsc28": {
+          "id": "mt.fsc28.0002.b",
+          "text": "خاکیان را عمر بر باد او نهاد",
+          "flags": [],
+          "facs": "#fsc28.fs7342-15.z002b",
+          "has_app": false,
+          "image": "https://ids.si.edu/ids/iiif/FS-7342_15/150,1490,600,270/full/0/default.jpg"
+        }
+      }
+    },
+    {
+      "key": "0003a",
+      "classification": "exact_match",
+      "explanation": "外交的転写が一致する。",
+      "apparatus_required": false,
+      "witnesses": {
+        "bnf348": {
+          "id": "mt.bnf348.0003.a",
+          "text": "آسمان را در زبردستی بداشت",
+          "flags": [],
+          "facs": "#bnf348.f6.z003a",
+          "has_app": false,
+          "image": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/f6/2350,1590,520,180/full/0/native.jpg"
+        },
+        "fsc28": {
+          "id": "mt.fsc28.0003.a",
+          "text": "آسمان را در زبردستی بداشت",
+          "flags": [],
+          "facs": "#fsc28.fs7342-15.z003a",
+          "has_app": false,
+          "image": "https://ids.si.edu/ids/iiif/FS-7342_15/650,1660,580,270/full/0/default.jpg"
+        }
+      }
+    },
+    {
+      "key": "0003b",
+      "classification": "exact_match",
+      "explanation": "外交的転写が一致する。",
+      "apparatus_required": false,
+      "witnesses": {
+        "bnf348": {
+          "id": "mt.bnf348.0003.b",
+          "text": "خاک را در غایت پستی بداشت",
+          "flags": [],
+          "facs": "#bnf348.f6.z003b",
+          "has_app": false,
+          "image": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/f6/1800,1590,570,180/full/0/native.jpg"
+        },
+        "fsc28": {
+          "id": "mt.fsc28.0003.b",
+          "text": "خاک را در غایت پستی بداشت",
+          "flags": [],
+          "facs": "#fsc28.fs7342-15.z003b",
+          "has_app": false,
+          "image": "https://ids.si.edu/ids/iiif/FS-7342_15/150,1660,600,270/full/0/default.jpg"
+        }
+      }
+    },
+    {
+      "key": "0004a",
+      "classification": "exact_match",
+      "explanation": "外交的転写が一致する。",
+      "apparatus_required": false,
+      "witnesses": {
+        "bnf348": {
+          "id": "mt.bnf348.0004.a",
+          "text": "آن یکی را جنبش مادام داد",
+          "flags": [],
+          "facs": "#bnf348.f6.z004a",
+          "has_app": false,
+          "image": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/f6/2350,1730,520,180/full/0/native.jpg"
+        },
+        "fsc28": {
+          "id": "mt.fsc28.0004.a",
+          "text": "آن یکی را جنبش مادام داد",
+          "flags": [],
+          "facs": "#fsc28.fs7342-15.z004a",
+          "has_app": false,
+          "image": "https://ids.si.edu/ids/iiif/FS-7342_15/650,1830,580,270/full/0/default.jpg"
+        }
+      }
+    },
+    {
+      "key": "0004b",
+      "classification": "textual_variant_with_uncertainty",
+      "explanation": "本文異同を記録する。FSC-MS-28の別の字母判読不確実性はunclearとして保持する。",
+      "apparatus_required": true,
+      "witnesses": {
+        "bnf348": {
+          "id": "mt.bnf348.0004.b",
+          "text": "وین دگر را دایما آرام داد",
+          "flags": [
+            "apparatus"
+          ],
+          "facs": "#bnf348.f6.z004b",
+          "has_app": true,
+          "image": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/f6/1800,1730,570,180/full/0/native.jpg"
+        },
+        "fsc28": {
+          "id": "mt.fsc28.0004.b",
+          "text": "وان دگر را دایما آرام داد",
+          "flags": [
+            "unclear"
+          ],
+          "facs": "#fsc28.fs7342-15.z004b",
+          "has_app": false,
+          "image": "https://ids.si.edu/ids/iiif/FS-7342_15/150,1850,600,300/full/0/default.jpg"
+        }
+      }
+    },
+    {
+      "key": "0005a",
+      "classification": "exact_match",
+      "explanation": "外交的転写が一致する。",
+      "apparatus_required": false,
+      "witnesses": {
+        "bnf348": {
+          "id": "mt.bnf348.0005.a",
+          "text": "آسمان چون خیمه برپای کرد",
+          "flags": [],
+          "facs": "#bnf348.f6.z005a",
+          "has_app": false,
+          "image": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/f6/2350,1870,520,180/full/0/native.jpg"
+        },
+        "fsc28": {
+          "id": "mt.fsc28.0005.a",
+          "text": "آسمان چون خیمه برپای کرد",
+          "flags": [],
+          "facs": "#fsc28.fs7342-15.z005a",
+          "has_app": false,
+          "image": "https://ids.si.edu/ids/iiif/FS-7342_15/650,2010,580,270/full/0/default.jpg"
+        }
+      }
+    },
+    {
+      "key": "0005b",
+      "classification": "exact_match",
+      "explanation": "外交的転写が一致する。",
+      "apparatus_required": false,
+      "witnesses": {
+        "bnf348": {
+          "id": "mt.bnf348.0005.b",
+          "text": "بی ستون کرد و زمینش جای کرد",
+          "flags": [],
+          "facs": "#bnf348.f6.z005b",
+          "has_app": false,
+          "image": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/f6/1800,1870,570,180/full/0/native.jpg"
+        },
+        "fsc28": {
+          "id": "mt.fsc28.0005.b",
+          "text": "بی ستون کرد و زمینش جای کرد",
+          "flags": [],
+          "facs": "#fsc28.fs7342-15.z005b",
+          "has_app": false,
+          "image": "https://ids.si.edu/ids/iiif/FS-7342_15/150,2010,600,270/full/0/default.jpg"
+        }
+      }
+    },
+    {
+      "key": "0006a",
+      "classification": "covered_gap",
+      "explanation": "FSC-MS-28の中央部は補修紙で覆われるため、異読ではなく欠損として扱う。",
+      "apparatus_required": false,
+      "witnesses": {
+        "bnf348": {
+          "id": "mt.bnf348.0006.a",
+          "text": "کرد در شش روز هفت انجم پدید",
+          "flags": [],
+          "facs": "#bnf348.f6.z006a",
+          "has_app": false,
+          "image": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/f6/2350,2010,520,160/full/0/native.jpg"
+        },
+        "fsc28": {
+          "id": "mt.fsc28.0006.a",
+          "text": "کرد […] پدید",
+          "flags": [
+            "gap",
+            "gap:covered"
+          ],
+          "facs": "#fsc28.fs7342-15.z006a",
+          "has_app": false,
+          "image": "https://ids.si.edu/ids/iiif/FS-7342_15/650,2180,580,270/full/0/default.jpg"
+        }
+      }
+    },
+    {
+      "key": "0006b",
+      "classification": "exact_match",
+      "explanation": "外交的転写が一致する。",
+      "apparatus_required": false,
+      "witnesses": {
+        "bnf348": {
+          "id": "mt.bnf348.0006.b",
+          "text": "وز دو حرف آورد نه طارم پدید",
+          "flags": [],
+          "facs": "#bnf348.f6.z006b",
+          "has_app": false,
+          "image": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/f6/1800,2010,570,160/full/0/native.jpg"
+        },
+        "fsc28": {
+          "id": "mt.fsc28.0006.b",
+          "text": "وز دو حرف آورد نه طارم پدید",
+          "flags": [],
+          "facs": "#fsc28.fs7342-15.z006b",
+          "has_app": false,
+          "image": "https://ids.si.edu/ids/iiif/FS-7342_15/150,2180,600,270/full/0/default.jpg"
+        }
+      }
+    },
+    {
+      "key": "0007a",
+      "classification": "exact_match",
+      "explanation": "外交的転写が一致する。",
+      "apparatus_required": false,
+      "witnesses": {
+        "bnf348": {
+          "id": "mt.bnf348.0007.a",
+          "text": "مهره انجم ز زرین حقه ساخت",
+          "flags": [],
+          "facs": "#bnf348.f6.z007a",
+          "has_app": false,
+          "image": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/f6/1100,1260,600,200/full/0/native.jpg"
+        },
+        "fsc28": {
+          "id": "mt.fsc28.0007.a",
+          "text": "مهره انجم ز زرین حقه ساخت",
+          "flags": [],
+          "facs": "#fsc28.fs7342-15.z007a",
+          "has_app": false,
+          "image": "https://ids.si.edu/ids/iiif/FS-7342_15/650,2350,580,270/full/0/default.jpg"
+        }
+      }
+    },
+    {
+      "key": "0007b",
+      "classification": "exact_match",
+      "explanation": "外交的転写が一致する。",
+      "apparatus_required": false,
+      "witnesses": {
+        "bnf348": {
+          "id": "mt.bnf348.0007.b",
+          "text": "با فلک در حقه هر شب مهره باخت",
+          "flags": [],
+          "facs": "#bnf348.f6.z007b",
+          "has_app": false,
+          "image": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/f6/520,1260,600,200/full/0/native.jpg"
+        },
+        "fsc28": {
+          "id": "mt.fsc28.0007.b",
+          "text": "با فلک در حقه هر شب مهره باخت",
+          "flags": [],
+          "facs": "#fsc28.fs7342-15.z007b",
+          "has_app": false,
+          "image": "https://ids.si.edu/ids/iiif/FS-7342_15/150,2350,600,270/full/0/default.jpg"
+        }
+      }
+    },
+    {
+      "key": "0008a",
+      "classification": "exact_match",
+      "explanation": "外交的転写が一致する。",
+      "apparatus_required": false,
+      "witnesses": {
+        "bnf348": {
+          "id": "mt.bnf348.0008.a",
+          "text": "دام تن را مختلف احوال کرد",
+          "flags": [],
+          "facs": "#bnf348.f6.z008a",
+          "has_app": false,
+          "image": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/f6/1100,1430,600,170/full/0/native.jpg"
+        },
+        "fsc28": {
+          "id": "mt.fsc28.0008.a",
+          "text": "دام تن را مختلف احوال کرد",
+          "flags": [],
+          "facs": "#fsc28.fs7342-15.z008a",
+          "has_app": false,
+          "image": "https://ids.si.edu/ids/iiif/FS-7342_15/650,2520,580,270/full/0/default.jpg"
+        }
+      }
+    },
+    {
+      "key": "0008b",
+      "classification": "exact_match",
+      "explanation": "外交的転写が一致する。",
+      "apparatus_required": false,
+      "witnesses": {
+        "bnf348": {
+          "id": "mt.bnf348.0008.b",
+          "text": "مرغ جان را خاک در دنبال کرد",
+          "flags": [],
+          "facs": "#bnf348.f6.z008b",
+          "has_app": false,
+          "image": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/f6/520,1430,600,170/full/0/native.jpg"
+        },
+        "fsc28": {
+          "id": "mt.fsc28.0008.b",
+          "text": "مرغ جان را خاک در دنبال کرد",
+          "flags": [],
+          "facs": "#fsc28.fs7342-15.z008b",
+          "has_app": false,
+          "image": "https://ids.si.edu/ids/iiif/FS-7342_15/150,2520,600,270/full/0/default.jpg"
+        }
+      }
+    },
+    {
+      "key": "0009a",
+      "classification": "exact_match",
+      "explanation": "外交的転写が一致する。",
+      "apparatus_required": false,
+      "witnesses": {
+        "bnf348": {
+          "id": "mt.bnf348.0009.a",
+          "text": "بحر را بگذاشت در تسلیم خویش",
+          "flags": [],
+          "facs": "#bnf348.f6.z009a",
+          "has_app": false,
+          "image": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/f6/1100,1580,600,170/full/0/native.jpg"
+        },
+        "fsc28": {
+          "id": "mt.fsc28.0009.a",
+          "text": "بحر را بگذاشت در تسلیم خویش",
+          "flags": [],
+          "facs": "#fsc28.fs7342-15.z009a",
+          "has_app": false,
+          "image": "https://ids.si.edu/ids/iiif/FS-7342_15/650,2690,580,270/full/0/default.jpg"
+        }
+      }
+    },
+    {
+      "key": "0009b",
+      "classification": "exact_match",
+      "explanation": "外交的転写が一致する。",
+      "apparatus_required": false,
+      "witnesses": {
+        "bnf348": {
+          "id": "mt.bnf348.0009.b",
+          "text": "کوه را افسرده کرد از بیم خویش",
+          "flags": [],
+          "facs": "#bnf348.f6.z009b",
+          "has_app": false,
+          "image": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/f6/520,1580,600,170/full/0/native.jpg"
+        },
+        "fsc28": {
+          "id": "mt.fsc28.0009.b",
+          "text": "کوه را افسرده کرد از بیم خویش",
+          "flags": [],
+          "facs": "#fsc28.fs7342-15.z009b",
+          "has_app": false,
+          "image": "https://ids.si.edu/ids/iiif/FS-7342_15/150,2690,600,270/full/0/default.jpg"
+        }
+      }
+    }
+  ],
+  "errors": []
+}

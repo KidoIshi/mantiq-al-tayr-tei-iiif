@@ -44,6 +44,8 @@ def diplomatic_text(line: etree._Element, witness: str = "#wit-bnf348") -> str:
                         f"app in {line.get(XML_ID)} has {len(matches)} readings for {witness}"
                     )
                 parts.append(collect(matches[0]))
+            elif child.tag == f"{{{NS['tei']}}}gap":
+                parts.append("[…]")
             else:
                 parts.append(collect(child))
             parts.append(child.tail or "")
@@ -66,7 +68,8 @@ def surface_token(surface: etree._Element) -> str:
 
 
 def annotation_filename(surface: etree._Element) -> str:
-    return f"bnf-persan-348-{surface_token(surface)}-annotations.json"
+    prefix = "fsc-ms-28" if (surface.get(XML_ID) or "").startswith("fsc28.") else "bnf-persan-348"
+    return f"{prefix}-{surface_token(surface)}-annotations.json"
 
 
 def build_annotation_pages(tei_path: Path, base_url: str) -> dict[str, dict]:
@@ -124,11 +127,12 @@ def build_annotation_pages(tei_path: Path, base_url: str) -> dict[str, dict]:
                     "target": f"{canvas}#xywh={x},{y},{width},{height}",
                 }
             )
+        witness_label = "FSC-MS-28" if filename.startswith("fsc-ms-28-") else "Persan 348"
         pages[filename] = {
             "@context": "http://iiif.io/api/presentation/3/context.json",
             "id": page_url,
             "type": "AnnotationPage",
-            "label": {"ja": [f"Persan 348 {surface.get('n')} 外交的転写"]},
+            "label": {"ja": [f"{witness_label} {surface.get('n')} 外交的転写"]},
             "partOf": [{"id": canvas, "type": "Canvas"}],
             "items": items,
         }

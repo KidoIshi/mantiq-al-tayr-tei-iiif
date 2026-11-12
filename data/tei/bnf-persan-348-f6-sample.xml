@@ -5,8 +5,8 @@
   <teiHeader>
     <fileDesc>
       <titleStmt>
-        <title xml:lang="ja">BnF Persan 348 scans f6–f7 写本転写試料</title>
-        <title xml:lang="fa">رونویسی آزمایشی منطق‌الطیر، نسخهٔ پاریس ۳۴۸</title>
+        <title xml:lang="ja">『鳥の言葉』Persan 348・FSC-MS-28写本転写・校合試料</title>
+        <title xml:lang="fa">رونویسی و مقابلهٔ آزمایشی منطق‌الطیر، نسخه‌های پاریس ۳۴۸ و FSC-MS-28</title>
         <author ref="https://viaf.org/viaf/95230652/">
           <persName xml:lang="fa">فریدالدین عطار نیشابوری</persName>
         </author>
@@ -19,7 +19,7 @@
           <name>AI-assisted TEI・IIIF project workflow</name>
         </respStmt>
         <respStmt xml:id="resp-researcher-review">
-          <resp>第1〜第30対句の写本読解、正規化方針、画像領域の学術的確認</resp>
+          <resp>Persan 348第1〜第30対句およびFSC-MS-28第1〜第9対句の写本読解、正規化方針、画像領域の学術的確認</resp>
           <name ref="https://orcid.org/0009-0009-2254-2189">石川 喜堂 (Kido Ishikawa)</name>
         </respStmt>
       </titleStmt>
@@ -30,7 +30,7 @@
         <publisher>TEI・IIIF習得・実践プロジェクト</publisher>
         <availability status="free">
           <licence target="https://creativecommons.org/licenses/by/4.0/">本プロジェクトが作成したTEI転写・注釈・文書はCreative Commons Attribution 4.0 International（CC BY 4.0）で提供する。</licence>
-          <p>プログラムコードはMIT Licenseで提供する。画像は複製収録せず、GallicaおよびSmithsonianが提供するIIIF URIを参照する。画像と提供機関メタデータの再利用は各提供機関の利用条件に従う。</p>
+          <p>プログラムコードはMIT Licenseで提供する。画像は複製収録せず、GallicaおよびSmithsonianが提供するIIIF URIを参照する。画像と提供機関メタデータの再利用は、<ref target="https://gallica.bnf.fr/accueil/fr/html/conditions-dutilisation-de-gallica">Gallica利用条件</ref>および<ref target="https://www.si.edu/termsofuse">Smithsonian利用条件</ref>に従う。FSC-MS-28の公式資料ページは「Usage Conditions Apply」と表示する。CC BY 4.0は外部画像には適用しない。</p>
         </availability>
       </publicationStmt>
       <sourceDesc>
@@ -114,7 +114,7 @@
     </fileDesc>
     <encodingDesc>
       <projectDesc>
-        <p>写本画像に基づく外交的転写、TEI構造、IIIF画像領域対応を学習する小規模試料。</p>
+        <p>二写本の画像に基づく独立した外交的転写、校合、TEI構造、IIIF画像領域対応を学習・検証する小規模試料。</p>
       </projectDesc>
       <editorialDecl>
         <normalization>
@@ -126,6 +126,7 @@
         </segmentation>
         <interpretation>
           <p>独立した二写本の異読は<mentioned>app</mentioned>内の証人別<mentioned>rdg</mentioned>として記録する。現段階では校訂上の優劣を決めないため<mentioned>lem</mentioned>を置かず、Persan 348の外交的表示では<mentioned>wit</mentioned>が#wit-bnf348の読みを選択する。</p>
+          <p>語の同定が文脈、対句構造、既知本文によって支持される一方、個別字母の筆画を画像上で独立して確認できない場合は、採用した語を本文に保持し、当該字母だけを<mentioned>unclear</mentioned>で明示する。これは欠落を断定して編集者が補う<mentioned>supplied</mentioned>とは区別する。</p>
         </interpretation>
       </editorialDecl>
     </encodingDesc>
@@ -137,6 +138,11 @@
       </langUsage>
     </profileDesc>
     <revisionDesc status="draft">
+      <change when="2026-11-12" who="#resp-ai-transcription">公開前監査により、二写本を反映する標題・責任表示・プロジェクト説明へ更新し、GallicaおよびSmithsonianの第三者画像利用条件とCC BY 4.0の適用範囲を明記した。</change>
+      <change when="2026-11-11" who="#resp-ai-transcription">研究者承認済みのPersan 348・FSC-MS-28冒頭9対句を外交的転写として機械校合した。18半句中16半句が一致し、0004bの「وین／وان」1件を本文異同、0006aの補修紙被覆1件を異読ではなくgapとして分類し、TEI校異装置との対応を検証した。</change>
+      <change when="2026-11-11" who="#resp-researcher-review">FSC-MS-28冒頭頁の第1〜第9対句・18半句について、AI転写候補、0005bと0007aの損傷周辺の読み、0006a中央部をPersan 348から補わずgap reason="covered"とする方針、および18画像領域候補を研究者が一括承認した。これを独立した第二証人の転写として追加した。</change>
+      <change when="2026-11-11" who="#resp-ai-transcription">FSC-MS-28の公開冒頭画像FS-7342_15について、第1〜第9対句・18半句のIIIF画像領域候補を追加した。対応本文のAI転写候補は独立した確認票に記録し、補修紙で中央部が覆われる0006aはPersan 348から補わず、FSC-MS-28側の未読範囲として研究者確認待ちとした。</change>
+      <change when="2026-11-11" who="#resp-researcher-review">FSC-MS-28の0004b後続語を文脈、対句構造、既知本文に基づき「دگر」として採用した。ただし「د」の筆画は元画像上で独立して確認できないため、この字母だけをunclearとして符号化し、字形判定が未確定であることを校訂注に記録した。</change>
       <change when="2026-11-11" who="#resp-ai-transcription">FSC-MS-28の書体を、元IIIF画像の下降する基線、長い横画、吊り下がる字群、非接続文字の扱いに基づき、確度highのナスターリーク体写本書写体と判定した。所蔵館目録は書体名を記載しないため、地域的下位様式・書記名は未同定とした。</change>
       <change when="2026-11-11" who="#resp-researcher-review">FSC-MS-28の公開冒頭画像について、0004b冒頭を「وان」と読むことを研究者が承認した。Persan 348の「وین」との差を、lemmaを選択しない証人別の並列異読として符号化した。</change>
       <change when="2026-11-11" who="#resp-ai-transcription">Smithsonian FSC-MS-28の公式記述、冒頭画像FS-7342_15のIIIF Canvas、0004b画像領域候補、およびPersan 348との異読候補を追加した。</change>
@@ -241,14 +247,31 @@
     </surface>
     <surface xml:id="fsc28.fs7342-15" n="FS-7342_15" corresp="https://ids.si.edu/ids/iiif/canvas-FS-7342_15" ulx="0" uly="0" lrx="2090" lry="3520">
       <graphic url="https://ids.si.edu/ids/iiif/FS-7342_15/full/full/0/default.jpg" width="2090px" height="3520px"/>
+      <zone xml:id="fsc28.fs7342-15.z001a" ulx="650" uly="1320" lrx="1230" lry="1570" resp="#resp-ai-transcription"/>
+      <zone xml:id="fsc28.fs7342-15.z001b" ulx="150" uly="1320" lrx="750" lry="1570" resp="#resp-ai-transcription"/>
+      <zone xml:id="fsc28.fs7342-15.z002a" ulx="650" uly="1490" lrx="1230" lry="1760" resp="#resp-ai-transcription"/>
+      <zone xml:id="fsc28.fs7342-15.z002b" ulx="150" uly="1490" lrx="750" lry="1760" resp="#resp-ai-transcription"/>
+      <zone xml:id="fsc28.fs7342-15.z003a" ulx="650" uly="1660" lrx="1230" lry="1930" resp="#resp-ai-transcription"/>
+      <zone xml:id="fsc28.fs7342-15.z003b" ulx="150" uly="1660" lrx="750" lry="1930" resp="#resp-ai-transcription"/>
+      <zone xml:id="fsc28.fs7342-15.z004a" ulx="650" uly="1830" lrx="1230" lry="2100" resp="#resp-ai-transcription"/>
       <zone xml:id="fsc28.fs7342-15.z004b" ulx="150" uly="1850" lrx="750" lry="2150" resp="#resp-ai-transcription"/>
+      <zone xml:id="fsc28.fs7342-15.z005a" ulx="650" uly="2010" lrx="1230" lry="2280" resp="#resp-ai-transcription"/>
+      <zone xml:id="fsc28.fs7342-15.z005b" ulx="150" uly="2010" lrx="750" lry="2280" resp="#resp-ai-transcription"/>
+      <zone xml:id="fsc28.fs7342-15.z006a" ulx="650" uly="2180" lrx="1230" lry="2450" resp="#resp-ai-transcription"/>
+      <zone xml:id="fsc28.fs7342-15.z006b" ulx="150" uly="2180" lrx="750" lry="2450" resp="#resp-ai-transcription"/>
+      <zone xml:id="fsc28.fs7342-15.z007a" ulx="650" uly="2350" lrx="1230" lry="2620" resp="#resp-ai-transcription"/>
+      <zone xml:id="fsc28.fs7342-15.z007b" ulx="150" uly="2350" lrx="750" lry="2620" resp="#resp-ai-transcription"/>
+      <zone xml:id="fsc28.fs7342-15.z008a" ulx="650" uly="2520" lrx="1230" lry="2790" resp="#resp-ai-transcription"/>
+      <zone xml:id="fsc28.fs7342-15.z008b" ulx="150" uly="2520" lrx="750" lry="2790" resp="#resp-ai-transcription"/>
+      <zone xml:id="fsc28.fs7342-15.z009a" ulx="650" uly="2690" lrx="1230" lry="2960" resp="#resp-ai-transcription"/>
+      <zone xml:id="fsc28.fs7342-15.z009b" ulx="150" uly="2690" lrx="750" lry="2960" resp="#resp-ai-transcription"/>
     </surface>
   </facsimile>
   <text xml:lang="fa" rend="direction-rtl">
     <body>
       <div type="section" subtype="invocation" xml:id="mt.bnf348.invocation" source="#wit-bnf348">
         <head>آغاز نسخه</head>
-        <note type="status" xml:lang="ja">第1〜第30対句の読み、正規化範囲、0005a・0005b・0007aの3つの正規化形、および60半句のBnF画像領域は、プロジェクト担当研究者が写本画像と照合して確認した。0004bにはFSC-MS-28で研究者が承認した「وان」とPersan 348の「وین」を非選択的校異として記録した。FSC-MS-28の画像領域座標はAI候補である。これは外部査読済みであることを意味しない。外交的転写を既定表示とし、承認済み範囲にunclearはない。</note>
+        <note type="status" xml:lang="ja">第1〜第30対句の読み、正規化範囲、0005a・0005b・0007aの3つの正規化形、および60半句のBnF画像領域は、プロジェクト担当研究者が写本画像と照合して確認した。0004bにはFSC-MS-28の「وان」とPersan 348の「وین」を非選択的校異として記録した。FSC-MS-28の後続語は「دگر」を採用するが、「د」の筆画だけは画像上で独立確認できないためunclearとした。FSC-MS-28の画像領域座標はAI候補である。これは外部査読済みであることを意味しない。Persan 348の承認済み範囲にunclearはない。</note>
         <pb n="scan-f6" facs="#bnf348.f6"/>
         <lg type="couplet" n="0001" xml:id="mt.bnf348.0001">
           <l n="a" xml:id="mt.bnf348.0001.a" facs="#bnf348.f6.z001a">آفرین جان آفرین پاک را</l>
@@ -264,7 +287,8 @@
         </lg>
         <lg type="couplet" n="0004" xml:id="mt.bnf348.0004">
           <l n="a" xml:id="mt.bnf348.0004.a" facs="#bnf348.f6.z004a">آن یکی را جنبش مادام داد</l>
-          <l n="b" xml:id="mt.bnf348.0004.b" facs="#bnf348.f6.z004b"><app type="variant"><rdg wit="#wit-bnf348">وین</rdg><rdg wit="#wit-fsc28" facs="#fsc28.fs7342-15.z004b">وان</rdg></app> دگر را دایما آرام داد</l>
+          <l n="b" xml:id="mt.bnf348.0004.b" facs="#bnf348.f6.z004b"><app type="variant"><rdg wit="#wit-bnf348">وین دگر</rdg><rdg wit="#wit-fsc28" facs="#fsc28.fs7342-15.z004b">وان <unclear xml:id="fsc28.0004b.dal" reason="indistinct" cert="low" resp="#resp-ai-transcription #resp-researcher-review">د</unclear>گر</rdg></app> را دایما آرام داد</l>
+          <note type="palaeographic" target="#fsc28.0004b.dal" xml:lang="ja">FSC-MS-28では語を文脈、直前の「آن یکی」との対句構造、および既知本文に基づき「دگر」と同定する。ただし「د」に相当する筆画は元IIIF画像上で独立して確認できず、後続字群との近接・重畳、特殊な字形、または省略のいずれであるかは未確定である。「د」を写本にない文字として断定的に補うのではなく、採用した読みのうち字母単位の判読不確実性として記録する。</note>
         </lg>
         <lg type="couplet" n="0005" xml:id="mt.bnf348.0005">
           <l n="a" xml:id="mt.bnf348.0005.a" facs="#bnf348.f6.z005a">آسمان چون <choice><orig>خیمه برپای</orig><reg resp="#resp-ai-normalization #resp-researcher-review">خیمهٔ برپای</reg></choice> کرد</l>
@@ -371,6 +395,48 @@
         <lg type="couplet" n="0030" xml:id="mt.bnf348.0030" resp="#resp-ai-transcription #resp-researcher-review">
           <l n="a" xml:id="mt.bnf348.0030.a" facs="#bnf348.f7.z030a">چون فلک را کره سرکش کند</l>
           <l n="b" xml:id="mt.bnf348.0030.b" facs="#bnf348.f7.z030b">از هلالش نعل در آتش کند</l>
+        </lg>
+      </div>
+      <div type="witnessTranscription" subtype="opening" xml:id="mt.fsc28.opening" source="#wit-fsc28" resp="#resp-ai-transcription #resp-researcher-review">
+        <head>رونویسی آغاز نسخهٔ FSC-MS-28</head>
+        <note type="status" xml:lang="ja">公開画像FS-7342_15に見える第1〜第9対句の独立転写。18半句の読みと画像領域は研究者承認済み。0004bの「دگر」は「د」だけが字母単位で判読不確実であり、0006aの中央部は補修紙で覆われるためPersan 348から補わずgapとして記録する。</note>
+        <pb n="FS-7342_15" facs="#fsc28.fs7342-15"/>
+        <lg type="couplet" n="0001" xml:id="mt.fsc28.0001">
+          <l n="a" xml:id="mt.fsc28.0001.a" facs="#fsc28.fs7342-15.z001a">آفرین جان آفرین پاک را</l>
+          <l n="b" xml:id="mt.fsc28.0001.b" facs="#fsc28.fs7342-15.z001b">آنکه جان بخشید و ایمان خاک را</l>
+        </lg>
+        <lg type="couplet" n="0002" xml:id="mt.fsc28.0002">
+          <l n="a" xml:id="mt.fsc28.0002.a" facs="#fsc28.fs7342-15.z002a">عرش را بر آب بنیاد او نهاد</l>
+          <l n="b" xml:id="mt.fsc28.0002.b" facs="#fsc28.fs7342-15.z002b">خاکیان را عمر بر باد او نهاد</l>
+        </lg>
+        <lg type="couplet" n="0003" xml:id="mt.fsc28.0003">
+          <l n="a" xml:id="mt.fsc28.0003.a" facs="#fsc28.fs7342-15.z003a">آسمان را در زبردستی بداشت</l>
+          <l n="b" xml:id="mt.fsc28.0003.b" facs="#fsc28.fs7342-15.z003b">خاک را در غایت پستی بداشت</l>
+        </lg>
+        <lg type="couplet" n="0004" xml:id="mt.fsc28.0004">
+          <l n="a" xml:id="mt.fsc28.0004.a" facs="#fsc28.fs7342-15.z004a">آن یکی را جنبش مادام داد</l>
+          <l n="b" xml:id="mt.fsc28.0004.b" facs="#fsc28.fs7342-15.z004b">وان <unclear xml:id="fsc28.transcription.0004b.dal" corresp="#fsc28.0004b.dal" reason="indistinct" cert="low" resp="#resp-ai-transcription #resp-researcher-review">د</unclear>گر را دایما آرام داد</l>
+        </lg>
+        <lg type="couplet" n="0005" xml:id="mt.fsc28.0005">
+          <l n="a" xml:id="mt.fsc28.0005.a" facs="#fsc28.fs7342-15.z005a">آسمان چون خیمه برپای کرد</l>
+          <l n="b" xml:id="mt.fsc28.0005.b" facs="#fsc28.fs7342-15.z005b">بی ستون کرد و زمینش جای کرد</l>
+        </lg>
+        <lg type="couplet" n="0006" xml:id="mt.fsc28.0006">
+          <l n="a" xml:id="mt.fsc28.0006.a" facs="#fsc28.fs7342-15.z006a">کرد <gap xml:id="fsc28.0006a.covered" reason="covered"/> پدید</l>
+          <note type="palaeographic" target="#fsc28.0006a.covered" xml:lang="ja">中央部は補修紙で覆われる。Persan 348の「در شش روز هفت انجم」は比較情報として保持できるが、FSC-MS-28の可視本文としては補わない。</note>
+          <l n="b" xml:id="mt.fsc28.0006.b" facs="#fsc28.fs7342-15.z006b">وز دو حرف آورد نه طارم پدید</l>
+        </lg>
+        <lg type="couplet" n="0007" xml:id="mt.fsc28.0007">
+          <l n="a" xml:id="mt.fsc28.0007.a" facs="#fsc28.fs7342-15.z007a">مهره انجم ز زرین حقه ساخت</l>
+          <l n="b" xml:id="mt.fsc28.0007.b" facs="#fsc28.fs7342-15.z007b">با فلک در حقه هر شب مهره باخت</l>
+        </lg>
+        <lg type="couplet" n="0008" xml:id="mt.fsc28.0008">
+          <l n="a" xml:id="mt.fsc28.0008.a" facs="#fsc28.fs7342-15.z008a">دام تن را مختلف احوال کرد</l>
+          <l n="b" xml:id="mt.fsc28.0008.b" facs="#fsc28.fs7342-15.z008b">مرغ جان را خاک در دنبال کرد</l>
+        </lg>
+        <lg type="couplet" n="0009" xml:id="mt.fsc28.0009">
+          <l n="a" xml:id="mt.fsc28.0009.a" facs="#fsc28.fs7342-15.z009a">بحر را بگذاشت در تسلیم خویش</l>
+          <l n="b" xml:id="mt.fsc28.0009.b" facs="#fsc28.fs7342-15.z009b">کوه را افسرده کرد از بیم خویش</l>
         </lg>
       </div>
     </body>

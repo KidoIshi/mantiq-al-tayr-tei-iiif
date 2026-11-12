@@ -48,6 +48,18 @@ def main() -> int:
         run("build_project_schema_from_odd", [python, "scripts/build_odd_schema.py"]),
         run("test_project_odd_excludes_unselected_module", [python, "scripts/test_odd_schema.py"]),
         run("test_witness_specific_apparatus_processing", [python, "scripts/test_apparatus_processing.py"]),
+        run(
+            "validate_fsc28_opening_review_candidates",
+            [python, "scripts/validate_fsc28_review_candidates.py"],
+        ),
+        run(
+            "collate_approved_opening_witnesses",
+            [python, "scripts/collate_opening_witnesses.py"],
+        ),
+        run(
+            "test_witness_comparison_viewer",
+            [python, "scripts/test_viewer_comparison.py"],
+        ),
         run("generate_iiif_annotation_page", [python, "scripts/tei_to_iiif_annotations.py"]),
         run("validate_tei_xml_rng_schematron", validation_command),
         run(
@@ -65,6 +77,9 @@ def main() -> int:
             "odd_negative_test": "outputs/odd-negative-test-report.json",
             "tei_validation": "outputs/validation-report-bnf348-f6.json",
             "iiif_annotation_validation": "outputs/iiif-annotation-validation.json",
+            "fsc28_candidate_validation": "outputs/fsc-ms-28-candidate-validation.json",
+            "opening_witness_collation": "outputs/opening-witness-collation.json",
+            "viewer_comparison_test": "outputs/viewer-comparison-test.json",
         },
     }
     OUTPUT.write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

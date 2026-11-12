@@ -1,0 +1,234 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/fsc-ms-28-FS-7342_15-annotations.json",
+  "type": "AnnotationPage",
+  "label": {
+    "ja": [
+      "FSC-MS-28 FS-7342_15 外交的転写"
+    ]
+  },
+  "partOf": [
+    {
+      "id": "https://ids.si.edu/ids/iiif/canvas-FS-7342_15",
+      "type": "Canvas"
+    }
+  ],
+  "items": [
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/fsc-ms-28-FS-7342_15-annotations.json#mt.fsc28.0001.a",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "آفرین جان آفرین پاک را",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://ids.si.edu/ids/iiif/canvas-FS-7342_15#xywh=650,1320,580,250"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/fsc-ms-28-FS-7342_15-annotations.json#mt.fsc28.0001.b",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "آنکه جان بخشید و ایمان خاک را",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://ids.si.edu/ids/iiif/canvas-FS-7342_15#xywh=150,1320,600,250"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/fsc-ms-28-FS-7342_15-annotations.json#mt.fsc28.0002.a",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "عرش را بر آب بنیاد او نهاد",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://ids.si.edu/ids/iiif/canvas-FS-7342_15#xywh=650,1490,580,270"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/fsc-ms-28-FS-7342_15-annotations.json#mt.fsc28.0002.b",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "خاکیان را عمر بر باد او نهاد",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://ids.si.edu/ids/iiif/canvas-FS-7342_15#xywh=150,1490,600,270"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/fsc-ms-28-FS-7342_15-annotations.json#mt.fsc28.0003.a",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "آسمان را در زبردستی بداشت",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://ids.si.edu/ids/iiif/canvas-FS-7342_15#xywh=650,1660,580,270"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/fsc-ms-28-FS-7342_15-annotations.json#mt.fsc28.0003.b",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "خاک را در غایت پستی بداشت",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://ids.si.edu/ids/iiif/canvas-FS-7342_15#xywh=150,1660,600,270"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/fsc-ms-28-FS-7342_15-annotations.json#mt.fsc28.0004.a",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "آن یکی را جنبش مادام داد",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://ids.si.edu/ids/iiif/canvas-FS-7342_15#xywh=650,1830,580,270"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/fsc-ms-28-FS-7342_15-annotations.json#mt.fsc28.0004.b",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "وان دگر را دایما آرام داد",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://ids.si.edu/ids/iiif/canvas-FS-7342_15#xywh=150,1850,600,300"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/fsc-ms-28-FS-7342_15-annotations.json#mt.fsc28.0005.a",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "آسمان چون خیمه برپای کرد",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://ids.si.edu/ids/iiif/canvas-FS-7342_15#xywh=650,2010,580,270"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/fsc-ms-28-FS-7342_15-annotations.json#mt.fsc28.0005.b",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "بی ستون کرد و زمینش جای کرد",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://ids.si.edu/ids/iiif/canvas-FS-7342_15#xywh=150,2010,600,270"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/fsc-ms-28-FS-7342_15-annotations.json#mt.fsc28.0006.a",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "کرد […] پدید",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://ids.si.edu/ids/iiif/canvas-FS-7342_15#xywh=650,2180,580,270"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/fsc-ms-28-FS-7342_15-annotations.json#mt.fsc28.0006.b",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "وز دو حرف آورد نه طارم پدید",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://ids.si.edu/ids/iiif/canvas-FS-7342_15#xywh=150,2180,600,270"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/fsc-ms-28-FS-7342_15-annotations.json#mt.fsc28.0007.a",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "مهره انجم ز زرین حقه ساخت",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://ids.si.edu/ids/iiif/canvas-FS-7342_15#xywh=650,2350,580,270"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/fsc-ms-28-FS-7342_15-annotations.json#mt.fsc28.0007.b",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "با فلک در حقه هر شب مهره باخت",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://ids.si.edu/ids/iiif/canvas-FS-7342_15#xywh=150,2350,600,270"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/fsc-ms-28-FS-7342_15-annotations.json#mt.fsc28.0008.a",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "دام تن را مختلف احوال کرد",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://ids.si.edu/ids/iiif/canvas-FS-7342_15#xywh=650,2520,580,270"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/fsc-ms-28-FS-7342_15-annotations.json#mt.fsc28.0008.b",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "مرغ جان را خاک در دنبال کرد",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://ids.si.edu/ids/iiif/canvas-FS-7342_15#xywh=150,2520,600,270"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/fsc-ms-28-FS-7342_15-annotations.json#mt.fsc28.0009.a",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "بحر را بگذاشت در تسلیم خویش",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://ids.si.edu/ids/iiif/canvas-FS-7342_15#xywh=650,2690,580,270"
+    },
+    {
+      "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/fsc-ms-28-FS-7342_15-annotations.json#mt.fsc28.0009.b",
+      "type": "Annotation",
+      "motivation": "supplementing",
+      "body": {
+        "type": "TextualBody",
+        "value": "کوه را افسرده کرد از بیم خویش",
+        "format": "text/plain",
+        "language": "fa"
+      },
+      "target": "https://ids.si.edu/ids/iiif/canvas-FS-7342_15#xywh=150,2690,600,270"
+    }
+  ]
+}

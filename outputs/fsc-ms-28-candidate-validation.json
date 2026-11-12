@@ -1,0 +1,29 @@
+{
+  "candidate_file": "data\\review\\fsc-ms-28-opening-candidates.json",
+  "tei_file": "data\\tei\\bnf-persan-348-f6-sample.xml",
+  "candidate_count": 18,
+  "zone_count": 18,
+  "covered_gap": "0006a",
+  "researcher_reviewed": [
+    "0001a",
+    "0001b",
+    "0002a",
+    "0002b",
+    "0003a",
+    "0003b",
+    "0004a",
+    "0004b",
+    "0005a",
+    "0005b",
+    "0006a",
+    "0006b",
+    "0007a",
+    "0007b",
+    "0008a",
+    "0008b",
+    "0009a",
+    "0009b"
+  ],
+  "passed": true,
+  "errors": []
+}

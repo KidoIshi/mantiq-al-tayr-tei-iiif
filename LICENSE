@@ -24,11 +24,21 @@ under the MIT License. See LICENSE-CODE.
 
 Images from Bibliothèque nationale de France / Gallica are not redistributed
 in this repository. The project references the provider's IIIF resources.
-Required source credit: "Source gallica.bnf.fr / Bibliothèque nationale de
-France". Non-commercial reuse, academic use, commercial reuse, and reuse of
+Required source credit: "Source gallica.bnf.fr / Bibliothèque nationale de France".
+Non-commercial reuse, academic use, commercial reuse, and reuse of
 provider metadata are governed by the current Gallica and BnF terms:
 
 https://gallica.bnf.fr/accueil/fr/html/conditions-dutilisation-de-gallica
 
+Images and provider metadata from Smithsonian National Museum of Asian Art are
+not redistributed in this repository. The viewer references the provider's
+IIIF resources for FSC-MS-28. The object is marked "Usage Conditions Apply";
+reuse must follow the Smithsonian Terms of Use, including source citation and
+the restrictions applicable to commercial use:
+
+https://asia.si.edu/explore-art-culture/collections/search/edanmdm:fsg_FSC-MS-28/
+https://www.si.edu/termsofuse
+
 The licenses in this repository apply only to material for which the project
-author holds the relevant rights. They do not replace third-party terms.
+author holds the relevant rights. They do not license the remotely referenced
+manuscript images or replace third-party terms.

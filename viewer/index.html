@@ -12,6 +12,9 @@
       --accent: #6f2847;
       --line: #ded7e4;
       --notice: #fff4cc;
+      --match: #e8f4ec;
+      --variant: #fff0f4;
+      --gap: #f1edf7;
     }
     * { box-sizing: border-box; }
     html, body { height: 100%; margin: 0; color: var(--ink); background: var(--paper); font-family: system-ui, sans-serif; }
@@ -20,31 +23,52 @@
     header strong { display: block; font-size: 1.05rem; }
     header small { color: #ded5e8; }
     main { min-height: 0; display: grid; grid-template-columns: minmax(320px, 38%) 1fr; }
+    body.parallel-view main { grid-template-columns: minmax(620px, 58%) 1fr; }
     #text-panel { min-height: 0; overflow: auto; padding: 1.2rem 1.4rem 2rem; border-right: 1px solid var(--line); }
     .eyebrow { margin: 0; color: var(--accent); font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
     h1 { margin: .25rem 0 .7rem; font-size: 1.35rem; }
     .note, #tei-status { font-size: .83rem; line-height: 1.55; }
     .note { padding: .7rem .8rem; border-left: 4px solid #d8a827; background: var(--notice); }
     .note a { color: var(--accent); }
-    .reading-mode { display: flex; gap: .45rem; margin: .8rem 0; }
+    .control-label { display: block; margin: .8rem 0 .3rem; color: var(--muted); font-size: .75rem; font-weight: 700; }
+    .reading-mode { display: flex; flex-wrap: wrap; gap: .45rem; margin: 0 0 .55rem; }
     .reading-mode button { padding: .45rem .7rem; border: 1px solid var(--accent); border-radius: .35rem; background: white; color: var(--accent); cursor: pointer; }
     .reading-mode button[aria-pressed="true"] { background: var(--accent); color: white; }
     .regularized { text-decoration: underline dotted; text-underline-offset: .2em; }
     .variant-note { margin: .35rem 0 .2rem; padding: .4rem .55rem; border-right: 3px solid #967088; background: #f3edf1; color: #493645; direction: ltr; font: .78rem/1.6 system-ui, sans-serif; }
     .variant-note button { margin: .1rem .25rem; padding: .2rem .4rem; border: 1px solid #967088; border-radius: .25rem; background: white; color: var(--accent); cursor: pointer; }
     .variant-reading { direction: rtl; display: inline-block; font-family: "Noto Naskh Arabic", "Segoe UI", serif; font-size: 1rem; }
+    .unclear-glyph { padding: 0 .08em; border-bottom: 2px dotted #b12652; background: #fff0f4; color: #7a1739; font-weight: 700; }
+    .gap-marker { padding: 0 .2em; border: 1px dashed #755a8c; border-radius: .2rem; background: var(--gap); color: #553d69; font: .85em system-ui, sans-serif; }
+    .uncertainty-note { display: block; margin-top: .35rem; padding: .35rem .5rem; border: 1px solid #d7b8c5; border-radius: .25rem; background: #fff9fb; color: #493645; }
+    .uncertainty-note summary { cursor: pointer; font-weight: 700; }
+    .uncertainty-note p { margin: .3rem 0 0; }
     #tei-status { color: var(--muted); }
     #couplets { direction: rtl; font-family: "Noto Naskh Arabic", "Segoe UI", serif; }
     .couplet { position: relative; padding: .85rem .2rem .85rem 2.4rem; border-top: 1px solid var(--line); }
     .couplet-number { position: absolute; left: .2rem; top: 1rem; color: var(--muted); font: .75rem system-ui, sans-serif; }
     .hemistich { margin: .2rem 0; font-size: 1.18rem; line-height: 1.8; }
+    .witness-heading { margin: 0 0 .4rem; color: var(--accent); font: 700 .78rem system-ui, sans-serif; direction: ltr; }
+    .parallel-couplet { padding-left: 2.8rem; }
+    .parallel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; direction: ltr; }
+    .witness-column { min-width: 0; padding: .55rem .7rem; border: 1px solid var(--line); border-radius: .4rem; background: white; }
+    .witness-column .hemistich { direction: rtl; }
+    .comparison-findings { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .55rem; direction: ltr; }
+    .comparison-chip { padding: .25rem .45rem; border-radius: 999px; font: .72rem system-ui, sans-serif; }
+    .comparison-chip.variant { background: var(--variant); color: #7a1739; }
+    .comparison-chip.gap { background: var(--gap); color: #553d69; }
     #image-panel { min-width: 0; min-height: 0; display: grid; grid-template-rows: auto minmax(145px, 28%) 1fr; background: #111; }
     .alignment-status { padding: .55rem .8rem; background: var(--notice); color: #3d3214; font-size: .8rem; line-height: 1.4; }
-    #region-card { position: relative; z-index: 2; min-height: 0; display: grid; grid-template-columns: minmax(170px, 1fr) minmax(230px, 2fr); gap: .8rem; padding: .65rem .8rem; background: #29242d; color: white; }
+    #region-card { position: relative; z-index: 2; min-height: 0; display: grid; grid-template-columns: minmax(170px, .8fr) minmax(230px, 2.2fr); gap: .8rem; padding: .65rem .8rem; background: #29242d; color: white; }
     #region-meta { align-self: center; font-size: .8rem; line-height: 1.5; }
     #region-meta strong { display: block; margin-bottom: .25rem; }
     #region-meta a { color: #f0cde0; }
-    #region-image { width: 100%; height: 100%; min-height: 115px; object-fit: contain; background: #111; }
+    #region-images { min-width: 0; display: grid; grid-template-columns: 1fr; gap: .55rem; }
+    #region-images.comparison { grid-template-columns: 1fr 1fr; }
+    .region-figure { min-width: 0; margin: 0; display: grid; grid-template-rows: 1fr auto; }
+    .region-figure[hidden] { display: none; }
+    .region-figure img { width: 100%; height: 100%; min-height: 105px; object-fit: contain; background: #111; }
+    .region-figure figcaption { padding-top: .2rem; color: #e9dfe6; font-size: .7rem; text-align: center; }
     .hemistich[role="button"] { cursor: pointer; border-radius: .25rem; }
     .hemistich[role="button"]:hover, .hemistich[role="button"]:focus { outline: 2px solid #c790aa; outline-offset: 2px; }
     .hemistich.selected { background: #f2e2ea; box-shadow: inset -4px 0 0 var(--accent); }
@@ -52,7 +76,9 @@
     @media (max-width: 800px) {
       body { height: auto; min-height: 100%; }
       main { grid-template-columns: 1fr; grid-template-rows: minmax(420px, 55vh) minmax(520px, 70vh); }
+      body.parallel-view main { grid-template-columns: 1fr; }
       #text-panel { border-right: 0; border-bottom: 1px solid var(--line); }
+      .parallel-grid, #region-images.comparison { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -65,7 +91,14 @@
     <section id="text-panel" aria-labelledby="text-heading">
       <p class="eyebrow">TEI P5 sample</p>
       <h1 id="text-heading">Persan 348 写本転写（30対句）</h1>
-      <p class="note">第1〜第30対句はプロジェクト担当研究者が画像と照合した転写です（外部査読済みを意味しません）。比較本文と異なる場合もPersan 348の読みと写本上の半句順序を優先します。正規化表示は検索用、異読比較は独立した第二写本との証人別表示です。<a href="../data/tei/bnf-persan-348-f6-sample.xml">TEI XMLを開く</a>・<a href="../iiif/bnf-persan-348-f6-annotations.json">f6注釈</a>・<a href="../iiif/bnf-persan-348-f7-annotations.json">f7注釈</a></p>
+      <p class="note" id="view-note">第1〜第30対句はプロジェクト担当研究者が画像と照合した転写です（外部査読済みを意味しません）。比較本文と異なる場合もPersan 348の読みと写本上の半句順序を優先します。<a href="../data/tei/bnf-persan-348-f6-sample.xml">TEI XMLを開く</a>・<a href="https://gallica.bnf.fr/accueil/fr/html/conditions-dutilisation-de-gallica">Gallica利用条件</a></p>
+      <span class="control-label">表示する証人</span>
+      <div class="reading-mode" role="group" aria-label="表示する証人">
+        <button type="button" data-witness-mode="bnf348" aria-pressed="true">Persan 348</button>
+        <button type="button" data-witness-mode="fsc28" aria-pressed="false">FSC-MS-28</button>
+        <button type="button" data-witness-mode="parallel" aria-pressed="false">並列比較</button>
+      </div>
+      <span class="control-label">転写の表示方式</span>
       <div class="reading-mode" role="group" aria-label="本文表示方式">
         <button type="button" data-mode="diplomatic" aria-pressed="true">写本どおり</button>
         <button type="button" data-mode="normalized" aria-pressed="false">正規化候補</button>
@@ -75,14 +108,23 @@
       <div id="couplets" lang="fa" dir="rtl"></div>
     </section>
     <section id="image-panel" aria-label="IIIF manuscript viewer">
-      <div class="alignment-status">BnF Persan 348（1492年）の公開IIIF画像です。30対句・60半句を研究者が写本画像と照合済みです。Source gallica.bnf.fr / Bibliothèque nationale de France</div>
+      <div class="alignment-status" id="alignment-status">BnF Persan 348（1492年）の公開IIIF画像です。30対句・60半句を研究者が写本画像と照合済みです。Source gallica.bnf.fr / Bibliothèque nationale de France</div>
       <div id="region-card" aria-live="polite">
         <div id="region-meta">
           <strong id="region-label">半句を選択してください</strong>
           <span>TEIの<code>l/@facs</code>から<code>zone</code>を解決し、IIIF領域URLを生成します。</span><br>
           <a id="region-link" href="#" target="_blank" rel="noopener">IIIF領域画像を開く</a>
         </div>
-        <img id="region-image" alt="選択した半句の写本画像領域">
+        <div id="region-images">
+          <figure class="region-figure" id="region-primary-card">
+            <img id="region-image" alt="選択した半句の写本画像領域">
+            <figcaption id="region-primary-caption"></figcaption>
+          </figure>
+          <figure class="region-figure" id="region-secondary-card" hidden>
+            <img id="region-secondary-image" alt="比較する半句の写本画像領域">
+            <figcaption id="region-secondary-caption"></figcaption>
+          </figure>
+        </div>
       </div>
       <div id="viewer"></div>
     </section>
@@ -91,29 +133,96 @@
   <script src="https://unpkg.com/mirador@3.3.0/dist/mirador.min.js"></script>
   <script>
     const teiNamespace = 'http://www.tei-c.org/ns/1.0';
-    let teiGroups = [];
+    const xmlNamespace = 'http://www.w3.org/XML/1998/namespace';
+    const manifests = {
+      bnf348: 'https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/manifest.json',
+      fsc28: 'https://ids.si.edu/ids/manifest/FS-7342_15'
+    };
+    const witnessPointers = { bnf348: '#wit-bnf348', fsc28: '#wit-fsc28' };
+    let witnessGroups = { bnf348: [], fsc28: [] };
+    let groupIndexes = { bnf348: new Map(), fsc28: new Map() };
+    let witnessMode = 'bnf348';
     let readingMode = 'diplomatic';
     let zoneMap = new Map();
     let witnessLabels = new Map();
+    let palaeographicNotes = new Map();
     let selectedFacs = '';
-    let activeCanvas = '';
+    let selectedKey = '';
+    let activeCanvases = new Map();
     let miradorInstance;
 
-    function lineReading(line, mode) {
+    function directChildren(element, name) {
+      return [...element.children].filter(child => child.namespaceURI === teiNamespace && child.localName === name);
+    }
+
+    function resolvedLine(line, mode, witnessKey) {
       const clone = line.cloneNode(true);
       [...clone.getElementsByTagNameNS(teiNamespace, 'choice')].forEach(choice => {
         const wanted = mode === 'normalized' ? 'reg' : 'orig';
-        const selected = choice.getElementsByTagNameNS(teiNamespace, wanted)[0];
-        choice.replaceWith(document.createTextNode(selected ? selected.textContent : choice.textContent));
+        const selected = directChildren(choice, wanted)[0] || choice.firstElementChild;
+        choice.replaceWith(selected ? selected.cloneNode(true) : document.createTextNode(choice.textContent));
       });
       [...clone.getElementsByTagNameNS(teiNamespace, 'app')].forEach(app => {
-        const readings = [...app.children].filter(child =>
-          child.namespaceURI === teiNamespace && (child.localName === 'lem' || child.localName === 'rdg')
+        const selected = directChildren(app, 'rdg').find(reading =>
+          (reading.getAttribute('wit') || '').split(/\s+/).includes(witnessPointers[witnessKey])
+        ) || directChildren(app, 'lem').find(reading =>
+          (reading.getAttribute('wit') || '').split(/\s+/).includes(witnessPointers[witnessKey])
         );
-        const selected = readings.find(reading => (reading.getAttribute('wit') || '').split(/\s+/).includes('#wit-bnf348'));
-        app.replaceWith(document.createTextNode(selected ? selected.textContent : ''));
+        app.replaceWith(selected ? selected.cloneNode(true) : document.createTextNode(''));
       });
-      return clone.textContent.trim();
+      return clone;
+    }
+
+    function appendTeiReading(parent, reading) {
+      [...reading.childNodes].forEach(node => {
+        if (node.nodeType === Node.TEXT_NODE) {
+          parent.append(document.createTextNode(node.textContent));
+          return;
+        }
+        if (node.namespaceURI === teiNamespace && node.localName === 'unclear') {
+          const span = document.createElement('span');
+          span.className = 'unclear-glyph';
+          span.textContent = node.textContent;
+          const certainty = node.getAttribute('cert') || 'unspecified';
+          span.title = `判読不確実（確度：${certainty}）`;
+          span.setAttribute('aria-label', `${node.textContent}、判読不確実、確度${certainty}`);
+          parent.appendChild(span);
+          return;
+        }
+        if (node.namespaceURI === teiNamespace && node.localName === 'gap') {
+          const span = document.createElement('span');
+          span.className = 'gap-marker';
+          span.textContent = '［…］';
+          span.title = `欠損（理由：${node.getAttribute('reason') || '不明'}）`;
+          parent.appendChild(span);
+          return;
+        }
+        appendTeiReading(parent, node);
+      });
+    }
+
+    function plainReading(line, witnessKey) {
+      const holder = document.createElement('span');
+      appendTeiReading(holder, resolvedLine(line, 'diplomatic', witnessKey));
+      return holder.textContent.replace(/\s+/g, ' ').trim();
+    }
+
+    function appendUncertaintyNote(parent, reading) {
+      const unclear = [...reading.getElementsByTagNameNS(teiNamespace, 'unclear')];
+      if (!unclear.length) return;
+      const details = document.createElement('details');
+      details.className = 'uncertainty-note';
+      const summary = document.createElement('summary');
+      summary.textContent = `判読注：${unclear.map(item => item.textContent).join('・')} は字母単位で不確実`;
+      details.appendChild(summary);
+      unclear.forEach(item => {
+        const id = item.getAttributeNS(xmlNamespace, 'id');
+        const paragraph = document.createElement('p');
+        paragraph.textContent = palaeographicNotes.get(id)
+          || `TEIでは <unclear reason="${item.getAttribute('reason') || ''}" cert="${item.getAttribute('cert') || ''}"> として記録しています。`;
+        details.appendChild(paragraph);
+      });
+      parent.appendChild(details);
     }
 
     function appendVariantNotes(article, line, label) {
@@ -121,7 +230,7 @@
       [...line.getElementsByTagNameNS(teiNamespace, 'app')].forEach(app => {
         const note = document.createElement('div');
         note.className = 'variant-note';
-        note.append('異読：');
+        note.append('TEI校異装置：');
         [...app.children]
           .filter(child => child.namespaceURI === teiNamespace && (child.localName === 'lem' || child.localName === 'rdg'))
           .forEach((reading, index) => {
@@ -130,14 +239,13 @@
             const witnessId = witness.replace(/^#/, '');
             const name = witnessLabels.get(witnessId) || witnessId;
             const facs = reading.getAttribute('facs') || '';
-            const content = `${name}「${reading.textContent.trim()}」`;
             if (facs) {
               const button = document.createElement('button');
               button.type = 'button';
               button.append(document.createTextNode(`${name}「`));
               const value = document.createElement('span');
               value.className = 'variant-reading';
-              value.textContent = reading.textContent.trim();
+              appendTeiReading(value, reading);
               button.append(value, document.createTextNode('」画像'));
               button.addEventListener('click', event => {
                 event.stopPropagation();
@@ -145,72 +253,248 @@
               });
               note.appendChild(button);
             } else {
-              note.append(content);
+              note.append(document.createTextNode(`${name}「`));
+              const value = document.createElement('span');
+              value.className = 'variant-reading';
+              appendTeiReading(value, reading);
+              note.append(value, document.createTextNode('」'));
             }
+            appendUncertaintyNote(note, reading);
           });
         article.appendChild(note);
       });
+    }
+
+    function regionUrl(zone) {
+      const width = zone.lrx - zone.ulx;
+      const height = zone.lry - zone.uly;
+      return `${zone.imageServiceBase}/${zone.ulx},${zone.uly},${width},${height}/full/0/${zone.imageQuality}`;
+    }
+
+    function setRegionSlot(slot, zone, label) {
+      const suffix = slot === 'primary' ? '' : '-secondary';
+      const image = document.getElementById(`region${suffix}-image`);
+      const caption = document.getElementById(`region-${slot}-caption`);
+      const url = regionUrl(zone);
+      image.src = url;
+      image.alt = `${label}に対応する写本画像領域`;
+      caption.textContent = `${zone.witnessLabel} — ${zone.id}`;
+      return url;
+    }
+
+    function setMiradorCanvas(zone) {
+      if (!miradorInstance || !zone.canvas) return;
+      const windowId = `${zone.witnessKey}-window`;
+      if (activeCanvases.get(windowId) === zone.canvas) return;
+      try {
+        miradorInstance.store.dispatch(Mirador.actions.setCanvas(windowId, zone.canvas));
+        activeCanvases.set(windowId, zone.canvas);
+      } catch (error) {
+        console.warn('Mirador canvas update skipped', error);
+      }
     }
 
     function showRegion(facs, label) {
       const zone = zoneMap.get(facs.replace(/^#/, ''));
       if (!zone || !zone.imageServiceBase) return;
       selectedFacs = facs;
-      const width = zone.lrx - zone.ulx;
-      const height = zone.lry - zone.uly;
-      const url = `${zone.imageServiceBase}/${zone.ulx},${zone.uly},${width},${height}/full/0/${zone.imageQuality}`;
-      const image = document.getElementById('region-image');
-      image.src = url;
-      image.alt = `${label}に対応する写本画像領域`;
+      selectedKey = label.split(' ')[0];
+      const url = setRegionSlot('primary', zone, label);
+      document.getElementById('region-secondary-card').hidden = true;
+      document.getElementById('region-images').classList.remove('comparison');
       document.getElementById('region-label').textContent = `${label} — ${zone.id}`;
       document.getElementById('region-link').href = url;
+      document.getElementById('region-link').textContent = `${zone.witnessLabel}のIIIF領域画像を開く`;
       document.querySelectorAll('.hemistich').forEach(item => item.classList.toggle('selected', item.dataset.facs === facs));
-      if (miradorInstance && zone.canvas.includes('gallica.bnf.fr') && zone.canvas !== activeCanvas) {
-        miradorInstance.store.dispatch(Mirador.actions.setCanvas('main', zone.canvas));
-        activeCanvas = zone.canvas;
-      }
+      setMiradorCanvas(zone);
     }
 
-    function renderCouplets() {
-      const container = document.getElementById('couplets');
-      container.replaceChildren();
-      teiGroups.forEach((group, index) => {
+    function pairedLines(key) {
+      const couplet = key.slice(0, 4);
+      const part = key.slice(4);
+      const find = witnessKey => directChildren(groupIndexes[witnessKey].get(couplet), 'l')
+        .find(line => line.getAttribute('n') === part);
+      return { bnf348: find('bnf348'), fsc28: find('fsc28') };
+    }
+
+    function showComparisonRegions(key) {
+      const lines = pairedLines(key);
+      if (!lines.bnf348 || !lines.fsc28) return;
+      const bnfZone = zoneMap.get((lines.bnf348.getAttribute('facs') || '').replace(/^#/, ''));
+      const fscZone = zoneMap.get((lines.fsc28.getAttribute('facs') || '').replace(/^#/, ''));
+      if (!bnfZone || !fscZone) return;
+      selectedKey = key;
+      selectedFacs = '';
+      const primaryUrl = setRegionSlot('primary', bnfZone, key);
+      setRegionSlot('secondary', fscZone, key);
+      document.getElementById('region-secondary-card').hidden = false;
+      document.getElementById('region-images').classList.add('comparison');
+      document.getElementById('region-label').textContent = `${key} — 二写本の対応領域`;
+      document.getElementById('region-link').href = primaryUrl;
+      document.getElementById('region-link').textContent = 'Persan 348のIIIF領域画像を開く';
+      document.querySelectorAll('.hemistich').forEach(item => item.classList.toggle('selected', item.dataset.key === key));
+      setMiradorCanvas(bnfZone);
+      setMiradorCanvas(fscZone);
+    }
+
+    function classifyPair(bnfLine, fscLine) {
+      const fscResolved = resolvedLine(fscLine, 'diplomatic', 'fsc28');
+      if (fscResolved.getElementsByTagNameNS(teiNamespace, 'gap').length) return 'gap';
+      const bnfText = plainReading(bnfLine, 'bnf348');
+      const fscText = plainReading(fscLine, 'fsc28');
+      if (bnfText === fscText) return 'match';
+      return 'variant';
+    }
+
+    function makeHemistich(line, groupNumber, witnessKey, parallel = false) {
+      const paragraph = document.createElement('p');
+      paragraph.className = `hemistich ${readingMode === 'normalized' ? 'regularized' : ''}`;
+      appendTeiReading(paragraph, resolvedLine(line, readingMode, witnessKey));
+      const facs = line.getAttribute('facs') || '';
+      const key = `${groupNumber}${line.getAttribute('n')}`;
+      paragraph.dataset.facs = facs;
+      paragraph.dataset.key = key;
+      paragraph.dataset.witness = witnessKey;
+      paragraph.tabIndex = 0;
+      paragraph.setAttribute('role', 'button');
+      paragraph.setAttribute('aria-label', `${key}の${witnessLabels.get(witnessPointers[witnessKey].slice(1)) || witnessKey}画像を表示`);
+      const activate = () => parallel ? showComparisonRegions(key) : showRegion(facs, key);
+      paragraph.addEventListener('click', activate);
+      paragraph.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          activate();
+        }
+      });
+      return paragraph;
+    }
+
+    function makeWitnessColumn(group, witnessKey) {
+      const section = document.createElement('section');
+      section.className = 'witness-column';
+      const heading = document.createElement('h2');
+      heading.className = 'witness-heading';
+      heading.textContent = witnessKey === 'bnf348' ? 'BnF Persan 348' : 'Smithsonian FSC-MS-28';
+      section.appendChild(heading);
+      directChildren(group, 'l').forEach(line => section.appendChild(makeHemistich(line, group.getAttribute('n'), witnessKey, true)));
+      return section;
+    }
+
+    function renderSingle(container, witnessKey) {
+      witnessGroups[witnessKey].forEach((group, index) => {
         const article = document.createElement('article');
         article.className = 'couplet';
-        article.id = group.getAttributeNS('http://www.w3.org/XML/1998/namespace', 'id') || `couplet-${index + 1}`;
+        article.id = group.getAttributeNS(xmlNamespace, 'id') || `couplet-${index + 1}`;
         const number = document.createElement('span');
         number.className = 'couplet-number';
         number.textContent = group.getAttribute('n') || String(index + 1);
         article.appendChild(number);
-        [...group.children].filter(child => child.namespaceURI === teiNamespace && child.localName === 'l').forEach(line => {
-          const paragraph = document.createElement('p');
-          paragraph.className = `hemistich ${readingMode === 'normalized' ? 'regularized' : ''}`;
-          paragraph.textContent = lineReading(line, readingMode);
-          const facs = line.getAttribute('facs') || '';
-          const label = `${group.getAttribute('n')}${line.getAttribute('n')}`;
-          paragraph.dataset.facs = facs;
-          paragraph.tabIndex = 0;
-          paragraph.setAttribute('role', 'button');
-          paragraph.setAttribute('aria-label', `${label}の写本画像領域を表示`);
-          paragraph.addEventListener('click', () => showRegion(facs, label));
-          paragraph.addEventListener('keydown', event => {
-            if (event.key === 'Enter' || event.key === ' ') {
-              event.preventDefault();
-              showRegion(facs, label);
-            }
-          });
-          article.appendChild(paragraph);
-          appendVariantNotes(article, line, label);
+        directChildren(group, 'l').forEach(line => {
+          article.appendChild(makeHemistich(line, group.getAttribute('n'), witnessKey));
+          if (witnessKey === 'bnf348') appendVariantNotes(article, line, `${group.getAttribute('n')}${line.getAttribute('n')}`);
         });
         container.appendChild(article);
       });
-      const selected = [...container.querySelectorAll('.hemistich')].find(item => item.dataset.facs === selectedFacs)
-        || container.querySelector('.hemistich');
-      if (selected) {
-        const article = selected.closest('.couplet');
-        const lineIndex = [...article.querySelectorAll('.hemistich')].indexOf(selected);
-        showRegion(selected.dataset.facs, `${article.querySelector('.couplet-number').textContent}${lineIndex === 0 ? 'a' : 'b'}`);
+    }
+
+    function renderParallel(container) {
+      witnessGroups.fsc28.forEach((fscGroup, index) => {
+        const numberValue = fscGroup.getAttribute('n');
+        const bnfGroup = groupIndexes.bnf348.get(numberValue);
+        if (!bnfGroup) return;
+        const article = document.createElement('article');
+        article.className = 'couplet parallel-couplet';
+        article.id = `parallel-${numberValue || index + 1}`;
+        const number = document.createElement('span');
+        number.className = 'couplet-number';
+        number.textContent = numberValue;
+        article.appendChild(number);
+        const grid = document.createElement('div');
+        grid.className = 'parallel-grid';
+        grid.append(makeWitnessColumn(bnfGroup, 'bnf348'), makeWitnessColumn(fscGroup, 'fsc28'));
+        article.appendChild(grid);
+
+        const findings = document.createElement('div');
+        findings.className = 'comparison-findings';
+        const bnfLines = directChildren(bnfGroup, 'l');
+        const fscLines = directChildren(fscGroup, 'l');
+        bnfLines.forEach(bnfLine => {
+          const fscLine = fscLines.find(line => line.getAttribute('n') === bnfLine.getAttribute('n'));
+          const classification = classifyPair(bnfLine, fscLine);
+          if (classification === 'match') return;
+          const chip = document.createElement('span');
+          chip.className = `comparison-chip ${classification}`;
+          const key = `${numberValue}${bnfLine.getAttribute('n')}`;
+          chip.textContent = classification === 'gap' ? `${key} 補修による欠損` : `${key} 本文異同`;
+          findings.appendChild(chip);
+          if (readingMode === 'variants') appendVariantNotes(article, bnfLine, key);
+        });
+        if (findings.childElementCount) article.appendChild(findings);
+        container.appendChild(article);
+      });
+    }
+
+    function updateViewChrome() {
+      const heading = document.getElementById('text-heading');
+      const note = document.getElementById('view-note');
+      const alignment = document.getElementById('alignment-status');
+      document.body.classList.toggle('parallel-view', witnessMode === 'parallel');
+      if (witnessMode === 'bnf348') {
+        heading.textContent = 'Persan 348 写本転写（30対句）';
+        note.innerHTML = '第1〜第30対句は研究者が画像と照合した転写です。正規化候補は写本転写と区別して表示します。<a href="../data/tei/bnf-persan-348-f6-sample.xml">TEI XML</a>・<a href="https://gallica.bnf.fr/ark:/12148/btv1b10091505x">公式資料</a>・<a href="https://gallica.bnf.fr/accueil/fr/html/conditions-dutilisation-de-gallica">利用条件</a>';
+        alignment.textContent = 'BnF Persan 348（1492年）の公開IIIF画像です。30対句・60半句を研究者が照合済みです。Source gallica.bnf.fr / Bibliothèque nationale de France';
+      } else if (witnessMode === 'fsc28') {
+        heading.textContent = 'FSC-MS-28 独立転写（冒頭9対句）';
+        note.innerHTML = 'FSC-MS-28をPersan 348から独立して転写した表示です。判読不確実な字母は点線、補修紙で覆われる箇所は［…］で示します。<a href="../outputs/fsc-ms-28-opening-review-ja.md">転写確認票</a>・<a href="https://asia.si.edu/explore-art-culture/collections/search/edanmdm:fsg_FSC-MS-28/">公式資料</a>・<a href="https://www.si.edu/termsofuse">利用条件</a>';
+        alignment.textContent = 'Smithsonian National Museum of Asian Art, FSC-MS-28。Usage Conditions Apply。冒頭9対句・18半句と画像領域を研究者が承認済みです。';
+      } else {
+        heading.textContent = 'Persan 348・FSC-MS-28 並列比較（冒頭9対句）';
+        note.innerHTML = '二写本の独立転写を同じ対句番号で並べます。16半句は一致、0004bは本文異同、0006aは補修による欠損です。半句を選ぶと両写本の対応領域を同時表示します。<a href="../outputs/opening-witness-collation-ja.md">校合報告</a>・<a href="https://gallica.bnf.fr/accueil/fr/html/conditions-dutilisation-de-gallica">Gallica利用条件</a>・<a href="https://www.si.edu/termsofuse">Smithsonian利用条件</a>';
+        alignment.textContent = '二つのIIIF資料を並列表示しています。Source gallica.bnf.fr / Bibliothèque nationale de France。Smithsonian FSC-MS-28: Usage Conditions Apply。';
       }
+    }
+
+    function renderCouplets() {
+      updateViewChrome();
+      const container = document.getElementById('couplets');
+      container.replaceChildren();
+      if (witnessMode === 'parallel') renderParallel(container);
+      else renderSingle(container, witnessMode);
+
+      const groupCount = witnessMode === 'parallel' ? witnessGroups.fsc28.length : witnessGroups[witnessMode].length;
+      document.getElementById('tei-status').textContent = witnessMode === 'parallel'
+        ? `${groupCount}対句を二証人で並列表示しています（16半句一致・1本文異同・1欠損）。`
+        : `${groupCount}対句・${groupCount * 2}半句をTEI XMLから読み込みました。`;
+
+      if (witnessMode === 'parallel') {
+        const firstKey = selectedKey && pairedLines(selectedKey).fsc28 ? selectedKey : '0001a';
+        showComparisonRegions(firstKey);
+      } else {
+        const selected = [...container.querySelectorAll('.hemistich')].find(item => item.dataset.facs === selectedFacs)
+          || container.querySelector('.hemistich');
+        if (selected) showRegion(selected.dataset.facs, selected.dataset.key);
+      }
+    }
+
+    function initializeMirador() {
+      const viewer = document.getElementById('viewer');
+      viewer.replaceChildren();
+      activeCanvases = new Map();
+      if (!window.Mirador) {
+        viewer.textContent = 'Miradorを読み込めませんでした。上段のIIIF領域画像は利用できます。';
+        return;
+      }
+      const keys = ['bnf348', 'fsc28'];
+      miradorInstance = Mirador.viewer({
+        id: 'viewer',
+        language: 'ja',
+        workspace: { type: 'mosaic' },
+        windows: keys.map(key => ({
+          id: `${key}-window`,
+          manifestId: manifests[key],
+          thumbnailNavigationPosition: 'far-bottom'
+        }))
+      });
     }
 
     async function loadTei() {
@@ -219,41 +503,55 @@
         const response = await fetch('../data/tei/bnf-persan-348-f6-sample.xml');
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const xml = new DOMParser().parseFromString(await response.text(), 'application/xml');
-        const parseError = xml.querySelector('parsererror');
-        if (parseError) throw new Error('XML parse error');
+        if (xml.querySelector('parsererror')) throw new Error('XML parse error');
         zoneMap = new Map();
         witnessLabels = new Map();
+        palaeographicNotes = new Map();
+
         [...xml.getElementsByTagNameNS(teiNamespace, 'msDesc')].forEach(description => {
-          const id = description.getAttributeNS('http://www.w3.org/XML/1998/namespace', 'id');
+          const id = description.getAttributeNS(xmlNamespace, 'id');
           const idno = description.getElementsByTagNameNS(teiNamespace, 'idno')[0];
           if (id && idno) witnessLabels.set(id, idno.textContent.trim());
         });
         [...xml.getElementsByTagNameNS(teiNamespace, 'surface')].forEach(surface => {
-          const graphic = [...surface.children].find(child => child.namespaceURI === teiNamespace && child.localName === 'graphic');
+          const surfaceId = surface.getAttributeNS(xmlNamespace, 'id');
+          const witnessKey = surfaceId.startsWith('fsc28.') ? 'fsc28' : 'bnf348';
+          const graphic = directChildren(surface, 'graphic')[0];
+          if (!graphic) return;
           const graphicUrl = graphic.getAttribute('url');
           const imageServiceBase = graphicUrl.replace(/\/full\/full\/0\/[^/]+\.jpg$/, '');
           const imageQuality = graphicUrl.split('/').pop();
           const canvas = surface.getAttribute('corresp') || '';
-          [...surface.children]
-            .filter(child => child.namespaceURI === teiNamespace && child.localName === 'zone')
-            .forEach(zone => zoneMap.set(
-              zone.getAttributeNS('http://www.w3.org/XML/1998/namespace', 'id'),
-              {
-                id: zone.getAttributeNS('http://www.w3.org/XML/1998/namespace', 'id'),
-                ulx: Number(zone.getAttribute('ulx')),
-                uly: Number(zone.getAttribute('uly')),
-                lrx: Number(zone.getAttribute('lrx')),
-                lry: Number(zone.getAttribute('lry')),
-                imageServiceBase,
-                canvas,
-                imageQuality
-              }
-            ));
+          directChildren(surface, 'zone').forEach(zone => zoneMap.set(
+            zone.getAttributeNS(xmlNamespace, 'id'),
+            {
+              id: zone.getAttributeNS(xmlNamespace, 'id'),
+              ulx: Number(zone.getAttribute('ulx')),
+              uly: Number(zone.getAttribute('uly')),
+              lrx: Number(zone.getAttribute('lrx')),
+              lry: Number(zone.getAttribute('lry')),
+              imageServiceBase,
+              canvas,
+              imageQuality,
+              witnessKey,
+              witnessLabel: witnessKey === 'fsc28' ? 'FSC-MS-28' : 'Persan 348'
+            }
+          ));
         });
-        teiGroups = [...xml.getElementsByTagNameNS(teiNamespace, 'lg')]
-          .filter(group => group.getAttribute('type') === 'couplet');
+        [...xml.getElementsByTagNameNS(teiNamespace, 'note')]
+          .filter(note => note.getAttribute('type') === 'palaeographic')
+          .forEach(note => {
+            const target = (note.getAttribute('target') || '').replace(/^#/, '');
+            if (target) palaeographicNotes.set(target, note.textContent.trim());
+          });
+        Object.entries(witnessPointers).forEach(([key, pointer]) => {
+          const div = [...xml.getElementsByTagNameNS(teiNamespace, 'div')]
+            .find(item => item.getAttribute('source') === pointer);
+          witnessGroups[key] = div ? directChildren(div, 'lg').filter(group => group.getAttribute('type') === 'couplet') : [];
+          groupIndexes[key] = new Map(witnessGroups[key].map(group => [group.getAttribute('n'), group]));
+        });
+        initializeMirador();
         renderCouplets();
-        status.textContent = `${teiGroups.length}対句・${teiGroups.length * 2}半句をTEI XMLから読み込みました。`;
       } catch (error) {
         status.textContent = `TEI XMLを読み込めませんでした: ${error.message}`;
         status.style.color = '#a01818';
@@ -267,16 +565,15 @@
         renderCouplets();
       });
     });
-
-    miradorInstance = Mirador.viewer({
-      id: 'viewer',
-      language: 'ja',
-      windows: [{
-        id: 'main',
-        manifestId: 'https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/manifest.json',
-        thumbnailNavigationPosition: 'far-bottom'
-      }]
+    document.querySelectorAll('[data-witness-mode]').forEach(button => {
+      button.addEventListener('click', () => {
+        witnessMode = button.dataset.witnessMode;
+        selectedFacs = '';
+        document.querySelectorAll('[data-witness-mode]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+        renderCouplets();
+      });
     });
+
     loadTei();
   </script>
 </body>

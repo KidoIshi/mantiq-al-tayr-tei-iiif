@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-11-12T03:15:19.526149+00:00",
+  "viewer": "viewer\\index.html",
+  "all_passed": true,
+  "checks": {
+    "three_witness_modes": true,
+    "tei_driven_witness_groups": true,
+    "witness_specific_apparatus_resolution": true,
+    "unclear_rendering": true,
+    "gap_rendering": true,
+    "paired_region_display": true,
+    "two_mirador_manifests": true,
+    "variant_and_gap_labels": true
+  },
+  "manual_browser_check": {
+    "date": "2026-11-11",
+    "modes_checked": [
+      "bnf348",
+      "fsc28",
+      "parallel"
+    ],
+    "observed": [
+      "FSC-MS-28 renders 9 couplets and 18 hemistichs",
+      "0004b renders the unclear dal and textual-variant label",
+      "0006a renders the covered gap marker",
+      "parallel selection renders two IIIF regions",
+      "Mirador loads both witness manifests"
+    ]
+  }
+}
