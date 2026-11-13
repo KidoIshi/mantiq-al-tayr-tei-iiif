@@ -1,6 +1,6 @@
 # Manṭiq al-ṭayr in TEI and IIIF: A Two-Manuscript Transcription Prototype
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24202417.svg)](https://doi.org/10.5281/zenodo.24202417)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24202416.svg)](https://doi.org/10.5281/zenodo.24202416)
 
 [日本語 README](README.md)
 
@@ -10,7 +10,9 @@ Researcher: Kido Ishikawa
 
 [ORCID](https://orcid.org/0009-0009-2254-2189) · [researchmap](https://researchmap.jp/kidoishi/)
 
-Archived release and citation metadata: [Zenodo v0.3.1 (DOI: 10.5281/zenodo.24202417)](https://doi.org/10.5281/zenodo.24202417)
+**Live demonstrator: [Open the TEI–IIIF viewer](https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/viewer/)**
+
+Archived releases and citation metadata: [Zenodo (concept DOI: 10.5281/zenodo.24202416)](https://doi.org/10.5281/zenodo.24202416)
 
 ## Current scope
 

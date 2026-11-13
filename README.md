@@ -1,6 +1,6 @@
 # Manṭiq al-ṭayr TEI・IIIF 試作
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24202417.svg)](https://doi.org/10.5281/zenodo.24202417)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24202416.svg)](https://doi.org/10.5281/zenodo.24202416)
 
 [English README](README.en.md)
 
@@ -11,7 +11,9 @@
 
 リポジトリ：`https://github.com/KidoIshi/mantiq-al-tayr-tei-iiif`
 
-公開データ・引用情報：[Zenodo v0.3.1（DOI: 10.5281/zenodo.24202417）](https://doi.org/10.5281/zenodo.24202417)
+**公開閲覧画面：[TEI・IIIF対応デモを開く](https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/viewer/)**
+
+公開データ・引用情報：[Zenodo（全バージョン共通DOI: 10.5281/zenodo.24202416）](https://doi.org/10.5281/zenodo.24202416)
 
 ## 現在の到達点
 

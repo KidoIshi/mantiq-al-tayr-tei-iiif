@@ -24,7 +24,7 @@
         </respStmt>
       </titleStmt>
       <editionStmt>
-        <edition n="0.3.1-reviewed">Diplomatic-transcription sample reviewed against the manuscript image by the project researcher; not externally peer-reviewed</edition>
+        <edition n="0.3.2-reviewed">Diplomatic-transcription sample reviewed against the manuscript image by the project researcher; not externally peer-reviewed</edition>
       </editionStmt>
       <publicationStmt>
         <publisher>TEI・IIIF習得・実践プロジェクト</publisher>
@@ -138,6 +138,7 @@
       </langUsage>
     </profileDesc>
     <revisionDesc status="draft">
+      <change when="2026-11-14" who="#resp-ai-transcription #resp-researcher-review">Zenodo公開記録からGitHub PagesのTEI・IIIF閲覧画面へ直接移動できるよう、公開メタデータとREADMEへデモURLを追加した。本文転写、校合結果、画像領域に変更はない。</change>
       <change when="2026-11-14" who="#resp-ai-transcription #resp-researcher-review">公開英語メタデータを二写本という実際の範囲に合わせ、AI支援、人間による設計・実装構造・検証結果の確認、および追加AIコードレビューの役割を区別して記述した。本文転写、校合結果、画像領域に変更はない。</change>
       <change when="2026-11-12" who="#resp-ai-transcription">公開前監査により、二写本を反映する標題・責任表示・プロジェクト説明へ更新し、GallicaおよびSmithsonianの第三者画像利用条件とCC BY 4.0の適用範囲を明記した。</change>
       <change when="2026-11-11" who="#resp-ai-transcription">研究者承認済みのPersan 348・FSC-MS-28冒頭9対句を外交的転写として機械校合した。18半句中16半句が一致し、0004bの「وین／وان」1件を本文異同、0006aの補修紙被覆1件を異読ではなくgapとして分類し、TEI校異装置との対応を検証した。</change>
