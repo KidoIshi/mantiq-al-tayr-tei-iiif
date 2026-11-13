@@ -36,7 +36,9 @@ def main() -> int:
         "viewer": str(VIEWER.relative_to(ROOT)),
         "all_passed": all(requirements.values()),
         "checks": requirements,
-        "manual_browser_check": {
+        "manual_browser_check_record": {
+            "performed_by_this_script": False,
+            "record_type": "Prior human observation retained as provenance; not rerun by this static test.",
             "date": "2026-11-11",
             "modes_checked": ["bnf348", "fsc28", "parallel"],
             "observed": [

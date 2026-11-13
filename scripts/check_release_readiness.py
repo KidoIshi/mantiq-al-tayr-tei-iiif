@@ -45,6 +45,7 @@ def main() -> int:
         "LICENSE-CODE",
         "CITATION.cff",
         "README.md",
+        "README.en.md",
         "schema/mantiq.odd",
         "schema/mantiq.rng",
         "schema/mantiq.sch",
@@ -97,7 +98,11 @@ def main() -> int:
                 blockers.append({"check": "third_party_credit", "reason": f"{filename} is missing: {phrase}"})
 
     citation = (ROOT / "CITATION.cff").read_text(encoding="utf-8") if (ROOT / "CITATION.cff").exists() else ""
-    for phrase in ("version: 0.2.0", "Persan 348", "FSC-MS-28", "78 reviewed hemistich-to-image"):
+    version_match = re.search(r"(?m)^version:\s*[\"']?([^\"'\s]+)", citation)
+    if not version_match:
+        blockers.append({"check": "citation_metadata", "reason": "CITATION.cff has no parseable version."})
+    release_version = version_match.group(1) if version_match else None
+    for phrase in ("Persan 348", "FSC-MS-28", "78 reviewed hemistich-to-image"):
         if phrase not in citation:
             blockers.append({"check": "citation_metadata", "reason": f"CITATION.cff is missing current-scope text: {phrase}"})
 
@@ -192,6 +197,7 @@ def main() -> int:
         "blockers": blockers,
         "warnings": warnings,
         "passed_checks": {
+            "citation_version": release_version,
             "aggregate_validation": bool(verification.get("all_passed")),
             "viewer_validation": bool(viewer_test.get("all_passed")),
             "github_validation_workflow": workflow_exists,
@@ -203,10 +209,9 @@ def main() -> int:
         },
         "manual_release_actions": [
             "Review the final Git diff and commit the release candidate.",
-            "Confirm that the repository may be changed from private to public.",
-            "Enable and verify GitHub Pages after publication.",
+            "Verify the intended repository visibility and the live GitHub Pages site.",
             "Create a version tag/release and update CITATION.cff if the version changes.",
-            "Optionally archive the tagged release in Zenodo and add the DOI.",
+            "Archive the tagged release in Zenodo and add the DOI to the citation metadata.",
         ],
     }
     OUTPUT.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

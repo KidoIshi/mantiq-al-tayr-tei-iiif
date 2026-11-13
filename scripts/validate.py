@@ -7,6 +7,7 @@ import argparse
 import hashlib
 import json
 import sys
+import tempfile
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
@@ -24,7 +25,11 @@ CACHE_DIR = ROOT / "work" / "schema-cache"
 RNG_FILE = CACHE_DIR / "tei_all.rng"
 PROJECT_RNG_FILE = ROOT / "schema" / "mantiq.rng"
 DEFAULT_REPORT_FILE = ROOT / "outputs" / "validation-report-bnf348-f6.json"
-RNG_URL = "https://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng"
+TEI_VERSION = "4.12.0"
+RNG_URL = (
+    f"https://www.tei-c.org/Vault/P5/{TEI_VERSION}/xml/tei/custom/schema/relaxng/tei_all.rng"
+)
+RNG_SHA256 = "b0f115095ead2ccc6933aa3365c6f4a82cba3b2ec7eee7f76bb616d7a63b7e48"
 
 
 def sha256(path: Path) -> str:
@@ -36,14 +41,25 @@ def sha256(path: Path) -> str:
 
 
 def get_schema(offline: bool) -> None:
-    if RNG_FILE.exists():
+    if RNG_FILE.exists() and sha256(RNG_FILE) == RNG_SHA256:
         return
     if offline:
-        raise RuntimeError(f"Offline mode: cached schema is missing: {RNG_FILE}")
+        state = "missing" if not RNG_FILE.exists() else "present but has the wrong SHA-256"
+        raise RuntimeError(f"Offline mode: cached schema is {state}: {RNG_FILE}")
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
     request = urllib.request.Request(RNG_URL, headers={"User-Agent": "tei-iiif-poc/0.1"})
     with urllib.request.urlopen(request, timeout=60) as response:
-        RNG_FILE.write_bytes(response.read())
+        schema_bytes = response.read()
+    downloaded_sha256 = hashlib.sha256(schema_bytes).hexdigest()
+    if downloaded_sha256 != RNG_SHA256:
+        raise RuntimeError(
+            "Downloaded TEI schema checksum mismatch: "
+            f"expected {RNG_SHA256}, received {downloaded_sha256}"
+        )
+    with tempfile.NamedTemporaryFile(dir=CACHE_DIR, delete=False) as temporary:
+        temporary.write(schema_bytes)
+        temporary_path = Path(temporary.name)
+    temporary_path.replace(RNG_FILE)
 
 
 def validate(tei_file: Path, offline: bool) -> dict:
@@ -76,7 +92,13 @@ def validate(tei_file: Path, offline: bool) -> dict:
         "tei_file": str(tei_file.relative_to(ROOT)),
         "tei_sha256": sha256(tei_file),
         "schema": {
-            "tei_all": {"url": RNG_URL, "cache": str(RNG_FILE.relative_to(ROOT)), "sha256": sha256(RNG_FILE)},
+            "tei_all": {
+                "tei_version": TEI_VERSION,
+                "url": RNG_URL,
+                "cache": str(RNG_FILE.relative_to(ROOT)),
+                "sha256": sha256(RNG_FILE),
+                "expected_sha256": RNG_SHA256,
+            },
             "project_odd": {"path": str(PROJECT_RNG_FILE.relative_to(ROOT)), "sha256": sha256(PROJECT_RNG_FILE)},
         },
         "checks": {

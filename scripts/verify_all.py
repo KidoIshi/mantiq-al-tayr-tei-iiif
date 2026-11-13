@@ -57,7 +57,7 @@ def main() -> int:
             [python, "scripts/collate_opening_witnesses.py"],
         ),
         run(
-            "test_witness_comparison_viewer",
+            "static_check_witness_comparison_viewer",
             [python, "scripts/test_viewer_comparison.py"],
         ),
         run("generate_iiif_annotation_page", [python, "scripts/tei_to_iiif_annotations.py"]),

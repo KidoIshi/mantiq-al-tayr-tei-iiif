@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T14:01:02.701943+00:00",
+  "generated_at": "2026-11-13T09:03:40.231438+00:00",
   "project": "Manṭiq al-ṭayr TEI–IIIF prototype",
   "all_passed": true,
   "steps": [
@@ -54,7 +54,7 @@
       "stderr": ""
     },
     {
-      "label": "test_witness_comparison_viewer",
+      "label": "static_check_witness_comparison_viewer",
       "command": [
         "python",
         "scripts/test_viewer_comparison.py"

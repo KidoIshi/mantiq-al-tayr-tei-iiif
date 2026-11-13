@@ -1,5 +1,7 @@
 # Manṭiq al-ṭayr TEI・IIIF 試作
 
+[English README](README.en.md)
+
 『鳥の言葉』（*Manṭiq al-ṭayr*）を対象に、TEI P5でのペルシア語韻文構造化とIIIF連携を検証するための最小試作です。
 
 研究者：石川 喜堂（Kido Ishikawa）  
@@ -55,7 +57,7 @@ scripts/build_odd_schema.py      ODDから専用スキーマを再生成
 scripts/test_odd_schema.py       TEI Allと専用スキーマの差を反例で検査
 scripts/test_apparatus_processing.py 証人別の校異本文抽出を検査
 scripts/collate_opening_witnesses.py 二写本冒頭18半句の機械校合
-scripts/test_viewer_comparison.py 二写本比較画面の回帰検査
+scripts/test_viewer_comparison.py 二写本比較画面の静的回帰検査（ブラウザ操作そのものは検査しない）
 scripts/validate.py              XML / TEI RNG / Schematron検証
 scripts/tei_to_iiif_annotations.py TEIからIIIF注釈への変換
 scripts/validate_iiif_annotations.py TEIとIIIF注釈の相互照合

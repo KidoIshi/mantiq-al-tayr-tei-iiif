@@ -14,3 +14,6 @@ outputs/*.jpeg
 private/
 output/
 tmp/
+# Conference-submission drafts and local PDF-generation helper are internal work products.
+outputs/dh2027-*
+scripts/create_dh2027_submission_pdf.py

@@ -46,7 +46,7 @@ BnF Manifest内の正式なCanvasは次のURIである。
 
 `https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7`
 
-60個の`zone`をIIIF Presentation API 3の60個のWeb Annotationへ変換し、Canvas URIに`#xywh=x,y,w,h`を付けて対象領域を表した。AnnotationPageはCanvasごとに分け、f6用24件とf7用36件を生成した。
+Persan 348の60個の`zone`をIIIF Presentation API 3の60個のWeb Annotationへ変換し、Canvas URIに`#xywh=x,y,w,h`を付けて対象領域を表した。AnnotationPageはCanvasごとに分け、f6用24件とf7用36件を生成した。さらにFSC-MS-28用18件を別のAnnotationPageとして生成し、プロジェクト全体では3 Canvas・78 Annotationとなる。
 
 ## 4. システム構成
 
@@ -116,7 +116,7 @@ AIに委任した作業は、仕様調査、転写候補、座標候補、XML・
 - 日本語訳と原文の対応
 - 話者・物語階層の実データへの適用
 - 30対句を超える試料拡張
-- 永続的な公開URI、GitHub公開、Zenodo DOI
+- Zenodo DOI（GitHubリポジトリ、GitHub Release、GitHub Pagesは公開済み）
 - Gallica画像そのものの再配布
 
 ## 8. 規格上の説明
