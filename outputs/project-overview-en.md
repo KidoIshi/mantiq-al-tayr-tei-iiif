@@ -5,7 +5,7 @@ Status: small-scale prototype reviewed against the manuscript image by the proje
 
 ## Overview
 
-This project develops a reproducible TEI–IIIF workflow for Farīd al-Dīn ʿAṭṭār’s *Manṭiq al-ṭayr* using Bibliothèque nationale de France, Persan 348, and Smithsonian FSC-MS-28. It is not presented as a completed critical edition. Its current purpose is to demonstrate how independent manuscript-based diplomatic transcription, controlled normalization, witness collation, image-region alignment, standards conversion, and validation can be combined in a transparent digital-humanities workflow.
+This project documents a TEI–IIIF workflow for Farīd al-Dīn ʿAṭṭār’s *Manṭiq al-ṭayr* using Bibliothèque nationale de France, Persan 348, and Smithsonian FSC-MS-28. It is not presented as a completed critical edition. Its current purpose is to show how manuscript-based diplomatic transcription, controlled normalization, witness collation, image-region alignment, standards conversion, and validation can be combined and inspected.
 
 ## Implemented dataset
 
@@ -14,7 +14,7 @@ This project develops a reproducible TEI–IIIF workflow for Farīd al-Dīn ʿA�
 - Stable identifiers for every couplet and hemistich.
 - Three approved `choice/orig/reg` normalizations, while retaining the diplomatic reading as the default.
 - 60 TEI `zone` regions reviewed against the image by the project researcher and linked from the hemistichs with `@facs`.
-- An independently transcribed and researcher-reviewed nine-couplet opening from Smithsonian FSC-MS-28, including 18 image regions, one locally unclear letter, and one repair-covered gap.
+- A separate transcription of the corresponding nine-couplet opening from Smithsonian FSC-MS-28, including 18 image regions checked by the author, one locally unclear letter, and one passage covered by physical repair.
 - Three generated IIIF Presentation 3 AnnotationPages containing 78 `supplementing` Web Annotations targeting two BnF Canvases and one Smithsonian Canvas with `xywh` fragments.
 - A browser demonstrator with diplomatic/normalized display, witness switching, parallel hemistich and image-region comparison, and two Mirador manuscript windows.
 - One non-selective apparatus entry based on independent manuscript images: Persan 348 `وین` and Smithsonian FSC-MS-28 `وان`.

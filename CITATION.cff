@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this dataset or its accompanying software, please cite it using the metadata below."
 type: dataset
-title: "Manṭiq al-ṭayr: A TEI–IIIF Multi-Witness Manuscript Transcription Prototype"
+title: "Manṭiq al-ṭayr in TEI and IIIF: A Two-Manuscript Transcription Prototype (BnF Persan 348 and Smithsonian FSC-MS-28)"
 version: 0.3.0
 date-released: 2026-11-13
 repository-code: "https://github.com/KidoIshi/mantiq-al-tayr-tei-iiif"
@@ -12,18 +12,29 @@ authors:
     orcid: "https://orcid.org/0009-0009-2254-2189"
     website: "https://researchmap.jp/kidoishi/"
 abstract: >-
-  A reproducible TEI P5 and IIIF prototype containing 30 Persian couplets
-  from BnF Persan 348 and an independently transcribed nine-couplet opening
-  from Smithsonian FSC-MS-28. The dataset contains 78 reviewed hemistich-to-image
-  alignments across three IIIF Canvases, a non-selective apparatus example,
-  witness collation, project schemas, validation reports, and a comparison
-  viewer. Researcher review against manuscript images is not external peer review.
+  This dataset presents a small TEI P5 and IIIF implementation for the opening
+  of Farīd al-Dīn ʿAṭṭār's Manṭiq al-ṭayr, based on two manuscript witnesses.
+  It contains a diplomatic transcription of 30 couplets in BnF Persan 348
+  (dated 1492), a separate transcription of the corresponding nine opening
+  couplets in Smithsonian FSC-MS-28 (sixteenth century), and links from 78
+  hemistichs to regions in three IIIF Canvases. Automated collation of the 18
+  overlapping hemistichs records 16 exact matches, one textual variant, and one
+  passage partly covered by physical repair. The package includes a
+  project-specific TEI customization, generated IIIF AnnotationPages,
+  validation scripts and reports, and a browser-based comparison viewer. This
+  is a technical and methodological prototype, not a critical edition. The
+  author checked the transcriptions and image regions against the manuscript
+  images; the work has not undergone independent scholarly review. Manuscript
+  images are referenced through IIIF and are not included in the package.
 keywords:
   - TEI
   - IIIF
+  - Persian manuscripts
   - Persian literature
-  - manuscript studies
-  - textual criticism
+  - manuscript collation
+  - digital scholarly editing
+  - digital humanities
   - Manṭiq al-ṭayr
   - Farīd al-Dīn ʿAṭṭār
+  - Attar
 license: CC-BY-4.0

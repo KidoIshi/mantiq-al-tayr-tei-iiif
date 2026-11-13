@@ -112,8 +112,9 @@ def main() -> int:
             "check": "release_version",
             "reason": f"CITATION.cff version {release_version} differs from VERSION {version_file}.",
         })
-    for phrase in ("Persan 348", "FSC-MS-28", "78 reviewed hemistich-to-image"):
-        if phrase not in citation:
+    citation_normalized = " ".join(citation.split())
+    for phrase in ("Persan 348", "FSC-MS-28", "78 hemistichs", "not a critical edition"):
+        if phrase not in citation_normalized:
             blockers.append({"check": "citation_metadata", "reason": f"CITATION.cff is missing current-scope text: {phrase}"})
 
     registry_path = ROOT / "iiif" / "manifest-registry.json"

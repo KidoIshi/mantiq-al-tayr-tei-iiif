@@ -1,8 +1,8 @@
-# Manṭiq al-ṭayr TEI–IIIF Prototype
+# Manṭiq al-ṭayr in TEI and IIIF: A Two-Manuscript Transcription Prototype
 
 [日本語 README](README.md)
 
-This repository is a small, reproducible prototype for structuring Persian manuscript poetry in TEI P5 and aligning its hemistichs with IIIF image regions. It is a methodological demonstration, not a critical edition.
+This repository demonstrates how Persian manuscript poetry can be structured in TEI P5 and linked at the hemistich level to IIIF image regions. It documents the data, transformation, and validation steps used for two manuscript witnesses. It is a methodological prototype, not a critical edition.
 
 Researcher: Kido Ishikawa
 
@@ -10,16 +10,19 @@ Researcher: Kido Ishikawa
 
 ## Current scope
 
-- 30 couplets (60 hemistichs) independently transcribed from BnF Persan 348.
-- A second transcription of the opening 9 couplets (18 hemistichs) from Smithsonian FSC-MS-28.
-- 39 TEI `<lg type="couplet">` units, 78 hemistichs, and 78 reviewed TEI-to-IIIF region alignments on three Canvases.
+- 30 couplets (60 hemistichs) transcribed from BnF Persan 348.
+- A separate transcription of the corresponding opening 9 couplets (18 hemistichs) from Smithsonian FSC-MS-28.
+- 39 TEI `<lg type="couplet">` units, 78 hemistichs, and 78 TEI-to-IIIF region alignments on three Canvases.
+- Automated collation of the 18 overlapping hemistichs: 16 exact matches, one textual variant (0004b), and one passage partly covered by physical repair (0006a).
 - One non-selective `<app>` with witness-specific `<rdg>` elements; no lemma is selected.
 - Diplomatic transcription and limited search-oriented normalization kept distinct with `<choice><orig>…</orig><reg>…</reg></choice>`.
 - A project ODD, generated Relax NG schema, Schematron constraints, and negative tests.
 - Deterministic TEI-to-IIIF AnnotationPage generation and cross-file validation.
 - A browser demonstrator with witness switching, parallel comparison, region previews, and Mirador.
 
-The readings and regions were reviewed by the project researcher against the manuscript images. This does not constitute external peer review.
+The author checked the transcriptions and image regions against the manuscript images. They have not yet been independently reviewed.
+
+AI assistance was used to propose initial transcriptions and image regions and to generate code and documentation drafts. The author made the editorial decisions and checked the transcriptions and image regions. The code was also subjected to a separate AI-assisted review.
 
 ## Reproduce and validate
 
@@ -50,8 +53,8 @@ Then open `http://localhost:8000/viewer/`. Network access is required for extern
 - Persan 348 was selected as a practical witness for learning and implementation, not identified as a best manuscript or a base text for a critical edition.
 - The normalized forms are experimental search aids, not readings from a printed edition or an edited text.
 - The apparatus contains only one manuscript-supported variant and does not constitute a critical edition.
-- Speaker markup, narrative hierarchy, and Japanese translation alignment are models or future work, not populated research data.
-- The AnnotationPages follow the basic IIIF Presentation API 3 Web Annotation structure and are checked against project rules; no official claim of complete IIIF conformance is made.
+- Speaker markup, narrative hierarchy, and Japanese translation alignment are described in design documents but have not been populated as research data.
+- The AnnotationPages follow the basic IIIF Presentation API 3 Web Annotation structure. They have been checked against the project rules, but not against an official IIIF conformance test suite.
 
 ## Licences and external images
 
