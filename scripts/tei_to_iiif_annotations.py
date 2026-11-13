@@ -46,12 +46,82 @@ def diplomatic_text(line: etree._Element, witness: str = "#wit-bnf348") -> str:
                 parts.append(collect(matches[0]))
             elif child.tag == f"{{{NS['tei']}}}gap":
                 parts.append("[…]")
+            elif child.tag in {f"{{{NS['tei']}}}note", f"{{{NS['tei']}}}fw"}:
+                pass
             else:
                 parts.append(collect(child))
             parts.append(child.tail or "")
         return "".join(parts)
 
     return " ".join(collect(line).split())
+
+
+def witness_for_line(line: etree._Element) -> str:
+    """Return the witness explicitly declared by the line's transcription div."""
+
+    sources = line.xpath("ancestor::tei:div[@source][1]/@source", namespaces=NS)
+    if len(sources) != 1 or not sources[0].startswith("#"):
+        raise ValueError(f"Cannot determine witness for {line.get(XML_ID)}")
+    return sources[0]
+
+
+def selected_unclear(line: etree._Element, witness: str) -> list[etree._Element]:
+    """Return unclear elements that belong to the selected witness reading."""
+
+    selected: list[etree._Element] = []
+
+    def visit(node: etree._Element) -> None:
+        for child in node:
+            if child.tag == f"{{{NS['tei']}}}choice":
+                originals = child.xpath("./tei:orig", namespaces=NS)
+                if len(originals) != 1:
+                    raise ValueError(f"Expected one orig in {line.get(XML_ID)}")
+                visit(originals[0])
+            elif child.tag == f"{{{NS['tei']}}}app":
+                readings = child.xpath("./tei:lem | ./tei:rdg", namespaces=NS)
+                matches = [item for item in readings if witness in (item.get("wit") or "").split()]
+                if len(matches) != 1:
+                    raise ValueError(
+                        f"app in {line.get(XML_ID)} has {len(matches)} readings for {witness}"
+                    )
+                visit(matches[0])
+            elif child.tag in {f"{{{NS['tei']}}}note", f"{{{NS['tei']}}}fw"}:
+                continue
+            else:
+                if child.tag == f"{{{NS['tei']}}}unclear":
+                    selected.append(child)
+                visit(child)
+
+    visit(line)
+    return selected
+
+
+def uncertainty_bodies(
+    line: etree._Element,
+    witness: str,
+    notes_by_target: dict[str, str],
+) -> list[dict]:
+    """Create commenting bodies so uncertainty survives TEI-to-IIIF flattening."""
+
+    bodies: list[dict] = []
+    for unclear in selected_unclear(line, witness):
+        identifiers = [unclear.get(XML_ID, ""), (unclear.get("corresp") or "").removeprefix("#")]
+        note = next((notes_by_target[item] for item in identifiers if item in notes_by_target), "")
+        if not note:
+            note = f"The reading {''.join(unclear.itertext())!r} is marked unclear in the TEI source."
+            language = "en"
+        else:
+            language = "ja"
+        bodies.append(
+            {
+                "type": "TextualBody",
+                "value": note,
+                "format": "text/plain",
+                "language": language,
+                "purpose": "commenting",
+            }
+        )
+    return bodies
 
 
 def surface_token(surface: etree._Element) -> str:
@@ -74,6 +144,10 @@ def annotation_filename(surface: etree._Element) -> str:
 
 def build_annotation_pages(tei_path: Path, base_url: str) -> dict[str, dict]:
     document = etree.parse(str(tei_path))
+    notes_by_target = {
+        (note.get("target") or "").removeprefix("#"): " ".join(note.itertext()).strip()
+        for note in document.xpath("//tei:note[@target]", namespaces=NS)
+    }
     zone_bindings: dict[str, tuple[etree._Element, etree._Element]] = {}
     for surface in document.xpath("//tei:surface", namespaces=NS):
         for zone in surface.xpath("./tei:zone", namespaces=NS):
@@ -109,31 +183,40 @@ def build_annotation_pages(tei_path: Path, base_url: str) -> dict[str, dict]:
         items: list[dict] = []
         for line, zone in bindings:
             line_id = line.get(XML_ID)
+            witness = witness_for_line(line)
             x = int(zone.get("ulx"))
             y = int(zone.get("uly"))
             width = int(zone.get("lrx")) - x
             height = int(zone.get("lry")) - y
+            transcription_body = {
+                "type": "TextualBody",
+                "value": diplomatic_text(line, witness),
+                "format": "text/plain",
+                "language": "fa",
+            }
+            comments = uncertainty_bodies(line, witness, notes_by_target)
             items.append(
                 {
                     "id": f"{page_url}#{quote(line_id, safe='.-')}",
                     "type": "Annotation",
                     "motivation": "supplementing",
-                    "body": {
-                        "type": "TextualBody",
-                        "value": diplomatic_text(line),
-                        "format": "text/plain",
-                        "language": "fa",
-                    },
+                    "body": [transcription_body, *comments] if comments else transcription_body,
                     "target": f"{canvas}#xywh={x},{y},{width},{height}",
                 }
             )
-        witness_label = "FSC-MS-28" if filename.startswith("fsc-ms-28-") else "Persan 348"
+        page_witnesses = {witness_for_line(line) for line, _ in bindings}
+        if len(page_witnesses) != 1:
+            raise ValueError(f"More than one witness maps to {filename}: {sorted(page_witnesses)}")
+        witness_label = {
+            "#wit-bnf348": "Persan 348",
+            "#wit-fsc28": "FSC-MS-28",
+        }.get(next(iter(page_witnesses)), next(iter(page_witnesses)).removeprefix("#"))
         pages[filename] = {
             "@context": "http://iiif.io/api/presentation/3/context.json",
             "id": page_url,
             "type": "AnnotationPage",
             "label": {"ja": [f"{witness_label} {surface.get('n')} 外交的転写"]},
-            "partOf": [{"id": canvas, "type": "Canvas"}],
+            "rights": "https://creativecommons.org/licenses/by/4.0/",
             "items": items,
         }
     return pages

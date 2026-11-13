@@ -7,12 +7,7 @@
       "FSC-MS-28 FS-7342_15 外交的転写"
     ]
   },
-  "partOf": [
-    {
-      "id": "https://ids.si.edu/ids/iiif/canvas-FS-7342_15",
-      "type": "Canvas"
-    }
-  ],
+  "rights": "https://creativecommons.org/licenses/by/4.0/",
   "items": [
     {
       "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/fsc-ms-28-FS-7342_15-annotations.json#mt.fsc28.0001.a",
@@ -102,12 +97,21 @@
       "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/fsc-ms-28-FS-7342_15-annotations.json#mt.fsc28.0004.b",
       "type": "Annotation",
       "motivation": "supplementing",
-      "body": {
-        "type": "TextualBody",
-        "value": "وان دگر را دایما آرام داد",
-        "format": "text/plain",
-        "language": "fa"
-      },
+      "body": [
+        {
+          "type": "TextualBody",
+          "value": "وان دگر را دایما آرام داد",
+          "format": "text/plain",
+          "language": "fa"
+        },
+        {
+          "type": "TextualBody",
+          "value": "FSC-MS-28では語を文脈、直前の「آن یکی」との対句構造、および既知本文に基づき「دگر」と同定する。ただし「د」に相当する筆画は元IIIF画像上で独立して確認できず、後続字群との近接・重畳、特殊な字形、または省略のいずれであるかは未確定である。「د」を写本にない文字として断定的に補うのではなく、採用した読みのうち字母単位の判読不確実性として記録する。",
+          "format": "text/plain",
+          "language": "ja",
+          "purpose": "commenting"
+        }
+      ],
       "target": "https://ids.si.edu/ids/iiif/canvas-FS-7342_15#xywh=150,1850,600,300"
     },
     {

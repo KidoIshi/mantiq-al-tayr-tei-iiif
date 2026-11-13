@@ -2,6 +2,7 @@
 """Check witness-specific text extraction from the implemented apparatus."""
 
 from pathlib import Path
+import argparse
 
 from lxml import etree
 
@@ -12,8 +13,8 @@ ROOT = Path(__file__).resolve().parents[1]
 TEI = ROOT / "data" / "tei" / "bnf-persan-348-f6-sample.xml"
 
 
-def main() -> int:
-    document = etree.parse(str(TEI))
+def check_apparatus(tei_path: Path) -> dict[str, str]:
+    document = etree.parse(str(tei_path))
     lines = document.xpath("//tei:l[@xml:id='mt.bnf348.0004.b']", namespaces=NS)
     if len(lines) != 1:
         raise RuntimeError(f"Expected one mt.bnf348.0004.b, found {len(lines)}")
@@ -56,12 +57,53 @@ def main() -> int:
     )
     if len(fsc_lines) != 18:
         raise RuntimeError(f"Expected 18 independently transcribed FSC-MS-28 lines, found {len(fsc_lines)}")
+    bnf_lines = {
+        item.get("{http://www.w3.org/XML/1998/namespace}id").removeprefix("mt.bnf348."): item
+        for item in document.xpath(
+            "//tei:div[@source='#wit-bnf348']/tei:lg[@type='couplet']/tei:l",
+            namespaces=NS,
+        )
+    }
+    independent_lines = {
+        item.get("{http://www.w3.org/XML/1998/namespace}id").removeprefix("mt.fsc28."): item
+        for item in fsc_lines
+    }
+    apparatus_ids = sorted(
+        item.get("{http://www.w3.org/XML/1998/namespace}id").removeprefix("mt.bnf348.")
+        for item in document.xpath(
+            "//tei:div[@source='#wit-bnf348']/tei:lg[@type='couplet']/tei:l"
+            "[.//tei:app/*[self::tei:lem or self::tei:rdg][contains(concat(' ', normalize-space(@wit), ' '), ' #wit-fsc28 ')]]",
+            namespaces=NS,
+        )
+    )
+    if not apparatus_ids:
+        raise RuntimeError("No Persan 348 lines contain an FSC-MS-28 apparatus reading")
+    missing_independent = sorted(set(apparatus_ids) - independent_lines.keys())
+    if missing_independent:
+        raise RuntimeError(f"Apparatus lines lack independent FSC-MS-28 transcriptions: {missing_independent}")
+    for shared_id in apparatus_ids:
+        apparatus_text = diplomatic_text(bnf_lines[shared_id], "#wit-fsc28")
+        independent_text = diplomatic_text(independent_lines[shared_id], "#wit-fsc28")
+        if apparatus_text != independent_text:
+            raise RuntimeError(
+                f"Whole FSC-MS-28 {shared_id} differs between apparatus extraction "
+                f"({apparatus_text!r}) and independent transcription ({independent_text!r})"
+            )
     covered = document.xpath(
         "//tei:l[@xml:id='mt.fsc28.0006.a']",
         namespaces=NS,
     )
     if len(covered) != 1 or diplomatic_text(covered[0]) != "کرد […] پدید":
         raise RuntimeError("FSC-MS-28 0006a covered text was not preserved as a gap")
+    return actual
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--tei", type=Path, default=TEI)
+    args = parser.parse_args()
+    tei_path = args.tei if args.tei.is_absolute() else ROOT / args.tei
+    actual = check_apparatus(tei_path)
     print(actual)
     return 0
 

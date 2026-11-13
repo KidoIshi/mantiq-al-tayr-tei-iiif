@@ -18,6 +18,7 @@ import validate as project_validation
 from tei_to_iiif_annotations import NS, XML_ID, build_annotation_pages
 from validate_iiif_annotations import validate as validate_annotations
 import tei_to_iiif_annotations as annotation_generator
+from test_apparatus_processing import check_apparatus
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -96,6 +97,33 @@ def diverge_linked_witness_reading(temp_dir: Path) -> dict:
         "expected_detector": "project Schematron correspondence rule",
         "detected": detected,
         "relevant_check": result["checks"]["project_schematron_valid"],
+    }
+
+
+def diverge_shared_witness_line_tail(temp_dir: Path) -> dict:
+    """Show that whole-line comparison catches divergence outside the linked segment."""
+
+    document = etree.parse(str(SOURCE_TEI))
+    line = document.xpath(
+        "//tei:l[@xml:id='mt.fsc28.0004.b']",
+        namespaces=NS,
+    )[0]
+    line[-1].tail = " را دایما آرام کرد"
+    broken = temp_dir / "divergent-shared-tail.xml"
+    write_document(document, broken)
+    message = ""
+    try:
+        check_apparatus(broken)
+        detected = False
+    except RuntimeError as exc:
+        message = str(exc)
+        detected = "Whole FSC-MS-28 0004.b differs" in message
+    return {
+        "experiment": "diverge_shared_witness_line_tail",
+        "mutation": "Changed only the shared tail of the independent FSC-MS-28 0004b line.",
+        "expected_detector": "whole-line witness apparatus comparison",
+        "detected": detected,
+        "message": message,
     }
 
 
@@ -178,6 +206,7 @@ def main() -> int:
             remove_second_hemistich(temp_dir),
             break_facs_reference(temp_dir),
             diverge_linked_witness_reading(temp_dir),
+            diverge_shared_witness_line_tail(temp_dir),
             alter_annotation_text(temp_dir),
             corrupt_generator_extractor(temp_dir),
         ]

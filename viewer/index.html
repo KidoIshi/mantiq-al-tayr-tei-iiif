@@ -90,8 +90,8 @@
   <main>
     <section id="text-panel" aria-labelledby="text-heading">
       <p class="eyebrow">TEI P5 sample</p>
-      <h1 id="text-heading">Persan 348 写本転写（30対句）</h1>
-      <p class="note" id="view-note">第1〜第30対句はプロジェクト担当研究者が画像と照合した転写です（外部査読済みを意味しません）。比較本文と異なる場合もPersan 348の読みと写本上の半句順序を優先します。<a href="../data/tei/bnf-persan-348-f6-sample.xml">TEI XMLを開く</a>・<a href="https://gallica.bnf.fr/accueil/fr/html/conditions-dutilisation-de-gallica">Gallica利用条件</a></p>
+      <h1 id="text-heading">Persan 348 写本転写</h1>
+      <p class="note" id="view-note">TEI XMLを読み込んで件数を集計しています。</p>
       <span class="control-label">表示する証人</span>
       <div class="reading-mode" role="group" aria-label="表示する証人">
         <button type="button" data-witness-mode="bnf348" aria-pressed="true">Persan 348</button>
@@ -108,7 +108,7 @@
       <div id="couplets" lang="fa" dir="rtl"></div>
     </section>
     <section id="image-panel" aria-label="IIIF manuscript viewer">
-      <div class="alignment-status" id="alignment-status">BnF Persan 348（1492年）の公開IIIF画像です。30対句・60半句を研究者が写本画像と照合済みです。Source gallica.bnf.fr / Bibliothèque nationale de France</div>
+      <div class="alignment-status" id="alignment-status">TEI XMLとIIIF画像の対応を読み込んでいます。</div>
       <div id="region-card" aria-live="polite">
         <div id="region-meta">
           <strong id="region-label">半句を選択してください</strong>
@@ -130,7 +130,9 @@
     </section>
   </main>
 
-  <script src="https://unpkg.com/mirador@3.3.0/dist/mirador.min.js"></script>
+  <script src="https://unpkg.com/mirador@3.3.0/dist/mirador.min.js"
+          integrity="sha384-k/r5UrI+Ic8F0V9TCYmu63AmAPL2JDdRbBESFligIXgD8gtukEtg6PrEbkbYAO7M"
+          crossorigin="anonymous"></script>
   <script>
     const teiNamespace = 'http://www.tei-c.org/ns/1.0';
     const xmlNamespace = 'http://www.w3.org/XML/1998/namespace';
@@ -440,18 +442,31 @@
       const heading = document.getElementById('text-heading');
       const note = document.getElementById('view-note');
       const alignment = document.getElementById('alignment-status');
+      const bnfCouplets = witnessGroups.bnf348.length;
+      const fscCouplets = witnessGroups.fsc28.length;
+      const bnfLines = witnessGroups.bnf348.reduce((sum, group) => sum + directChildren(group, 'l').length, 0);
+      const fscLines = witnessGroups.fsc28.reduce((sum, group) => sum + directChildren(group, 'l').length, 0);
+      const parallelCounts = { match: 0, variant: 0, gap: 0 };
+      witnessGroups.fsc28.forEach(fscGroup => {
+        const bnfGroup = groupIndexes.bnf348.get(fscGroup.getAttribute('n'));
+        if (!bnfGroup) return;
+        const fscByPart = new Map(directChildren(fscGroup, 'l').map(line => [line.getAttribute('n'), line]));
+        directChildren(bnfGroup, 'l').forEach(line => {
+          parallelCounts[classifyPair(line, fscByPart.get(line.getAttribute('n')))] += 1;
+        });
+      });
       document.body.classList.toggle('parallel-view', witnessMode === 'parallel');
       if (witnessMode === 'bnf348') {
-        heading.textContent = 'Persan 348 写本転写（30対句）';
-        note.innerHTML = '第1〜第30対句は研究者が画像と照合した転写です。正規化候補は写本転写と区別して表示します。<a href="../data/tei/bnf-persan-348-f6-sample.xml">TEI XML</a>・<a href="https://gallica.bnf.fr/ark:/12148/btv1b10091505x">公式資料</a>・<a href="https://gallica.bnf.fr/accueil/fr/html/conditions-dutilisation-de-gallica">利用条件</a>';
-        alignment.textContent = 'BnF Persan 348（1492年）の公開IIIF画像です。30対句・60半句を研究者が照合済みです。Source gallica.bnf.fr / Bibliothèque nationale de France';
+        heading.textContent = `Persan 348 写本転写（${bnfCouplets}対句）`;
+        note.innerHTML = `第1〜第${bnfCouplets}対句は研究者が画像と照合した転写です。正規化候補は写本転写と区別して表示します。<a href="../data/tei/bnf-persan-348-f6-sample.xml">TEI XML</a>・注釈 <a href="../iiif/bnf-persan-348-f6-annotations.json">f6</a>/<a href="../iiif/bnf-persan-348-f7-annotations.json">f7</a>・<a href="https://gallica.bnf.fr/ark:/12148/btv1b10091505x">公式資料</a>・<a href="https://gallica.bnf.fr/accueil/fr/html/conditions-dutilisation-de-gallica">利用条件</a>`;
+        alignment.textContent = `BnF Persan 348（1492年）の公開IIIF画像です。${bnfCouplets}対句・${bnfLines}半句を研究者が照合済みです。Source gallica.bnf.fr / Bibliothèque nationale de France`;
       } else if (witnessMode === 'fsc28') {
-        heading.textContent = 'FSC-MS-28 独立転写（冒頭9対句）';
-        note.innerHTML = 'FSC-MS-28をPersan 348から独立して転写した表示です。判読不確実な字母は点線、補修紙で覆われる箇所は［…］で示します。<a href="../outputs/fsc-ms-28-opening-review-ja.md">転写確認票</a>・<a href="https://asia.si.edu/explore-art-culture/collections/search/edanmdm:fsg_FSC-MS-28/">公式資料</a>・<a href="https://www.si.edu/termsofuse">利用条件</a>';
-        alignment.textContent = 'Smithsonian National Museum of Asian Art, FSC-MS-28。Usage Conditions Apply。冒頭9対句・18半句と画像領域を研究者が承認済みです。';
+        heading.textContent = `FSC-MS-28 独立転写（冒頭${fscCouplets}対句）`;
+        note.innerHTML = 'FSC-MS-28をPersan 348から独立して転写した表示です。判読不確実な字母は点線、補修紙で覆われる箇所は［…］で示します。<a href="../outputs/fsc-ms-28-opening-review-ja.md">転写確認票</a>・<a href="../iiif/fsc-ms-28-FS-7342_15-annotations.json">IIIF注釈</a>・<a href="https://asia.si.edu/explore-art-culture/collections/search/edanmdm:fsg_FSC-MS-28/">公式資料</a>・<a href="https://www.si.edu/termsofuse">利用条件</a>';
+        alignment.textContent = `Smithsonian National Museum of Asian Art, FSC-MS-28。Usage Conditions Apply。冒頭${fscCouplets}対句・${fscLines}半句と画像領域を研究者が承認済みです。`;
       } else {
-        heading.textContent = 'Persan 348・FSC-MS-28 並列比較（冒頭9対句）';
-        note.innerHTML = '二写本の独立転写を同じ対句番号で並べます。16半句は一致、0004bは本文異同、0006aは補修による欠損です。半句を選ぶと両写本の対応領域を同時表示します。<a href="../outputs/opening-witness-collation-ja.md">校合報告</a>・<a href="https://gallica.bnf.fr/accueil/fr/html/conditions-dutilisation-de-gallica">Gallica利用条件</a>・<a href="https://www.si.edu/termsofuse">Smithsonian利用条件</a>';
+        heading.textContent = `Persan 348・FSC-MS-28 並列比較（冒頭${fscCouplets}対句）`;
+        note.innerHTML = `二写本の独立転写を同じ対句番号で並べます。${parallelCounts.match}半句は一致、${parallelCounts.variant}半句は本文異同、${parallelCounts.gap}半句は補修による欠損です。半句を選ぶと両写本の対応領域を同時表示します。<a href="../outputs/opening-witness-collation-ja.md">校合報告</a>・<a href="https://gallica.bnf.fr/accueil/fr/html/conditions-dutilisation-de-gallica">Gallica利用条件</a>・<a href="https://www.si.edu/termsofuse">Smithsonian利用条件</a>`;
         alignment.textContent = '二つのIIIF資料を並列表示しています。Source gallica.bnf.fr / Bibliothèque nationale de France。Smithsonian FSC-MS-28: Usage Conditions Apply。';
       }
     }

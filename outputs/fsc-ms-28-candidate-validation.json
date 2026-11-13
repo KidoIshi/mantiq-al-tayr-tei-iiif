@@ -4,6 +4,7 @@
   "candidate_count": 18,
   "zone_count": 18,
   "covered_gap": "0006a",
+  "candidate_text_matches_tei": true,
   "researcher_reviewed": [
     "0001a",
     "0001b",

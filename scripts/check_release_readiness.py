@@ -24,7 +24,7 @@ SMITHSONIAN_STATUS = "Usage Conditions Apply"
 PUBLIC_BASE = "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/"
 
 
-def tracked_files() -> list[str]:
+def tracked_files() -> tuple[list[str], str | None]:
     result = subprocess.run(
         ["git", "ls-files", "--cached", "--others", "--exclude-standard"],
         cwd=ROOT,
@@ -33,7 +33,8 @@ def tracked_files() -> list[str]:
         capture_output=True,
         check=False,
     )
-    return [line for line in result.stdout.splitlines() if line]
+    error = None if result.returncode == 0 else (result.stderr.strip() or "git ls-files failed")
+    return [line for line in result.stdout.splitlines() if line], error
 
 
 def main() -> int:
@@ -44,6 +45,7 @@ def main() -> int:
         "LICENSE",
         "LICENSE-CODE",
         "CITATION.cff",
+        "VERSION",
         "README.md",
         "README.en.md",
         "schema/mantiq.odd",
@@ -64,7 +66,9 @@ def main() -> int:
     if not (ROOT / ".git").is_dir():
         blockers.append({"check": "git_repository", "reason": "The directory is not a Git repository."})
 
-    tracked = tracked_files()
+    tracked, git_error = tracked_files()
+    if git_error:
+        blockers.append({"check": "git_inventory", "reason": git_error})
     private_prefixes = ("private/", "output/", "tmp/", "work/")
     for path in tracked:
         if path.startswith(private_prefixes):
@@ -102,6 +106,12 @@ def main() -> int:
     if not version_match:
         blockers.append({"check": "citation_metadata", "reason": "CITATION.cff has no parseable version."})
     release_version = version_match.group(1) if version_match else None
+    version_file = (ROOT / "VERSION").read_text(encoding="utf-8").strip() if (ROOT / "VERSION").exists() else None
+    if release_version and version_file and release_version != version_file:
+        blockers.append({
+            "check": "release_version",
+            "reason": f"CITATION.cff version {release_version} differs from VERSION {version_file}.",
+        })
     for phrase in ("Persan 348", "FSC-MS-28", "78 reviewed hemistich-to-image"):
         if phrase not in citation:
             blockers.append({"check": "citation_metadata", "reason": f"CITATION.cff is missing current-scope text: {phrase}"})
@@ -128,6 +138,13 @@ def main() -> int:
         blockers.append({"check": "annotation_count", "reason": f"Expected 78 annotations, found {annotation_count}."})
 
     document = etree.parse(str(TEI))
+    tei_editions = document.xpath("//tei:editionStmt/tei:edition/@n", namespaces=NS)
+    expected_tei_edition = f"{version_file}-reviewed" if version_file else None
+    if tei_editions != [expected_tei_edition]:
+        blockers.append({
+            "check": "release_version",
+            "reason": f"TEI edition {tei_editions} differs from expected {expected_tei_edition}.",
+        })
     names = [" ".join(name.itertext()).strip() for name in document.xpath("//tei:titleStmt/tei:respStmt/tei:name", namespaces=NS)]
     if "Researcher" in names:
         blockers.append({"check": "public_researcher_identity", "reason": "TEI responsibility statement contains the placeholder 'Researcher'."})
@@ -151,7 +168,10 @@ def main() -> int:
         blockers.append({"check": "viewer_validation", "reason": "The comparison viewer regression check did not pass."})
 
     text_suffixes = {".md", ".xml", ".json", ".html", ".py", ".yml", ".yaml", ".cff", ".txt"}
-    local_path_pattern = re.compile(r"(?:[A-Za-z]:\\Users\\|file://)", re.IGNORECASE)
+    local_path_pattern = re.compile(
+        r"(?:[A-Za-z]:[\\/]Users[\\/]|/(?:Users|home)/[^/\s]+/|file://)",
+        re.IGNORECASE,
+    )
     secret_pattern = re.compile(
         r"(?:-----BEGIN (?:RSA |OPENSSH |EC )?PRIVATE KEY-----|"
         r"gh[pousr]_[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16}|"
@@ -198,6 +218,8 @@ def main() -> int:
         "warnings": warnings,
         "passed_checks": {
             "citation_version": release_version,
+            "version_file": version_file,
+            "tei_edition": tei_editions[0] if len(tei_editions) == 1 else tei_editions,
             "aggregate_validation": bool(verification.get("all_passed")),
             "viewer_validation": bool(viewer_test.get("all_passed")),
             "github_validation_workflow": workflow_exists,

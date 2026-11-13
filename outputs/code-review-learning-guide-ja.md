@@ -129,13 +129,14 @@ data/tei/bnf-persan-348-f6-sample.xml  ← 構造化本文の正本
 python scripts/learning_negative_tests.py
 ```
 
-このスクリプトは`work/`内の一時コピーだけを変更し、正本や公開ファイルは変更しない。次の五つを試す。
+このスクリプトは`work/`内の一時コピーだけを変更し、正本や公開ファイルは変更しない。次の六つを試す。
 
 1. 最初の対句から第二半句を除く。
 2. 半句の`@facs`を存在しないzoneへ向ける。
 3. 0004bの校異装置側だけを書き換え、リンクした独立転写と食い違わせる。
-4. 生成後のIIIF Annotation本文だけを書き換える。
-5. TEI→IIIF生成側の本文抽出規則だけを意図的に壊す。
+4. 独立転写の0004bについて、校異要素外の共通末尾だけを書き換える。
+5. 生成後のIIIF Annotation本文だけを書き換える。
+6. TEI→IIIF生成側の本文抽出規則だけを意図的に壊す。
 
 結果は`work/learning-negative-tests.json`へ保存される。すべての`detected`と`all_expected_failures_detected`が`true`であれば、想定した防御層が働いたことを意味する。
 
@@ -170,4 +171,4 @@ python scripts/learning_negative_tests.py
 1. 一つの半句がTEIからIIIF Annotationと閲覧画面へ届く経路。
 2. 公式TEI、ODD、Schematron、相互照合の違い。
 3. AIによる生成と研究者による承認の境界。
-4. 意図的に壊した五例を、どの検証が検出したか。
+4. 意図的に壊した六例を、どの検証が検出したか。

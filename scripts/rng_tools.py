@@ -40,5 +40,9 @@ def validate_with_jing(xml_path: Path, rng_path: Path) -> tuple[bool, list[str]]
         capture_output=True,
         check=False,
     )
-    messages = [line for line in (completed.stdout + completed.stderr).splitlines() if line.strip()]
+    messages = [
+        line.replace(str(ROOT), ".")
+        for line in (completed.stdout + completed.stderr).splitlines()
+        if line.strip()
+    ]
     return completed.returncode == 0, messages

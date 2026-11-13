@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-13T09:34:53.508112+00:00",
+  "generated_at": "2026-11-13T10:10:16.707572+00:00",
   "tei_file": "data\\tei\\bnf-persan-348-f6-sample.xml",
-  "tei_sha256": "2f5aeb1eb766f680f6c901a4c912771938b0c4fffc14248061fdc8aa0800d3be",
+  "tei_sha256": "4a8343f360fec3c6c2606e887e764f73fd4c37c25eb14d622eaba4d9d1161994",
   "annotation_pages": [
     {
       "annotation_page": "iiif\\bnf-persan-348-f6-annotations.json",
-      "annotation_page_sha256": "75a1ab490b009191b58d45fa9cd3aaea9cf8866c28a46578828446775cc9327d",
+      "annotation_page_sha256": "eb5f5ec6179dc7729f649c81c4e3a07c5887c019e3e104b34443a4d481984a45",
       "canvas": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f6",
       "tei_lines": 24,
       "annotations": 24,
@@ -13,7 +13,7 @@
     },
     {
       "annotation_page": "iiif\\bnf-persan-348-f7-annotations.json",
-      "annotation_page_sha256": "1b7a7bacc01c0166d1f83935e70d3bb45d773a7400321e2cc51995e3f31cd9a0",
+      "annotation_page_sha256": "6b448fb73272f0fadcc91e6922abdee108ad6709324dac5497dbd502d0464e33",
       "canvas": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7",
       "tei_lines": 36,
       "annotations": 36,
@@ -21,7 +21,7 @@
     },
     {
       "annotation_page": "iiif\\fsc-ms-28-FS-7342_15-annotations.json",
-      "annotation_page_sha256": "e0a0261b7922ac772c0ef443c7dfff30d0dddb90e79e5c37560fc13a5807e184",
+      "annotation_page_sha256": "5b3799d20161f49e311697d66feb408798f216aa06d7f6a391f96a78e5c09ca7",
       "canvas": "https://ids.si.edu/ids/iiif/canvas-FS-7342_15",
       "tei_lines": 18,
       "annotations": 18,
@@ -35,7 +35,9 @@
     "annotation_count_matches_tei": true,
     "all_tei_lines_matched": true,
     "diplomatic_text_matches_tei": true,
-    "canvas_regions_match_tei_zones": true
+    "uncertainty_comments_match_tei": true,
+    "canvas_regions_match_tei_zones": true,
+    "canvas_dimensions_match_registry": true
   },
   "counts": {
     "canvases": 3,

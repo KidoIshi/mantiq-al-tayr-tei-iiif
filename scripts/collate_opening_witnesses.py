@@ -50,6 +50,9 @@ def render_inner(element: ET.Element, witness: str) -> tuple[str, set[str]]:
     if name == "gap":
         return " […] ", {"gap", f"gap:{element.get('reason', 'unknown')}"}
 
+    if name in {"note", "fw"}:
+        return "", flags
+
     if name == "choice":
         selected = element.find("tei:orig", NS)
         if selected is None:

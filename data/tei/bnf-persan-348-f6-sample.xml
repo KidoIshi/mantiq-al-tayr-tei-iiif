@@ -24,7 +24,7 @@
         </respStmt>
       </titleStmt>
       <editionStmt>
-        <edition n="0.2.0-reviewed">Diplomatic-transcription sample reviewed against the manuscript image by the project researcher; not externally peer-reviewed</edition>
+        <edition n="0.3.0-reviewed">Diplomatic-transcription sample reviewed against the manuscript image by the project researcher; not externally peer-reviewed</edition>
       </editionStmt>
       <publicationStmt>
         <publisher>TEI・IIIF習得・実践プロジェクト</publisher>
@@ -247,31 +247,31 @@
     </surface>
     <surface xml:id="fsc28.fs7342-15" n="FS-7342_15" corresp="https://ids.si.edu/ids/iiif/canvas-FS-7342_15" ulx="0" uly="0" lrx="2090" lry="3520">
       <graphic url="https://ids.si.edu/ids/iiif/FS-7342_15/full/full/0/default.jpg" width="2090px" height="3520px"/>
-      <zone xml:id="fsc28.fs7342-15.z001a" ulx="650" uly="1320" lrx="1230" lry="1570" resp="#resp-ai-transcription"/>
-      <zone xml:id="fsc28.fs7342-15.z001b" ulx="150" uly="1320" lrx="750" lry="1570" resp="#resp-ai-transcription"/>
-      <zone xml:id="fsc28.fs7342-15.z002a" ulx="650" uly="1490" lrx="1230" lry="1760" resp="#resp-ai-transcription"/>
-      <zone xml:id="fsc28.fs7342-15.z002b" ulx="150" uly="1490" lrx="750" lry="1760" resp="#resp-ai-transcription"/>
-      <zone xml:id="fsc28.fs7342-15.z003a" ulx="650" uly="1660" lrx="1230" lry="1930" resp="#resp-ai-transcription"/>
-      <zone xml:id="fsc28.fs7342-15.z003b" ulx="150" uly="1660" lrx="750" lry="1930" resp="#resp-ai-transcription"/>
-      <zone xml:id="fsc28.fs7342-15.z004a" ulx="650" uly="1830" lrx="1230" lry="2100" resp="#resp-ai-transcription"/>
-      <zone xml:id="fsc28.fs7342-15.z004b" ulx="150" uly="1850" lrx="750" lry="2150" resp="#resp-ai-transcription"/>
-      <zone xml:id="fsc28.fs7342-15.z005a" ulx="650" uly="2010" lrx="1230" lry="2280" resp="#resp-ai-transcription"/>
-      <zone xml:id="fsc28.fs7342-15.z005b" ulx="150" uly="2010" lrx="750" lry="2280" resp="#resp-ai-transcription"/>
-      <zone xml:id="fsc28.fs7342-15.z006a" ulx="650" uly="2180" lrx="1230" lry="2450" resp="#resp-ai-transcription"/>
-      <zone xml:id="fsc28.fs7342-15.z006b" ulx="150" uly="2180" lrx="750" lry="2450" resp="#resp-ai-transcription"/>
-      <zone xml:id="fsc28.fs7342-15.z007a" ulx="650" uly="2350" lrx="1230" lry="2620" resp="#resp-ai-transcription"/>
-      <zone xml:id="fsc28.fs7342-15.z007b" ulx="150" uly="2350" lrx="750" lry="2620" resp="#resp-ai-transcription"/>
-      <zone xml:id="fsc28.fs7342-15.z008a" ulx="650" uly="2520" lrx="1230" lry="2790" resp="#resp-ai-transcription"/>
-      <zone xml:id="fsc28.fs7342-15.z008b" ulx="150" uly="2520" lrx="750" lry="2790" resp="#resp-ai-transcription"/>
-      <zone xml:id="fsc28.fs7342-15.z009a" ulx="650" uly="2690" lrx="1230" lry="2960" resp="#resp-ai-transcription"/>
-      <zone xml:id="fsc28.fs7342-15.z009b" ulx="150" uly="2690" lrx="750" lry="2960" resp="#resp-ai-transcription"/>
+      <zone xml:id="fsc28.fs7342-15.z001a" ulx="650" uly="1320" lrx="1230" lry="1570" resp="#resp-ai-transcription #resp-researcher-review"/>
+      <zone xml:id="fsc28.fs7342-15.z001b" ulx="150" uly="1320" lrx="750" lry="1570" resp="#resp-ai-transcription #resp-researcher-review"/>
+      <zone xml:id="fsc28.fs7342-15.z002a" ulx="650" uly="1490" lrx="1230" lry="1760" resp="#resp-ai-transcription #resp-researcher-review"/>
+      <zone xml:id="fsc28.fs7342-15.z002b" ulx="150" uly="1490" lrx="750" lry="1760" resp="#resp-ai-transcription #resp-researcher-review"/>
+      <zone xml:id="fsc28.fs7342-15.z003a" ulx="650" uly="1660" lrx="1230" lry="1930" resp="#resp-ai-transcription #resp-researcher-review"/>
+      <zone xml:id="fsc28.fs7342-15.z003b" ulx="150" uly="1660" lrx="750" lry="1930" resp="#resp-ai-transcription #resp-researcher-review"/>
+      <zone xml:id="fsc28.fs7342-15.z004a" ulx="650" uly="1830" lrx="1230" lry="2100" resp="#resp-ai-transcription #resp-researcher-review"/>
+      <zone xml:id="fsc28.fs7342-15.z004b" ulx="150" uly="1850" lrx="750" lry="2150" resp="#resp-ai-transcription #resp-researcher-review"/>
+      <zone xml:id="fsc28.fs7342-15.z005a" ulx="650" uly="2010" lrx="1230" lry="2280" resp="#resp-ai-transcription #resp-researcher-review"/>
+      <zone xml:id="fsc28.fs7342-15.z005b" ulx="150" uly="2010" lrx="750" lry="2280" resp="#resp-ai-transcription #resp-researcher-review"/>
+      <zone xml:id="fsc28.fs7342-15.z006a" ulx="650" uly="2180" lrx="1230" lry="2450" resp="#resp-ai-transcription #resp-researcher-review"/>
+      <zone xml:id="fsc28.fs7342-15.z006b" ulx="150" uly="2180" lrx="750" lry="2450" resp="#resp-ai-transcription #resp-researcher-review"/>
+      <zone xml:id="fsc28.fs7342-15.z007a" ulx="650" uly="2350" lrx="1230" lry="2620" resp="#resp-ai-transcription #resp-researcher-review"/>
+      <zone xml:id="fsc28.fs7342-15.z007b" ulx="150" uly="2350" lrx="750" lry="2620" resp="#resp-ai-transcription #resp-researcher-review"/>
+      <zone xml:id="fsc28.fs7342-15.z008a" ulx="650" uly="2520" lrx="1230" lry="2790" resp="#resp-ai-transcription #resp-researcher-review"/>
+      <zone xml:id="fsc28.fs7342-15.z008b" ulx="150" uly="2520" lrx="750" lry="2790" resp="#resp-ai-transcription #resp-researcher-review"/>
+      <zone xml:id="fsc28.fs7342-15.z009a" ulx="650" uly="2690" lrx="1230" lry="2960" resp="#resp-ai-transcription #resp-researcher-review"/>
+      <zone xml:id="fsc28.fs7342-15.z009b" ulx="150" uly="2690" lrx="750" lry="2960" resp="#resp-ai-transcription #resp-researcher-review"/>
     </surface>
   </facsimile>
   <text xml:lang="fa" rend="direction-rtl">
     <body>
       <div type="section" subtype="invocation" xml:id="mt.bnf348.invocation" source="#wit-bnf348">
         <head>آغاز نسخه</head>
-        <note type="status" xml:lang="ja">第1〜第30対句の読み、正規化範囲、0005a・0005b・0007aの3つの正規化形、および60半句のBnF画像領域は、プロジェクト担当研究者が写本画像と照合して確認した。0004bにはFSC-MS-28の「وان」とPersan 348の「وین」を非選択的校異として記録した。FSC-MS-28の後続語は「دگر」を採用するが、「د」の筆画だけは画像上で独立確認できないためunclearとした。FSC-MS-28の画像領域座標はAI候補である。これは外部査読済みであることを意味しない。Persan 348の承認済み範囲にunclearはない。</note>
+        <note type="status" xml:lang="ja">第1〜第30対句の読み、正規化範囲、0005a・0005b・0007aの3つの正規化形、および60半句のBnF画像領域は、プロジェクト担当研究者が写本画像と照合して確認した。0004bにはFSC-MS-28の「وان」とPersan 348の「وین」を非選択的校異として記録した。FSC-MS-28の後続語は「دگر」を採用するが、「د」の筆画だけは画像上で独立確認できないためunclearとした。FSC-MS-28の18画像領域もプロジェクト担当研究者が確認した。これは外部査読済みであることを意味しない。Persan 348の承認済み範囲にunclearはない。</note>
         <pb n="scan-f6" facs="#bnf348.f6"/>
         <lg type="couplet" n="0001" xml:id="mt.bnf348.0001">
           <l n="a" xml:id="mt.bnf348.0001.a" facs="#bnf348.f6.z001a">آفرین جان آفرین پاک را</l>

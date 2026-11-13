@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13T09:35:19.486677+00:00",
+  "generated_at": "2026-11-13T10:10:17.264482+00:00",
   "technical_release_checks_passed": true,
   "scope_note": "Technical and documentation checks only; final rights assessment, scholarly validity, repository visibility, and external peer review require human judgment.",
   "blocker_count": 0,
@@ -7,7 +7,9 @@
   "blockers": [],
   "warnings": [],
   "passed_checks": {
-    "citation_version": "0.2.0",
+    "citation_version": "0.3.0",
+    "version_file": "0.3.0",
+    "tei_edition": "0.3.0-reviewed",
     "aggregate_validation": true,
     "viewer_validation": true,
     "github_validation_workflow": true,

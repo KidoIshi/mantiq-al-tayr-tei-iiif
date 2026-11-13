@@ -67,9 +67,7 @@ def validate(tei_file: Path, offline: bool) -> dict:
     document = etree.parse(str(tei_file), parser)
     get_schema(offline)
 
-    rng_document = etree.parse(str(RNG_FILE), parser)
-    relaxng = etree.RelaxNG(rng_document)
-    rng_ok = relaxng.validate(document)
+    rng_ok, rng_errors = validate_with_jing(tei_file, RNG_FILE)
 
     if not PROJECT_RNG_FILE.exists():
         raise RuntimeError("Project ODD schema is missing; run scripts/build_odd_schema.py")
@@ -108,7 +106,7 @@ def validate(tei_file: Path, offline: bool) -> dict:
             "project_schematron_valid": sch_ok,
         },
         "counts": counts,
-        "relaxng_errors": [str(item) for item in relaxng.error_log],
+        "relaxng_errors": rng_errors,
         "project_odd_relaxng_errors": project_rng_errors,
         "schematron_report": etree.tostring(
             schematron.validation_report, encoding="unicode", pretty_print=True

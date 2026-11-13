@@ -31,6 +31,8 @@ def main() -> int:
             "https://ids.si.edu/ids/manifest/FS-7342_15",
         )),
         "variant_and_gap_labels": "本文異同" in html and "補修による欠損" in html,
+        "mirador_subresource_integrity": "integrity=\"sha384-" in html and "crossorigin=\"anonymous\"" in html,
+        "tei_driven_display_counts": "const bnfCouplets = witnessGroups.bnf348.length" in html,
     }
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),

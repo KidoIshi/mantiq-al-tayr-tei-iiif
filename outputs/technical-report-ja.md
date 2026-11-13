@@ -1,7 +1,8 @@
 # 『鳥の言葉』Persan 348 TEI・IIIF試作 技術報告
 
-作成日：2026年11月10日  
-版：0.2.0（プロジェクト担当研究者が写本画像と照合した小規模試料。外部査読済みを意味しない）
+作成日：2026年11月13日
+
+版：0.3.0（プロジェクト担当研究者が写本画像と照合した小規模試料。外部査読済みを意味しない）
 
 ## 1. 概要
 
@@ -72,16 +73,16 @@ Persan 348の60個の`zone`をIIIF Presentation API 3の60個のWeb Annotation�
 - ODD生成プロジェクト専用Relax NG：合格
 - プロジェクトSchematron：合格
 - 証人別校異本文抽出テスト：合格（Persan 348では`وین دگر`、FSC-MS-28では`وان دگر`。後者の`د`に対する`unclear`と古書体注の対応も検査）
-- 対句数：30
-- 半句数：60
-- 半句の`@facs`：60件すべて付与・参照解決
-- IIIF Canvas：2件
-- IIIF AnnotationPage：2件
-- IIIF Annotation：60件
-- Annotation本文とTEI外交的転写：60件すべて一致
-- AnnotationのCanvas領域とTEI `zone`：60件すべて一致
-- 研究者による本文確認：60半句
-- 研究者による画像領域確認：60領域
+- 対句数：39（Persan 348：30、FSC-MS-28：9）
+- 半句数：78（Persan 348：60、FSC-MS-28：18）
+- 半句の`@facs`：78件すべて付与・参照解決
+- IIIF Canvas：3件
+- IIIF AnnotationPage：3件
+- IIIF Annotation：78件
+- Annotation本文とTEI外交的転写：78件すべて一致
+- AnnotationのCanvas領域とTEI `zone`：78件すべて一致
+- 研究者による本文確認：78半句
+- 研究者による画像領域確認：78領域
 - TEI校異装置：1件（2証人、lemma未選択）
 - FSC-MS-28独立転写：9対句・18半句（研究者承認済み）
 - FSC-MS-28画像領域：18件（研究者承認済み）

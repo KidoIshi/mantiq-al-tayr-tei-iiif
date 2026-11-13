@@ -74,7 +74,7 @@ python -m http.server 8000
 - 「写本どおり」「正規化候補」「異読比較」を切り替えられる。
 - 異読比較では0004bのPersan 348 `وین دگر`とFSC-MS-28 `وان دگر`が表示され、FSC-MS-28の画像領域候補を開ける。FSC-MS-28の`د`は点線と背景色で判読不確実と示され、「判読注」を展開するとTEIの古書体注を読める。
 - 半句を選択すると右上の画像領域が切り替わる。
-- f6・f7の注釈リンクから、24件と36件のCanvas別AnnotationPageを取得できる。
+- Persan 348表示のf6・f7注釈リンクと、FSC-MS-28表示のIIIF注釈リンクから、24件・36件・18件のCanvas別AnnotationPageを取得できる。
 - MiradorにBnF Persan 348とSmithsonian FSC-MS-28の二つのManifestが読み込まれる。
 
 ## 5. 期待される検証値

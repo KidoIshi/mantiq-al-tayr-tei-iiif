@@ -6,8 +6,11 @@ from __future__ import annotations
 import json
 import subprocess
 import sys
+import platform
 from datetime import datetime, timezone
 from pathlib import Path
+
+from rng_tools import find_java
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -67,9 +70,24 @@ def main() -> int:
             [python, "scripts/validate_iiif_annotations.py"],
         ),
     ]
+    git_commit = subprocess.run(
+        ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True, encoding="utf-8",
+        capture_output=True, check=False,
+    )
+    java_version = subprocess.run(
+        [str(find_java()), "-version"], cwd=ROOT, text=True, encoding="utf-8",
+        capture_output=True, check=False,
+    )
     summary = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "project": "Manṭiq al-ṭayr TEI–IIIF prototype",
+        "environment": {
+            "git_commit": git_commit.stdout.strip() if git_commit.returncode == 0 else None,
+            "python": sys.version.split()[0],
+            "platform": platform.platform(),
+            "java": (java_version.stderr or java_version.stdout).splitlines()[0]
+            if java_version.returncode == 0 else None,
+        },
         "all_passed": all(step["passed"] for step in steps),
         "steps": steps,
         "evidence": {

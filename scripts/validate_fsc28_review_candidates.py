@@ -17,6 +17,24 @@ NS = {"tei": "http://www.tei-c.org/ns/1.0"}
 XML_ID = "{http://www.w3.org/XML/1998/namespace}id"
 
 
+def tei_line_text(line: etree._Element) -> str:
+    """Render the independent FSC transcription without importing the generator."""
+
+    def render(node: etree._Element) -> str:
+        parts = [node.text or ""]
+        for child in node:
+            if child.tag == f"{{{NS['tei']}}}gap":
+                parts.append("[…]")
+            elif child.tag in {f"{{{NS['tei']}}}note", f"{{{NS['tei']}}}fw"}:
+                pass
+            else:
+                parts.append(render(child))
+            parts.append(child.tail or "")
+        return "".join(parts)
+
+    return " ".join(render(line).split())
+
+
 def main() -> int:
     document = etree.parse(str(TEI))
     data = json.loads(CANDIDATES.read_text(encoding="utf-8"))
@@ -35,6 +53,13 @@ def main() -> int:
             namespaces=NS,
         )
     }
+    tei_lines = {
+        line.get(XML_ID).removeprefix("mt.fsc28.").replace(".", ""): tei_line_text(line)
+        for line in document.xpath(
+            "//tei:div[@source='#wit-fsc28']/tei:lg[@type='couplet']/tei:l",
+            namespaces=NS,
+        )
+    }
     for record in records:
         zone = (record.get("zone") or "").removeprefix("#")
         if zone not in zone_ids:
@@ -43,6 +68,10 @@ def main() -> int:
             errors.append(f"{record.get('id')}: empty candidate")
         if not record.get("status"):
             errors.append(f"{record.get('id')}: missing status")
+        if record.get("candidate") != tei_lines.get(record.get("id")):
+            errors.append(
+                f"{record.get('id')}: candidate differs from TEI independent transcription"
+            )
 
     gaps = [record for record in records if record.get("status") == "researcher-reviewed-gap-covered"]
     if len(gaps) != 1 or gaps[0].get("id") != "0006a" or "[…]" not in gaps[0].get("candidate", ""):
@@ -58,6 +87,7 @@ def main() -> int:
         "candidate_count": len(records),
         "zone_count": len(zone_ids),
         "covered_gap": "0006a",
+        "candidate_text_matches_tei": not any("differs from TEI" in error for error in errors),
         "researcher_reviewed": expected_ids,
         "passed": not errors,
         "errors": errors,

@@ -19,6 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_TEI = ROOT / "data" / "tei" / "bnf-persan-348-f6-sample.xml"
 DEFAULT_ANNOTATION_DIR = ROOT / "iiif"
 DEFAULT_REPORT = ROOT / "outputs" / "iiif-annotation-validation.json"
+MANIFEST_REGISTRY = ROOT / "iiif" / "manifest-registry.json"
 
 
 def sha256(path: Path) -> str:
@@ -49,6 +50,8 @@ def expected_diplomatic_text(line: etree._Element, witness: str) -> str:
                 chunks.append(render(matches[0]))
             elif child.tag == f"{{{NS['tei']}}}gap":
                 chunks.append("[…]")
+            elif child.tag in {f"{{{NS['tei']}}}note", f"{{{NS['tei']}}}fw"}:
+                pass
             else:
                 chunks.append(render(child))
             chunks.append(child.tail or "")
@@ -57,8 +60,54 @@ def expected_diplomatic_text(line: etree._Element, witness: str) -> str:
     return " ".join(render(line).split())
 
 
+def expected_uncertainty_comments(
+    line: etree._Element,
+    witness: str,
+    notes_by_target: dict[str, str],
+) -> list[str]:
+    """Independently derive comments required for selected unclear readings."""
+
+    selected: list[etree._Element] = []
+
+    def visit(node: etree._Element) -> None:
+        for child in node:
+            if child.tag == f"{{{NS['tei']}}}choice":
+                originals = child.xpath("./tei:orig", namespaces=NS)
+                if len(originals) != 1:
+                    raise ValueError(f"Expected one orig in {line.get(XML_ID)}")
+                visit(originals[0])
+            elif child.tag == f"{{{NS['tei']}}}app":
+                readings = child.xpath("./tei:lem | ./tei:rdg", namespaces=NS)
+                matches = [item for item in readings if witness in (item.get("wit") or "").split()]
+                if len(matches) != 1:
+                    raise ValueError(
+                        f"Expected one apparatus reading for {witness} in {line.get(XML_ID)}"
+                    )
+                visit(matches[0])
+            elif child.tag in {f"{{{NS['tei']}}}note", f"{{{NS['tei']}}}fw"}:
+                continue
+            else:
+                if child.tag == f"{{{NS['tei']}}}unclear":
+                    selected.append(child)
+                visit(child)
+
+    visit(line)
+    comments: list[str] = []
+    for unclear in selected:
+        identifiers = [unclear.get(XML_ID, ""), (unclear.get("corresp") or "").removeprefix("#")]
+        note = next((notes_by_target[item] for item in identifiers if item in notes_by_target), "")
+        comments.append(
+            note or f"The reading {''.join(unclear.itertext())!r} is marked unclear in the TEI source."
+        )
+    return comments
+
+
 def expected_pages(tei_path: Path) -> dict[str, dict]:
     document = etree.parse(str(tei_path))
+    notes_by_target = {
+        (note.get("target") or "").removeprefix("#"): " ".join(note.itertext()).strip()
+        for note in document.xpath("//tei:note[@target]", namespaces=NS)
+    }
     zones: dict[str, tuple[etree._Element, etree._Element]] = {}
     for surface in document.xpath("//tei:surface", namespaces=NS):
         for zone in surface.xpath("./tei:zone", namespaces=NS):
@@ -80,6 +129,7 @@ def expected_pages(tei_path: Path) -> dict[str, dict]:
         witness = source_div[0] if source_div else "#wit-bnf348"
         expected[filename]["items"][line_id] = {
             "value": expected_diplomatic_text(line, witness),
+            "comments": expected_uncertainty_comments(line, witness, notes_by_target),
             "target": f"{canvas}#xywh={x},{y},{width},{height}",
         }
     return dict(expected)
@@ -91,6 +141,26 @@ def validate(tei_path: Path, annotation_dir: Path) -> dict:
     annotation_paths.extend(sorted(annotation_dir.glob("fsc-ms-28-*-annotations.json")))
     actual = {path.name: path for path in annotation_paths}
     errors: list[str] = []
+    document = etree.parse(str(tei_path))
+    registry = json.loads(MANIFEST_REGISTRY.read_text(encoding="utf-8"))
+    registry_dimensions = {
+        canvas["id"]: (int(canvas["width"]), int(canvas["height"]))
+        for record in registry.get("records", [])
+        for canvas in record.get("sample_canvases", [])
+    }
+    for surface in document.xpath("//tei:surface", namespaces=NS):
+        canvas = surface.get("corresp", "")
+        dimensions = (int(surface.get("lrx", "0")), int(surface.get("lry", "0")))
+        if registry_dimensions.get(canvas) != dimensions:
+            errors.append(
+                f"Canvas dimensions mismatch for {canvas}: TEI {dimensions}, "
+                f"registry {registry_dimensions.get(canvas)}"
+            )
+        for zone in surface.xpath("./tei:zone", namespaces=NS):
+            coordinates = tuple(int(zone.get(name, "0")) for name in ("ulx", "uly", "lrx", "lry"))
+            if not (0 <= coordinates[0] < coordinates[2] <= dimensions[0]
+                    and 0 <= coordinates[1] < coordinates[3] <= dimensions[1]):
+                errors.append(f"Zone outside Canvas dimensions: {zone.get(XML_ID)} {coordinates}")
     expected_files = set(expected)
     actual_files = set(actual)
     for filename in sorted(expected_files - actual_files):
@@ -117,9 +187,8 @@ def validate(tei_path: Path, annotation_dir: Path) -> dict:
             page_errors.append("Top-level type is not AnnotationPage")
         if not str(data.get("id", "")).startswith(("http://", "https://")):
             page_errors.append("AnnotationPage id is not an HTTP(S) URI")
-        part_of = data.get("partOf", [])
-        if not any(item.get("id") == page_expected["canvas"] and item.get("type") == "Canvas" for item in part_of):
-            page_errors.append("AnnotationPage partOf does not identify the expected Canvas")
+        if data.get("rights") != "https://creativecommons.org/licenses/by/4.0/":
+            page_errors.append("AnnotationPage does not identify the project data rights URI")
         if len(items) != len(expected_items):
             page_errors.append(f"Expected {len(expected_items)} annotations, found {len(items)}")
 
@@ -136,11 +205,27 @@ def validate(tei_path: Path, annotation_dir: Path) -> dict:
                 continue
             if item.get("type") != "Annotation" or item.get("motivation") != "supplementing":
                 page_errors.append(f"Invalid type or motivation for {line_id}")
-            body = item.get("body", {})
-            if body.get("type") != "TextualBody" or body.get("language") != "fa":
+            raw_body = item.get("body", {})
+            bodies = raw_body if isinstance(raw_body, list) else [raw_body]
+            transcription_bodies = [
+                body for body in bodies
+                if body.get("type") == "TextualBody"
+                and body.get("language") == "fa"
+                and body.get("purpose") != "commenting"
+            ]
+            comment_bodies = [
+                body for body in bodies
+                if body.get("type") == "TextualBody" and body.get("purpose") == "commenting"
+            ]
+            if len(transcription_bodies) != 1:
                 page_errors.append(f"Invalid TextualBody metadata for {line_id}")
-            if body.get("value") != expected_items[line_id]["value"]:
+                transcription_body = {}
+            else:
+                transcription_body = transcription_bodies[0]
+            if transcription_body.get("value") != expected_items[line_id]["value"]:
                 page_errors.append(f"Diplomatic text mismatch for {line_id}")
+            if [body.get("value") for body in comment_bodies] != expected_items[line_id]["comments"]:
+                page_errors.append(f"Uncertainty comment mismatch for {line_id}")
             if item.get("target") != expected_items[line_id]["target"]:
                 page_errors.append(f"Canvas region mismatch for {line_id}")
         missing = sorted(set(expected_items) - page_seen)
@@ -167,7 +252,11 @@ def validate(tei_path: Path, annotation_dir: Path) -> dict:
         "annotation_count_matches_tei": total_annotations == total_expected,
         "all_tei_lines_matched": all_seen == expected_line_ids,
         "diplomatic_text_matches_tei": not any("text mismatch" in error for error in errors),
+        "uncertainty_comments_match_tei": not any("Uncertainty comment mismatch" in error for error in errors),
         "canvas_regions_match_tei_zones": not any("region mismatch" in error for error in errors),
+        "canvas_dimensions_match_registry": not any(
+            "dimensions" in error or "Zone outside" in error for error in errors
+        ),
     }
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(),

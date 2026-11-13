@@ -7,12 +7,7 @@
       "Persan 348 scan-f7 外交的転写"
     ]
   },
-  "partOf": [
-    {
-      "id": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7",
-      "type": "Canvas"
-    }
-  ],
+  "rights": "https://creativecommons.org/licenses/by/4.0/",
   "items": [
     {
       "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f7-annotations.json#mt.bnf348.0013.a",
