@@ -7,6 +7,7 @@ import json
 import subprocess
 import sys
 import platform
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -33,6 +34,32 @@ def run(label: str, command: list[str]) -> dict:
         "returncode": completed.returncode,
         "stderr": completed.stderr.strip(),
     }
+
+
+def parse_java_version(output: str) -> str | None:
+    """Extract the actual version line, ignoring JAVA_TOOL_OPTIONS notices."""
+
+    lines = output.splitlines()
+    return next(
+        (line.strip() for line in lines if re.search(r"^(?:openjdk|java) version ", line, re.IGNORECASE)),
+        None,
+    )
+
+
+def detected_java_version() -> str | None:
+    """Return Java's version without making the aggregate report itself fragile."""
+
+    try:
+        java = find_java()
+    except RuntimeError:
+        return None
+    completed = subprocess.run(
+        [str(java), "-version"], cwd=ROOT, text=True, encoding="utf-8",
+        capture_output=True, check=False,
+    )
+    if completed.returncode != 0:
+        return None
+    return parse_java_version(completed.stderr + "\n" + completed.stdout)
 
 
 def main() -> int:
@@ -74,10 +101,6 @@ def main() -> int:
         ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True, encoding="utf-8",
         capture_output=True, check=False,
     )
-    java_version = subprocess.run(
-        [str(find_java()), "-version"], cwd=ROOT, text=True, encoding="utf-8",
-        capture_output=True, check=False,
-    )
     summary = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "project": "Manṭiq al-ṭayr TEI–IIIF prototype",
@@ -85,8 +108,7 @@ def main() -> int:
             "git_commit": git_commit.stdout.strip() if git_commit.returncode == 0 else None,
             "python": sys.version.split()[0],
             "platform": platform.platform(),
-            "java": (java_version.stderr or java_version.stdout).splitlines()[0]
-            if java_version.returncode == 0 else None,
+            "java": detected_java_version(),
         },
         "all_passed": all(step["passed"] for step in steps),
         "steps": steps,
