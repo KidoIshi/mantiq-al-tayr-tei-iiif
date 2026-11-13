@@ -14,7 +14,7 @@ Researcher: Kido Ishikawa
 
 Archived releases and citation metadata: [Zenodo (concept DOI: 10.5281/zenodo.24202416)](https://doi.org/10.5281/zenodo.24202416)
 
-Latest archived release: [Zenodo v0.3.2 (DOI: 10.5281/zenodo.24202704)](https://doi.org/10.5281/zenodo.24202704)
+Latest archived release: [Zenodo v0.3.3 (DOI: 10.5281/zenodo.24202784)](https://doi.org/10.5281/zenodo.24202784)
 
 ## Current scope
 

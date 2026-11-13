@@ -1,5 +1,7 @@
 # v0.3.3 — Clickable Zenodo link to the live demonstrator
 
+Zenodo archive: https://doi.org/10.5281/zenodo.24202784
+
 Version 0.3.3 adds `.zenodo.json` metadata so that Zenodo displays the public TEI–IIIF viewer as a clickable related resource:
 
 https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/viewer/
