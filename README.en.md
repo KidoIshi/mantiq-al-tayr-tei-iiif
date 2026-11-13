@@ -64,3 +64,5 @@ BnF credit: Source gallica.bnf.fr / Bibliothèque nationale de France.
 Smithsonian credit: Smithsonian National Museum of Asian Art; the object page states “Usage Conditions Apply.”
 
 See `LICENSE`, `LICENSE-CODE`, `CITATION.cff`, and the Japanese technical and reproducibility reports under `outputs/` for details.
+
+The repository’s early Git history contains a deleted Wikisource-derived structural sample under a separate share-alike licence. See `HISTORICAL_CONTENT_NOTICE.md` for its provenance, licence boundary, and the reason the public history was not rewritten.

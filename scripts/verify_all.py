@@ -82,7 +82,7 @@ def main() -> int:
             "viewer_comparison_test": "outputs/viewer-comparison-test.json",
         },
     }
-    OUTPUT.write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    OUTPUT.write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(json.dumps(summary, ensure_ascii=False, indent=2))
     return 0 if summary["all_passed"] else 1
 

@@ -152,7 +152,7 @@ def main() -> int:
     annotation_total = 0
     for filename, page in pages.items():
         output_path = output_dir / filename
-        output_path.write_text(json.dumps(page, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        output_path.write_text(json.dumps(page, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
         annotation_total += len(page["items"])
         print(f"Wrote {len(page['items'])} annotations to {output_path}")
     print(f"Wrote {annotation_total} annotations across {len(pages)} Canvas-specific pages")

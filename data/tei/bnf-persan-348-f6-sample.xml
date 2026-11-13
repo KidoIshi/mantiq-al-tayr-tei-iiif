@@ -287,7 +287,7 @@
         </lg>
         <lg type="couplet" n="0004" xml:id="mt.bnf348.0004">
           <l n="a" xml:id="mt.bnf348.0004.a" facs="#bnf348.f6.z004a">آن یکی را جنبش مادام داد</l>
-          <l n="b" xml:id="mt.bnf348.0004.b" facs="#bnf348.f6.z004b"><app type="variant"><rdg wit="#wit-bnf348">وین دگر</rdg><rdg wit="#wit-fsc28" facs="#fsc28.fs7342-15.z004b">وان <unclear xml:id="fsc28.0004b.dal" reason="indistinct" cert="low" resp="#resp-ai-transcription #resp-researcher-review">د</unclear>گر</rdg></app> را دایما آرام داد</l>
+          <l n="b" xml:id="mt.bnf348.0004.b" facs="#bnf348.f6.z004b"><app type="variant"><rdg wit="#wit-bnf348">وین دگر</rdg><rdg wit="#wit-fsc28" facs="#fsc28.fs7342-15.z004b" corresp="#fsc28.transcription.0004b.variant">وان <unclear xml:id="fsc28.0004b.dal" reason="indistinct" cert="low" resp="#resp-ai-transcription #resp-researcher-review">د</unclear>گر</rdg></app> را دایما آرام داد</l>
           <note type="palaeographic" target="#fsc28.0004b.dal" xml:lang="ja">FSC-MS-28では語を文脈、直前の「آن یکی」との対句構造、および既知本文に基づき「دگر」と同定する。ただし「د」に相当する筆画は元IIIF画像上で独立して確認できず、後続字群との近接・重畳、特殊な字形、または省略のいずれであるかは未確定である。「د」を写本にない文字として断定的に補うのではなく、採用した読みのうち字母単位の判読不確実性として記録する。</note>
         </lg>
         <lg type="couplet" n="0005" xml:id="mt.bnf348.0005">
@@ -415,7 +415,7 @@
         </lg>
         <lg type="couplet" n="0004" xml:id="mt.fsc28.0004">
           <l n="a" xml:id="mt.fsc28.0004.a" facs="#fsc28.fs7342-15.z004a">آن یکی را جنبش مادام داد</l>
-          <l n="b" xml:id="mt.fsc28.0004.b" facs="#fsc28.fs7342-15.z004b">وان <unclear xml:id="fsc28.transcription.0004b.dal" corresp="#fsc28.0004b.dal" reason="indistinct" cert="low" resp="#resp-ai-transcription #resp-researcher-review">د</unclear>گر را دایما آرام داد</l>
+          <l n="b" xml:id="mt.fsc28.0004.b" facs="#fsc28.fs7342-15.z004b"><seg xml:id="fsc28.transcription.0004b.variant">وان <unclear xml:id="fsc28.transcription.0004b.dal" corresp="#fsc28.0004b.dal" reason="indistinct" cert="low" resp="#resp-ai-transcription #resp-researcher-review">د</unclear>گر</seg> را دایما آرام داد</l>
         </lg>
         <lg type="couplet" n="0005" xml:id="mt.fsc28.0005">
           <l n="a" xml:id="mt.fsc28.0005.a" facs="#fsc28.fs7342-15.z005a">آسمان چون خیمه برپای کرد</l>

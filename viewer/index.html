@@ -312,8 +312,10 @@
     function pairedLines(key) {
       const couplet = key.slice(0, 4);
       const part = key.slice(4);
-      const find = witnessKey => directChildren(groupIndexes[witnessKey].get(couplet), 'l')
-        .find(line => line.getAttribute('n') === part);
+      const find = witnessKey => {
+        const group = groupIndexes[witnessKey].get(couplet);
+        return group ? directChildren(group, 'l').find(line => line.getAttribute('n') === part) : null;
+      };
       return { bnf348: find('bnf348'), fsc28: find('fsc28') };
     }
 

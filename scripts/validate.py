@@ -135,7 +135,7 @@ def main() -> int:
             "fatal_error": f"{type(exc).__name__}: {exc}",
         }
         ok = False
-    report_file.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    report_file.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(json.dumps(report, ensure_ascii=False, indent=2))
     return 0 if ok else 1
 

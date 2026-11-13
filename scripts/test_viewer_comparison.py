@@ -25,6 +25,7 @@ def main() -> int:
         "unclear_rendering": "unclear-glyph" in html and "appendUncertaintyNote" in html,
         "gap_rendering": "gap-marker" in html and "［…］" in html,
         "paired_region_display": "showComparisonRegions" in html and "region-secondary-image" in html,
+        "out_of_range_parallel_selection_guard": "return group ? directChildren(group, 'l')" in html,
         "two_mirador_manifests": all(uri in html for uri in (
             "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/manifest.json",
             "https://ids.si.edu/ids/manifest/FS-7342_15",
@@ -50,7 +51,7 @@ def main() -> int:
             ],
         },
     }
-    OUTPUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    OUTPUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(json.dumps(payload, ensure_ascii=False, indent=2))
     return 0 if payload["all_passed"] else 1
 

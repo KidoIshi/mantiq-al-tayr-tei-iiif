@@ -17,6 +17,7 @@ from lxml import etree
 import validate as project_validation
 from tei_to_iiif_annotations import NS, XML_ID, build_annotation_pages
 from validate_iiif_annotations import validate as validate_annotations
+import tei_to_iiif_annotations as annotation_generator
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -76,6 +77,28 @@ def break_facs_reference(temp_dir: Path) -> dict:
     }
 
 
+def diverge_linked_witness_reading(temp_dir: Path) -> dict:
+    """Show that Schematron catches divergence between apparatus and transcription."""
+
+    document = etree.parse(str(SOURCE_TEI))
+    reading = document.xpath(
+        "//tei:l[@xml:id='mt.bnf348.0004.b']//tei:rdg[@wit='#wit-fsc28']",
+        namespaces=NS,
+    )[0]
+    reading.text = "意図的な不一致 "
+    broken = temp_dir / "divergent-linked-reading.xml"
+    write_document(document, broken)
+    result = project_validation.validate(broken, offline=True)
+    detected = not result["checks"]["project_schematron_valid"]
+    return {
+        "experiment": "diverge_linked_witness_reading",
+        "mutation": "Changed only the FSC-MS-28 apparatus reading, leaving the linked transcription unchanged.",
+        "expected_detector": "project Schematron correspondence rule",
+        "detected": detected,
+        "relevant_check": result["checks"]["project_schematron_valid"],
+    }
+
+
 def alter_annotation_text(temp_dir: Path) -> dict:
     """Show that the TEI-IIIF cross-check rejects altered derived text."""
 
@@ -87,6 +110,7 @@ def alter_annotation_text(temp_dir: Path) -> dict:
         (annotation_dir / filename).write_text(
             json.dumps(page, ensure_ascii=False, indent=2) + "\n",
             encoding="utf-8",
+            newline="\n",
         )
     altered_path = annotation_dir / first_filename
     altered = json.loads(altered_path.read_text(encoding="utf-8"))
@@ -95,6 +119,7 @@ def alter_annotation_text(temp_dir: Path) -> dict:
     altered_path.write_text(
         json.dumps(altered, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
+        newline="\n",
     )
     result = validate_annotations(SOURCE_TEI, annotation_dir)
     detected = any("Diplomatic text mismatch" in error for error in result["errors"])
@@ -110,6 +135,37 @@ def alter_annotation_text(temp_dir: Path) -> dict:
     }
 
 
+def corrupt_generator_extractor(temp_dir: Path) -> dict:
+    """Show that the independent validator catches a shared-rule generator defect."""
+
+    annotation_dir = temp_dir / "corrupt-generator-iiif"
+    annotation_dir.mkdir()
+    original_extractor = annotation_generator.diplomatic_text
+    try:
+        annotation_generator.diplomatic_text = lambda line, witness="#wit-bnf348": "BROKEN EXTRACTION"
+        pages = annotation_generator.build_annotation_pages(
+            SOURCE_TEI,
+            "https://example.invalid/learning",
+        )
+    finally:
+        annotation_generator.diplomatic_text = original_extractor
+    for filename, page in pages.items():
+        (annotation_dir / filename).write_text(
+            json.dumps(page, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+            newline="\n",
+        )
+    result = validate_annotations(SOURCE_TEI, annotation_dir)
+    detected = not result["checks"]["diplomatic_text_matches_tei"]
+    return {
+        "experiment": "corrupt_generator_extractor",
+        "mutation": "Replaced only the generator's diplomatic extractor with a broken implementation.",
+        "expected_detector": "independent TEI-IIIF validation extractor",
+        "detected": detected,
+        "mismatch_count": sum("text mismatch" in error for error in result["errors"]),
+    }
+
+
 def main() -> int:
     WORK.mkdir(parents=True, exist_ok=True)
     if not project_validation.RNG_FILE.exists():
@@ -121,7 +177,9 @@ def main() -> int:
         experiments = [
             remove_second_hemistich(temp_dir),
             break_facs_reference(temp_dir),
+            diverge_linked_witness_reading(temp_dir),
             alter_annotation_text(temp_dir),
+            corrupt_generator_extractor(temp_dir),
         ]
     report = {
         "purpose": "Safe negative tests for researcher code review",
@@ -129,7 +187,7 @@ def main() -> int:
         "all_expected_failures_detected": all(item["detected"] for item in experiments),
         "experiments": experiments,
     }
-    REPORT.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    REPORT.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(json.dumps(report, ensure_ascii=False, indent=2))
     return 0 if report["all_expected_failures_detected"] else 1
 

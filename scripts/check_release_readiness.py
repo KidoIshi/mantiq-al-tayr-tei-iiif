@@ -214,7 +214,7 @@ def main() -> int:
             "Archive the tagged release in Zenodo and add the DOI to the citation metadata.",
         ],
     }
-    OUTPUT.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    OUTPUT.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(json.dumps(report, ensure_ascii=False, indent=2))
     return 0 if report["technical_release_checks_passed"] else 1
 

@@ -120,7 +120,7 @@ def main() -> int:
         f"https://www.tei-c.org/Vault/P5/{TEI_VERSION}/",
     )
     generated_text = "\n".join(line.rstrip() for line in generated_text.splitlines()) + "\n"
-    generated.write_text(generated_text, encoding="utf-8")
+    generated.write_text(generated_text, encoding="utf-8", newline="\n")
 
     etree.parse(str(generated))
     shutil.copyfile(generated, OUTPUT_RNG)
@@ -142,7 +142,7 @@ def main() -> int:
         "sample_valid_against_generated_schema": sample_valid,
         "sample_errors": sample_errors,
     }
-    REPORT.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    REPORT.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(json.dumps(report, ensure_ascii=False, indent=2))
     return 0 if odd_valid and sample_valid else 1
 

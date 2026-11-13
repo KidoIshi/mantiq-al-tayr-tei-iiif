@@ -140,3 +140,5 @@ python -m http.server 8000
 
 詳細は`LICENSE`と`LICENSE-CODE`を参照してください。
 
+初期Git履歴には、後に削除したWikisource由来の構造検証用試料が残っています。現行成果物には含まれず、現行のCC BY 4.0とは別にCC BY-SA 4.0として扱います。由来、帰属、履歴を書き換えない理由は`HISTORICAL_CONTENT_NOTICE.md`を参照してください。
+

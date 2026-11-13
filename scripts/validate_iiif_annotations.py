@@ -12,7 +12,7 @@ from pathlib import Path
 
 from lxml import etree
 
-from tei_to_iiif_annotations import NS, XML_ID, annotation_filename, diplomatic_text
+from tei_to_iiif_annotations import NS, XML_ID, annotation_filename
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -23,6 +23,38 @@ DEFAULT_REPORT = ROOT / "outputs" / "iiif-annotation-validation.json"
 
 def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def expected_diplomatic_text(line: etree._Element, witness: str) -> str:
+    """Independently derive the expected text without using the generator's extractor."""
+
+    def render(node: etree._Element) -> str:
+        chunks: list[str] = [node.text or ""]
+        for child in node:
+            if child.tag == f"{{{NS['tei']}}}choice":
+                originals = child.xpath("./tei:orig", namespaces=NS)
+                if len(originals) != 1:
+                    raise ValueError(f"Expected one orig in {line.get(XML_ID)}")
+                chunks.append("".join(originals[0].itertext()))
+            elif child.tag == f"{{{NS['tei']}}}app":
+                readings = child.xpath("./tei:lem | ./tei:rdg", namespaces=NS)
+                matches = [
+                    reading for reading in readings
+                    if witness in (reading.get("wit") or "").split()
+                ]
+                if len(matches) != 1:
+                    raise ValueError(
+                        f"Expected one apparatus reading for {witness} in {line.get(XML_ID)}"
+                    )
+                chunks.append(render(matches[0]))
+            elif child.tag == f"{{{NS['tei']}}}gap":
+                chunks.append("[…]")
+            else:
+                chunks.append(render(child))
+            chunks.append(child.tail or "")
+        return "".join(chunks)
+
+    return " ".join(render(line).split())
 
 
 def expected_pages(tei_path: Path) -> dict[str, dict]:
@@ -44,8 +76,10 @@ def expected_pages(tei_path: Path) -> dict[str, dict]:
         x, y = int(zone.get("ulx")), int(zone.get("uly"))
         width = int(zone.get("lrx")) - x
         height = int(zone.get("lry")) - y
+        source_div = line.xpath("ancestor::tei:div[@source][1]/@source", namespaces=NS)
+        witness = source_div[0] if source_div else "#wit-bnf348"
         expected[filename]["items"][line_id] = {
-            "value": diplomatic_text(line),
+            "value": expected_diplomatic_text(line, witness),
             "target": f"{canvas}#xywh={x},{y},{width},{height}",
         }
     return dict(expected)
@@ -162,7 +196,7 @@ def main() -> int:
     report_path = args.report if args.report.is_absolute() else ROOT / args.report
     report = validate(tei_path, annotation_dir)
     report_path.parent.mkdir(parents=True, exist_ok=True)
-    report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(json.dumps(report, ensure_ascii=False, indent=2))
     return 0 if all(report["checks"].values()) and not report["errors"] else 1
 

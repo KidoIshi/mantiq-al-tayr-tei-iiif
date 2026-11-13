@@ -40,6 +40,16 @@ def main() -> int:
     )
     if len(notes) != 1:
         raise RuntimeError("Expected one targeted palaeographical note for FSC-MS-28 د")
+    fsc_reading = line.xpath(".//tei:rdg[@wit='#wit-fsc28']", namespaces=NS)[0]
+    correspondence = fsc_reading.get("corresp", "")
+    linked = document.xpath(
+        f"//*[@xml:id='{correspondence.removeprefix('#')}']",
+        namespaces=NS,
+    )
+    if len(linked) != 1:
+        raise RuntimeError("FSC-MS-28 apparatus reading does not resolve to one independent transcription segment")
+    if " ".join(fsc_reading.itertext()).split() != " ".join(linked[0].itertext()).split():
+        raise RuntimeError("FSC-MS-28 apparatus reading differs from its linked independent transcription segment")
     fsc_lines = document.xpath(
         "//tei:div[@source='#wit-fsc28']/tei:lg[@type='couplet']/tei:l",
         namespaces=NS,

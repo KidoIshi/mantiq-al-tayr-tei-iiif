@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13T09:03:30.798718+00:00",
+  "generated_at": "2026-11-13T09:34:43.948465+00:00",
   "viewer": "viewer\\index.html",
   "all_passed": true,
   "checks": {
@@ -9,6 +9,7 @@
     "unclear_rendering": true,
     "gap_rendering": true,
     "paired_region_display": true,
+    "out_of_range_parallel_selection_guard": true,
     "two_mirador_manifests": true,
     "variant_and_gap_labels": true
   },

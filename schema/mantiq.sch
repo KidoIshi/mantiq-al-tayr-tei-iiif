@@ -35,6 +35,9 @@
       <assert test="starts-with(normalize-space(@wit), '#') and not(contains(normalize-space(@wit), ' '))">この小規模試作では各lem/rdgの@witは1つの#付き証人IDを参照すること。</assert>
       <assert test="id(substring-after(normalize-space(@wit), '#'))[self::tei:msDesc or self::tei:witness]">@witは実在するmsDescまたはwitnessを参照すること。</assert>
       <assert test="not(@facs) or (starts-with(@facs, '#') and id(substring-after(@facs, '#'))[self::tei:zone])">@facsを付ける場合は実在するzoneを参照すること。</assert>
+      <assert test="not(self::tei:rdg and @corresp) or (starts-with(@corresp, '#') and id(substring-after(@corresp, '#')))">@correspは同一TEI文書内の実在する転写箇所を参照すること。</assert>
+      <assert test="not(self::tei:rdg and @corresp) or normalize-space(.) = normalize-space(id(substring-after(@corresp, '#')))">校異装置の読みと@correspで参照した独立転写は一致すること。</assert>
+      <assert test="not(self::tei:rdg and @wit='#wit-fsc28' and ancestor::tei:div[@source='#wit-bnf348']) or @corresp">Persan 348本文内のFSC-MS-28異読は、対応する独立転写を@correspで参照すること。</assert>
     </rule>
   </pattern>
 

@@ -272,8 +272,8 @@ def main() -> int:
         "records": records,
         "errors": errors,
     }
-    JSON_OUTPUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    MD_OUTPUT.write_text(make_report(records, counts, checks), encoding="utf-8")
+    JSON_OUTPUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+    MD_OUTPUT.write_text(make_report(records, counts, checks), encoding="utf-8", newline="\n")
     print(json.dumps({"counts": payload["counts"], "checks": checks, "errors": errors}, ensure_ascii=False, indent=2))
     return 0 if not errors and all(checks.values()) else 1
 

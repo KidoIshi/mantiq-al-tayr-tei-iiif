@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-13T09:03:40.036615+00:00",
+  "generated_at": "2026-11-13T09:34:53.284554+00:00",
   "tei_file": "data\\tei\\bnf-persan-348-f6-sample.xml",
-  "tei_sha256": "924e4f00cc5184be072e1527099b0be2557e9ecf19fdcc8bec985f718ecbd7f4",
+  "tei_sha256": "2f5aeb1eb766f680f6c901a4c912771938b0c4fffc14248061fdc8aa0800d3be",
   "schema": {
     "tei_all": {
       "tei_version": "4.12.0",
@@ -12,7 +12,7 @@
     },
     "project_odd": {
       "path": "schema\\mantiq.rng",
-      "sha256": "aad9810020cca66276b5933720105c881b34553ad5bc7c54f45b53200ba262d5"
+      "sha256": "76f313de92353fa926d37d29c188691c26fb55f8d23e9ef29f19160b89fd588d"
     }
   },
   "checks": {
