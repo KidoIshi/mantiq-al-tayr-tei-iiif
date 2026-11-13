@@ -14,7 +14,7 @@ The package includes a project-specific TEI customization (ODD, RELAX NG, and Sc
 
 This is a technical and methodological prototype, not a critical edition. The author checked the transcriptions and image regions against the manuscript images; the work has not undergone independent scholarly review. Manuscript images are not included. They are referenced through IIIF and remain subject to the terms of the Bibliothèque nationale de France and the Smithsonian Institution. Project-created data and documentation are licensed under CC BY 4.0; code is licensed under the MIT License.
 
-AI assistance was used to propose initial transcriptions and image regions and to generate code and documentation drafts. The author made the editorial decisions and checked the transcriptions and image regions. The code was also subjected to a separate AI-assisted review.
+AI tools were used to prepare initial transcription candidates, image-region proposals, code, and documentation drafts. The author made the editorial decisions, checked the manuscript transcriptions and image regions, reviewed the implementation structure and validation results, and approved the changes included in the release. A second AI system provided an additional code review; its findings, the resulting changes, and the subsequent checks are documented in the repository.
 
 ## Keywords
 

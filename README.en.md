@@ -22,7 +22,7 @@ Researcher: Kido Ishikawa
 
 The author checked the transcriptions and image regions against the manuscript images. They have not yet been independently reviewed.
 
-AI assistance was used to propose initial transcriptions and image regions and to generate code and documentation drafts. The author made the editorial decisions and checked the transcriptions and image regions. The code was also subjected to a separate AI-assisted review.
+AI tools were used to prepare initial transcription candidates, image-region proposals, code, and documentation drafts. The author made the editorial decisions, checked the manuscript transcriptions and image regions, reviewed the implementation structure and validation results, and approved the changes included in the release. A second AI system provided an additional code review; its findings, the resulting changes, and the subsequent checks are documented in the repository.
 
 ## Reproduce and validate
 
