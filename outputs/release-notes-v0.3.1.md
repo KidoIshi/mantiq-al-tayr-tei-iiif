@@ -1,5 +1,7 @@
 # v0.3.1 — Public-metadata clarification
 
+Zenodo archive: https://doi.org/10.5281/zenodo.24202417
+
 Version 0.3.1 clarifies the public English metadata for the two-manuscript TEI–IIIF transcription prototype. It does not change the Persian transcriptions, collation results, TEI–IIIF image regions, schemas, or validation logic released in v0.3.0.
 
 ## Changes since v0.3.0

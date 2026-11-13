@@ -1,5 +1,7 @@
 # Manṭiq al-ṭayr TEI・IIIF 試作
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24202417.svg)](https://doi.org/10.5281/zenodo.24202417)
+
 [English README](README.en.md)
 
 『鳥の言葉』（*Manṭiq al-ṭayr*）を対象に、TEI P5でのペルシア語韻文構造化とIIIF連携を検証するための最小試作です。
@@ -8,6 +10,8 @@
 [ORCID](https://orcid.org/0009-0009-2254-2189)・[researchmap](https://researchmap.jp/kidoishi/)
 
 リポジトリ：`https://github.com/KidoIshi/mantiq-al-tayr-tei-iiif`
+
+公開データ・引用情報：[Zenodo v0.3.1（DOI: 10.5281/zenodo.24202417）](https://doi.org/10.5281/zenodo.24202417)
 
 ## 現在の到達点
 

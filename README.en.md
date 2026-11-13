@@ -1,5 +1,7 @@
 # Manṭiq al-ṭayr in TEI and IIIF: A Two-Manuscript Transcription Prototype
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24202417.svg)](https://doi.org/10.5281/zenodo.24202417)
+
 [日本語 README](README.md)
 
 This repository demonstrates how Persian manuscript poetry can be structured in TEI P5 and linked at the hemistich level to IIIF image regions. It documents the data, transformation, and validation steps used for two manuscript witnesses. It is a methodological prototype, not a critical edition.
@@ -7,6 +9,8 @@ This repository demonstrates how Persian manuscript poetry can be structured in 
 Researcher: Kido Ishikawa
 
 [ORCID](https://orcid.org/0009-0009-2254-2189) · [researchmap](https://researchmap.jp/kidoishi/)
+
+Archived release and citation metadata: [Zenodo v0.3.1 (DOI: 10.5281/zenodo.24202417)](https://doi.org/10.5281/zenodo.24202417)
 
 ## Current scope
 

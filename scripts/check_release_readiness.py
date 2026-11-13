@@ -103,9 +103,11 @@ def main() -> int:
 
     citation = (ROOT / "CITATION.cff").read_text(encoding="utf-8") if (ROOT / "CITATION.cff").exists() else ""
     version_match = re.search(r"(?m)^version:\s*[\"']?([^\"'\s]+)", citation)
+    doi_match = re.search(r"(?m)^doi:\s*[\"']?([^\"'\s]+)", citation)
     if not version_match:
         blockers.append({"check": "citation_metadata", "reason": "CITATION.cff has no parseable version."})
     release_version = version_match.group(1) if version_match else None
+    citation_doi = doi_match.group(1) if doi_match else None
     version_file = (ROOT / "VERSION").read_text(encoding="utf-8").strip() if (ROOT / "VERSION").exists() else None
     if release_version and version_file and release_version != version_file:
         blockers.append({
@@ -209,6 +211,16 @@ def main() -> int:
             if action not in workflow_text:
                 warnings.append({"check": "github_action_version", "reason": f"Review GitHub Action version: expected {action}."})
 
+    manual_release_actions = [
+        "Review the final Git diff and commit the release candidate.",
+        "Verify the intended repository visibility and the live GitHub Pages site.",
+        "Create a version tag/release and update CITATION.cff if the version changes.",
+    ]
+    if citation_doi:
+        manual_release_actions.append(f"Verify DOI {citation_doi} resolves to the archived tagged release.")
+    else:
+        manual_release_actions.append("Archive the tagged release in Zenodo and add the DOI to the citation metadata.")
+
     report = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "technical_release_checks_passed": not blockers,
@@ -219,6 +231,7 @@ def main() -> int:
         "warnings": warnings,
         "passed_checks": {
             "citation_version": release_version,
+            "citation_doi": citation_doi,
             "version_file": version_file,
             "tei_edition": tei_editions[0] if len(tei_editions) == 1 else tei_editions,
             "aggregate_validation": bool(verification.get("all_passed")),
@@ -230,12 +243,7 @@ def main() -> int:
             "third_party_images_tracked": len(tracked_images),
             "possible_credentials": secret_matches,
         },
-        "manual_release_actions": [
-            "Review the final Git diff and commit the release candidate.",
-            "Verify the intended repository visibility and the live GitHub Pages site.",
-            "Create a version tag/release and update CITATION.cff if the version changes.",
-            "Archive the tagged release in Zenodo and add the DOI to the citation metadata.",
-        ],
+        "manual_release_actions": manual_release_actions,
     }
     OUTPUT.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(json.dumps(report, ensure_ascii=False, indent=2))

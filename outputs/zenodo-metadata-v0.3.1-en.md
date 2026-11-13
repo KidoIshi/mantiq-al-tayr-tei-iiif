@@ -1,5 +1,7 @@
 # Zenodo metadata for v0.3.1
 
+Published record: https://doi.org/10.5281/zenodo.24202417
+
 ## Title
 
 Manṭiq al-ṭayr in TEI and IIIF: A Two-Manuscript Transcription Prototype (BnF Persan 348 and Smithsonian FSC-MS-28)
