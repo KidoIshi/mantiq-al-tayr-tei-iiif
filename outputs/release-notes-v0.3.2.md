@@ -1,5 +1,7 @@
 # v0.3.2 — Direct link to the live demonstrator
 
+Zenodo archive: https://doi.org/10.5281/zenodo.24202704
+
 Version 0.3.2 adds a direct public link from the citation metadata and repository documentation to the TEI–IIIF viewer:
 
 https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/viewer/
