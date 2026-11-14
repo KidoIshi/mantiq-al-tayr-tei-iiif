@@ -15,7 +15,7 @@
 
 公開データ・引用情報：[Zenodo（全バージョン共通DOI: 10.5281/zenodo.24202416）](https://doi.org/10.5281/zenodo.24202416)
 
-最新版アーカイブ：[Zenodo v0.3.3（DOI: 10.5281/zenodo.24202784）](https://doi.org/10.5281/zenodo.24202784)
+最新版アーカイブ：[Zenodo v0.3.4（DOI: 10.5281/zenodo.24210092）](https://doi.org/10.5281/zenodo.24210092)
 
 ## 現在の到達点
 

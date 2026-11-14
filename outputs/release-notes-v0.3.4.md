@@ -1,5 +1,7 @@
 # v0.3.4 — Corrected IIIF regions for Persan 348 couplets 25–30
 
+Zenodo archive: https://doi.org/10.5281/zenodo.24210092
+
 Version 0.3.4 corrects the image-region alignment of the second hemistichs in Persan 348 couplets 25–30.
 
 - The six regions `0025b`–`0030b` were shifted horizontally from x=520–1120 to x=740–1340.

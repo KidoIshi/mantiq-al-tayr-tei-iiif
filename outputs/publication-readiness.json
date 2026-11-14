@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-14T00:12:12.678084+00:00",
+  "generated_at": "2026-11-14T00:15:45.573437+00:00",
   "technical_release_checks_passed": true,
   "scope_note": "Technical and documentation checks only; final rights assessment, scholarly validity, repository visibility, and external peer review require human judgment.",
   "blocker_count": 0,
@@ -8,7 +8,7 @@
   "warnings": [],
   "passed_checks": {
     "citation_version": "0.3.4",
-    "citation_doi": "10.5281/zenodo.24202416",
+    "citation_doi": "10.5281/zenodo.24210092",
     "version_file": "0.3.4",
     "tei_edition": "0.3.4-reviewed",
     "aggregate_validation": true,
@@ -28,6 +28,6 @@
     "Review the final Git diff and commit the release candidate.",
     "Verify the intended repository visibility and the live GitHub Pages site.",
     "Create a version tag/release and update CITATION.cff if the version changes.",
-    "Verify DOI 10.5281/zenodo.24202416 resolves to the archived tagged release."
+    "Verify DOI 10.5281/zenodo.24210092 resolves to the archived tagged release."
   ]
 }

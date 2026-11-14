@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-14T00:12:09.663093+00:00",
+  "generated_at": "2026-11-14T00:15:44.946671+00:00",
   "project": "Manṭiq al-ṭayr TEI–IIIF prototype",
   "environment": {
-    "git_commit": "4713895ba525bdb3419b047bc9f455ee0eadcae2",
+    "git_commit": "d30af432eb215c0184aeecc07c901eac708eddde",
     "python": "3.12.10",
     "platform": "Windows-11-10.0.26200-SP0",
     "java": "openjdk version \"21.0.13\" 2026-10-20 LTS"
