@@ -319,7 +319,7 @@
         "format": "text/plain",
         "language": "fa"
       },
-      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=520,600,600,160"
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=740,600,600,160"
     },
     {
       "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f7-annotations.json#mt.bnf348.0026.a",
@@ -343,7 +343,7 @@
         "format": "text/plain",
         "language": "fa"
       },
-      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=520,740,600,160"
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=740,740,600,160"
     },
     {
       "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f7-annotations.json#mt.bnf348.0027.a",
@@ -367,7 +367,7 @@
         "format": "text/plain",
         "language": "fa"
       },
-      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=520,870,600,160"
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=740,840,600,190"
     },
     {
       "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f7-annotations.json#mt.bnf348.0028.a",
@@ -391,7 +391,7 @@
         "format": "text/plain",
         "language": "fa"
       },
-      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=520,1000,600,160"
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=740,1000,600,160"
     },
     {
       "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f7-annotations.json#mt.bnf348.0029.a",
@@ -415,7 +415,7 @@
         "format": "text/plain",
         "language": "fa"
       },
-      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=520,1130,600,160"
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=740,1130,600,160"
     },
     {
       "id": "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/iiif/bnf-persan-348-f7-annotations.json#mt.bnf348.0030.a",
@@ -439,7 +439,7 @@
         "format": "text/plain",
         "language": "fa"
       },
-      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=520,1260,600,160"
+      "target": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b10091505x/canvas/f7#xywh=740,1260,600,160"
     }
   ]
 }

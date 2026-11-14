@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-13T17:05:15.561665+00:00",
+  "generated_at": "2026-11-14T00:12:09.439066+00:00",
   "tei_file": "data\\tei\\bnf-persan-348-f6-sample.xml",
-  "tei_sha256": "18874e89962225128c284bf97905b2a9348bd7d82f2349c148e1207ec88c9ca9",
+  "tei_sha256": "90c7a98415e94dbbb10fab324592a73b95591a934ab55d5d288de5e26fdf0afd",
   "schema": {
     "tei_all": {
       "tei_version": "4.12.0",

@@ -24,7 +24,7 @@
         </respStmt>
       </titleStmt>
       <editionStmt>
-        <edition n="0.3.3-reviewed">Diplomatic-transcription sample reviewed against the manuscript image by the project researcher; not externally peer-reviewed</edition>
+        <edition n="0.3.4-reviewed">Diplomatic-transcription sample reviewed against the manuscript image by the project researcher; not externally peer-reviewed</edition>
       </editionStmt>
       <publicationStmt>
         <publisher>TEI・IIIF習得・実践プロジェクト</publisher>
@@ -149,6 +149,9 @@
       <change when="2026-11-11" who="#resp-ai-transcription">FSC-MS-28の書体を、元IIIF画像の下降する基線、長い横画、吊り下がる字群、非接続文字の扱いに基づき、確度highのナスターリーク体写本書写体と判定した。所蔵館目録は書体名を記載しないため、地域的下位様式・書記名は未同定とした。</change>
       <change when="2026-11-11" who="#resp-researcher-review">FSC-MS-28の公開冒頭画像について、0004b冒頭を「وان」と読むことを研究者が承認した。Persan 348の「وین」との差を、lemmaを選択しない証人別の並列異読として符号化した。</change>
       <change when="2026-11-11" who="#resp-ai-transcription">Smithsonian FSC-MS-28の公式記述、冒頭画像FS-7342_15のIIIF Canvas、0004b画像領域候補、およびPersan 348との異読候補を追加した。</change>
+      <change when="2026-11-14" who="#resp-researcher-review">研究者が修正版の閲覧画面を再確認し、第25〜第30対句の後半句6領域を承認した。0027bは横座標x=740–1340、縦座標y=840–1030、その他5件は横座標x=740–1340と従来の縦座標で確定した。</change>
+      <change when="2026-11-14" who="#resp-ai-transcription">横位置修正後の再確認で、0027b末尾の「کند」が領域上端で見切れていることを研究者が指摘した。AIが0027bだけ上端をy=870から840へ広げる修正候補を作成した。</change>
+      <change when="2026-11-14" who="#resp-ai-transcription">公開閲覧画面での再確認により、第25〜第30対句の後半句6件の画像領域が左へずれていたことを研究者が指摘した。AIが行の高さを保持して横方向をx=740–1340へ移し、各後半句が領域内に収まる修正候補を作成した。第1〜第24対句の領域は変更していない。</change>
       <change when="2026-11-11" who="#resp-researcher-review">第28〜第30対句の全6半句について、0028aをبのない「سلیمانی」とする訂正、0028aの「دیوی」、0028bの「سخن دانی」、0030aのエザーフェを補わない「کره」、0030bの「هلالش」を含む写本どおりの読み、右欄・左欄の対句対応、画像領域、およびunclearを付けない判断を研究者が承認した。</change>
       <change when="2026-11-11" who="#resp-ai-transcription">scan f7左頁の第28〜第30対句について、Persan 348画像に基づく未確認転写候補と画像領域候補を追加した。再拡大確認により、0028aは「بسلیمانی」ではなく、بの一点がない「سلیمانی」に訂正した。0028aの「دیوی」、0028bの「سخن دانی」、0030aのエザーフェを補わない「کره」は比較本文との差を保持した候補である。</change>
       <change when="2026-11-11" who="#resp-researcher-review">第25〜第27対句の全6半句について、0025bの「تف」、0026bのエザーフェを補わない「گربه」、0027bの「شیر مردی」「بسگ」を含む写本どおりの読み、右欄・左欄の対句対応、画像領域、およびunclearを付けない判断を研究者が承認した。</change>
@@ -236,17 +239,17 @@
       <zone xml:id="bnf348.f7.z024a" ulx="2500" uly="2040" lrx="3050" lry="2200"/>
       <zone xml:id="bnf348.f7.z024b" ulx="2000" uly="2040" lrx="2520" lry="2200"/>
       <zone xml:id="bnf348.f7.z025a" ulx="1100" uly="600" lrx="1700" lry="760"/>
-      <zone xml:id="bnf348.f7.z025b" ulx="520" uly="600" lrx="1120" lry="760"/>
+      <zone xml:id="bnf348.f7.z025b" ulx="740" uly="600" lrx="1340" lry="760"/>
       <zone xml:id="bnf348.f7.z026a" ulx="1100" uly="740" lrx="1700" lry="900"/>
-      <zone xml:id="bnf348.f7.z026b" ulx="520" uly="740" lrx="1120" lry="900"/>
+      <zone xml:id="bnf348.f7.z026b" ulx="740" uly="740" lrx="1340" lry="900"/>
       <zone xml:id="bnf348.f7.z027a" ulx="1100" uly="870" lrx="1700" lry="1030"/>
-      <zone xml:id="bnf348.f7.z027b" ulx="520" uly="870" lrx="1120" lry="1030"/>
+      <zone xml:id="bnf348.f7.z027b" ulx="740" uly="840" lrx="1340" lry="1030"/>
       <zone xml:id="bnf348.f7.z028a" ulx="1100" uly="1000" lrx="1700" lry="1160"/>
-      <zone xml:id="bnf348.f7.z028b" ulx="520" uly="1000" lrx="1120" lry="1160"/>
+      <zone xml:id="bnf348.f7.z028b" ulx="740" uly="1000" lrx="1340" lry="1160"/>
       <zone xml:id="bnf348.f7.z029a" ulx="1100" uly="1130" lrx="1700" lry="1290"/>
-      <zone xml:id="bnf348.f7.z029b" ulx="520" uly="1130" lrx="1120" lry="1290"/>
+      <zone xml:id="bnf348.f7.z029b" ulx="740" uly="1130" lrx="1340" lry="1290"/>
       <zone xml:id="bnf348.f7.z030a" ulx="1100" uly="1260" lrx="1700" lry="1420"/>
-      <zone xml:id="bnf348.f7.z030b" ulx="520" uly="1260" lrx="1120" lry="1420"/>
+      <zone xml:id="bnf348.f7.z030b" ulx="740" uly="1260" lrx="1340" lry="1420"/>
     </surface>
     <surface xml:id="fsc28.fs7342-15" n="FS-7342_15" corresp="https://ids.si.edu/ids/iiif/canvas-FS-7342_15" ulx="0" uly="0" lrx="2090" lry="3520">
       <graphic url="https://ids.si.edu/ids/iiif/FS-7342_15/full/full/0/default.jpg" width="2090px" height="3520px"/>

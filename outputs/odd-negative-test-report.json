@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13T17:05:13.640549+00:00",
+  "generated_at": "2026-11-14T00:12:07.534883+00:00",
   "test": "Element from excluded figures module",
   "injected_element": "figure/figDesc",
   "official_tei_all_accepts": true,
@@ -7,6 +7,6 @@
   "expected": "Official TEI All accepts; project ODD schema rejects.",
   "passed": true,
   "project_validator_messages": [
-    ".\\work\\odd-negative-test.xml:275:15: error: element \"figure\" not allowed anywhere; expected element \"ab\", \"addSpan\", \"address\", \"alt\", \"altGrp\", \"anchor\", \"app\", \"argument\", \"bibl\", \"biblFull\", \"biblStruct\", \"byline\", \"cb\", \"cit\", \"damageSpan\", \"dateline\", \"delSpan\", \"desc\", \"div\", \"div1\", \"divGen\", \"docAuthor\", \"docDate\", \"ellipsis\", \"epigraph\", \"floatingText\", \"fw\", \"gap\", \"gb\", \"head\", \"index\", \"join\", \"joinGrp\", \"l\", \"label\", \"lb\", \"lg\", \"link\", \"linkGrp\", \"list\", \"listApp\", \"listBibl\", \"listEvent\", \"listNym\", \"listObject\", \"listOrg\", \"listPerson\", \"listPlace\", \"listRelation\", \"listTranspose\", \"listWit\", \"meeting\", \"metamark\", \"milestone\", \"msDesc\", \"note\", \"noteGrp\", \"opener\", \"p\", \"pb\", \"q\", \"quote\", \"said\", \"salute\", \"signed\", \"sp\", \"space\", \"stage\", \"substJoin\", \"timeline\" or \"witDetail\""
+    ".\\work\\odd-negative-test.xml:278:15: error: element \"figure\" not allowed anywhere; expected element \"ab\", \"addSpan\", \"address\", \"alt\", \"altGrp\", \"anchor\", \"app\", \"argument\", \"bibl\", \"biblFull\", \"biblStruct\", \"byline\", \"cb\", \"cit\", \"damageSpan\", \"dateline\", \"delSpan\", \"desc\", \"div\", \"div1\", \"divGen\", \"docAuthor\", \"docDate\", \"ellipsis\", \"epigraph\", \"floatingText\", \"fw\", \"gap\", \"gb\", \"head\", \"index\", \"join\", \"joinGrp\", \"l\", \"label\", \"lb\", \"lg\", \"link\", \"linkGrp\", \"list\", \"listApp\", \"listBibl\", \"listEvent\", \"listNym\", \"listObject\", \"listOrg\", \"listPerson\", \"listPlace\", \"listRelation\", \"listTranspose\", \"listWit\", \"meeting\", \"metamark\", \"milestone\", \"msDesc\", \"note\", \"noteGrp\", \"opener\", \"p\", \"pb\", \"q\", \"quote\", \"said\", \"salute\", \"signed\", \"sp\", \"space\", \"stage\", \"substJoin\", \"timeline\" or \"witDetail\""
   ]
 }

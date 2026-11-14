@@ -2,9 +2,9 @@ cff-version: 1.2.0
 message: "If you use this dataset or its accompanying software, please cite it using the metadata below."
 type: dataset
 title: "Manṭiq al-ṭayr in TEI and IIIF: A Two-Manuscript Transcription Prototype (BnF Persan 348 and Smithsonian FSC-MS-28)"
-version: 0.3.3
+version: 0.3.4
 date-released: 2026-11-14
-doi: "10.5281/zenodo.24202784"
+doi: "10.5281/zenodo.24202416"
 repository-code: "https://github.com/KidoIshi/mantiq-al-tayr-tei-iiif"
 url: "https://kidoishi.github.io/mantiq-al-tayr-tei-iiif/viewer/"
 authors:
